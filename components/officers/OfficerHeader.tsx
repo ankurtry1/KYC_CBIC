@@ -17,6 +17,7 @@ export function OfficerHeader({ officer }: OfficerHeaderProps): JSX.Element {
 
   return (
     <motion.section
+      data-testid="officer-header"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
@@ -60,7 +61,7 @@ export function OfficerHeader({ officer }: OfficerHeaderProps): JSX.Element {
         <div className="flex flex-wrap items-center gap-2 md:flex-col md:items-end">
           <VerificationBadge flag={officer.verification_flag ?? "unknown"} />
           <DataQualityBadge label={officer.data_quality_label ?? "Needs Review"} />
-          <span className="pill">Timeline score {officer.timeline_richness_score ?? 0}</span>
+          <span className="pill">{officer.timeline_richness_score ?? 0} posting records</span>
         </div>
       </div>
     </motion.section>

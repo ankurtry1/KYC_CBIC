@@ -13,6 +13,11 @@ type OfficerCardProps = {
 export function OfficerCard({ officer }: OfficerCardProps): JSX.Element {
   return (
     <Link
+      data-testid="officer-card"
+      data-officer-id={officer.id}
+      data-employee-id={officer.employee_id}
+      data-cadre={officer.cadre ?? ""}
+      data-timeline-quality={officer.timeline_quality}
       href={`/officers/${officer.id}`}
       className="group panel relative block overflow-hidden p-5 transition hover:-translate-y-0.5 hover:shadow-elevated"
     >
@@ -20,10 +25,12 @@ export function OfficerCard({ officer }: OfficerCardProps): JSX.Element {
 
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xl font-semibold tracking-tight text-slate-900">{officer.name ?? `Officer ${officer.employee_id}`}</p>
+          <p data-testid="officer-card-name" className="text-xl font-semibold tracking-tight text-slate-900">
+            {officer.name ?? `Officer ${officer.employee_id}`}
+          </p>
           <p className="mt-1 inline-flex items-center gap-1.5 text-sm text-slate-500">
             <Hash className="h-3.5 w-3.5" />
-            {officer.employee_id}
+            <span data-testid="officer-card-employee-id">{officer.employee_id}</span>
           </p>
         </div>
 
@@ -50,7 +57,7 @@ export function OfficerCard({ officer }: OfficerCardProps): JSX.Element {
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <VerificationBadge flag={officer.verification_flag} />
         <DataQualityBadge label={officer.data_quality_label} />
-        <span className="pill">Timeline score {officer.timeline_richness_score}</span>
+        <span className="pill">{officer.timeline_richness_score} posting records</span>
       </div>
     </Link>
   );

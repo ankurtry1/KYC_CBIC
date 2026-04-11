@@ -11,7 +11,7 @@ export function StationHistory({ officer }: StationHistoryProps): JSX.Element {
 
   if (stations.length === 0) {
     return (
-      <section className="panel p-5">
+      <section data-testid="station-history-section" className="panel p-5">
         <p className="text-label">Station History</p>
         <p className="mt-2 text-sm text-slate-600">No structured station history available for this profile.</p>
       </section>
@@ -21,7 +21,7 @@ export function StationHistory({ officer }: StationHistoryProps): JSX.Element {
   const maxPostings = Math.max(...stations.map((station) => station.postings));
 
   return (
-    <section className="panel p-5">
+    <section data-testid="station-history-section" className="panel p-5">
       <div className="flex items-end justify-between gap-3">
         <p className="text-label">Station History</p>
         <p className="text-xs text-slate-500">Unique stations: {stations.length}</p>

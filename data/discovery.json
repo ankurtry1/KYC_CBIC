@@ -1,0 +1,46 @@
+{
+  "journeys": [
+    {
+      "id": "discover-officers",
+      "title": "Explore by Officer",
+      "description": "Start with an officer profile and branch into related journeys, batches, and stations.",
+      "href": "/officers",
+      "learn_outcome": "Understand individual trajectory depth, mobility, and progression context."
+    },
+    {
+      "id": "discover-batches",
+      "title": "Explore by Batch",
+      "description": "See cohort-level patterns in progression, stations, archetypes, and designation spread.",
+      "href": "/batches",
+      "learn_outcome": "Understand how cohorts differ and evolve across time."
+    },
+    {
+      "id": "discover-cadres",
+      "title": "Explore by Cadre",
+      "description": "Compare journey signatures across cadres to see structural path differences.",
+      "href": "/cadres",
+      "learn_outcome": "Understand what makes each cadre trajectory distinct."
+    },
+    {
+      "id": "discover-stations",
+      "title": "Explore by Station",
+      "description": "Trace station centrality, linked officers, and movement corridors.",
+      "href": "/stations",
+      "learn_outcome": "Understand institutional geography through career footprints."
+    },
+    {
+      "id": "discover-paths",
+      "title": "Understand Career Paths",
+      "description": "Review common progression ladders and fast vs steady trajectory bands.",
+      "href": "/career-paths",
+      "learn_outcome": "Recognize common progression archetypes and outlier tracks."
+    },
+    {
+      "id": "discover-learning",
+      "title": "Learn Through Real Journeys",
+      "description": "Follow curated pathways designed for trainees and institutional learning.",
+      "href": "/learn",
+      "learn_outcome": "Build system understanding without needing a predefined search query."
+    }
+  ]
+}

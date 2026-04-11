@@ -1,0 +1,634 @@
+[
+  {
+    "cadre": "DR",
+    "slug": "dr",
+    "description": "Direct recruit officer journeys with broad foundational exposure.",
+    "officer_count": 1915,
+    "average_timeline_entries": 12.4,
+    "typical_current_rank_spread": [
+      {
+        "key": "Additional Commissioner",
+        "count": 554
+      },
+      {
+        "key": "Deputy Commissioner",
+        "count": 424
+      },
+      {
+        "key": "Joint Commissioner",
+        "count": 418
+      },
+      {
+        "key": "Commissioner",
+        "count": 287
+      },
+      {
+        "key": "Principal Commissioner",
+        "count": 94
+      },
+      {
+        "key": "Assistant Commissioner",
+        "count": 89
+      },
+      {
+        "key": "Chief Commissioner",
+        "count": 38
+      },
+      {
+        "key": "Principal Chief Commissioner",
+        "count": 11
+      }
+    ],
+    "common_rank_progressions": [
+      {
+        "key": "Additional Commissioner -> Commissioner",
+        "count": 556
+      },
+      {
+        "key": "Deputy Commissioner -> Commissioner",
+        "count": 423
+      },
+      {
+        "key": "Joint Commissioner -> Commissioner",
+        "count": 410
+      },
+      {
+        "key": "Commissioner",
+        "count": 284
+      },
+      {
+        "key": "Commissioner -> Principal Commissioner",
+        "count": 94
+      },
+      {
+        "key": "Assistant Commissioner -> Commissioner",
+        "count": 68
+      }
+    ],
+    "batch_spread": [
+      {
+        "key": "2016",
+        "count": 187
+      },
+      {
+        "key": "2014",
+        "count": 171
+      },
+      {
+        "key": "2009",
+        "count": 169
+      },
+      {
+        "key": "2015",
+        "count": 155
+      },
+      {
+        "key": "2010",
+        "count": 147
+      },
+      {
+        "key": "2013",
+        "count": 114
+      },
+      {
+        "key": "2011",
+        "count": 108
+      },
+      {
+        "key": "2008",
+        "count": 98
+      },
+      {
+        "key": "2017",
+        "count": 78
+      },
+      {
+        "key": "2012",
+        "count": 69
+      }
+    ],
+    "common_stations": [
+      {
+        "key": "Delhi",
+        "count": 3752
+      },
+      {
+        "key": "Mumbai",
+        "count": 2193
+      },
+      {
+        "key": "Chennai",
+        "count": 922
+      },
+      {
+        "key": "Kolkata",
+        "count": 838
+      },
+      {
+        "key": "Wef.",
+        "count": 632
+      },
+      {
+        "key": "Ahmedabad",
+        "count": 609
+      },
+      {
+        "key": "Bangalore",
+        "count": 545
+      },
+      {
+        "key": "Hyderabad",
+        "count": 489
+      }
+    ],
+    "archetype_distribution": [
+      {
+        "key": "Mixed Exposure Profile",
+        "count": 704
+      },
+      {
+        "key": "Emerging Leader Path",
+        "count": 464
+      },
+      {
+        "key": "Broad Multi-Station Leader",
+        "count": 303
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 245
+      },
+      {
+        "key": "Deep Senior Leadership Track",
+        "count": 111
+      },
+      {
+        "key": "Narrow but Deep Service Track",
+        "count": 66
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 22
+      }
+    ],
+    "sample_officer_ids": [
+      "officer-719",
+      "officer-741",
+      "officer-670",
+      "officer-668",
+      "officer-743",
+      "officer-882",
+      "officer-939",
+      "officer-689",
+      "officer-661",
+      "officer-753"
+    ],
+    "distinctiveness": "Cadre journeys are generally timeline-rich with broad progression evidence."
+  },
+  {
+    "cadre": "PA",
+    "slug": "pa",
+    "description": "Promotee from Appraiser with mixed field and administrative pathways.",
+    "officer_count": 353,
+    "average_timeline_entries": 8.3,
+    "typical_current_rank_spread": [
+      {
+        "key": "Assistant Commissioner",
+        "count": 140
+      },
+      {
+        "key": "Deputy Commissioner",
+        "count": 84
+      },
+      {
+        "key": "Additional Commissioner",
+        "count": 52
+      },
+      {
+        "key": "Commissioner",
+        "count": 42
+      },
+      {
+        "key": "Joint Commissioner",
+        "count": 35
+      }
+    ],
+    "common_rank_progressions": [
+      {
+        "key": "Assistant Commissioner -> Commissioner",
+        "count": 141
+      },
+      {
+        "key": "Deputy Commissioner -> Commissioner",
+        "count": 83
+      },
+      {
+        "key": "Additional Commissioner -> Commissioner",
+        "count": 52
+      },
+      {
+        "key": "Commissioner",
+        "count": 41
+      },
+      {
+        "key": "Joint Commissioner -> Commissioner",
+        "count": 34
+      },
+      {
+        "key": "Assistant Commissioner -> Joint Commissioner -> Commissioner",
+        "count": 1
+      }
+    ],
+    "batch_spread": [
+      {
+        "key": "2023",
+        "count": 102
+      },
+      {
+        "key": "2014",
+        "count": 71
+      },
+      {
+        "key": "2020",
+        "count": 35
+      },
+      {
+        "key": "2005",
+        "count": 27
+      },
+      {
+        "key": "2009",
+        "count": 23
+      },
+      {
+        "key": "2018",
+        "count": 22
+      },
+      {
+        "key": "2008",
+        "count": 19
+      },
+      {
+        "key": "2010",
+        "count": 13
+      },
+      {
+        "key": "2017",
+        "count": 11
+      },
+      {
+        "key": "2015",
+        "count": 10
+      }
+    ],
+    "common_stations": [
+      {
+        "key": "Mumbai",
+        "count": 472
+      },
+      {
+        "key": "Delhi",
+        "count": 351
+      },
+      {
+        "key": "Chennai",
+        "count": 203
+      },
+      {
+        "key": "Kolkata",
+        "count": 137
+      },
+      {
+        "key": "Bangalore",
+        "count": 87
+      },
+      {
+        "key": "Pune",
+        "count": 85
+      },
+      {
+        "key": "Cochin",
+        "count": 45
+      },
+      {
+        "key": "Hyderabad",
+        "count": 42
+      }
+    ],
+    "archetype_distribution": [
+      {
+        "key": "Emerging Leader Path",
+        "count": 140
+      },
+      {
+        "key": "Mixed Exposure Profile",
+        "count": 122
+      },
+      {
+        "key": "Broad Multi-Station Leader",
+        "count": 28
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 27
+      },
+      {
+        "key": "Narrow but Deep Service Track",
+        "count": 22
+      },
+      {
+        "key": "Deep Senior Leadership Track",
+        "count": 10
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 4
+      }
+    ],
+    "sample_officer_ids": [
+      "officer-1959",
+      "officer-1945",
+      "officer-1880",
+      "officer-2944",
+      "officer-2945",
+      "officer-3779",
+      "officer-2412",
+      "officer-2810",
+      "officer-3764",
+      "officer-2758"
+    ],
+    "distinctiveness": "Cadre journeys are generally timeline-rich with broad progression evidence."
+  },
+  {
+    "cadre": "PC",
+    "slug": "pc",
+    "description": "Promotee from Customs/Preventive with customs-heavy institutional context.",
+    "officer_count": 442,
+    "average_timeline_entries": 3.8,
+    "typical_current_rank_spread": [
+      {
+        "key": "Assistant Commissioner",
+        "count": 344
+      },
+      {
+        "key": "Deputy Commissioner",
+        "count": 98
+      }
+    ],
+    "common_rank_progressions": [
+      {
+        "key": "Assistant Commissioner -> Commissioner",
+        "count": 278
+      },
+      {
+        "key": "Deputy Commissioner -> Commissioner",
+        "count": 98
+      },
+      {
+        "key": "Assistant Commissioner",
+        "count": 66
+      }
+    ],
+    "batch_spread": [
+      {
+        "key": "2023",
+        "count": 167
+      },
+      {
+        "key": "2020",
+        "count": 91
+      },
+      {
+        "key": "2025",
+        "count": 66
+      },
+      {
+        "key": "2017",
+        "count": 55
+      },
+      {
+        "key": "2018",
+        "count": 38
+      },
+      {
+        "key": "2014",
+        "count": 25
+      }
+    ],
+    "common_stations": [
+      {
+        "key": "Mumbai",
+        "count": 234
+      },
+      {
+        "key": "Chennai",
+        "count": 160
+      },
+      {
+        "key": "Kolkata",
+        "count": 142
+      },
+      {
+        "key": "Cochin",
+        "count": 90
+      },
+      {
+        "key": "Delhi",
+        "count": 74
+      },
+      {
+        "key": "Report 157/2025",
+        "count": 64
+      },
+      {
+        "key": "Vishakhapatnam",
+        "count": 48
+      },
+      {
+        "key": "79/2023",
+        "count": 36
+      }
+    ],
+    "archetype_distribution": [
+      {
+        "key": "Emerging Leader Path",
+        "count": 275
+      },
+      {
+        "key": "Mixed Exposure Profile",
+        "count": 84
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 75
+      },
+      {
+        "key": "Narrow but Deep Service Track",
+        "count": 8
+      }
+    ],
+    "sample_officer_ids": [
+      "officer-8139",
+      "officer-8122",
+      "officer-6903",
+      "officer-8141",
+      "officer-8117",
+      "officer-8101",
+      "officer-8104",
+      "officer-8120",
+      "officer-6911",
+      "officer-8113"
+    ],
+    "distinctiveness": "Cadre journeys show mixed depth, with both emerging and mature trajectories."
+  },
+  {
+    "cadre": "PE",
+    "slug": "pe",
+    "description": "Promotee from Central Excise with strong operational continuity patterns.",
+    "officer_count": 2060,
+    "average_timeline_entries": 2.5,
+    "typical_current_rank_spread": [
+      {
+        "key": "Assistant Commissioner",
+        "count": 2038
+      },
+      {
+        "key": "Deputy Commissioner",
+        "count": 14
+      },
+      {
+        "key": "Additional Commissioner",
+        "count": 5
+      },
+      {
+        "key": "Joint Commissioner",
+        "count": 3
+      }
+    ],
+    "common_rank_progressions": [
+      {
+        "key": "Assistant Commissioner -> Commissioner",
+        "count": 1364
+      },
+      {
+        "key": "Assistant Commissioner",
+        "count": 674
+      },
+      {
+        "key": "Deputy Commissioner -> Commissioner",
+        "count": 14
+      },
+      {
+        "key": "Additional Commissioner -> Commissioner",
+        "count": 5
+      },
+      {
+        "key": "Joint Commissioner -> Commissioner",
+        "count": 3
+      }
+    ],
+    "batch_spread": [
+      {
+        "key": "2023",
+        "count": 1130
+      },
+      {
+        "key": "2025",
+        "count": 640
+      },
+      {
+        "key": "2020",
+        "count": 253
+      },
+      {
+        "key": "2018",
+        "count": 22
+      },
+      {
+        "key": "2012",
+        "count": 5
+      },
+      {
+        "key": "2014",
+        "count": 5
+      },
+      {
+        "key": "2017",
+        "count": 3
+      },
+      {
+        "key": "2009",
+        "count": 1
+      },
+      {
+        "key": "2010",
+        "count": 1
+      }
+    ],
+    "common_stations": [
+      {
+        "key": "Report 157/2025",
+        "count": 508
+      },
+      {
+        "key": "Delhi",
+        "count": 288
+      },
+      {
+        "key": "Chennai",
+        "count": 201
+      },
+      {
+        "key": "Hyderabad",
+        "count": 200
+      },
+      {
+        "key": "Mumbai",
+        "count": 186
+      },
+      {
+        "key": "Ahmedabad",
+        "count": 173
+      },
+      {
+        "key": "Bangalore",
+        "count": 155
+      },
+      {
+        "key": "79/2023",
+        "count": 126
+      }
+    ],
+    "archetype_distribution": [
+      {
+        "key": "Emerging Leader Path",
+        "count": 1364
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 675
+      },
+      {
+        "key": "Mixed Exposure Profile",
+        "count": 20
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 1
+      }
+    ],
+    "sample_officer_ids": [
+      "officer-3386",
+      "officer-4672",
+      "officer-4681",
+      "officer-3531",
+      "officer-4668",
+      "officer-4695",
+      "officer-4751",
+      "officer-5571",
+      "officer-6277",
+      "officer-9870"
+    ],
+    "distinctiveness": "Cadre journeys show mixed depth, with both emerging and mature trajectories."
+  }
+]

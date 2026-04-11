@@ -9,13 +9,15 @@ type AnimatedStatCardProps = {
   value: number;
   hint?: string;
   delay?: number;
+  testId?: string;
 };
 
 export function AnimatedStatCard({
   label,
   value,
   hint,
-  delay = 0
+  delay = 0,
+  testId
 }: AnimatedStatCardProps): JSX.Element {
   const [display, setDisplay] = useState(0);
 
@@ -40,6 +42,7 @@ export function AnimatedStatCard({
 
   return (
     <motion.div
+      data-testid={testId}
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}

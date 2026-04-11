@@ -17,17 +17,20 @@ function SelectField({
   label,
   value,
   options,
-  onChange
+  onChange,
+  testId
 }: {
   label: string;
   value: string;
   options: { value: string; label: string }[];
   onChange: (value: string) => void;
+  testId: string;
 }): JSX.Element {
   return (
     <label className="flex flex-col gap-1">
       <span className="text-label">{label}</span>
       <select
+        data-testid={testId}
         value={value}
         onChange={(event) => onChange(event.target.value)}
         className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-accent/50 focus:shadow-[0_0_0_3px_rgba(15,76,92,0.08)]"
@@ -44,8 +47,9 @@ function SelectField({
 
 export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFiltersProps): JSX.Element {
   return (
-    <div className="panel grid gap-4 p-4 md:grid-cols-2 xl:grid-cols-4">
+    <div data-testid="directory-filters" className="panel grid gap-4 p-4 md:grid-cols-2 xl:grid-cols-4">
       <SelectField
+        testId="filter-cadre"
         label="Cadre"
         value={filters.cadre}
         onChange={(value) => onChange({ ...filters, cadre: value })}
@@ -53,6 +57,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-batch"
         label="Batch"
         value={filters.batch}
         onChange={(value) => onChange({ ...filters, batch: value })}
@@ -60,6 +65,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-designation"
         label="Designation"
         value={filters.designation}
         onChange={(value) => onChange({ ...filters, designation: value })}
@@ -70,6 +76,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-location"
         label="Location"
         value={filters.location}
         onChange={(value) => onChange({ ...filters, location: value })}
@@ -77,6 +84,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-timeline-quality"
         label="Timeline Quality"
         value={filters.timelineQuality}
         onChange={(value) => onChange({ ...filters, timelineQuality: value as TimelineQuality | "all" })}
@@ -89,6 +97,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-verification"
         label="Verification"
         value={filters.verification}
         onChange={(value) => onChange({ ...filters, verification: value as VerificationFlag | "all" })}
@@ -101,6 +110,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-sort-by"
         label="Sort By"
         value={filters.sortBy}
         onChange={(value) => onChange({ ...filters, sortBy: value as OfficerFilters["sortBy"] })}
@@ -114,6 +124,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
       />
 
       <SelectField
+        testId="filter-sort-order"
         label="Sort Order"
         value={filters.sortOrder}
         onChange={(value) => onChange({ ...filters, sortOrder: value as OfficerFilters["sortOrder"] })}

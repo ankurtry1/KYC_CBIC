@@ -12,7 +12,7 @@ export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.El
   const isInferred = !posting?.organization_unit_name || !posting?.location;
 
   return (
-    <section className="panel p-5">
+    <section data-testid="current-posting-card" className="panel p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-label">Current Posting</p>

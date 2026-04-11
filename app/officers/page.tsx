@@ -1,6 +1,7 @@
 import type { OfficerFilters } from "@/lib/officers/types";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { OfficerDirectoryClient } from "@/components/officers/OfficerDirectoryClient";
+import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
 import { getOfficerIndex } from "@/lib/officers/load";
 
 type OfficersPageProps = {
@@ -33,11 +34,11 @@ export default async function OfficersPage({ searchParams }: OfficersPageProps):
   };
 
   return (
-    <main className="min-h-screen bg-surface">
+    <main data-testid="officers-page" className="min-h-screen bg-surface">
       <AppTopNav />
 
       <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-8 md:py-10">
-        <div className="mb-6">
+        <div data-testid="officers-page-header" className="mb-6">
           <p className="text-label">Officer Directory</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-slate-900">Search and discover officers</h1>
           <p className="mt-2 max-w-3xl text-sm text-slate-600">
@@ -46,6 +47,34 @@ export default async function OfficersPage({ searchParams }: OfficersPageProps):
         </div>
 
         <OfficerDirectoryClient records={records} initialFilters={initialFilters} />
+
+        <div className="mt-6">
+          <RecommendationStrip
+            testId="officers-recommendation-strip"
+            items={[
+              {
+                title: "Guided discovery",
+                description: "Use curated entry points if you are not sure what to search next.",
+                href: "/discover"
+              },
+              {
+                title: "Learn mode",
+                description: "Follow training-oriented pathways using real career journeys.",
+                href: "/learn"
+              },
+              {
+                title: "Batch explorer",
+                description: "Compare cohort-level progression and mobility patterns.",
+                href: "/batches"
+              },
+              {
+                title: "Station intelligence",
+                description: "Trace institutional station centrality and movement corridors.",
+                href: "/stations"
+              }
+            ]}
+          />
+        </div>
       </section>
     </main>
   );

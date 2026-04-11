@@ -31,6 +31,24 @@ export type StationHistoryEntry = {
   known_tenure_days: number;
 };
 
+export type RelatedOfficerLink = {
+  id: string;
+  score: number;
+  reason: string;
+};
+
+export type OfficerInsightSummary = {
+  posting_records: number;
+  unique_stations_served: number;
+  known_service_span_years: number | null;
+  years_to_current_rank: number | null;
+  mobility_profile: string;
+  timeline_richness_label: string;
+  probable_exposure_breadth: string;
+  likely_career_archetype: string;
+  similar_officers_count: number;
+};
+
 export type Officer = {
   id: string;
   employee_id: string;
@@ -44,10 +62,10 @@ export type Officer = {
   date_of_entry_gr_a?: string | null;
   current_posting?: CurrentPosting | null;
   posting_history: OfficerPosting[];
-  station_history?: StationHistoryEntry[];
-  inferred_rank_progression?: string[];
-  inferred_specialization?: string[];
-  verification_flag?: VerificationFlag;
+  station_history: StationHistoryEntry[];
+  inferred_rank_progression: string[];
+  inferred_specialization: string[];
+  verification_flag: VerificationFlag;
   data_quality?: {
     missing_fields?: string[];
     timeline_quality?: TimelineQuality;
@@ -55,9 +73,24 @@ export type Officer = {
     warnings?: string[];
   };
   data_quality_label?: "Strong" | "Moderate" | "Partial" | "Needs Review";
-  timeline_richness_score?: number;
+  timeline_richness_score: number;
+  timeline_entry_count: number;
+  unique_station_count: number;
+  known_service_span_years: number | null;
+  mobility_profile: string;
+  station_diversity_label: string;
+  exposure_breadth_label: string;
+  career_archetype: string;
+  career_archetype_reason: string;
+  dominant_stations: string[];
+  designation_path: string[];
+  rank_depth_score: number;
   years_in_service?: number | null;
   years_to_current_rank?: number | null;
+  related_officer_ids: string[];
+  related_officers: RelatedOfficerLink[];
+  insight_summary: OfficerInsightSummary | null;
+  narrative_summary: string | null;
 };
 
 export type OfficerIndexRecord = {
@@ -73,6 +106,10 @@ export type OfficerIndexRecord = {
   current_posting_summary: string;
   timeline_quality: TimelineQuality;
   timeline_richness_score: number;
+  timeline_entry_count: number;
+  unique_station_count: number;
+  mobility_profile: string;
+  career_archetype: string;
   verification_flag: VerificationFlag;
   data_quality_label: "Strong" | "Moderate" | "Partial" | "Needs Review";
   search_blob: string;
@@ -85,6 +122,7 @@ export type OfficerMetrics = {
   minimal_timeline_officers: number;
   cadres_covered: number;
   designation_spread: number;
+  average_timeline_entries: number;
   verification_breakdown: Record<string, number>;
   cadre_breakdown: Record<string, number>;
 };

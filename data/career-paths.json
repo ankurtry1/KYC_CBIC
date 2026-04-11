@@ -1,0 +1,270 @@
+{
+  "typical_progression_ladder": [
+    "Assistant Commissioner",
+    "Deputy Commissioner",
+    "Joint Commissioner",
+    "Additional Commissioner",
+    "Commissioner",
+    "Principal Commissioner",
+    "Chief Commissioner",
+    "Principal Chief Commissioner"
+  ],
+  "common_progressions": [
+    {
+      "key": "Assistant Commissioner -> Commissioner",
+      "count": 1851
+    },
+    {
+      "key": "Assistant Commissioner",
+      "count": 762
+    },
+    {
+      "key": "Deputy Commissioner -> Commissioner",
+      "count": 618
+    },
+    {
+      "key": "Additional Commissioner -> Commissioner",
+      "count": 613
+    },
+    {
+      "key": "Joint Commissioner -> Commissioner",
+      "count": 447
+    },
+    {
+      "key": "Commissioner",
+      "count": 325
+    },
+    {
+      "key": "Commissioner -> Principal Commissioner",
+      "count": 94
+    },
+    {
+      "key": "Commissioner -> Chief Commissioner",
+      "count": 36
+    },
+    {
+      "key": "Commissioner -> Principal Chief Commissioner",
+      "count": 10
+    },
+    {
+      "key": "Assistant Commissioner -> Joint Commissioner -> Commissioner",
+      "count": 7
+    },
+    {
+      "key": "Assistant Commissioner -> Commissioner -> Chief Commissioner",
+      "count": 2
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Commissioner",
+      "count": 1
+    }
+  ],
+  "rank_step_timings": [
+    {
+      "rank": "Assistant Commissioner",
+      "average_years_to_reach": 0.1,
+      "sample_size": 2610
+    },
+    {
+      "rank": "Deputy Commissioner",
+      "average_years_to_reach": 5.1,
+      "sample_size": 619
+    },
+    {
+      "rank": "Joint Commissioner",
+      "average_years_to_reach": 9.3,
+      "sample_size": 456
+    },
+    {
+      "rank": "Additional Commissioner",
+      "average_years_to_reach": 12.3,
+      "sample_size": 611
+    },
+    {
+      "rank": "Commissioner",
+      "average_years_to_reach": 18.7,
+      "sample_size": 329
+    },
+    {
+      "rank": "Principal Commissioner",
+      "average_years_to_reach": 28.9,
+      "sample_size": 94
+    },
+    {
+      "rank": "Chief Commissioner",
+      "average_years_to_reach": 32,
+      "sample_size": 38
+    },
+    {
+      "rank": "Principal Chief Commissioner",
+      "average_years_to_reach": 33.2,
+      "sample_size": 11
+    }
+  ],
+  "trajectory_bands": {
+    "fast": {
+      "threshold_years": 0,
+      "sample_size": 2535,
+      "sample_officer_ids": [
+        "officer-4009",
+        "officer-11266",
+        "officer-13659",
+        "officer-11008",
+        "officer-10328",
+        "officer-9917",
+        "officer-13271",
+        "officer-10295"
+      ]
+    },
+    "steady": {
+      "threshold_years": 7.4,
+      "sample_size": 614,
+      "sample_officer_ids": [
+        "officer-8408",
+        "officer-10425",
+        "officer-8403",
+        "officer-8457",
+        "officer-9438",
+        "officer-8343",
+        "officer-8355",
+        "officer-9171"
+      ]
+    },
+    "deliberate": {
+      "sample_size": 1619,
+      "sample_officer_ids": [
+        "officer-3386",
+        "officer-3531",
+        "officer-4668",
+        "officer-4672",
+        "officer-4681",
+        "officer-4695",
+        "officer-4751",
+        "officer-5571"
+      ]
+    }
+  },
+  "representative_journeys": [
+    {
+      "officer_id": "officer-719",
+      "name": "Mr Abhai Kumar Srivastav",
+      "batch": 1992,
+      "cadre": "DR",
+      "timeline_entries": 34,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-741",
+      "name": "Mr Anuj Gogia",
+      "batch": 1992,
+      "cadre": "DR",
+      "timeline_entries": 33,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-670",
+      "name": "Mr Rajeev Gupta",
+      "batch": 1991,
+      "cadre": "DR",
+      "timeline_entries": 32,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-668",
+      "name": "Mr Rajesh Jindal",
+      "batch": 1991,
+      "cadre": "DR",
+      "timeline_entries": 32,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-743",
+      "name": "Mrs Kajal Singh",
+      "batch": 1992,
+      "cadre": "DR",
+      "timeline_entries": 31,
+      "archetype": "Deep Senior Leadership Track"
+    },
+    {
+      "officer_id": "officer-882",
+      "name": "Mr D. Venkateswara Reddy",
+      "batch": 1995,
+      "cadre": "DR",
+      "timeline_entries": 30,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-939",
+      "name": "Mrs Amita Singh",
+      "batch": 1997,
+      "cadre": "DR",
+      "timeline_entries": 29,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-689",
+      "name": "Mrs Charul Baranwal",
+      "batch": 1991,
+      "cadre": "DR",
+      "timeline_entries": 29,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-661",
+      "name": "Mrs Prachi Saroop",
+      "batch": 1991,
+      "cadre": "DR",
+      "timeline_entries": 29,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-753",
+      "name": "Mr Manas Ranjan Mohanty",
+      "batch": 1992,
+      "cadre": "DR",
+      "timeline_entries": 28,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-817",
+      "name": "Mr Vidhyadhar Namdeorao Thete",
+      "batch": 1993,
+      "cadre": "DR",
+      "timeline_entries": 28,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-924",
+      "name": "Ms Kavita Bhatnagar",
+      "batch": 1996,
+      "cadre": "DR",
+      "timeline_entries": 28,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-1699",
+      "name": "Dr Yashovardhan Pathak",
+      "batch": 2002,
+      "cadre": "DR",
+      "timeline_entries": 27,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-909",
+      "name": "Mr Dipak Kumar Gupta",
+      "batch": 1995,
+      "cadre": "DR",
+      "timeline_entries": 27,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-745",
+      "name": "Mr Pradeep Saxena",
+      "batch": 1992,
+      "cadre": "DR",
+      "timeline_entries": 27,
+      "archetype": "Broad Multi-Station Leader"
+    }
+  ],
+  "caveat": "Career-path insights are derived from known posting records and may under-represent missing or unverified entries."
+}

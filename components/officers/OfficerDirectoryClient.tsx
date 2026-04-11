@@ -45,15 +45,16 @@ export function OfficerDirectoryClient({
   const pagedRecords = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
-    <div className="space-y-5">
+    <div data-testid="officers-directory" className="space-y-5">
       <div className="panel p-4">
         <OfficerSearch value={filters.q} onChange={(q) => setFilters((prev) => ({ ...prev, q }))} />
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm text-slate-600">
+          <p data-testid="directory-results-count" className="text-sm text-slate-600">
             Showing <span className="font-semibold text-slate-800">{formatNumber(sorted.length)}</span> officers
           </p>
           <button
+            data-testid="directory-toggle-filters"
             type="button"
             onClick={() => setShowFilters((prev) => !prev)}
             className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
@@ -67,12 +68,13 @@ export function OfficerDirectoryClient({
       {showFilters ? <OfficerFiltersPanel filters={filters} options={options} onChange={setFilters} /> : null}
 
       {pagedRecords.length === 0 ? (
-        <div className="panel p-10 text-center">
+        <div data-testid="directory-empty-state" className="panel p-10 text-center">
           <p className="font-medium text-slate-800">No officers match your current filters.</p>
           <p className="mt-1 text-sm text-slate-500">Try reducing filters or searching by employee ID.</p>
         </div>
       ) : (
         <motion.div
+          data-testid="directory-results-grid"
           initial="hidden"
           animate="visible"
           variants={{

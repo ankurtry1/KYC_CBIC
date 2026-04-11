@@ -20,6 +20,7 @@ export function OfficerSearch({
     <label className={cn("group relative block", className)}>
       <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-accent" />
       <input
+        data-testid="directory-search-input"
         type="text"
         value={value}
         onChange={(event) => onChange(event.target.value)}
@@ -28,6 +29,7 @@ export function OfficerSearch({
       />
       {value ? (
         <button
+          data-testid="directory-search-clear"
           type="button"
           onClick={() => onChange("")}
           className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"

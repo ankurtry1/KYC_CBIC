@@ -18,7 +18,7 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
 
   if (items.length === 0) {
     return (
-      <section className="panel p-6">
+      <section data-testid="timeline-section" className="panel p-6">
         <p className="text-label">Career Timeline</p>
         <p className="mt-2 text-sm text-slate-600">Posting history is not yet available for this officer.</p>
       </section>
@@ -26,7 +26,7 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
   }
 
   return (
-    <section className="panel p-6">
+    <section data-testid="timeline-section" className="panel p-6">
       <div className="flex items-end justify-between gap-3">
         <p className="text-label">Career Timeline</p>
         <p className="text-xs text-slate-500">{items.length} known timeline entries</p>

@@ -12,7 +12,7 @@ export function DataQualityPanel({ officer }: DataQualityPanelProps): JSX.Elemen
   const missing = quality?.missing_fields ?? [];
 
   return (
-    <section className="panel p-5">
+    <section data-testid="data-quality-panel" className="panel p-5">
       <p className="text-label">Data Quality & Verification</p>
 
       <div className="mt-3 flex flex-wrap gap-2">

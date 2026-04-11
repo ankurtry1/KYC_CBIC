@@ -13,7 +13,7 @@ export function RankProgression({ officer }: RankProgressionProps): JSX.Element 
   const items = rankProgressState(officer);
 
   return (
-    <section className="panel p-5">
+    <section data-testid="rank-progression-section" className="panel p-5">
       <p className="text-label">Promotion Ladder</p>
 
       <div className="mt-4 space-y-3">
