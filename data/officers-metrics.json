@@ -1,0 +1,18 @@
+{
+  "total_officers": 4770,
+  "timeline_rich_officers": 3246,
+  "partial_timeline_officers": 1524,
+  "minimal_timeline_officers": 0,
+  "cadres_covered": 4,
+  "designation_spread": 8,
+  "verification_breakdown": {
+    "verified": 4551,
+    "not_verified": 219
+  },
+  "cadre_breakdown": {
+    "PE": 2060,
+    "DR": 1915,
+    "PA": 353,
+    "PC": 442
+  }
+}

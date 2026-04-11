@@ -1,0 +1,32 @@
+{
+  "officers_total": 4770,
+  "officers_full_timeline": 2644,
+  "officers_partial_timeline": 2126,
+  "officers_timeline_zero": 742,
+  "officers_timeline_le1": 1536,
+  "officers_missing_name": 8,
+  "officers_not_verified_marker": 219,
+  "officers_negative_promotion_latency": 2,
+  "officers_with_zone_token": 2338,
+  "officers_with_date_pairs": 4028,
+  "officers_with_zone_and_date": 2241,
+  "duplicate_groups_name_dob": 0,
+  "zone_units_high_conf": 44,
+  "zone_units_low_conf": 76,
+  "designation_counts": {
+    "Deputy Commissioner": 620,
+    "Assistant Commissioner": 2611,
+    "Additional Commissioner": 611,
+    "Joint Commissioner": 456,
+    "Chief Commissioner": 38,
+    "Commissioner": 329,
+    "Principal Commissioner": 94,
+    "Principal Chief Commissioner": 11
+  },
+  "cadre_counts": {
+    "DR": 1915,
+    "PA": 353,
+    "PC": 442,
+    "PE": 2060
+  }
+}

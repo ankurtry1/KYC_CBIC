@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3f6fa;
+  color: #0f172a;
+}
+
+::selection {
+  background: #d4e8ee;
+  color: #0b2430;
+}
+
+.panel {
+  @apply rounded-2xl border border-slate-200/70 bg-white shadow-panel;
+}
+
+.pill {
+  @apply inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700;
+}
+
+.text-label {
+  @apply text-xs font-semibold uppercase tracking-[0.12em] text-slate-500;
+}
