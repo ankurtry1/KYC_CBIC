@@ -19,16 +19,26 @@ export function AnimatedStatCard({
   delay = 0,
   testId
 }: AnimatedStatCardProps): JSX.Element {
-  const [display, setDisplay] = useState(0);
+  // Keep server-rendered KPI values truthful even before hydration.
+  const [display, setDisplay] = useState(value);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const totalMs = 800;
     const steps = 24;
     let currentStep = 0;
+    const from = display;
+    const delta = value - from;
 
     const timer = window.setInterval(() => {
       currentStep += 1;
-      const next = Math.round((value * currentStep) / steps);
+      const next = Math.round(from + (delta * currentStep) / steps);
       setDisplay(next);
       if (currentStep >= steps) {
         window.clearInterval(timer);
@@ -36,7 +46,7 @@ export function AnimatedStatCard({
     }, totalMs / steps);
 
     return () => window.clearInterval(timer);
-  }, [value]);
+  }, [value, mounted]);
 
   const formatted = useMemo(() => formatNumber(display), [display]);
 

@@ -16,3 +16,27 @@ test.describe("Homepage", () => {
     await expect(metricCards).toHaveCount(4);
   });
 });
+
+test.describe("Homepage SSR metrics", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("metrics remain non-zero without client hydration", async ({ page }) => {
+    await page.goto("/");
+
+    const expectedMetrics = [
+      "metric-total-officers",
+      "metric-timeline-rich",
+      "metric-cadres-covered",
+      "metric-designation-spread"
+    ];
+
+    for (const metricId of expectedMetrics) {
+      const metric = page.getByTestId(metricId);
+      await expect(metric).toBeVisible();
+
+      const text = (await metric.innerText()).replace(/,/g, "");
+      const values = text.match(/\d+/g) ?? [];
+      expect(Number(values[0] ?? "0")).toBeGreaterThan(0);
+    }
+  });
+});

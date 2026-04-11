@@ -18,6 +18,7 @@ const cadresPath = path.join(process.cwd(), "data", "cadres.json");
 const stationsPath = path.join(process.cwd(), "data", "stations.json");
 const careerPathsPath = path.join(process.cwd(), "data", "career-paths.json");
 const discoveryPath = path.join(process.cwd(), "data", "discovery.json");
+const metricsPath = path.join(process.cwd(), "data", "officers-metrics.json");
 
 assert(Array.isArray(officers), "data/officers.json must be an array");
 assert(officers.length > 4000, `Expected officers.length > 4000, got ${officers.length}`);
@@ -25,18 +26,24 @@ assert(officers.length > 4000, `Expected officers.length > 4000, got ${officers.
 for (const requiredPath of [batchesPath, cadresPath, stationsPath, careerPathsPath, discoveryPath]) {
   assert(fs.existsSync(requiredPath), `Missing generated dataset: ${requiredPath}`);
 }
+assert(fs.existsSync(metricsPath), `Missing generated dataset: ${metricsPath}`);
 
 const batches = JSON.parse(fs.readFileSync(batchesPath, "utf8"));
 const cadres = JSON.parse(fs.readFileSync(cadresPath, "utf8"));
 const stations = JSON.parse(fs.readFileSync(stationsPath, "utf8"));
 const careerPaths = JSON.parse(fs.readFileSync(careerPathsPath, "utf8"));
 const discovery = JSON.parse(fs.readFileSync(discoveryPath, "utf8"));
+const metrics = JSON.parse(fs.readFileSync(metricsPath, "utf8"));
 
 assert(Array.isArray(batches) && batches.length > 0, "data/batches.json must be non-empty");
 assert(Array.isArray(cadres) && cadres.length > 0, "data/cadres.json must be non-empty");
 assert(Array.isArray(stations) && stations.length > 0, "data/stations.json must be non-empty");
 assert(Array.isArray(careerPaths.common_progressions), "data/career-paths.json must contain common_progressions");
 assert(Array.isArray(discovery.journeys) && discovery.journeys.length > 0, "data/discovery.json must contain journeys");
+assert(metrics.total_officers > 0, "metrics.total_officers must be > 0");
+assert(metrics.timeline_rich_officers > 0, "metrics.timeline_rich_officers must be > 0");
+assert(metrics.cadres_covered > 0, "metrics.cadres_covered must be > 0");
+assert(metrics.designation_spread > 0, "metrics.designation_spread must be > 0");
 
 const ids = new Set();
 let hasPostingHistory = false;
