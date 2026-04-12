@@ -32,6 +32,34 @@ const CADRE_EXPLANATIONS = {
   PE: "Promotee from Central Excise with strong operational continuity patterns."
 };
 
+const NOISY_LABEL_PATTERNS = [
+  /\bw\.?\s*e\.?\s*f\.?\b/i,
+  /\bjoining\s+report\b/i,
+  /\bjoining\s+time\b/i,
+  /\bpromotion\b/i,
+  /\bprom(?:\.|oted?)?\s+as\b/i,
+  /\b(as\s+per|vide)\b/i,
+  /\border\s+no\b/i,
+  /\breport\s+\d{1,4}\/\d{2,4}\b/i,
+  /\bentry\s+as\s+per\b/i,
+  /\bnot\s+verified\b/i,
+  /^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$/i
+];
+
+const JUNK_SEGMENT_EXACT = new Set([
+  "WEF",
+  "W.E.F",
+  "W.E.F.",
+  "PROMOTION",
+  "JOINING REPORT",
+  "JOINING TIME",
+  "ORDER NO",
+  "ORDER NO.",
+  "REPORT",
+  "AS PER",
+  "VIDE"
+]);
+
 function normalizeSpaces(value) {
   return value.replace(/\s+/g, " ").trim();
 }
@@ -83,11 +111,67 @@ function normalizeCadre(value) {
   return value.trim().toUpperCase();
 }
 
+function isNoisyLabel(value) {
+  if (!value) return true;
+  const cleaned = normalizeSpaces(value);
+  if (!cleaned) return true;
+  if (cleaned.length < 3) return true;
+  if (!/[a-z]/i.test(cleaned)) return true;
+  if (NOISY_LABEL_PATTERNS.some((pattern) => pattern.test(cleaned))) return true;
+  if (JUNK_SEGMENT_EXACT.has(cleaned.toUpperCase())) return true;
+
+  const digitCount = (cleaned.match(/\d/g) ?? []).length;
+  if (digitCount >= Math.ceil(cleaned.length * 0.45)) return true;
+  return false;
+}
+
+function cleanSegment(value) {
+  if (!value) return null;
+  const cleaned = normalizeSpaces(
+    value
+      .replace(/[()[\]{}]/g, " ")
+      .replace(/[|_]/g, " ")
+      .replace(/\b(?:dt|lr|l\.r)\.?\b/gi, " ")
+  );
+
+  if (!cleaned) return null;
+  if (isNoisyLabel(cleaned)) return null;
+  return cleaned;
+}
+
+function displayCase(value) {
+  return value
+    .split(" ")
+    .filter(Boolean)
+    .map((part) => (/^[A-Z0-9]{2,5}$/.test(part) ? part : `${part[0].toUpperCase()}${part.slice(1).toLowerCase()}`))
+    .join(" ");
+}
+
+function sanitizeOrganizationUnit(value) {
+  if (!value) return null;
+  const segments = value
+    .split(">")
+    .map((segment) => cleanSegment(segment))
+    .filter(Boolean);
+
+  if (segments.length === 0) return null;
+  return segments.slice(0, 2).map(displayCase).join(" > ");
+}
+
+function sanitizeDesignation(value) {
+  if (!value) return null;
+  const canonical = canonicalDesignation(value);
+  if (!canonical) return null;
+  if (isNoisyLabel(canonical)) return null;
+  return canonical;
+}
+
 function normalizeStation(value) {
   if (!value) return null;
-  const cleaned = normalizeSpaces(value.replace(/[()]/g, " "));
+  const cleaned = cleanSegment(value.replace(/[()]/g, " "));
   if (!cleaned) return null;
-  return titleCase(cleaned);
+  if (isNoisyLabel(cleaned)) return null;
+  return displayCase(titleCase(cleaned));
 }
 
 function canonicalDesignation(value) {
@@ -240,21 +324,27 @@ function parsePostingRows(block, employeeId, sourceDoc) {
 
     const { rankHeld, designation, chiefZone, orgUnit, station } = parsePrefixCells(prefix);
     const stationLabel = normalizeStation(station);
-    const organizationUnitName = [chiefZone, orgUnit].filter(Boolean).join(" > ") || null;
+    const organizationUnitName = sanitizeOrganizationUnit([chiefZone, orgUnit].filter(Boolean).join(" > "));
+    const cleanDesignation = sanitizeDesignation(designation);
+    const cleanRankHeld = sanitizeDesignation(rankHeld);
+
+    if (!stationLabel && !organizationUnitName && !cleanDesignation && !cleanRankHeld) {
+      return false;
+    }
 
     const confidence =
-      startIso && endIso && stationLabel && designation
+      startIso && endIso && stationLabel && cleanDesignation
         ? 0.88
-        : startIso && endIso
+        : startIso && endIso && (organizationUnitName || cleanDesignation || cleanRankHeld)
           ? 0.76
-          : startIso
+          : startIso && (organizationUnitName || cleanDesignation || cleanRankHeld || stationLabel)
             ? 0.62
             : 0.45;
 
     rows.push({
       posting_id: `post-${employeeId}-${rows.length + 1}`,
-      designation: designation ? canonicalDesignation(designation) : null,
-      rank_held: rankHeld ? canonicalDesignation(rankHeld) : null,
+      designation: cleanDesignation,
+      rank_held: cleanRankHeld,
       organization_unit_id: organizationUnitName
         ? `org-${slugify(organizationUnitName)}`
         : null,
@@ -560,7 +650,7 @@ function parseOfficerBlock(block, sourceDoc, employeeId) {
   );
   const batchText = safeExtract(block, /Batch\s+([0-9]{4})/);
   const cadre = normalizeCadre(safeExtract(block, /Cadre\s+([A-Z]{2,3})/));
-  const currentDesignation = canonicalDesignation(
+  const currentDesignation = sanitizeDesignation(
     safeExtract(block, /Present Designation\s+(.+?)\s+Cadre/s)
   );
 
@@ -581,16 +671,20 @@ function parseOfficerBlock(block, sourceDoc, employeeId) {
       : null;
 
   const currentPosting = latestPosting
-    ? {
+    ? (() => {
+        const currentLocation = normalizeStation(latestPosting.location);
+        const currentUnitName = sanitizeOrganizationUnit(latestPosting.organization_unit_name);
+        return {
         post_id: latestPosting.posting_id,
-        designation: latestPosting.designation ?? currentDesignation,
+        designation: sanitizeDesignation(latestPosting.designation) ?? currentDesignation,
         organization_unit_id: latestPosting.organization_unit_id,
-        organization_unit_name: latestPosting.organization_unit_name,
-        location: latestPosting.location,
+        organization_unit_name: currentUnitName,
+        location: currentLocation,
         start_date: latestPosting.start_date,
         end_date: latestPosting.end_date,
-        confidence: latestPosting.end_date ? 0.75 : 0.9
-      }
+        confidence: currentLocation || currentUnitName ? (latestPosting.end_date ? 0.75 : 0.9) : 0.55
+      };
+      })()
     : {
         post_id: null,
         designation: currentDesignation,
@@ -870,6 +964,13 @@ function computeRelatedOfficers(officers) {
 
 function createIndex(officers) {
   return officers.map((officer) => {
+    const currentLocation = normalizeStation(officer.current_posting?.location);
+    const currentOrganizationUnit = sanitizeOrganizationUnit(officer.current_posting?.organization_unit_name);
+    const currentDesignation = sanitizeDesignation(officer.current_posting?.designation) ?? officer.current_designation;
+    const currentPostingSummary = [currentDesignation, currentOrganizationUnit, currentLocation]
+      .filter(Boolean)
+      .join(" • ");
+
     const searchBlob = [
       officer.name,
       officer.normalized_name,
@@ -877,8 +978,8 @@ function createIndex(officers) {
       officer.batch,
       officer.cadre,
       officer.current_designation,
-      officer.current_posting?.location,
-      officer.current_posting?.organization_unit_name,
+      currentLocation,
+      currentOrganizationUnit,
       officer.station_history?.map((item) => item.station).join(" "),
       officer.career_archetype,
       officer.mobility_profile,
@@ -897,14 +998,8 @@ function createIndex(officers) {
       cadre: officer.cadre,
       current_designation: officer.current_designation,
       present_rank_date: officer.present_rank_date,
-      current_location: officer.current_posting?.location ?? null,
-      current_posting_summary: [
-        officer.current_posting?.designation,
-        officer.current_posting?.organization_unit_name,
-        officer.current_posting?.location
-      ]
-        .filter(Boolean)
-        .join(" • "),
+      current_location: currentLocation ?? null,
+      current_posting_summary: currentPostingSummary || "Posting details partially inferred",
       timeline_quality: officer.data_quality?.timeline_quality ?? "minimal",
       timeline_richness_score: officer.timeline_richness_score,
       timeline_entry_count: officer.timeline_entry_count,

@@ -42,7 +42,7 @@
     "common_rank_progressions": [
       {
         "key": "Additional Commissioner -> Commissioner",
-        "count": 556
+        "count": 557
       },
       {
         "key": "Deputy Commissioner -> Commissioner",
@@ -50,11 +50,11 @@
       },
       {
         "key": "Joint Commissioner -> Commissioner",
-        "count": 410
+        "count": 408
       },
       {
         "key": "Commissioner",
-        "count": 284
+        "count": 283
       },
       {
         "key": "Commissioner -> Principal Commissioner",
@@ -125,50 +125,50 @@
         "count": 838
       },
       {
-        "key": "Wef.",
-        "count": 632
-      },
-      {
         "key": "Ahmedabad",
         "count": 609
       },
       {
         "key": "Bangalore",
-        "count": 545
+        "count": 546
       },
       {
         "key": "Hyderabad",
         "count": 489
+      },
+      {
+        "key": "Pune",
+        "count": 357
       }
     ],
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 704
+        "count": 626
       },
       {
         "key": "Emerging Leader Path",
-        "count": 464
-      },
-      {
-        "key": "Broad Multi-Station Leader",
-        "count": 303
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 245
-      },
-      {
-        "key": "Deep Senior Leadership Track",
-        "count": 111
+        "count": 432
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 66
+        "count": 286
+      },
+      {
+        "key": "Broad Multi-Station Leader",
+        "count": 259
+      },
+      {
+        "key": "Deep Senior Leadership Track",
+        "count": 164
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 121
       },
       {
         "key": "Administrative Continuity Profile",
-        "count": 22
+        "count": 27
       }
     ],
     "sample_officer_ids": [
@@ -190,7 +190,7 @@
     "slug": "pa",
     "description": "Promotee from Appraiser with mixed field and administrative pathways.",
     "officer_count": 353,
-    "average_timeline_entries": 8.3,
+    "average_timeline_entries": 8.2,
     "typical_current_rank_spread": [
       {
         "key": "Assistant Commissioner",
@@ -318,31 +318,31 @@
     "archetype_distribution": [
       {
         "key": "Emerging Leader Path",
-        "count": 140
+        "count": 142
       },
       {
         "key": "Mixed Exposure Profile",
-        "count": 122
-      },
-      {
-        "key": "Broad Multi-Station Leader",
-        "count": 28
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 27
+        "count": 108
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 22
+        "count": 40
+      },
+      {
+        "key": "Broad Multi-Station Leader",
+        "count": 18
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 10
+        "count": 17
       },
       {
         "key": "Administrative Continuity Profile",
-        "count": 4
+        "count": 15
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 13
       }
     ],
     "sample_officer_ids": [
@@ -437,16 +437,16 @@
         "count": 74
       },
       {
-        "key": "Report 157/2025",
-        "count": 64
-      },
-      {
         "key": "Vishakhapatnam",
         "count": 48
       },
       {
-        "key": "79/2023",
-        "count": 36
+        "key": "Pune",
+        "count": 25
+      },
+      {
+        "key": "Hyderabad",
+        "count": 19
       }
     ],
     "archetype_distribution": [
@@ -455,16 +455,16 @@
         "count": 275
       },
       {
-        "key": "Mixed Exposure Profile",
+        "key": "Administrative Continuity Profile",
         "count": 84
       },
       {
-        "key": "Administrative Continuity Profile",
-        "count": 75
+        "key": "Mixed Exposure Profile",
+        "count": 74
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 8
+        "count": 9
       }
     ],
     "sample_officer_ids": [
@@ -567,10 +567,6 @@
     ],
     "common_stations": [
       {
-        "key": "Report 157/2025",
-        "count": 508
-      },
-      {
         "key": "Delhi",
         "count": 288
       },
@@ -595,25 +591,33 @@
         "count": 155
       },
       {
-        "key": "79/2023",
-        "count": 126
+        "key": "Kolkata",
+        "count": 124
+      },
+      {
+        "key": "Vadodara",
+        "count": 123
       }
     ],
     "archetype_distribution": [
       {
         "key": "Emerging Leader Path",
-        "count": 1364
+        "count": 1363
       },
       {
         "key": "Administrative Continuity Profile",
-        "count": 675
+        "count": 677
       },
       {
         "key": "Mixed Exposure Profile",
-        "count": 20
+        "count": 18
       },
       {
         "key": "High-Mobility Officer",
+        "count": 1
+      },
+      {
+        "key": "Narrow but Deep Service Track",
         "count": 1
       }
     ],

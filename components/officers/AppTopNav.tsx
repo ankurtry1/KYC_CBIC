@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Compass, Landmark, Route, Search } from "lucide-react";
+import { CircleHelp, Compass, Landmark, Route, Search } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 
 type AppTopNavProps = {
@@ -47,6 +47,13 @@ export function AppTopNav({ className }: AppTopNavProps): JSX.Element {
           >
             <Route className="h-4 w-4" />
             Paths
+          </Link>
+          <Link
+            href="/guide/intelligence"
+            className="hidden items-center gap-1.5 rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-slate-900 xl:inline-flex"
+          >
+            <CircleHelp className="h-4 w-4" />
+            Guide
           </Link>
         </nav>
       </div>

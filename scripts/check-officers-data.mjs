@@ -12,6 +12,9 @@ assert(fs.existsSync(filePath), `Missing data file: ${filePath}`);
 
 const payload = fs.readFileSync(filePath, "utf8");
 const officers = JSON.parse(payload);
+const indexPath = path.join(process.cwd(), "data", "officers-index.json");
+assert(fs.existsSync(indexPath), `Missing generated dataset: ${indexPath}`);
+const officersIndex = JSON.parse(fs.readFileSync(indexPath, "utf8"));
 
 const batchesPath = path.join(process.cwd(), "data", "batches.json");
 const cadresPath = path.join(process.cwd(), "data", "cadres.json");
@@ -34,6 +37,9 @@ const stations = JSON.parse(fs.readFileSync(stationsPath, "utf8"));
 const careerPaths = JSON.parse(fs.readFileSync(careerPathsPath, "utf8"));
 const discovery = JSON.parse(fs.readFileSync(discoveryPath, "utf8"));
 const metrics = JSON.parse(fs.readFileSync(metricsPath, "utf8"));
+
+const noisyDisplayPattern =
+  /\b(w\.?\s*e\.?\s*f\.?|joining\s+report|promotion|prom\s+as|as\s+per|vide|order\s+no|report\s+\d{1,4}\/\d{2,4})\b/i;
 
 assert(Array.isArray(batches) && batches.length > 0, "data/batches.json must be non-empty");
 assert(Array.isArray(cadres) && cadres.length > 0, "data/cadres.json must be non-empty");
@@ -80,6 +86,20 @@ for (const officer of officers) {
   assert(Array.isArray(officer.related_officer_ids), `Missing related_officer_ids array for ${officer.id}`);
   assert(officer.insight_summary != null, `Missing insight_summary for ${officer.id}`);
 
+  if (officer.current_posting?.location) {
+    assert(
+      !noisyDisplayPattern.test(officer.current_posting.location),
+      `Noisy current_posting.location for ${officer.id}: ${officer.current_posting.location}`
+    );
+  }
+
+  for (const entry of officer.station_history ?? []) {
+    assert(
+      !noisyDisplayPattern.test(entry.station),
+      `Noisy station_history station for ${officer.id}: ${entry.station}`
+    );
+  }
+
   for (const relatedId of officer.related_officer_ids) {
     assert(typeof relatedId === "string", `Invalid related officer ID type for ${officer.id}`);
   }
@@ -90,6 +110,21 @@ assert(hasPostingHistory, "Expected at least one officer with non-empty posting_
 for (const officer of officers) {
   for (const relatedId of officer.related_officer_ids) {
     assert(ids.has(relatedId), `related_officer_ids contains unknown ID for ${officer.id}: ${relatedId}`);
+  }
+}
+
+for (const record of officersIndex) {
+  if (record.current_location) {
+    assert(
+      !noisyDisplayPattern.test(record.current_location),
+      `Noisy current_location in officers-index for ${record.id}: ${record.current_location}`
+    );
+  }
+  if (record.current_posting_summary) {
+    assert(
+      !noisyDisplayPattern.test(record.current_posting_summary),
+      `Noisy current_posting_summary in officers-index for ${record.id}: ${record.current_posting_summary}`
+    );
   }
 }
 

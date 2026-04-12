@@ -2,6 +2,7 @@ import { Building2, CalendarClock, MapPin, ShieldAlert } from "lucide-react";
 import type { Officer } from "@/lib/officers/types";
 import { confidenceLabel } from "@/lib/utils/format";
 import { formatDate } from "@/lib/utils/date";
+import { sanitizeDisplayLabel, sanitizeDisplayLocation } from "@/lib/officers/normalize";
 
 type CurrentPostingCardProps = {
   officer: Officer;
@@ -9,7 +10,9 @@ type CurrentPostingCardProps = {
 
 export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.Element {
   const posting = officer.current_posting;
-  const isInferred = !posting?.organization_unit_name || !posting?.location;
+  const organizationUnit = sanitizeDisplayLabel(posting?.organization_unit_name);
+  const location = sanitizeDisplayLocation(posting?.location);
+  const isInferred = !organizationUnit || !location;
 
   return (
     <section data-testid="current-posting-card" className="panel p-5">
@@ -27,11 +30,11 @@ export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.El
       <div className="mt-4 space-y-2 text-sm text-slate-700">
         <p className="inline-flex items-center gap-2">
           <Building2 className="h-4 w-4 text-accent/80" />
-          {posting?.organization_unit_name ?? "Organization unit not available"}
+          {organizationUnit ?? "Posting details partially inferred"}
         </p>
         <p className="inline-flex items-center gap-2">
           <MapPin className="h-4 w-4 text-accent/80" />
-          {posting?.location ?? "Location not available"}
+          {location ?? "Posting details partially inferred"}
         </p>
         <p className="inline-flex items-center gap-2">
           <CalendarClock className="h-4 w-4 text-accent/80" />

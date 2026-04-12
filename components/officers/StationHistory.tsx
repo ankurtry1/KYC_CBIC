@@ -1,13 +1,20 @@
 import type { Officer } from "@/lib/officers/types";
 import { getStationSummary } from "@/lib/officers/derive";
 import { daysToYears } from "@/lib/utils/date";
+import { sanitizeDisplayLocation } from "@/lib/officers/normalize";
 
 type StationHistoryProps = {
   officer: Officer;
 };
 
 export function StationHistory({ officer }: StationHistoryProps): JSX.Element {
-  const stations = getStationSummary(officer).slice(0, 18);
+  const stations = getStationSummary(officer)
+    .map((entry) => ({
+      ...entry,
+      station: sanitizeDisplayLocation(entry.station)
+    }))
+    .filter((entry): entry is { station: string; postings: number; tenureDays: number } => Boolean(entry.station))
+    .slice(0, 18);
 
   if (stations.length === 0) {
     return (

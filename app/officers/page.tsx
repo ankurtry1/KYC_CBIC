@@ -37,12 +37,12 @@ export default async function OfficersPage({ searchParams }: OfficersPageProps):
     <main data-testid="officers-page" className="min-h-screen bg-surface">
       <AppTopNav />
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-8 md:px-8 md:py-10">
-        <div data-testid="officers-page-header" className="mb-6">
+      <section className="mx-auto w-full max-w-7xl px-4 py-6 md:px-8 md:py-8">
+        <div data-testid="officers-page-header" className="mb-4">
           <p className="text-label">Officer Directory</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-slate-900">Search and discover officers</h1>
           <p className="mt-2 max-w-3xl text-sm text-slate-600">
-            Filter by cadre, batch, designation, verification, timeline quality, and location.
+            Start with search and quick filters. Expand advanced filters only when needed.
           </p>
         </div>
 

@@ -59,6 +59,9 @@ test.describe("Layer 2 intelligence routes", () => {
     await page.goto("/learn");
     await expect(page.getByTestId("learn-page")).toBeVisible();
     await expect(page.getByTestId("learn-path-grid")).toBeVisible();
+
+    await page.goto("/guide/intelligence");
+    await expect(page.getByTestId("intelligence-guide-page")).toBeVisible();
   });
 
   test("batch, cadre, and station routes load", async ({ page }) => {

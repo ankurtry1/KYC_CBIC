@@ -9,6 +9,7 @@ import { OfficerSearch } from "@/components/officers/OfficerSearch";
 import { OfficerFiltersPanel } from "@/components/officers/OfficerFilters";
 import { OfficerCard } from "@/components/officers/OfficerCard";
 import { formatNumber } from "@/lib/utils/format";
+import { cn } from "@/lib/utils/cn";
 
 type OfficerDirectoryClientProps = {
   records: OfficerIndexRecord[];
@@ -16,6 +17,18 @@ type OfficerDirectoryClientProps = {
 };
 
 const PAGE_SIZE = 24;
+
+function hasActiveAdvancedFilters(filters: OfficerFilters): boolean {
+  return (
+    filters.batch !== "all" ||
+    filters.designation !== "all" ||
+    filters.location !== "all" ||
+    filters.verification !== "all" ||
+    filters.timelineQuality !== "all" ||
+    filters.sortBy !== "name" ||
+    filters.sortOrder !== "asc"
+  );
+}
 
 export function OfficerDirectoryClient({
   records,
@@ -27,7 +40,10 @@ export function OfficerDirectoryClient({
     q: initialFilters?.q ?? ""
   });
   const [page, setPage] = useState(1);
-  const [showFilters, setShowFilters] = useState(true);
+  const [showFilters, setShowFilters] = useState(() => hasActiveAdvancedFilters({
+    ...DEFAULT_FILTERS,
+    ...initialFilters
+  } as OfficerFilters));
 
   const options = useMemo(() => deriveFilterOptions(records), [records]);
 
@@ -43,13 +59,24 @@ export function OfficerDirectoryClient({
 
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
   const pagedRecords = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const activeAdvancedCount = [
+    filters.batch !== "all",
+    filters.designation !== "all",
+    filters.location !== "all",
+    filters.verification !== "all",
+    filters.timelineQuality !== "all",
+    filters.sortBy !== "name",
+    filters.sortOrder !== "asc"
+  ].filter(Boolean).length;
+
+  const quickCadres = options.cadres.slice(0, 4);
 
   return (
-    <div data-testid="officers-directory" className="space-y-5">
-      <div className="panel p-4">
+    <div data-testid="officers-directory" className="space-y-4">
+      <div className="panel p-3 sm:p-4">
         <OfficerSearch value={filters.q} onChange={(q) => setFilters((prev) => ({ ...prev, q }))} />
 
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
           <p data-testid="directory-results-count" className="text-sm text-slate-600">
             Showing <span className="font-semibold text-slate-800">{formatNumber(sorted.length)}</span> officers
           </p>
@@ -57,10 +84,73 @@ export function OfficerDirectoryClient({
             data-testid="directory-toggle-filters"
             type="button"
             onClick={() => setShowFilters((prev) => !prev)}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
           >
             <SlidersHorizontal className="h-4 w-4" />
-            {showFilters ? "Hide filters" : "Show filters"}
+            {showFilters ? "Hide advanced filters" : "More filters"}
+            {activeAdvancedCount > 0 ? (
+              <span className="rounded-full bg-accentSoft px-1.5 py-0.5 text-[11px] text-accent">
+                {activeAdvancedCount}
+              </span>
+            ) : null}
+          </button>
+        </div>
+
+        <div data-testid="directory-quick-filters" className="mt-2 flex flex-wrap items-center gap-2">
+          <button
+            data-testid="quick-filter-all"
+            type="button"
+            onClick={() => setFilters((prev) => ({ ...prev, cadre: "all", timelineQuality: "all", verification: "all" }))}
+            className={cn(
+              "rounded-full border px-2.5 py-1 text-xs font-medium transition",
+              filters.cadre === "all" && filters.timelineQuality === "all" && filters.verification === "all"
+                ? "border-accent/40 bg-accentSoft text-accent"
+                : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+            )}
+          >
+            All profiles
+          </button>
+          {quickCadres.map((cadre) => (
+            <button
+              key={cadre}
+              data-testid={`quick-filter-cadre-${cadre.toLowerCase()}`}
+              type="button"
+              onClick={() => setFilters((prev) => ({ ...prev, cadre }))}
+              className={cn(
+                "rounded-full border px-2.5 py-1 text-xs font-medium transition",
+                filters.cadre === cadre
+                  ? "border-accent/40 bg-accentSoft text-accent"
+                  : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              )}
+            >
+              {cadre}
+            </button>
+          ))}
+          <button
+            data-testid="quick-filter-timeline-full"
+            type="button"
+            onClick={() => setFilters((prev) => ({ ...prev, timelineQuality: "full" }))}
+            className={cn(
+              "rounded-full border px-2.5 py-1 text-xs font-medium transition",
+              filters.timelineQuality === "full"
+                ? "border-accent/40 bg-accentSoft text-accent"
+                : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+            )}
+          >
+            Timeline-rich
+          </button>
+          <button
+            data-testid="quick-filter-verified"
+            type="button"
+            onClick={() => setFilters((prev) => ({ ...prev, verification: "verified" }))}
+            className={cn(
+              "rounded-full border px-2.5 py-1 text-xs font-medium transition",
+              filters.verification === "verified"
+                ? "border-accent/40 bg-accentSoft text-accent"
+                : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+            )}
+          >
+            Verified
           </button>
         </div>
       </div>
@@ -81,7 +171,7 @@ export function OfficerDirectoryClient({
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.03 } }
           }}
-          className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+          className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3"
         >
           {pagedRecords.map((officer) => (
             <motion.div

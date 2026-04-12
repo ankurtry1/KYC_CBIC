@@ -1,5 +1,18 @@
 import type { Officer, OfficerPosting } from "@/lib/officers/types";
 
+const NOISY_LABEL_PATTERNS = [
+  /\bw\.?\s*e\.?\s*f\.?\b/i,
+  /\bjoining\s+report\b/i,
+  /\bjoining\s+time\b/i,
+  /\bpromotion\b/i,
+  /\bprom\s+as\b/i,
+  /\b(as\s+per|vide)\b/i,
+  /\border\s+no\b/i,
+  /\breport\s+\d{1,4}\/\d{2,4}\b/i,
+  /\bentry\s+as\s+per\b/i,
+  /^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$/i
+];
+
 export function normalizeSearchText(input: string): string {
   return input
     .toLowerCase()
@@ -23,6 +36,34 @@ export function normalizeLocation(input: string | null | undefined): string | nu
     .join(" ");
 }
 
+export function isNoisyDisplayLabel(input: string | null | undefined): boolean {
+  if (!input) return true;
+  const cleaned = input.replace(/\s+/g, " ").trim();
+  if (!cleaned) return true;
+  if (cleaned.length < 3) return true;
+  if (!/[a-z]/i.test(cleaned)) return true;
+  if (NOISY_LABEL_PATTERNS.some((pattern) => pattern.test(cleaned))) return true;
+  if ((cleaned.match(/\d/g) ?? []).length >= Math.ceil(cleaned.length * 0.4)) return true;
+  return false;
+}
+
+export function sanitizeDisplayLabel(input: string | null | undefined): string | null {
+  if (!input) return null;
+  const cleaned = normalizeLocation(
+    input
+      .replace(/[()[\]{}]/g, " ")
+      .replace(/[_|]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+  );
+  if (!cleaned || isNoisyDisplayLabel(cleaned)) return null;
+  return cleaned;
+}
+
+export function sanitizeDisplayLocation(input: string | null | undefined): string | null {
+  return sanitizeDisplayLabel(input);
+}
+
 export function postingDateValue(posting: OfficerPosting): number {
   if (!posting.start_date) return 0;
   const date = new Date(posting.start_date);
@@ -40,12 +81,12 @@ export function normalizeOfficer(officer: Officer): Officer {
     current_posting: officer.current_posting
       ? {
           ...officer.current_posting,
-          location: normalizeLocation(officer.current_posting.location)
+          location: sanitizeDisplayLocation(officer.current_posting.location)
         }
       : officer.current_posting,
     posting_history: sortPostingsChronologically(officer.posting_history).map((posting) => ({
       ...posting,
-      location: normalizeLocation(posting.location)
+      location: sanitizeDisplayLocation(posting.location)
     }))
   };
 }

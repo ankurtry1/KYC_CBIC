@@ -7,20 +7,35 @@ import { ArchetypeBadge } from "@/components/intelligence/ArchetypeBadge";
 type RelatedOfficersProps = {
   officer: Officer;
   related: RelatedOfficerCard[];
+  compact?: boolean;
+  maxItems?: number;
+  testId?: string;
 };
 
-export function RelatedOfficers({ officer, related }: RelatedOfficersProps): JSX.Element {
+export function RelatedOfficers({
+  officer,
+  related,
+  compact = false,
+  maxItems,
+  testId = "related-officers-section"
+}: RelatedOfficersProps): JSX.Element {
+  const visible = related.slice(0, maxItems ?? (compact ? 3 : 8));
+
   return (
     <InsightPanel
-      testId="related-officers-section"
-      title="Related Officers"
-      subtitle="Similarity based on batch, cadre, stations, and progression"
+      testId={testId}
+      title={compact ? "Related Journeys (Preview)" : "Related Officers"}
+      subtitle={
+        compact
+          ? "People with similar trajectory signals"
+          : "Similarity based on batch, cadre, stations, and progression"
+      }
     >
       {related.length === 0 ? (
         <p className="text-sm text-slate-600">No close related profiles were identified from current deterministic rules.</p>
       ) : (
-        <div className="grid gap-3 md:grid-cols-2">
-          {related.map((item) => (
+        <div className={compact ? "space-y-2" : "grid gap-3 md:grid-cols-2"}>
+          {visible.map((item) => (
             <Link
               key={item.officer.id}
               href={`/officers/${item.officer.id}`}
@@ -46,9 +61,15 @@ export function RelatedOfficers({ officer, related }: RelatedOfficersProps): JSX
 
       {related.length > 0 ? (
         <p className="mt-3 text-xs text-slate-500">
-          Related profiles for {officer.name ?? officer.employee_id} are explainable and non-judgmental.
+          Related profiles for {officer.name ?? officer.employee_id} are explainable, deterministic, and non-judgmental.
         </p>
       ) : null}
+
+      <p className="mt-2 text-xs text-slate-500">
+        <Link href="/guide/intelligence" className="text-accent hover:underline">
+          Understand similarity logic
+        </Link>
+      </p>
     </InsightPanel>
   );
 }

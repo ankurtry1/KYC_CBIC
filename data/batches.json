@@ -15,7 +15,7 @@
       }
     ],
     "average_timeline_entries": 21,
-    "average_station_diversity": 6,
+    "average_station_diversity": 5,
     "top_stations": [
       {
         "key": "Delhi",
@@ -35,10 +35,6 @@
       },
       {
         "key": "Gurgaon",
-        "count": 1
-      },
-      {
-        "key": "70/2025",
         "count": 1
       }
     ],
@@ -61,7 +57,7 @@
       1990
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1989 includes 1 officers with an average of 21 posting records and 6 unique stations in known history."
+    "narrative": "Batch 1989 includes 1 officers with an average of 21 posting records and 5 unique stations in known history."
   },
   {
     "year": 1990,
@@ -79,7 +75,7 @@
       }
     ],
     "average_timeline_entries": 25.5,
-    "average_station_diversity": 12.5,
+    "average_station_diversity": 11.5,
     "top_stations": [
       {
         "key": "Delhi",
@@ -135,7 +131,7 @@
       1991
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1990 includes 2 officers with an average of 25.5 posting records and 12.5 unique stations in known history."
+    "narrative": "Batch 1990 includes 2 officers with an average of 25.5 posting records and 11.5 unique stations in known history."
   },
   {
     "year": 1991,
@@ -165,7 +161,7 @@
       }
     ],
     "average_timeline_entries": 23.1,
-    "average_station_diversity": 10.4,
+    "average_station_diversity": 9.4,
     "top_stations": [
       {
         "key": "Delhi",
@@ -243,7 +239,7 @@
       1992
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1991 includes 19 officers with an average of 23.1 posting records and 10.4 unique stations in known history."
+    "narrative": "Batch 1991 includes 19 officers with an average of 23.1 posting records and 9.4 unique stations in known history."
   },
   {
     "year": 1992,
@@ -269,7 +265,7 @@
       }
     ],
     "average_timeline_entries": 23.4,
-    "average_station_diversity": 10,
+    "average_station_diversity": 9,
     "top_stations": [
       {
         "key": "Delhi",
@@ -321,11 +317,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 26
+        "count": 25
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 3
+        "count": 4
       }
     ],
     "sample_officer_ids": [
@@ -343,7 +339,7 @@
       1993
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1992 includes 29 officers with an average of 23.4 posting records and 10 unique stations in known history."
+    "narrative": "Batch 1992 includes 29 officers with an average of 23.4 posting records and 9 unique stations in known history."
   },
   {
     "year": 1993,
@@ -369,7 +365,7 @@
       }
     ],
     "average_timeline_entries": 21.9,
-    "average_station_diversity": 10.9,
+    "average_station_diversity": 9.9,
     "top_stations": [
       {
         "key": "Delhi",
@@ -421,11 +417,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 26
+        "count": 25
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 1
+        "count": 2
       }
     ],
     "sample_officer_ids": [
@@ -443,7 +439,7 @@
       1994
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1993 includes 27 officers with an average of 21.9 posting records and 10.9 unique stations in known history."
+    "narrative": "Batch 1993 includes 27 officers with an average of 21.9 posting records and 9.9 unique stations in known history."
   },
   {
     "year": 1994,
@@ -460,8 +456,8 @@
         "count": 37
       }
     ],
-    "average_timeline_entries": 20.5,
-    "average_station_diversity": 9.6,
+    "average_timeline_entries": 20.4,
+    "average_station_diversity": 8.6,
     "top_stations": [
       {
         "key": "Delhi",
@@ -505,15 +501,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 34
+        "count": 33
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 2
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 1
+        "count": 4
       }
     ],
     "sample_officer_ids": [
@@ -531,7 +523,7 @@
       1995
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1994 includes 37 officers with an average of 20.5 posting records and 9.6 unique stations in known history."
+    "narrative": "Batch 1994 includes 37 officers with an average of 20.4 posting records and 8.6 unique stations in known history."
   },
   {
     "year": 1995,
@@ -553,7 +545,7 @@
       }
     ],
     "average_timeline_entries": 20.6,
-    "average_station_diversity": 9.5,
+    "average_station_diversity": 8.4,
     "top_stations": [
       {
         "key": "Delhi",
@@ -601,11 +593,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 31
+        "count": 25
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 7
+        "count": 13
       }
     ],
     "sample_officer_ids": [
@@ -623,7 +615,7 @@
       1996
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1995 includes 38 officers with an average of 20.6 posting records and 9.5 unique stations in known history."
+    "narrative": "Batch 1995 includes 38 officers with an average of 20.6 posting records and 8.4 unique stations in known history."
   },
   {
     "year": 1996,
@@ -641,7 +633,7 @@
       }
     ],
     "average_timeline_entries": 19.8,
-    "average_station_diversity": 10.4,
+    "average_station_diversity": 9.6,
     "top_stations": [
       {
         "key": "Delhi",
@@ -685,11 +677,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 12
+        "count": 11
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 2
+        "count": 3
       }
     ],
     "sample_officer_ids": [
@@ -707,7 +699,7 @@
       1997
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1996 includes 14 officers with an average of 19.8 posting records and 10.4 unique stations in known history."
+    "narrative": "Batch 1996 includes 14 officers with an average of 19.8 posting records and 9.6 unique stations in known history."
   },
   {
     "year": 1997,
@@ -725,7 +717,7 @@
       }
     ],
     "average_timeline_entries": 17.9,
-    "average_station_diversity": 8.8,
+    "average_station_diversity": 7.8,
     "top_stations": [
       {
         "key": "Delhi",
@@ -795,7 +787,7 @@
       1998
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1997 includes 21 officers with an average of 17.9 posting records and 8.8 unique stations in known history."
+    "narrative": "Batch 1997 includes 21 officers with an average of 17.9 posting records and 7.8 unique stations in known history."
   },
   {
     "year": 1998,
@@ -813,7 +805,7 @@
       }
     ],
     "average_timeline_entries": 19.1,
-    "average_station_diversity": 9.7,
+    "average_station_diversity": 8.8,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -857,14 +849,14 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 13
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 3
+        "count": 12
       },
       {
         "key": "Deep Senior Leadership Track",
+        "count": 4
+      },
+      {
+        "key": "High-Mobility Officer",
         "count": 2
       }
     ],
@@ -883,7 +875,7 @@
       1999
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1998 includes 18 officers with an average of 19.1 posting records and 9.7 unique stations in known history."
+    "narrative": "Batch 1998 includes 18 officers with an average of 19.1 posting records and 8.8 unique stations in known history."
   },
   {
     "year": 1999,
@@ -900,8 +892,8 @@
         "count": 15
       }
     ],
-    "average_timeline_entries": 18.1,
-    "average_station_diversity": 8.6,
+    "average_timeline_entries": 18,
+    "average_station_diversity": 7.5,
     "top_stations": [
       {
         "key": "Delhi",
@@ -945,15 +937,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 12
+        "count": 10
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 2
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 1
+        "count": 5
       }
     ],
     "sample_officer_ids": [
@@ -971,7 +959,7 @@
       2000
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 1999 includes 15 officers with an average of 18.1 posting records and 8.6 unique stations in known history."
+    "narrative": "Batch 1999 includes 15 officers with an average of 18 posting records and 7.5 unique stations in known history."
   },
   {
     "year": 2000,
@@ -993,7 +981,7 @@
       }
     ],
     "average_timeline_entries": 17.8,
-    "average_station_diversity": 9.1,
+    "average_station_diversity": 8.2,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -1041,11 +1029,11 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 12
+        "count": 11
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 4
+        "count": 5
       },
       {
         "key": "High-Mobility Officer",
@@ -1067,7 +1055,7 @@
       2001
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2000 includes 18 officers with an average of 17.8 posting records and 9.1 unique stations in known history."
+    "narrative": "Batch 2000 includes 18 officers with an average of 17.8 posting records and 8.2 unique stations in known history."
   },
   {
     "year": 2001,
@@ -1085,7 +1073,7 @@
       }
     ],
     "average_timeline_entries": 17.9,
-    "average_station_diversity": 7.7,
+    "average_station_diversity": 6.7,
     "top_stations": [
       {
         "key": "Delhi",
@@ -1128,11 +1116,11 @@
     ],
     "archetype_distribution": [
       {
-        "key": "Broad Multi-Station Leader",
+        "key": "Deep Senior Leadership Track",
         "count": 8
       },
       {
-        "key": "Deep Senior Leadership Track",
+        "key": "Broad Multi-Station Leader",
         "count": 7
       }
     ],
@@ -1151,7 +1139,7 @@
       2002
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2001 includes 15 officers with an average of 17.9 posting records and 7.7 unique stations in known history."
+    "narrative": "Batch 2001 includes 15 officers with an average of 17.9 posting records and 6.7 unique stations in known history."
   },
   {
     "year": 2002,
@@ -1177,7 +1165,7 @@
       }
     ],
     "average_timeline_entries": 19.8,
-    "average_station_diversity": 9.3,
+    "average_station_diversity": 8.1,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -1225,14 +1213,14 @@
     "archetype_distribution": [
       {
         "key": "Broad Multi-Station Leader",
-        "count": 20
+        "count": 16
       },
       {
         "key": "Deep Senior Leadership Track",
-        "count": 3
+        "count": 7
       },
       {
-        "key": "High-Mobility Officer",
+        "key": "Emerging Leader Path",
         "count": 1
       }
     ],
@@ -1250,7 +1238,7 @@
       2001
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2002 includes 24 officers with an average of 19.8 posting records and 9.3 unique stations in known history."
+    "narrative": "Batch 2002 includes 24 officers with an average of 19.8 posting records and 8.1 unique stations in known history."
   },
   {
     "year": 2004,
@@ -1272,7 +1260,7 @@
       }
     ],
     "average_timeline_entries": 16.5,
-    "average_station_diversity": 7,
+    "average_station_diversity": 6,
     "top_stations": [
       {
         "key": "Delhi",
@@ -1319,19 +1307,19 @@
     ],
     "archetype_distribution": [
       {
-        "key": "Broad Multi-Station Leader",
+        "key": "Deep Senior Leadership Track",
         "count": 23
       },
       {
-        "key": "Deep Senior Leadership Track",
-        "count": 11
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 2
+        "key": "Broad Multi-Station Leader",
+        "count": 12
       },
       {
         "key": "Mixed Exposure Profile",
+        "count": 1
+      },
+      {
+        "key": "High-Mobility Officer",
         "count": 1
       }
     ],
@@ -1349,7 +1337,7 @@
       2005
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2004 includes 37 officers with an average of 16.5 posting records and 7 unique stations in known history."
+    "narrative": "Batch 2004 includes 37 officers with an average of 16.5 posting records and 6 unique stations in known history."
   },
   {
     "year": 2005,
@@ -1383,7 +1371,7 @@
       }
     ],
     "average_timeline_entries": 16.7,
-    "average_station_diversity": 7.2,
+    "average_station_diversity": 6.4,
     "top_stations": [
       {
         "key": "Delhi",
@@ -1414,8 +1402,8 @@
         "count": 22
       },
       {
-        "key": "164/2023",
-        "count": 21
+        "key": "Hyderabad",
+        "count": 20
       }
     ],
     "common_designations": [
@@ -1438,20 +1426,24 @@
     ],
     "archetype_distribution": [
       {
-        "key": "Broad Multi-Station Leader",
-        "count": 32
+        "key": "Deep Senior Leadership Track",
+        "count": 28
       },
       {
-        "key": "Deep Senior Leadership Track",
-        "count": 20
+        "key": "Broad Multi-Station Leader",
+        "count": 23
       },
       {
         "key": "Mixed Exposure Profile",
-        "count": 4
+        "count": 6
       },
       {
         "key": "High-Mobility Officer",
-        "count": 4
+        "count": 2
+      },
+      {
+        "key": "Narrow but Deep Service Track",
+        "count": 1
       },
       {
         "key": "Emerging Leader Path",
@@ -1473,7 +1465,7 @@
       2006
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2005 includes 61 officers with an average of 16.7 posting records and 7.2 unique stations in known history."
+    "narrative": "Batch 2005 includes 61 officers with an average of 16.7 posting records and 6.4 unique stations in known history."
   },
   {
     "year": 2006,
@@ -1499,7 +1491,7 @@
       }
     ],
     "average_timeline_entries": 16.7,
-    "average_station_diversity": 7.3,
+    "average_station_diversity": 6.5,
     "top_stations": [
       {
         "key": "Delhi",
@@ -1546,16 +1538,20 @@
     ],
     "archetype_distribution": [
       {
-        "key": "Broad Multi-Station Leader",
-        "count": 28
+        "key": "Deep Senior Leadership Track",
+        "count": 29
       },
       {
-        "key": "Deep Senior Leadership Track",
+        "key": "Broad Multi-Station Leader",
         "count": 21
       },
       {
         "key": "High-Mobility Officer",
-        "count": 5
+        "count": 3
+      },
+      {
+        "key": "Mixed Exposure Profile",
+        "count": 1
       }
     ],
     "sample_officer_ids": [
@@ -1573,7 +1569,7 @@
       2007
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2006 includes 54 officers with an average of 16.7 posting records and 7.3 unique stations in known history."
+    "narrative": "Batch 2006 includes 54 officers with an average of 16.7 posting records and 6.5 unique stations in known history."
   },
   {
     "year": 2007,
@@ -1603,7 +1599,7 @@
       }
     ],
     "average_timeline_entries": 16,
-    "average_station_diversity": 6.9,
+    "average_station_diversity": 5.9,
     "top_stations": [
       {
         "key": "Delhi",
@@ -1622,10 +1618,6 @@
         "count": 36
       },
       {
-        "key": "70/2025",
-        "count": 27
-      },
-      {
         "key": "Bangalore",
         "count": 22
       },
@@ -1636,6 +1628,10 @@
       {
         "key": "Kolkata",
         "count": 16
+      },
+      {
+        "key": "Nagpur",
+        "count": 15
       }
     ],
     "common_designations": [
@@ -1659,19 +1655,23 @@
     "archetype_distribution": [
       {
         "key": "Deep Senior Leadership Track",
-        "count": 27
+        "count": 37
       },
       {
         "key": "Broad Multi-Station Leader",
-        "count": 21
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 5
+        "count": 13
       },
       {
         "key": "Mixed Exposure Profile",
         "count": 2
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 2
+      },
+      {
+        "key": "Emerging Leader Path",
+        "count": 1
       }
     ],
     "sample_officer_ids": [
@@ -1689,7 +1689,7 @@
       2008
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2007 includes 55 officers with an average of 16 posting records and 6.9 unique stations in known history."
+    "narrative": "Batch 2007 includes 55 officers with an average of 16 posting records and 5.9 unique stations in known history."
   },
   {
     "year": 2008,
@@ -1719,7 +1719,7 @@
       }
     ],
     "average_timeline_entries": 13.5,
-    "average_station_diversity": 6.4,
+    "average_station_diversity": 5.9,
     "top_stations": [
       {
         "key": "Delhi",
@@ -1771,15 +1771,15 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 74
+        "count": 72
       },
       {
         "key": "High-Mobility Officer",
-        "count": 33
+        "count": 27
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 8
+        "count": 16
       },
       {
         "key": "Emerging Leader Path",
@@ -1801,7 +1801,7 @@
       2009
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2008 includes 117 officers with an average of 13.5 posting records and 6.4 unique stations in known history."
+    "narrative": "Batch 2008 includes 117 officers with an average of 13.5 posting records and 5.9 unique stations in known history."
   },
   {
     "year": 2009,
@@ -1839,7 +1839,7 @@
       }
     ],
     "average_timeline_entries": 14.1,
-    "average_station_diversity": 6.5,
+    "average_station_diversity": 5.9,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -1895,15 +1895,15 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 125
+        "count": 127
       },
       {
         "key": "High-Mobility Officer",
-        "count": 53
+        "count": 36
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 9
+        "count": 24
       },
       {
         "key": "Emerging Leader Path",
@@ -1925,7 +1925,7 @@
       2010
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2009 includes 193 officers with an average of 14.1 posting records and 6.5 unique stations in known history."
+    "narrative": "Batch 2009 includes 193 officers with an average of 14.1 posting records and 5.9 unique stations in known history."
   },
   {
     "year": 2010,
@@ -1963,7 +1963,7 @@
       }
     ],
     "average_timeline_entries": 13.2,
-    "average_station_diversity": 5.9,
+    "average_station_diversity": 5.4,
     "top_stations": [
       {
         "key": "Delhi",
@@ -2019,15 +2019,15 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 100
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 32
+        "count": 99
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 22
+        "count": 31
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 24
       },
       {
         "key": "Emerging Leader Path",
@@ -2049,7 +2049,7 @@
       2011
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2010 includes 161 officers with an average of 13.2 posting records and 5.9 unique stations in known history."
+    "narrative": "Batch 2010 includes 161 officers with an average of 13.2 posting records and 5.4 unique stations in known history."
   },
   {
     "year": 2011,
@@ -2075,7 +2075,7 @@
       }
     ],
     "average_timeline_entries": 12.6,
-    "average_station_diversity": 5.9,
+    "average_station_diversity": 5.3,
     "top_stations": [
       {
         "key": "Delhi",
@@ -2127,15 +2127,15 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 83
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 16
+        "count": 78
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 6
+        "count": 17
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 10
       },
       {
         "key": "Emerging Leader Path",
@@ -2157,7 +2157,7 @@
       2012
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2011 includes 108 officers with an average of 12.6 posting records and 5.9 unique stations in known history."
+    "narrative": "Batch 2011 includes 108 officers with an average of 12.6 posting records and 5.3 unique stations in known history."
   },
   {
     "year": 2012,
@@ -2191,7 +2191,7 @@
       }
     ],
     "average_timeline_entries": 12,
-    "average_station_diversity": 6.5,
+    "average_station_diversity": 5.7,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -2214,16 +2214,16 @@
         "count": 24
       },
       {
-        "key": "22/2025",
-        "count": 24
-      },
-      {
         "key": "Hyderabad",
         "count": 23
       },
       {
         "key": "Nagpur",
         "count": 17
+      },
+      {
+        "key": "Kolkata",
+        "count": 16
       }
     ],
     "common_designations": [
@@ -2243,11 +2243,11 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 50
+        "count": 54
       },
       {
         "key": "High-Mobility Officer",
-        "count": 16
+        "count": 9
       },
       {
         "key": "Emerging Leader Path",
@@ -2255,7 +2255,7 @@
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 2
+        "count": 5
       }
     ],
     "sample_officer_ids": [
@@ -2273,7 +2273,7 @@
       2013
     ],
     "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2012 includes 75 officers with an average of 12 posting records and 6.5 unique stations in known history."
+    "narrative": "Batch 2012 includes 75 officers with an average of 12 posting records and 5.7 unique stations in known history."
   },
   {
     "year": 2013,
@@ -2294,13 +2294,9 @@
         "count": 5
       }
     ],
-    "average_timeline_entries": 12.3,
-    "average_station_diversity": 6.5,
+    "average_timeline_entries": 12.2,
+    "average_station_diversity": 4.4,
     "top_stations": [
-      {
-        "key": "Wef.",
-        "count": 200
-      },
       {
         "key": "Delhi",
         "count": 193
@@ -2308,10 +2304,6 @@
       {
         "key": "Mumbai",
         "count": 106
-      },
-      {
-        "key": "320",
-        "count": 54
       },
       {
         "key": "Chennai",
@@ -2328,6 +2320,14 @@
       {
         "key": "Kolkata",
         "count": 28
+      },
+      {
+        "key": "Jaipur",
+        "count": 26
+      },
+      {
+        "key": "Vadodara",
+        "count": 22
       }
     ],
     "common_designations": [
@@ -2343,37 +2343,41 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 76
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 29
-      },
-      {
-        "key": "Emerging Leader Path",
-        "count": 5
+        "count": 66
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 4
+        "count": 39
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 5
+      },
+      {
+        "key": "Emerging Leader Path",
+        "count": 3
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 1
       }
     ],
     "sample_officer_ids": [
       "officer-4578",
       "officer-4537",
-      "officer-4596",
       "officer-4620",
       "officer-4617",
       "officer-4591",
       "officer-4505",
-      "officer-4636"
+      "officer-4636",
+      "officer-4521"
     ],
     "related_batch_years": [
       2012,
       2014
     ],
-    "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2013 includes 114 officers with an average of 12.3 posting records and 6.5 unique stations in known history."
+    "quick_insight": "Balanced cohort with mixed career trajectories.",
+    "narrative": "Batch 2013 includes 114 officers with an average of 12.2 posting records and 4.4 unique stations in known history."
   },
   {
     "year": 2014,
@@ -2410,16 +2414,12 @@
         "count": 6
       }
     ],
-    "average_timeline_entries": 11,
-    "average_station_diversity": 5.8,
+    "average_timeline_entries": 10.9,
+    "average_station_diversity": 4,
     "top_stations": [
       {
         "key": "Delhi",
         "count": 460
-      },
-      {
-        "key": "Wef.",
-        "count": 312
       },
       {
         "key": "Mumbai",
@@ -2428,10 +2428,6 @@
       {
         "key": "Chennai",
         "count": 129
-      },
-      {
-        "key": "320",
-        "count": 104
       },
       {
         "key": "Hyderabad",
@@ -2444,6 +2440,14 @@
       {
         "key": "Vishakhapatnam",
         "count": 71
+      },
+      {
+        "key": "Bangalore",
+        "count": 69
+      },
+      {
+        "key": "Ahmedabad",
+        "count": 65
       }
     ],
     "common_designations": [
@@ -2463,41 +2467,41 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 188
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 49
+        "count": 152
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 17
-      },
-      {
-        "key": "Emerging Leader Path",
-        "count": 14
+        "count": 94
       },
       {
         "key": "Administrative Continuity Profile",
-        "count": 4
+        "count": 11
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 9
+      },
+      {
+        "key": "Emerging Leader Path",
+        "count": 6
       }
     ],
     "sample_officer_ids": [
       "officer-6964",
       "officer-7071",
-      "officer-6987",
       "officer-7079",
-      "officer-6946",
       "officer-6957",
       "officer-6934",
-      "officer-7073"
+      "officer-6987",
+      "officer-7073",
+      "officer-7009"
     ],
     "related_batch_years": [
       2013,
       2015
     ],
-    "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2014 includes 272 officers with an average of 11 posting records and 5.8 unique stations in known history."
+    "quick_insight": "Balanced cohort with mixed career trajectories.",
+    "narrative": "Batch 2014 includes 272 officers with an average of 10.9 posting records and 4 unique stations in known history."
   },
   {
     "year": 2015,
@@ -2522,8 +2526,8 @@
         "count": 21
       }
     ],
-    "average_timeline_entries": 10.7,
-    "average_station_diversity": 6.1,
+    "average_timeline_entries": 10.6,
+    "average_station_diversity": 3.9,
     "top_stations": [
       {
         "key": "Delhi",
@@ -2534,20 +2538,8 @@
         "count": 180
       },
       {
-        "key": "Wef.",
-        "count": 144
-      },
-      {
         "key": "Chennai",
         "count": 81
-      },
-      {
-        "key": "320",
-        "count": 71
-      },
-      {
-        "key": "69/2025",
-        "count": 52
       },
       {
         "key": "Kolkata",
@@ -2556,6 +2548,18 @@
       {
         "key": "Nagpur",
         "count": 40
+      },
+      {
+        "key": "Pune",
+        "count": 35
+      },
+      {
+        "key": "Lucknow",
+        "count": 33
+      },
+      {
+        "key": "Ahmedabad",
+        "count": 28
       }
     ],
     "common_designations": [
@@ -2571,37 +2575,41 @@
     "archetype_distribution": [
       {
         "key": "Mixed Exposure Profile",
-        "count": 120
-      },
-      {
-        "key": "High-Mobility Officer",
-        "count": 19
-      },
-      {
-        "key": "Emerging Leader Path",
-        "count": 17
+        "count": 82
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 9
+        "count": 71
+      },
+      {
+        "key": "Emerging Leader Path",
+        "count": 10
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 1
+      },
+      {
+        "key": "High-Mobility Officer",
+        "count": 1
       }
     ],
     "sample_officer_ids": [
       "officer-8191",
       "officer-8242",
-      "officer-8228",
       "officer-8308",
-      "officer-8199",
-      "officer-8303",
+      "officer-8228",
       "officer-8299",
-      "officer-8270"
+      "officer-8270",
+      "officer-8223",
+      "officer-8199"
     ],
     "related_batch_years": [
       2014,
       2016
     ],
-    "quick_insight": "Highly experienced batch with broad multi-station career footprints.",
-    "narrative": "Batch 2015 includes 165 officers with an average of 10.7 posting records and 6.1 unique stations in known history."
+    "quick_insight": "Balanced cohort with mixed career trajectories.",
+    "narrative": "Batch 2015 includes 165 officers with an average of 10.6 posting records and 3.9 unique stations in known history."
   },
   {
     "year": 2016,
@@ -2627,7 +2635,7 @@
       }
     ],
     "average_timeline_entries": 6.8,
-    "average_station_diversity": 4.1,
+    "average_station_diversity": 3.4,
     "top_stations": [
       {
         "key": "Delhi",
@@ -2650,16 +2658,16 @@
         "count": 31
       },
       {
-        "key": "126/2024",
-        "count": 29
-      },
-      {
         "key": "Vadodara",
         "count": 29
       },
       {
-        "key": "68/2025",
-        "count": 28
+        "key": "Bengaluru",
+        "count": 25
+      },
+      {
+        "key": "Bhopal",
+        "count": 24
       }
     ],
     "common_designations": [
@@ -2675,15 +2683,15 @@
     "archetype_distribution": [
       {
         "key": "Emerging Leader Path",
-        "count": 178
+        "count": 167
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 8
+        "count": 20
       },
       {
-        "key": "Mixed Exposure Profile",
-        "count": 2
+        "key": "Administrative Continuity Profile",
+        "count": 1
       },
       {
         "key": "High-Mobility Officer",
@@ -2705,7 +2713,7 @@
       2017
     ],
     "quick_insight": "Balanced cohort with mixed career trajectories.",
-    "narrative": "Batch 2016 includes 189 officers with an average of 6.8 posting records and 4.1 unique stations in known history."
+    "narrative": "Batch 2016 includes 189 officers with an average of 6.8 posting records and 3.4 unique stations in known history."
   },
   {
     "year": 2017,
@@ -2739,7 +2747,7 @@
       }
     ],
     "average_timeline_entries": 6.9,
-    "average_station_diversity": 4.5,
+    "average_station_diversity": 3.7,
     "top_stations": [
       {
         "key": "Chennai",
@@ -2762,16 +2770,16 @@
         "count": 20
       },
       {
-        "key": "126/2024",
-        "count": 18
-      },
-      {
-        "key": "219/2023",
-        "count": 17
-      },
-      {
         "key": "Pune",
         "count": 17
+      },
+      {
+        "key": "Bangalore",
+        "count": 16
+      },
+      {
+        "key": "Trichy",
+        "count": 16
       }
     ],
     "common_designations": [
@@ -2787,19 +2795,19 @@
     "archetype_distribution": [
       {
         "key": "Emerging Leader Path",
-        "count": 77
+        "count": 74
       },
       {
         "key": "Mixed Exposure Profile",
-        "count": 60
-      },
-      {
-        "key": "Administrative Continuity Profile",
-        "count": 5
+        "count": 54
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 5
+        "count": 10
+      },
+      {
+        "key": "Administrative Continuity Profile",
+        "count": 9
       }
     ],
     "sample_officer_ids": [
@@ -2817,7 +2825,7 @@
       2018
     ],
     "quick_insight": "Balanced cohort with mixed career trajectories.",
-    "narrative": "Batch 2017 includes 147 officers with an average of 6.9 posting records and 4.5 unique stations in known history."
+    "narrative": "Batch 2017 includes 147 officers with an average of 6.9 posting records and 3.7 unique stations in known history."
   },
   {
     "year": 2018,
@@ -2851,7 +2859,7 @@
       }
     ],
     "average_timeline_entries": 5.7,
-    "average_station_diversity": 3.7,
+    "average_station_diversity": 3,
     "top_stations": [
       {
         "key": "Delhi",
@@ -2870,10 +2878,6 @@
         "count": 42
       },
       {
-        "key": "212/2024",
-        "count": 34
-      },
-      {
         "key": "Cochin",
         "count": 21
       },
@@ -2884,6 +2888,10 @@
       {
         "key": "Hyderabad",
         "count": 18
+      },
+      {
+        "key": "Nagpur",
+        "count": 16
       }
     ],
     "common_designations": [
@@ -2903,14 +2911,14 @@
       },
       {
         "key": "Mixed Exposure Profile",
-        "count": 45
-      },
-      {
-        "key": "Narrow but Deep Service Track",
-        "count": 5
+        "count": 32
       },
       {
         "key": "Administrative Continuity Profile",
+        "count": 18
+      },
+      {
+        "key": "Narrow but Deep Service Track",
         "count": 5
       }
     ],
@@ -2929,7 +2937,7 @@
       2019
     ],
     "quick_insight": "Balanced cohort with mixed career trajectories.",
-    "narrative": "Batch 2018 includes 116 officers with an average of 5.7 posting records and 3.7 unique stations in known history."
+    "narrative": "Batch 2018 includes 116 officers with an average of 5.7 posting records and 3 unique stations in known history."
   },
   {
     "year": 2019,
@@ -2947,7 +2955,7 @@
       }
     ],
     "average_timeline_entries": 5.1,
-    "average_station_diversity": 3.1,
+    "average_station_diversity": 2.2,
     "top_stations": [
       {
         "key": "Delhi",
@@ -2958,15 +2966,7 @@
         "count": 12
       },
       {
-        "key": "126/2024",
-        "count": 7
-      },
-      {
         "key": "Vadodara",
-        "count": 6
-      },
-      {
-        "key": "219/2023",
         "count": 6
       },
       {
@@ -2980,6 +2980,14 @@
       {
         "key": "Chennai",
         "count": 5
+      },
+      {
+        "key": "Patna",
+        "count": 4
+      },
+      {
+        "key": "Nagpur",
+        "count": 4
       }
     ],
     "common_designations": [
@@ -2991,11 +2999,11 @@
     "archetype_distribution": [
       {
         "key": "Emerging Leader Path",
-        "count": 30
+        "count": 29
       },
       {
         "key": "Narrow but Deep Service Track",
-        "count": 1
+        "count": 2
       }
     ],
     "sample_officer_ids": [
@@ -3013,7 +3021,7 @@
       2020
     ],
     "quick_insight": "Balanced cohort with mixed career trajectories.",
-    "narrative": "Batch 2019 includes 31 officers with an average of 5.1 posting records and 3.1 unique stations in known history."
+    "narrative": "Batch 2019 includes 31 officers with an average of 5.1 posting records and 2.2 unique stations in known history."
   },
   {
     "year": 2020,
@@ -3047,7 +3055,7 @@
       }
     ],
     "average_timeline_entries": 4.2,
-    "average_station_diversity": 3.2,
+    "average_station_diversity": 2.7,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -3074,12 +3082,12 @@
         "count": 52
       },
       {
-        "key": "126/2024",
-        "count": 50
-      },
-      {
         "key": "Bengaluru",
         "count": 35
+      },
+      {
+        "key": "Bangalore",
+        "count": 27
       }
     ],
     "common_designations": [
@@ -3108,16 +3116,16 @@
       "officer-10043",
       "officer-10299",
       "officer-10326",
-      "officer-9963",
       "officer-9855",
-      "officer-9748"
+      "officer-9748",
+      "officer-9568"
     ],
     "related_batch_years": [
       2019,
       2021
     ],
     "quick_insight": "Balanced cohort with mixed career trajectories.",
-    "narrative": "Batch 2020 includes 406 officers with an average of 4.2 posting records and 3.2 unique stations in known history."
+    "narrative": "Batch 2020 includes 406 officers with an average of 4.2 posting records and 2.7 unique stations in known history."
   },
   {
     "year": 2021,
@@ -3135,12 +3143,8 @@
       }
     ],
     "average_timeline_entries": 2.3,
-    "average_station_diversity": 1.8,
+    "average_station_diversity": 1.2,
     "top_stations": [
-      {
-        "key": "68/2025",
-        "count": 10
-      },
       {
         "key": "Delhi",
         "count": 9
@@ -3154,10 +3158,6 @@
         "count": 5
       },
       {
-        "key": "Report 68/2025",
-        "count": 4
-      },
-      {
         "key": "Bengaluru",
         "count": 4
       },
@@ -3167,6 +3167,14 @@
       },
       {
         "key": "Pune",
+        "count": 3
+      },
+      {
+        "key": "Bangalore",
+        "count": 3
+      },
+      {
+        "key": "Hyderabad",
         "count": 3
       }
     ],
@@ -3201,7 +3209,7 @@
       2022
     ],
     "quick_insight": "Emerging cohort with shorter documented journey depth so far.",
-    "narrative": "Batch 2021 includes 35 officers with an average of 2.3 posting records and 1.8 unique stations in known history."
+    "narrative": "Batch 2021 includes 35 officers with an average of 2.3 posting records and 1.2 unique stations in known history."
   },
   {
     "year": 2022,
@@ -3219,7 +3227,7 @@
       }
     ],
     "average_timeline_entries": 2.1,
-    "average_station_diversity": 1.5,
+    "average_station_diversity": 1.2,
     "top_stations": [
       {
         "key": "Jaipur",
@@ -3228,10 +3236,6 @@
       {
         "key": "Delhi",
         "count": 6
-      },
-      {
-        "key": "72/2025",
-        "count": 5
       },
       {
         "key": "Mumbai",
@@ -3251,6 +3255,10 @@
       },
       {
         "key": "Hyderabad",
+        "count": 2
+      },
+      {
+        "key": "Patna",
         "count": 2
       }
     ],
@@ -3285,7 +3293,7 @@
       2023
     ],
     "quick_insight": "Emerging cohort with shorter documented journey depth so far.",
-    "narrative": "Batch 2022 includes 30 officers with an average of 2.1 posting records and 1.5 unique stations in known history."
+    "narrative": "Batch 2022 includes 30 officers with an average of 2.1 posting records and 1.2 unique stations in known history."
   },
   {
     "year": 2023,
@@ -3315,7 +3323,7 @@
       }
     ],
     "average_timeline_entries": 2.7,
-    "average_station_diversity": 2.3,
+    "average_station_diversity": 1.7,
     "top_stations": [
       {
         "key": "Mumbai",
@@ -3330,14 +3338,6 @@
         "count": 206
       },
       {
-        "key": "79/2023",
-        "count": 187
-      },
-      {
-        "key": "186/2023",
-        "count": 158
-      },
-      {
         "key": "Bangalore",
         "count": 133
       },
@@ -3346,8 +3346,16 @@
         "count": 131
       },
       {
-        "key": "07/2024",
-        "count": 131
+        "key": "Kolkata",
+        "count": 126
+      },
+      {
+        "key": "Ahmedabad",
+        "count": 115
+      },
+      {
+        "key": "Bengaluru",
+        "count": 91
       }
     ],
     "common_designations": [
@@ -3359,11 +3367,15 @@
     "archetype_distribution": [
       {
         "key": "Emerging Leader Path",
-        "count": 1376
+        "count": 1375
       },
       {
         "key": "Administrative Continuity Profile",
         "count": 44
+      },
+      {
+        "key": "Narrow but Deep Service Track",
+        "count": 1
       }
     ],
     "sample_officer_ids": [
@@ -3380,7 +3392,7 @@
       2022
     ],
     "quick_insight": "Emerging cohort with shorter documented journey depth so far.",
-    "narrative": "Batch 2023 includes 1420 officers with an average of 2.7 posting records and 2.3 unique stations in known history."
+    "narrative": "Batch 2023 includes 1420 officers with an average of 2.7 posting records and 1.7 unique stations in known history."
   },
   {
     "year": 2025,
@@ -3402,16 +3414,8 @@
       }
     ],
     "average_timeline_entries": 1,
-    "average_station_diversity": 1,
+    "average_station_diversity": 0,
     "top_stations": [
-      {
-        "key": "Report 157/2025",
-        "count": 572
-      },
-      {
-        "key": "157/2025",
-        "count": 112
-      },
       {
         "key": "Received 157/2025",
         "count": 22
@@ -3441,6 +3445,6 @@
     ],
     "related_batch_years": [],
     "quick_insight": "Emerging cohort with shorter documented journey depth so far.",
-    "narrative": "Batch 2025 includes 706 officers with an average of 1 posting records and 1 unique stations in known history."
+    "narrative": "Batch 2025 includes 706 officers with an average of 1 posting records and 0 unique stations in known history."
   }
 ]

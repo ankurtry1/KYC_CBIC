@@ -66,6 +66,11 @@ export default async function DiscoverPage(): Promise<JSX.Element> {
                 title: "Career Paths",
                 description: "Review common progression ladders and trajectory bands.",
                 href: "/career-paths"
+              },
+              {
+                title: "Understand intelligence terms",
+                description: "See how archetypes, mobility, and similarity labels are derived.",
+                href: "/guide/intelligence"
               }
             ]}
           />

@@ -24,15 +24,15 @@
     },
     {
       "key": "Additional Commissioner -> Commissioner",
-      "count": 613
+      "count": 614
     },
     {
       "key": "Joint Commissioner -> Commissioner",
-      "count": 447
+      "count": 445
     },
     {
       "key": "Commissioner",
-      "count": 325
+      "count": 324
     },
     {
       "key": "Commissioner -> Principal Commissioner",
@@ -48,14 +48,14 @@
     },
     {
       "key": "Assistant Commissioner -> Joint Commissioner -> Commissioner",
-      "count": 7
+      "count": 8
     },
     {
       "key": "Assistant Commissioner -> Commissioner -> Chief Commissioner",
       "count": 2
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Commissioner",
+      "key": "Joint Commissioner -> Additional Commissioner -> Commissioner",
       "count": 1
     }
   ],

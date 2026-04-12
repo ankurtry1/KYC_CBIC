@@ -1,7 +1,9 @@
 import type { Officer } from "@/lib/officers/types";
+import Link from "next/link";
 import { InsightPanel } from "@/components/intelligence/InsightPanel";
 import { MetricPill } from "@/components/intelligence/MetricPill";
 import { ArchetypeBadge } from "@/components/intelligence/ArchetypeBadge";
+import { officerArchetypeEvidence } from "@/lib/intelligence/archetypes";
 
 type OfficerIntelligenceSummaryProps = {
   officer: Officer;
@@ -9,6 +11,7 @@ type OfficerIntelligenceSummaryProps = {
 
 export function OfficerIntelligenceSummary({ officer }: OfficerIntelligenceSummaryProps): JSX.Element {
   const summary = officer.insight_summary;
+  const evidence = officerArchetypeEvidence(officer);
 
   if (!summary) return <></>;
 
@@ -39,7 +42,21 @@ export function OfficerIntelligenceSummary({ officer }: OfficerIntelligenceSumma
         <span className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Career archetype</span>
         <ArchetypeBadge archetype={summary.likely_career_archetype} />
       </div>
-      <p className="mt-2 text-sm text-slate-600">{officer.career_archetype_reason}</p>
+      <p className="mt-2 text-sm text-slate-600">
+        Why this archetype: {officer.career_archetype_reason}
+      </p>
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        {evidence.map((item) => (
+          <span key={item} className="pill">
+            {item}
+          </span>
+        ))}
+      </div>
+      <p className="mt-2 text-xs text-slate-500">
+        <Link data-testid="intelligence-terms-link" href="/guide/intelligence" className="text-accent hover:underline">
+          Understand these terms
+        </Link>
+      </p>
     </InsightPanel>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CircleHelp } from "lucide-react";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { OfficerHeader } from "@/components/officers/OfficerHeader";
 import { CurrentPostingCard } from "@/components/officers/CurrentPostingCard";
@@ -53,6 +53,11 @@ export default async function OfficerDetailPage({ params }: OfficerDetailPagePro
       title: "Station intelligence",
       description: "Trace stations linked to this officer's journey.",
       href: "/stations"
+    },
+    {
+      title: "Understand intelligence terms",
+      description: "See how archetypes, mobility, and related-officer logic are defined.",
+      href: "/guide/intelligence"
     }
   ];
 
@@ -71,23 +76,45 @@ export default async function OfficerDetailPage({ params }: OfficerDetailPagePro
 
         <OfficerHeader officer={officer} />
 
-        <div className="grid gap-5 xl:grid-cols-[1.65fr,1fr]">
+        <div className="grid gap-5 xl:grid-cols-[1.55fr,1fr]">
           <div className="space-y-5">
             <CurrentPostingCard officer={officer} />
             <OfficerTimeline officer={officer} />
             <RelatedOfficers officer={officer} related={related} />
-            <RecommendationStrip testId="officer-recommendation-strip" items={recommendationItems} />
+            <StationHistory officer={officer} />
           </div>
 
           <aside className="space-y-5 xl:sticky xl:top-24 xl:self-start">
             <OfficerIntelligenceSummary officer={officer} />
             <InsightNarrativeCard officer={officer} />
+            <RelatedOfficers
+              officer={officer}
+              related={related}
+              compact
+              maxItems={3}
+              testId="related-officers-preview"
+            />
+            <section data-testid="officer-terms-panel" className="panel p-4">
+              <p className="text-label">Explainability</p>
+              <p className="mt-2 text-sm text-slate-700">
+                Archetypes, mobility labels, and similarity links are descriptive and based on deterministic rules.
+              </p>
+              <Link
+                data-testid="officer-guide-link"
+                href="/guide/intelligence"
+                className="mt-3 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50"
+              >
+                <CircleHelp className="h-3.5 w-3.5 text-accent" />
+                Understand these terms
+              </Link>
+            </section>
             <OfficerFacts officer={officer} />
             <RankProgression officer={officer} />
-            <StationHistory officer={officer} />
             <DataQualityPanel officer={officer} />
           </aside>
         </div>
+
+        <RecommendationStrip testId="officer-recommendation-strip" items={recommendationItems} />
       </section>
     </main>
   );

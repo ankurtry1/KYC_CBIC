@@ -4,6 +4,8 @@ test.describe("Directory filters and sorting", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/officers");
     await expect(page.getByTestId("officer-card").first()).toBeVisible();
+    await page.getByTestId("directory-toggle-filters").click();
+    await expect(page.getByTestId("directory-filters")).toBeVisible();
   });
 
   test("cadre filter changes results", async ({ page }) => {

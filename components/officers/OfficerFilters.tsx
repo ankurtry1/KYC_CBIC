@@ -47,7 +47,13 @@ function SelectField({
 
 export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFiltersProps): JSX.Element {
   return (
-    <div data-testid="directory-filters" className="panel grid gap-4 p-4 md:grid-cols-2 xl:grid-cols-4">
+    <div data-testid="directory-filters" className="panel p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <p className="text-label">Advanced Filters</p>
+        <p className="text-xs text-slate-500">Refine beyond quick filters</p>
+      </div>
+
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
       <SelectField
         testId="filter-cadre"
         label="Cadre"
@@ -133,6 +139,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
           { value: "desc", label: "Descending" }
         ]}
       />
+      </div>
     </div>
   );
 }

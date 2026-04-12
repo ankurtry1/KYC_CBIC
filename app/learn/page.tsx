@@ -199,6 +199,11 @@ export default async function LearnPage(): Promise<JSX.Element> {
                 title: "Career path atlas",
                 description: "Understand what data can and cannot say about progression speed.",
                 href: "/career-paths"
+              },
+              {
+                title: "Term guide",
+                description: "Understand archetypes, mobility labels, and confidence language.",
+                href: "/guide/intelligence"
               }
             ]}
           />
