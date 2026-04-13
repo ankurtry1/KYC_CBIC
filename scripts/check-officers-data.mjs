@@ -40,6 +40,8 @@ const metrics = JSON.parse(fs.readFileSync(metricsPath, "utf8"));
 
 const noisyDisplayPattern =
   /\b(w\.?\s*e\.?\s*f\.?|joining\s+report|promotion|prom\s+as|as\s+per|vide|order\s+no|report\s+\d{1,4}\/\d{2,4})\b/i;
+const postingTitleJunkPattern = /\b(recd\.?|joining|report|vide|as\s+per|wef|order\s+no)\b/i;
+const duplicateGstPattern = /(gst\s*&\s*cx(?:\s+zone)?)\s+\1/i;
 const allowedFallbackPostingSummary = "Posting details partially inferred";
 
 assert(Array.isArray(batches) && batches.length > 0, "data/batches.json must be non-empty");
@@ -104,6 +106,27 @@ for (const officer of officers) {
   for (const relatedId of officer.related_officer_ids) {
     assert(typeof relatedId === "string", `Invalid related officer ID type for ${officer.id}`);
   }
+
+  for (const posting of officer.posting_history ?? []) {
+    const role = posting.designation_display ?? posting.designation ?? posting.rank_held ?? "";
+    if (role) {
+      assert(!postingTitleJunkPattern.test(role), `Junk posting role for ${officer.id}: ${role}`);
+    }
+
+    const orgDisplay = posting.organization_display ?? posting.organization_unit_name ?? "";
+    if (orgDisplay) {
+      assert(!duplicateGstPattern.test(orgDisplay.toLowerCase()), `Duplicated GST fragment in org for ${officer.id}: ${orgDisplay}`);
+      assert(!/,\s*>/.test(orgDisplay), `Malformed org delimiter in ${officer.id}: ${orgDisplay}`);
+    }
+
+    const stationDisplay = posting.station_display ?? posting.location ?? "";
+    if (stationDisplay) {
+      assert(
+        !/\b(order|report|vide|as\s+per|wef)\b/i.test(stationDisplay),
+        `Station contains administrative residue for ${officer.id}: ${stationDisplay}`
+      );
+    }
+  }
 }
 
 assert(hasPostingHistory, "Expected at least one officer with non-empty posting_history");
@@ -132,6 +155,16 @@ for (const record of officersIndex) {
       `current_posting_summary should be human-readable for ${record.id}: ${record.current_posting_summary}`
     );
   }
+}
+
+const officer9368 = officers.find((officer) => officer.id === "officer-9368");
+if (officer9368) {
+  const currentRole = officer9368.current_posting?.designation_display ?? officer9368.current_posting?.designation ?? "";
+  const currentOrg = officer9368.current_posting?.organization_display ?? officer9368.current_posting?.organization_unit_name ?? "";
+  const currentStation = officer9368.current_posting?.station_display ?? officer9368.current_posting?.location ?? "";
+  assert(!postingTitleJunkPattern.test(currentRole), `officer-9368 current role is junk: ${currentRole}`);
+  assert(!/,\s*>/.test(currentOrg), `officer-9368 current org malformed: ${currentOrg}`);
+  assert(!/\b(order|report|vide|wef)\b/i.test(currentStation), `officer-9368 station malformed: ${currentStation}`);
 }
 
 console.log(

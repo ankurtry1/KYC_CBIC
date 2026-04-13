@@ -10,8 +10,12 @@ type CurrentPostingCardProps = {
 
 export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.Element {
   const posting = officer.current_posting;
-  const organizationUnit = sanitizeDisplayLabel(posting?.organization_unit_name);
-  const location = sanitizeDisplayLocation(posting?.location);
+  const designation =
+    posting?.designation_display ?? posting?.designation ?? officer.current_designation ?? "Current role not available";
+  const organizationUnit = sanitizeDisplayLabel(
+    posting?.organization_display ?? posting?.organization_unit_name
+  );
+  const location = sanitizeDisplayLocation(posting?.station_display ?? posting?.location);
   const isInferred = !organizationUnit || !location;
 
   return (
@@ -19,9 +23,7 @@ export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.El
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-label">Current Posting</p>
-          <h2 className="mt-1 text-lg font-semibold text-slate-900">
-            {posting?.designation ?? officer.current_designation ?? "Current role not available"}
-          </h2>
+          <h2 className="mt-1 text-lg font-semibold text-slate-900">{designation}</h2>
         </div>
 
         <span className="pill">Confidence {confidenceLabel(posting?.confidence)}</span>

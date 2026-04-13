@@ -13,7 +13,8 @@ type OfficerHeaderProps = {
 };
 
 export function OfficerHeader({ officer }: OfficerHeaderProps): JSX.Element {
-  const currentLocation = officer.current_posting?.location ?? "Location unavailable";
+  const currentLocation =
+    officer.current_posting?.station_display ?? officer.current_posting?.location ?? "Location unavailable";
 
   return (
     <motion.section

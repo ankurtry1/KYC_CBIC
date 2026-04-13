@@ -85,7 +85,11 @@ export function currentPostingSummary(officer: Officer): string {
   const posting = officer.current_posting;
   if (!posting) return "Current posting not available";
 
-  const parts = [posting.designation, posting.organization_unit_name, posting.location].filter(Boolean);
+  const parts = [
+    posting.designation_display ?? posting.designation,
+    posting.organization_display ?? posting.organization_unit_name,
+    posting.station_display ?? posting.location
+  ].filter(Boolean);
   if (parts.length === 0) return "Current posting partially inferred";
   return parts.join(" • ");
 }

@@ -36,6 +36,10 @@ const NOISY_LABEL_PATTERNS = [
   /\bw\.?\s*e\.?\s*f\.?\b/i,
   /\bjoining\s+report\b/i,
   /\bjoining\s+time\b/i,
+  /\bjoining\b/i,
+  /\breport\b/i,
+  /\brecd\.?\b/i,
+  /\brel\.?\b/i,
   /\bpromotion\b/i,
   /\bprom(?:\.|oted?)?\s+as\b/i,
   /\b(as\s+per|vide)\b/i,
@@ -65,6 +69,23 @@ const JUNK_SEGMENT_EXACT = new Set([
   "AS PER",
   "VIDE"
 ]);
+
+const ORGANIZATION_SHORT_NAMES = [
+  "DGGI",
+  "DRI",
+  "NACIN",
+  "NACEN",
+  "CCO",
+  "CBIC",
+  "BOARD",
+  "DGPM",
+  "DOP",
+  "DLA",
+  "DGHRD"
+];
+
+const TITLE_JUNK_PATTERN =
+  /\b(recd\.?|joining|report|vide|as\s+per|wef|order\s+no|no\.\s*\d+\/\d+|lr\b|rel\.?)\b/i;
 
 function normalizeSpaces(value) {
   return value.replace(/\s+/g, " ").trim();
@@ -182,18 +203,28 @@ function normalizeStation(value) {
 
 function canonicalDesignation(value) {
   if (!value) return null;
-  const source = normalizeSpaces(value).toLowerCase();
+  const normalized = normalizeSpaces(value);
+  const source = normalized.toLowerCase();
 
-  if (source.includes("principal chief commissioner")) return "Principal Chief Commissioner";
-  if (source.includes("chief commissioner")) return "Chief Commissioner";
-  if (source.includes("principal commissioner")) return "Principal Commissioner";
-  if (source.includes("additional commissioner") || source.includes("addl")) return "Additional Commissioner";
-  if (source.includes("joint commissioner") || source.includes("jt.")) return "Joint Commissioner";
-  if (source.includes("deputy commissioner") || source.includes("dy.")) return "Deputy Commissioner";
-  if (source.includes("assistant commissioner") || source.includes("asst") || source.includes("ac ")) return "Assistant Commissioner";
-  if (source.includes("commissioner")) return "Commissioner";
+  if (/(principal\s+chief\s+commissioner|\bpcc\b)/i.test(source)) return "Principal Chief Commissioner";
+  if (/(chief\s+commissioner|\bcc\b)/i.test(source)) return "Chief Commissioner";
+  if (/(principal\s+commissioner|\bpr\.?\s*commissioner\b|\bpc\b)/i.test(source)) return "Principal Commissioner";
+  if (/(additional\s+commissioner|\baddl\.?\b|\badc\b)/i.test(source)) return "Additional Commissioner";
+  if (/(joint\s+commissioner|\bjt\.?\b|\bjc\b)/i.test(source)) return "Joint Commissioner";
+  if (/(deputy\s+commissioner|\bdy\.?\b|\bdc\b)/i.test(source)) return "Deputy Commissioner";
+  if (/(assistant\s+commissioner|\basst\.?\b|\bac\b)/i.test(source)) return "Assistant Commissioner";
+  if (/\bcommissioner\b/i.test(source)) return "Commissioner";
 
-  return normalizeSpaces(value);
+  const cleaned = normalizeSpaces(
+    normalized
+      .replace(/\b(?:prom\.?|promotion|wef|vide|as\s+per|order\s+no|joining|report|recd\.?|lr|rel\.?)\b/gi, " ")
+      .replace(/\b\d{1,4}\/\d{2,4}\b/g, " ")
+      .replace(/\d{1,2}[./-]\d{1,2}[./-]\d{2,4}/g, " ")
+  );
+
+  if (!cleaned) return null;
+  if (/^(chief|directorate|commissionrate|commissionerate)$/i.test(cleaned)) return null;
+  return cleaned;
 }
 
 function safeExtract(block, regex) {
@@ -289,6 +320,232 @@ function parsePrefixCells(prefix) {
   return { rankHeld, designation, chiefZone, orgUnit, station };
 }
 
+function extractDateTokens(input) {
+  return [...input.matchAll(DATE_PATTERN)].map((match) => ({
+    value: match[1],
+    index: match.index ?? -1
+  }));
+}
+
+function stripAdministrativeFragments(input) {
+  if (!input) return "";
+  return normalizeSpaces(
+    input
+      .replace(/\b(?:vide|as\s+per|wef|order\s+no|no\.?|lr|l\.r|rel\.?|report|joining|recd\.?)\b/gi, " ")
+      .replace(/\b\d{1,4}\/\d{2,4}\b/g, " ")
+      .replace(/\d{1,2}[./-]\d{1,2}[./-]\d{2,4}/g, " ")
+      .replace(/[,:;]+/g, " ")
+  );
+}
+
+function dedupeConsecutiveWords(input) {
+  const words = input.split(/\s+/).filter(Boolean);
+  const deduped = [];
+  for (const word of words) {
+    if (deduped.length === 0 || deduped[deduped.length - 1].toLowerCase() !== word.toLowerCase()) {
+      deduped.push(word);
+    }
+  }
+  return deduped.join(" ");
+}
+
+function sanitizeOrganizationDisplay(input) {
+  if (!input) return null;
+
+  const normalized = normalizeSpaces(
+    input
+      .replace(/\s*,\s*>\s*/g, " > ")
+      .replace(/\s*>\s*/g, " > ")
+      .replace(/\b(GST\s*&\s*CX)\s+ZONE\s+\1\b/gi, "$1 Zone")
+      .replace(/\b(GST\s*&\s*CX)\s+\1\b/gi, "$1")
+      .replace(/\b([A-Z]*GST\s*&\s*CX)\s+GST\s*&\s*CX\s+ZONE\b/gi, "$1 Zone")
+      .replace(/\b([A-Z]*GST\s*&\s*CX)\s+GST\s*&\s*CX\b/gi, "$1")
+  );
+
+  const segments = normalized
+    .split(">")
+    .map((segment) => dedupeConsecutiveWords(stripAdministrativeFragments(segment)))
+    .map((segment) =>
+      normalizeSpaces(
+        segment.replace(/\b(?:assistant|deputy|joint|additional|principal|chief)\s+commissioner\b/gi, " ")
+      )
+    )
+    .map((segment) => normalizeSpaces(segment.replace(/\bcommissioner\b/gi, " ")))
+    .map((segment) => cleanSegment(segment))
+    .filter(Boolean)
+    .map((segment) => displayCase(segment));
+
+  const uniqueSegments = [];
+  for (const segment of segments) {
+    if (!uniqueSegments.some((existing) => existing.toLowerCase() === segment.toLowerCase())) {
+      uniqueSegments.push(segment);
+    }
+  }
+
+  if (uniqueSegments.length === 0) return null;
+
+  const joined = uniqueSegments.slice(0, 2).join(" > ");
+  if (isNoisyLabel(joined)) return null;
+  return joined;
+}
+
+function isLikelyDesignationFragment(value) {
+  const compact = normalizeSpaces(value).toLowerCase();
+  if (!compact) return true;
+  if (canonicalDesignation(compact) && RANK_LADDER.includes(canonicalDesignation(compact))) return true;
+  return /\b(ac|dc|jc|adc|asst|dy\.?|prom\.?|promotion|wef|lr|o\/o|dt|vide)\b/i.test(compact);
+}
+
+function isLikelyOrganizationFragment(value) {
+  const compact = normalizeSpaces(value);
+  if (!compact) return false;
+  const upper = compact.toUpperCase();
+
+  if (ORGANIZATION_SHORT_NAMES.some((token) => upper.includes(token))) return true;
+  return /\b(gst|cx|customs|zone|directorate|commissionerate|nacin|nacen|dggi|dri|cco|board)\b/i.test(compact);
+}
+
+function deriveStationRaw(cells) {
+  for (let i = cells.length - 1; i >= 0; i -= 1) {
+    const candidate = normalizeSpaces(cells[i]);
+    if (!candidate) continue;
+    if (isLikelyDesignationFragment(candidate)) continue;
+    if (ORGANIZATION_SHORT_NAMES.includes(candidate.toUpperCase())) continue;
+    if (isNoisyLabel(candidate)) continue;
+    return candidate;
+  }
+  return null;
+}
+
+function deriveOrganizationFromContext(context, stationDisplay) {
+  const compact = normalizeSpaces(context);
+  const upper = compact.toUpperCase();
+  const genericPrefixes = new Set(["ZONE", "GST", "CX", "GST & CX", "GST & CX ZONE", "COMMISSIONER"]);
+
+  for (const shortName of ORGANIZATION_SHORT_NAMES) {
+    if (upper.includes(shortName)) {
+      return shortName === "BOARD" ? "Board" : shortName;
+    }
+  }
+
+  const gstZoneMatch =
+    compact.match(/\b([A-Z]{3,}(?:\s+[A-Z]{3,}){0,2})\s+GST\s*&\s*CX\s+ZONE\b/) ??
+    compact.match(/\b([A-Z][A-Z .,&/-]{2,}?)\s+GST\s*&\s*CX\s+ZONE\b/i);
+  if (gstZoneMatch) {
+    const prefix = normalizeSpaces(gstZoneMatch[1]).toUpperCase();
+    if (!genericPrefixes.has(prefix)) {
+      return sanitizeOrganizationDisplay(`${gstZoneMatch[1]} GST & CX Zone`);
+    }
+  }
+
+  const gstMatch =
+    compact.match(/\b([A-Z]{3,}(?:\s+[A-Z]{3,}){0,2})\s+GST\s*&\s*CX\b/) ??
+    compact.match(/\b([A-Z][A-Z .,&/-]{2,}?)\s+GST\s*&\s*CX\b/i);
+  if (gstMatch) {
+    const prefix = normalizeSpaces(gstMatch[1]).toUpperCase();
+    if (!genericPrefixes.has(prefix)) {
+      return sanitizeOrganizationDisplay(`${gstMatch[1]} GST & CX`);
+    }
+  }
+
+  if (/\bGST\s*&\s*CX\s+ZONE\b/i.test(compact) && stationDisplay) {
+    return sanitizeOrganizationDisplay(`${stationDisplay} GST & CX Zone`);
+  }
+
+  if (/\bGST\s*&\s*CX\b/i.test(compact) && stationDisplay) {
+    return sanitizeOrganizationDisplay(`${stationDisplay} GST & CX`);
+  }
+
+  return null;
+}
+
+function detectRankFromContext(value) {
+  if (!value) return null;
+  const source = normalizeSpaces(value).toLowerCase();
+
+  if (/(principal\s+chief\s+commissioner|\bpcc\b)/i.test(source)) return "Principal Chief Commissioner";
+  if (/(chief\b[\s\S]{0,80}\bcommissioner|\bcc\b)/i.test(source)) return "Chief Commissioner";
+  if (/(principal\b[\s\S]{0,80}\bcommissioner|\bpc\b)/i.test(source)) return "Principal Commissioner";
+  if (/(additional\b[\s\S]{0,80}\bcommissioner|\baddl\.?\b|\badc\b)/i.test(source)) return "Additional Commissioner";
+  if (/(joint\b[\s\S]{0,80}\bcommissioner|\bjt\.?\b|\bjc\b)/i.test(source)) return "Joint Commissioner";
+  if (/(deputy\b[\s\S]{0,80}\bcommissioner|\bdy\.?\b|\bdc\b)/i.test(source)) return "Deputy Commissioner";
+  if (/(assistant\b[\s\S]{0,80}\bcommissioner|\basst\.?\b|\bac\b)/i.test(source)) return "Assistant Commissioner";
+  if (/\bcommissioner\b/i.test(source)) return "Commissioner";
+
+  return null;
+}
+
+function derivePostingRole({ rankHint, designationHint, context }) {
+  const rankFromHint = detectRankFromContext(rankHint) ?? sanitizeDesignation(rankHint);
+  if (rankFromHint && RANK_LADDER.includes(rankFromHint)) {
+    return {
+      rankHeldRaw: rankHint ?? null,
+      designationRaw: designationHint ?? rankHint ?? null,
+      designationDisplay: rankFromHint
+    };
+  }
+
+  const designationFromHint = sanitizeDesignation(designationHint);
+  if (designationFromHint && RANK_LADDER.includes(designationFromHint)) {
+    return {
+      rankHeldRaw: rankHint ?? null,
+      designationRaw: designationHint ?? null,
+      designationDisplay: designationFromHint
+    };
+  }
+
+  const designationFromContext = detectRankFromContext(context) ?? sanitizeDesignation(context);
+  if (designationFromContext && RANK_LADDER.includes(designationFromContext)) {
+    return {
+      rankHeldRaw: rankHint ?? null,
+      designationRaw: designationHint ?? null,
+      designationDisplay: designationFromContext
+    };
+  }
+
+  return {
+    rankHeldRaw: rankHint ?? null,
+    designationRaw: designationHint ?? null,
+    designationDisplay: null
+  };
+}
+
+function sanitizeRemarks(input) {
+  if (!input) return null;
+  const cleaned = normalizeSpaces(
+    input
+      .replace(/\b(?:joining|report|recd\.?|rel\.?|as\s+per|vide|wef|lr|dl)\b/gi, " ")
+      .replace(/[,:;.-]+$/g, "")
+  );
+  if (!cleaned) return null;
+  if (TITLE_JUNK_PATTERN.test(cleaned)) return null;
+  if (isNoisyLabel(cleaned)) return null;
+  return cleaned;
+}
+
+function extractMetadataFromSuffix(suffix, overflowDates, context) {
+  const orderNoMatch = suffix.match(/\b\d{1,4}\/\d{2,4}\b/);
+  const orderDateRaw = overflowDates.find((token) => Boolean(toIsoDate(token.value)))?.value ?? null;
+
+  const remarksRaw = normalizeSpaces(
+    suffix
+      .replace(orderNoMatch?.[0] ?? "", " ")
+      .replace(orderDateRaw ?? "", " ")
+  ) || null;
+
+  const additionalChargeMatch = `${context} ${suffix}`.match(
+    /\b(addl\.?\s*charge[^.]*|additional\s+charge[^.]*|to\s+work\s+in[^.]*|with\s+addl\s+charge[^.]*)/i
+  );
+
+  return {
+    remarks_raw: remarksRaw,
+    remarks_display: sanitizeRemarks(remarksRaw),
+    order_no: orderNoMatch?.[0] ?? null,
+    order_date: toIsoDate(orderDateRaw),
+    additional_charge_raw: additionalChargeMatch ? normalizeSpaces(additionalChargeMatch[1]) : null
+  };
+}
+
 function parsePostingRows(block, employeeId, sourceDoc) {
   const detailsStart = block.indexOf("POSTING DETAILS");
   if (detailsStart === -1) return [];
@@ -303,93 +560,112 @@ function parsePostingRows(block, employeeId, sourceDoc) {
     .map((line) => line.replace(/\t/g, "    "));
 
   const rows = [];
-  let buffer = "";
 
-  function flushRow(candidate) {
-    const pairMatch = candidate.match(DATE_PAIR_PATTERN);
-    let startDate = null;
-    let endDate = null;
-    let prefix = candidate;
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    if (!rawLine?.trim()) continue;
+    if (isPostingNoise(rawLine)) continue;
+    if (!/\d{1,2}\/\d{1,2}\/\d{4}/.test(rawLine)) continue;
 
-    if (pairMatch) {
-      startDate = pairMatch[1];
-      endDate = pairMatch[2];
-      prefix = candidate.slice(0, pairMatch.index).trimEnd();
-    } else {
-      const allDates = [...candidate.matchAll(DATE_PATTERN)].map((match) => match[1]);
-      if (allDates.length === 0) return false;
-      startDate = allDates[allDates.length - 1];
-      endDate = null;
-      const lastDateIndex = candidate.lastIndexOf(startDate);
-      prefix = candidate.slice(0, lastDateIndex).trimEnd();
-    }
+    const line = rawLine;
+    const dateTokens = extractDateTokens(line);
+    if (dateTokens.length === 0) continue;
 
-    const startIso = toIsoDate(startDate);
-    const endIso = toIsoDate(endDate);
-    if (!startIso) return false;
+    const pairMatch = line.match(DATE_PAIR_PATTERN);
+    const fromToken = pairMatch?.[1] ?? dateTokens[0]?.value ?? null;
+    const toToken = pairMatch?.[2] ?? null;
+    const fromIso = toIsoDate(fromToken);
+    const toIso = toIsoDate(toToken);
+    if (!fromIso) continue;
 
-    const { rankHeld, designation, chiefZone, orgUnit, station } = parsePrefixCells(prefix);
-    const stationLabel = normalizeStation(station);
-    const organizationUnitName = sanitizeOrganizationUnit([chiefZone, orgUnit].filter(Boolean).join(" > "));
-    const cleanDesignation = sanitizeDesignation(designation);
-    const cleanRankHeld = sanitizeDesignation(rankHeld);
+    const fromIndex = line.indexOf(fromToken);
+    const toIndex = toToken ? line.indexOf(toToken, fromIndex + fromToken.length) : -1;
+    const prefix = line.slice(0, Math.max(0, fromIndex));
+    const suffix = normalizeSpaces(
+      line.slice(toIndex !== -1 ? toIndex + toToken.length : fromIndex + fromToken.length)
+    );
 
-    if (!stationLabel && !organizationUnitName && !cleanDesignation && !cleanRankHeld) {
-      return false;
-    }
+    const prefixCells = prefix
+      .split(/\s{2,}/)
+      .map((cell) => normalizeSpaces(cell))
+      .filter(Boolean);
+
+    const stationRaw = deriveStationRaw(prefixCells);
+    const stationDisplay = normalizeStation(stationRaw);
+    const contextWindow = normalizeSpaces(
+      lines
+        .slice(Math.max(0, index - 2), Math.min(lines.length, index + 3))
+        .join(" ")
+    );
+
+    const candidateDesignation = prefixCells.find((cell) => !isLikelyOrganizationFragment(cell)) ?? null;
+    const chiefCommissionerateRaw =
+      prefixCells.find((cell) => /\bzone\b/i.test(cell) && /\b(gst|cx|customs|commissionerate)\b/i.test(cell)) ??
+      null;
+    const role = derivePostingRole({
+      rankHint: contextWindow,
+      designationHint: candidateDesignation,
+      context: contextWindow
+    });
+
+    const organizationCells = prefixCells.filter((cell) => {
+      if (!cell) return false;
+      if (stationRaw && normalizeSpaces(cell).toLowerCase() === stationRaw.toLowerCase()) return false;
+      if (isLikelyDesignationFragment(cell)) return false;
+      return !isNoisyLabel(cell);
+    });
+
+    const organizationFromCells = organizationCells.length > 0 ? organizationCells.join(" > ") : null;
+    const organizationDisplay =
+      sanitizeOrganizationDisplay(organizationFromCells) ??
+      deriveOrganizationFromContext(contextWindow, stationDisplay) ??
+      null;
+
+    const overflowDates = pairMatch ? dateTokens.slice(2) : dateTokens.slice(1);
+    const metadata = extractMetadataFromSuffix(suffix, overflowDates, contextWindow);
+
+    const designationDisplay = role.designationDisplay ?? sanitizeDesignation(candidateDesignation) ?? null;
+    const rankDisplay = detectRankFromContext(role.rankHeldRaw) ?? designationDisplay;
+
+    if (!designationDisplay && !rankDisplay && !organizationDisplay && !stationDisplay) continue;
 
     const confidence =
-      startIso && endIso && stationLabel && cleanDesignation
-        ? 0.88
-        : startIso && endIso && (organizationUnitName || cleanDesignation || cleanRankHeld)
-          ? 0.76
-          : startIso && (organizationUnitName || cleanDesignation || cleanRankHeld || stationLabel)
-            ? 0.62
-            : 0.45;
+      fromIso && toIso && designationDisplay && organizationDisplay && stationDisplay
+        ? 0.9
+        : fromIso && designationDisplay && (organizationDisplay || stationDisplay)
+          ? 0.78
+          : fromIso && (designationDisplay || organizationDisplay || stationDisplay)
+            ? 0.64
+            : 0.46;
 
     rows.push({
       posting_id: `post-${employeeId}-${rows.length + 1}`,
-      designation: cleanDesignation,
-      rank_held: cleanRankHeld,
-      organization_unit_id: organizationUnitName
-        ? `org-${slugify(organizationUnitName)}`
-        : null,
-      organization_unit_name: organizationUnitName,
-      location: stationLabel,
-      start_date: startIso,
-      end_date: endIso,
+      rank_held_raw: role.rankHeldRaw,
+      designation_raw: candidateDesignation,
+      designation_display: designationDisplay,
+      designation: designationDisplay,
+      rank_held: rankDisplay,
+      chief_commissionerate_raw: chiefCommissionerateRaw,
+      organization_raw: organizationFromCells,
+      organization_display: organizationDisplay,
+      organization_unit_id: organizationDisplay ? `org-${slugify(organizationDisplay)}` : null,
+      organization_unit_name: organizationDisplay,
+      station_raw: stationRaw,
+      station_display: stationDisplay,
+      location: stationDisplay,
+      from_date: fromIso,
+      to_date: toIso,
+      start_date: fromIso,
+      end_date: toIso,
+      remarks_raw: metadata.remarks_raw,
+      remarks_display: metadata.remarks_display,
+      order_no: metadata.order_no,
+      order_date: metadata.order_date,
+      additional_charge_raw: metadata.additional_charge_raw,
       source_doc: sourceDoc,
       confidence
     });
-
-    return true;
   }
-
-  for (const line of lines) {
-    if (isPostingNoise(line)) continue;
-    if (!line.trim()) continue;
-
-    if (buffer) {
-      buffer += ` ${line}`;
-    } else {
-      buffer = line;
-    }
-
-    const hasDatePair = DATE_PAIR_PATTERN.test(buffer);
-    const hasTerminalDate = /(\d{1,2}\/\d{1,2}\/\d{4})\s*$/.test(buffer);
-
-    if (hasDatePair || hasTerminalDate) {
-      flushRow(buffer);
-      buffer = "";
-    }
-
-    if (buffer.length > 1200) {
-      flushRow(buffer);
-      buffer = "";
-    }
-  }
-
-  if (buffer) flushRow(buffer);
 
   const unique = [];
   const seen = new Set();
@@ -678,13 +954,28 @@ function parseOfficerBlock(block, sourceDoc, employeeId) {
 
   const currentPosting = latestPosting
     ? (() => {
-        const currentLocation = normalizeStation(latestPosting.location);
-        const currentUnitName = sanitizeOrganizationUnit(latestPosting.organization_unit_name);
+        const currentLocation =
+          normalizeStation(latestPosting.station_display ?? latestPosting.location) ??
+          normalizeStation(latestPosting.location);
+        const currentUnitName =
+          sanitizeOrganizationDisplay(latestPosting.organization_display ?? latestPosting.organization_unit_name) ??
+          sanitizeOrganizationUnit(latestPosting.organization_unit_name);
+        const currentDesignationDisplay =
+          sanitizeDesignation(latestPosting.designation_display ?? latestPosting.designation) ??
+          sanitizeDesignation(latestPosting.rank_held) ??
+          currentDesignation;
+
         return {
         post_id: latestPosting.posting_id,
-        designation: sanitizeDesignation(latestPosting.designation) ?? currentDesignation,
+        designation: currentDesignationDisplay,
+        designation_raw: latestPosting.designation_raw ?? null,
+        designation_display: currentDesignationDisplay,
         organization_unit_id: latestPosting.organization_unit_id,
+        organization_raw: latestPosting.organization_raw ?? null,
+        organization_display: currentUnitName,
         organization_unit_name: currentUnitName,
+        station_raw: latestPosting.station_raw ?? null,
+        station_display: currentLocation,
         location: currentLocation,
         start_date: latestPosting.start_date,
         end_date: latestPosting.end_date,
@@ -694,8 +985,14 @@ function parseOfficerBlock(block, sourceDoc, employeeId) {
     : {
         post_id: null,
         designation: currentDesignation,
+        designation_raw: null,
+        designation_display: currentDesignation,
         organization_unit_id: null,
+        organization_raw: null,
+        organization_display: null,
         organization_unit_name: null,
+        station_raw: null,
+        station_display: null,
         location: null,
         start_date: null,
         end_date: null,
@@ -970,9 +1267,16 @@ function computeRelatedOfficers(officers) {
 
 function createIndex(officers) {
   return officers.map((officer) => {
-    const currentLocation = normalizeStation(officer.current_posting?.location);
-    const currentOrganizationUnit = sanitizeOrganizationUnit(officer.current_posting?.organization_unit_name);
-    const currentDesignation = sanitizeDesignation(officer.current_posting?.designation) ?? officer.current_designation;
+    const currentLocation = normalizeStation(
+      officer.current_posting?.station_display ?? officer.current_posting?.location
+    );
+    const currentOrganizationUnit =
+      sanitizeOrganizationDisplay(
+        officer.current_posting?.organization_display ?? officer.current_posting?.organization_unit_name
+      ) ?? sanitizeOrganizationUnit(officer.current_posting?.organization_unit_name);
+    const currentDesignation =
+      sanitizeDesignation(officer.current_posting?.designation_display ?? officer.current_posting?.designation) ??
+      officer.current_designation;
     const currentPostingSummary = [currentDesignation, currentOrganizationUnit, currentLocation]
       .filter(Boolean)
       .join(" • ");

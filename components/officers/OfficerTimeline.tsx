@@ -224,23 +224,26 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
                           {formatDateRange(item.start_date, item.end_date)}
                         </p>
                         <h3 className="mt-1 text-base font-semibold text-slate-900">
-                          {item.designation ?? item.rank_held ?? "Role details unavailable"}
+                          {item.designation_display ?? item.designation ?? item.rank_held ?? "Role details unavailable"}
                         </h3>
                         <p className="mt-1 text-sm text-slate-600">
                           {[
-                            sanitizeDisplayLabel(item.organization_unit_name),
-                            sanitizeDisplayLocation(item.location)
+                            sanitizeDisplayLabel(item.organization_display ?? item.organization_unit_name),
+                            sanitizeDisplayLocation(item.station_display ?? item.location)
                           ]
                             .filter(Boolean)
                             .join(" • ") || "Organization/location data unavailable"}
                         </p>
 
-                        {(item.source_doc || item.confidence != null) ? (
+                        {(item.source_doc || item.confidence != null || item.remarks_display || item.order_no) ? (
                           <details className="mt-2 text-xs text-slate-500">
                             <summary className="cursor-pointer select-none font-medium text-slate-600">
                               Source metadata
                             </summary>
                             <div className="mt-1 space-y-1">
+                              {item.remarks_display ? <p>Remarks: {item.remarks_display}</p> : null}
+                              {item.order_no ? <p>Order no: {item.order_no}</p> : null}
+                              {item.order_date ? <p>Order date: {item.order_date}</p> : null}
                               <p>Source: {item.source_doc ?? "Unknown"}</p>
                               <p>Confidence: {item.confidence != null ? `${Math.round(item.confidence * 100)}%` : "Unknown"}</p>
                             </div>

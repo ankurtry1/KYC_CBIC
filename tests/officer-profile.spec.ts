@@ -88,6 +88,8 @@ function createTimelineFixture(): TimelineFixture {
 }
 
 const TIMELINE_FIXTURE = createTimelineFixture();
+const ROLE_LIKE_PATTERN =
+  /(Assistant Commissioner|Deputy Commissioner|Joint Commissioner|Additional Commissioner|Commissioner|Principal Commissioner|Chief Commissioner|Principal Chief Commissioner)/i;
 
 test.describe("Officer profile page", () => {
   test("opens profile from directory and shows key sections", async ({ page }) => {
@@ -187,5 +189,32 @@ test.describe("Officer profile page", () => {
     await page.getByTestId("timeline-collapse-all").click();
     await page.getByTestId("timeline-expand-all").click();
     await expect(page.getByTestId("timeline-group-toggle-0")).toContainText(TIMELINE_FIXTURE.expectedGroupLabels[0]);
+  });
+
+  test("sample officer posting semantics stay clean (officer-9368)", async ({ page }) => {
+    await page.goto("/officers/officer-9368");
+    await expect(page.getByTestId("officer-profile-page")).toBeVisible();
+
+    const currentPostingCard = page.getByTestId("current-posting-card");
+    await expect(currentPostingCard).toBeVisible();
+    await expect(currentPostingCard).not.toContainText(/recd\.?/i);
+    await expect(currentPostingCard).not.toContainText(/,\s*>/);
+    await expect(currentPostingCard.locator("h2")).toContainText(ROLE_LIKE_PATTERN);
+
+    const topTimelineTitle = page
+      .locator('section[data-testid^="timeline-group-"]')
+      .first()
+      .locator("article h3")
+      .first();
+    await expect(topTimelineTitle).toContainText(ROLE_LIKE_PATTERN);
+    await expect(topTimelineTitle).not.toContainText(/recd\.?/i);
+
+    const topTimelineMeta = page
+      .locator('section[data-testid^="timeline-group-"]')
+      .first()
+      .locator("article p")
+      .nth(1);
+    await expect(topTimelineMeta).not.toContainText(/,\s*>/);
+    await expect(topTimelineMeta).not.toContainText(/\breport\b|\bvide\b|\bwef\b/i);
   });
 });

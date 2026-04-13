@@ -3,10 +3,25 @@ export type TimelineQuality = "full" | "partial" | "minimal";
 
 export type OfficerPosting = {
   posting_id?: string;
+  rank_held_raw?: string | null;
+  designation_raw?: string | null;
+  designation_display?: string | null;
   designation?: string | null;
   rank_held?: string | null;
+  organization_raw?: string | null;
+  organization_display?: string | null;
   organization_unit_id?: string | null;
   organization_unit_name?: string | null;
+  station_raw?: string | null;
+  station_display?: string | null;
+  chief_commissionerate_raw?: string | null;
+  from_date?: string | null;
+  to_date?: string | null;
+  remarks_raw?: string | null;
+  remarks_display?: string | null;
+  order_no?: string | null;
+  order_date?: string | null;
+  additional_charge_raw?: string | null;
   location?: string | null;
   start_date?: string | null;
   end_date?: string | null;
@@ -16,9 +31,15 @@ export type OfficerPosting = {
 
 export type CurrentPosting = {
   post_id?: string | null;
+  designation_raw?: string | null;
+  designation_display?: string | null;
   designation?: string | null;
+  organization_raw?: string | null;
+  organization_display?: string | null;
   organization_unit_id?: string | null;
   organization_unit_name?: string | null;
+  station_raw?: string | null;
+  station_display?: string | null;
   location?: string | null;
   start_date?: string | null;
   end_date?: string | null;

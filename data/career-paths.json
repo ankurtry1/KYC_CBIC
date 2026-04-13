@@ -11,52 +11,52 @@
   ],
   "common_progressions": [
     {
-      "key": "Assistant Commissioner -> Commissioner",
-      "count": 1851
-    },
-    {
       "key": "Assistant Commissioner",
-      "count": 762
+      "count": 2140
     },
     {
-      "key": "Deputy Commissioner -> Commissioner",
-      "count": 618
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner",
+      "count": 598
     },
     {
-      "key": "Additional Commissioner -> Commissioner",
-      "count": 614
+      "key": "Assistant Commissioner -> Commissioner",
+      "count": 400
     },
     {
-      "key": "Joint Commissioner -> Commissioner",
-      "count": 445
+      "key": "Assistant Commissioner -> Deputy Commissioner",
+      "count": 317
     },
     {
-      "key": "Commissioner",
-      "count": 324
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Commissioner",
+      "count": 246
     },
     {
-      "key": "Commissioner -> Principal Commissioner",
-      "count": 94
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Commissioner",
+      "count": 210
     },
     {
-      "key": "Commissioner -> Chief Commissioner",
-      "count": 36
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner",
+      "count": 197
     },
     {
-      "key": "Commissioner -> Principal Chief Commissioner",
-      "count": 10
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner",
+      "count": 146
     },
     {
-      "key": "Assistant Commissioner -> Joint Commissioner -> Commissioner",
-      "count": 8
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Chief Commissioner",
+      "count": 103
     },
     {
-      "key": "Assistant Commissioner -> Commissioner -> Chief Commissioner",
-      "count": 2
+      "key": "Assistant Commissioner -> Chief Commissioner",
+      "count": 51
     },
     {
-      "key": "Joint Commissioner -> Additional Commissioner -> Commissioner",
-      "count": 1
+      "key": "Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner",
+      "count": 41
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner",
+      "count": 37
     }
   ],
   "rank_step_timings": [
@@ -150,7 +150,7 @@
       "name": "Mr Abhai Kumar Srivastav",
       "batch": 1992,
       "cadre": "DR",
-      "timeline_entries": 34,
+      "timeline_entries": 35,
       "archetype": "Broad Multi-Station Leader"
     },
     {
@@ -158,8 +158,16 @@
       "name": "Mr Anuj Gogia",
       "batch": 1992,
       "cadre": "DR",
-      "timeline_entries": 33,
+      "timeline_entries": 34,
       "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-743",
+      "name": "Mrs Kajal Singh",
+      "batch": 1992,
+      "cadre": "DR",
+      "timeline_entries": 34,
+      "archetype": "Deep Senior Leadership Track"
     },
     {
       "officer_id": "officer-670",
@@ -178,14 +186,6 @@
       "archetype": "Broad Multi-Station Leader"
     },
     {
-      "officer_id": "officer-743",
-      "name": "Mrs Kajal Singh",
-      "batch": 1992,
-      "cadre": "DR",
-      "timeline_entries": 31,
-      "archetype": "Deep Senior Leadership Track"
-    },
-    {
       "officer_id": "officer-882",
       "name": "Mr D. Venkateswara Reddy",
       "batch": 1995,
@@ -194,17 +194,41 @@
       "archetype": "Broad Multi-Station Leader"
     },
     {
-      "officer_id": "officer-939",
-      "name": "Mrs Amita Singh",
-      "batch": 1997,
+      "officer_id": "officer-689",
+      "name": "Mrs Charul Baranwal",
+      "batch": 1991,
+      "cadre": "DR",
+      "timeline_entries": 30,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-924",
+      "name": "Ms Kavita Bhatnagar",
+      "batch": 1996,
+      "cadre": "DR",
+      "timeline_entries": 30,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-909",
+      "name": "Mr Dipak Kumar Gupta",
+      "batch": 1995,
       "cadre": "DR",
       "timeline_entries": 29,
       "archetype": "Broad Multi-Station Leader"
     },
     {
-      "officer_id": "officer-689",
-      "name": "Mrs Charul Baranwal",
+      "officer_id": "officer-696",
+      "name": "Mr Sanjay Rathi",
       "batch": 1991,
+      "cadre": "DR",
+      "timeline_entries": 29,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-939",
+      "name": "Mrs Amita Singh",
+      "batch": 1997,
       "cadre": "DR",
       "timeline_entries": 29,
       "archetype": "Broad Multi-Station Leader"
@@ -226,43 +250,19 @@
       "archetype": "Broad Multi-Station Leader"
     },
     {
-      "officer_id": "officer-817",
-      "name": "Mr Vidhyadhar Namdeorao Thete",
-      "batch": 1993,
-      "cadre": "DR",
-      "timeline_entries": 28,
-      "archetype": "Broad Multi-Station Leader"
-    },
-    {
-      "officer_id": "officer-924",
-      "name": "Ms Kavita Bhatnagar",
-      "batch": 1996,
-      "cadre": "DR",
-      "timeline_entries": 28,
-      "archetype": "Broad Multi-Station Leader"
-    },
-    {
-      "officer_id": "officer-1699",
-      "name": "Dr Yashovardhan Pathak",
-      "batch": 2002,
-      "cadre": "DR",
-      "timeline_entries": 27,
-      "archetype": "Broad Multi-Station Leader"
-    },
-    {
-      "officer_id": "officer-909",
-      "name": "Mr Dipak Kumar Gupta",
-      "batch": 1995,
-      "cadre": "DR",
-      "timeline_entries": 27,
-      "archetype": "Broad Multi-Station Leader"
-    },
-    {
       "officer_id": "officer-745",
       "name": "Mr Pradeep Saxena",
       "batch": 1992,
       "cadre": "DR",
-      "timeline_entries": 27,
+      "timeline_entries": 28,
+      "archetype": "Broad Multi-Station Leader"
+    },
+    {
+      "officer_id": "officer-915",
+      "name": "Mr S. Anantha Krishnan",
+      "batch": 1995,
+      "cadre": "DR",
+      "timeline_entries": 28,
       "archetype": "Broad Multi-Station Leader"
     }
   ],

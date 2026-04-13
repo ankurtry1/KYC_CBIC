@@ -4,8 +4,12 @@ const NOISY_LABEL_PATTERNS = [
   /\bw\.?\s*e\.?\s*f\.?\b/i,
   /\bjoining\s+report\b/i,
   /\bjoining\s+time\b/i,
+  /\bjoining\b/i,
+  /\breport\b/i,
   /\bpromotion\b/i,
   /\bprom\s+as\b/i,
+  /\brecd\.?\b/i,
+  /\brel\.?\b/i,
   /\b(as\s+per|vide)\b/i,
   /\border\s+no\b/i,
   /\bnotifi(?:cation)?\.?\s*no\b/i,
@@ -54,6 +58,7 @@ export function sanitizeDisplayLabel(input: string | null | undefined): string |
   const cleaned = normalizeLocation(
     input
       .replace(/[()[\]{}]/g, " ")
+      .replace(/\s*,\s*>\s*/g, " ")
       .replace(/[_|]/g, " ")
       .replace(/\s+/g, " ")
       .trim()
@@ -83,11 +88,25 @@ export function normalizeOfficer(officer: Officer): Officer {
     current_posting: officer.current_posting
       ? {
           ...officer.current_posting,
+          designation_display: sanitizeDisplayLabel(
+            officer.current_posting.designation_display ?? officer.current_posting.designation
+          ),
+          organization_display: sanitizeDisplayLabel(
+            officer.current_posting.organization_display ?? officer.current_posting.organization_unit_name
+          ),
+          station_display: sanitizeDisplayLocation(
+            officer.current_posting.station_display ?? officer.current_posting.location
+          ),
           location: sanitizeDisplayLocation(officer.current_posting.location)
         }
       : officer.current_posting,
     posting_history: sortPostingsChronologically(officer.posting_history).map((posting) => ({
       ...posting,
+      designation_display: sanitizeDisplayLabel(posting.designation_display ?? posting.designation),
+      organization_display: sanitizeDisplayLabel(
+        posting.organization_display ?? posting.organization_unit_name
+      ),
+      station_display: sanitizeDisplayLocation(posting.station_display ?? posting.location),
       location: sanitizeDisplayLocation(posting.location)
     }))
   };
