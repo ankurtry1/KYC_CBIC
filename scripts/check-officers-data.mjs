@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { resolveOfficerDataSourceMode } from "./officer-source-mode.mjs";
 
 function assert(condition, message) {
   if (!condition) {
@@ -12,6 +13,7 @@ assert(fs.existsSync(filePath), `Missing data file: ${filePath}`);
 
 const payload = fs.readFileSync(filePath, "utf8");
 const officers = JSON.parse(payload);
+const sourceMode = resolveOfficerDataSourceMode(process.env.OFFICER_DATA_SOURCE_MODE);
 const indexPath = path.join(process.cwd(), "data", "officers-index.json");
 assert(fs.existsSync(indexPath), `Missing generated dataset: ${indexPath}`);
 const officersIndex = JSON.parse(fs.readFileSync(indexPath, "utf8"));
@@ -56,6 +58,8 @@ assert(metrics.designation_spread > 0, "metrics.designation_spread must be > 0")
 
 const ids = new Set();
 let hasPostingHistory = false;
+let excelPostingCount = 0;
+let textPostingCount = 0;
 
 for (const officer of officers) {
   assert(typeof officer.id === "string" && officer.id.length > 0, "Every officer must have a non-empty id");
@@ -95,6 +99,12 @@ for (const officer of officers) {
       `Noisy current_posting.location for ${officer.id}: ${officer.current_posting.location}`
     );
   }
+  if (officer.current_posting?.start_date && officer.current_posting?.end_date) {
+    assert(
+      officer.current_posting.end_date >= officer.current_posting.start_date,
+      `Current posting end_date precedes start_date for ${officer.id}`
+    );
+  }
 
   for (const entry of officer.station_history ?? []) {
     assert(
@@ -108,6 +118,9 @@ for (const officer of officers) {
   }
 
   for (const posting of officer.posting_history ?? []) {
+    if (posting.source_type === "excel") excelPostingCount += 1;
+    if (posting.source_type === "text") textPostingCount += 1;
+
     const role = posting.designation_display ?? posting.designation ?? posting.rank_held ?? "";
     if (role) {
       assert(!postingTitleJunkPattern.test(role), `Junk posting role for ${officer.id}: ${role}`);
@@ -124,6 +137,14 @@ for (const officer of officers) {
       assert(
         !/\b(order|report|vide|as\s+per|wef)\b/i.test(stationDisplay),
         `Station contains administrative residue for ${officer.id}: ${stationDisplay}`
+      );
+      assert(!/,\s*>/.test(stationDisplay), `Malformed station delimiter in ${officer.id}: ${stationDisplay}`);
+    }
+
+    if (posting.start_date && posting.end_date) {
+      assert(
+        posting.end_date >= posting.start_date,
+        `Posting has end_date earlier than start_date for ${officer.id}: ${posting.start_date} -> ${posting.end_date}`
       );
     }
   }
@@ -159,14 +180,61 @@ for (const record of officersIndex) {
 
 const officer9368 = officers.find((officer) => officer.id === "officer-9368");
 if (officer9368) {
+  const timelineSorted = [...(officer9368.posting_history ?? [])].sort((left, right) => {
+    const leftTs = left.start_date ? new Date(left.start_date).getTime() : 0;
+    const rightTs = right.start_date ? new Date(right.start_date).getTime() : 0;
+    return rightTs - leftTs;
+  });
+
   const currentRole = officer9368.current_posting?.designation_display ?? officer9368.current_posting?.designation ?? "";
   const currentOrg = officer9368.current_posting?.organization_display ?? officer9368.current_posting?.organization_unit_name ?? "";
   const currentStation = officer9368.current_posting?.station_display ?? officer9368.current_posting?.location ?? "";
   assert(!postingTitleJunkPattern.test(currentRole), `officer-9368 current role is junk: ${currentRole}`);
   assert(!/,\s*>/.test(currentOrg), `officer-9368 current org malformed: ${currentOrg}`);
   assert(!/\b(order|report|vide|wef)\b/i.test(currentStation), `officer-9368 station malformed: ${currentStation}`);
+  assert(
+    /Deputy Commissioner/i.test(currentRole),
+    `officer-9368 current role should be Deputy Commissioner-like, got: ${currentRole}`
+  );
+  assert(/NACIN/i.test(currentOrg), `officer-9368 current org should include NACIN, got: ${currentOrg}`);
+  assert(/Palasamudram/i.test(currentStation), `officer-9368 station should include Palasamudram, got: ${currentStation}`);
+
+  if (timelineSorted.length >= 2) {
+    const latest = timelineSorted[0];
+    const second = timelineSorted[1];
+    const latestRole = latest.designation_display ?? latest.designation ?? latest.rank_held ?? "";
+    const latestOrg = latest.organization_display ?? latest.organization_unit_name ?? "";
+    const latestStation = latest.station_display ?? latest.location ?? "";
+    const secondRole = second.designation_display ?? second.designation ?? second.rank_held ?? "";
+    const secondOrg = second.organization_display ?? second.organization_unit_name ?? "";
+    const secondStation = second.station_display ?? second.location ?? "";
+
+    assert(/Deputy Commissioner/i.test(latestRole), `officer-9368 latest posting role mismatch: ${latestRole}`);
+    assert(/NACIN/i.test(latestOrg), `officer-9368 latest posting org mismatch: ${latestOrg}`);
+    assert(/Palasamudram/i.test(latestStation), `officer-9368 latest posting station mismatch: ${latestStation}`);
+    assert(/Deputy Commissioner|Assistant Commissioner/i.test(secondRole), `officer-9368 second posting role mismatch: ${secondRole}`);
+    assert(/DGGI|GST\s*&\s*CX/i.test(secondOrg), `officer-9368 second posting org mismatch: ${secondOrg}`);
+    assert(/Bhuban(?:e)?sh?war/i.test(secondStation), `officer-9368 second posting station mismatch: ${secondStation}`);
+  }
+}
+
+if (sourceMode === "text-only") {
+  assert(excelPostingCount === 0, `text-only mode should not output excel postings, found ${excelPostingCount}`);
+}
+
+if (sourceMode === "excel-only") {
+  assert(textPostingCount === 0, `excel-only mode should not output text postings, found ${textPostingCount}`);
+  assert(excelPostingCount > 0, "excel-only mode should output at least one excel posting");
+}
+
+if (sourceMode === "excel-first") {
+  assert(excelPostingCount > 0, "excel-first mode should include excel postings");
+}
+
+if (sourceMode === "text-first") {
+  assert(textPostingCount > 0, "text-first mode should include text postings");
 }
 
 console.log(
-  `Data sanity checks passed for ${officers.length} officers; batches=${batches.length}, cadres=${cadres.length}, stations=${stations.length}.`
+  `Data sanity checks passed for ${officers.length} officers; batches=${batches.length}, cadres=${cadres.length}, stations=${stations.length}; mode=${sourceMode}, excel_postings=${excelPostingCount}, text_postings=${textPostingCount}.`
 );

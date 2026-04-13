@@ -1,11 +1,11 @@
 {
   "total_officers": 4770,
-  "timeline_rich_officers": 1814,
-  "partial_timeline_officers": 2956,
+  "timeline_rich_officers": 1692,
+  "partial_timeline_officers": 3078,
   "minimal_timeline_officers": 0,
   "cadres_covered": 4,
   "designation_spread": 8,
-  "average_timeline_entries": 7.3,
+  "average_timeline_entries": 7.4,
   "verification_breakdown": {
     "verified": 4551,
     "not_verified": 219

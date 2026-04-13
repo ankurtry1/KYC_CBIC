@@ -1,5 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
+import { importOfficersMetadataXlsx } from "./import-officers-metadata-xlsx.mjs";
+import {
+  resolveOfficerDataSourceMode,
+  shouldUseExcel
+} from "./officer-source-mode.mjs";
 
 const ROOT = process.cwd();
 const TEXT_DIR = path.join(ROOT, "tmp", "pdfs", "text");
@@ -19,11 +24,6 @@ const RANK_LADDER = [
   "Chief Commissioner",
   "Principal Chief Commissioner"
 ];
-
-const FILES = fs
-  .readdirSync(TEXT_DIR)
-  .filter((name) => name.endsWith(".txt"))
-  .sort((a, b) => a.localeCompare(b));
 
 const CADRE_EXPLANATIONS = {
   DR: "Direct recruit officer journeys with broad foundational exposure.",
@@ -86,6 +86,14 @@ const ORGANIZATION_SHORT_NAMES = [
 
 const TITLE_JUNK_PATTERN =
   /\b(recd\.?|joining|report|vide|as\s+per|wef|order\s+no|no\.\s*\d+\/\d+|lr\b|rel\.?)\b/i;
+
+function listTextFiles() {
+  if (!fs.existsSync(TEXT_DIR)) return [];
+  return fs
+    .readdirSync(TEXT_DIR)
+    .filter((name) => name.endsWith(".txt"))
+    .sort((a, b) => a.localeCompare(b));
+}
 
 function normalizeSpaces(value) {
   return value.replace(/\s+/g, " ").trim();
@@ -663,6 +671,7 @@ function parsePostingRows(block, employeeId, sourceDoc) {
       order_date: metadata.order_date,
       additional_charge_raw: metadata.additional_charge_raw,
       source_doc: sourceDoc,
+      source_type: "text",
       confidence
     });
   }
@@ -1097,10 +1106,437 @@ function parseOfficerBlock(block, sourceDoc, employeeId) {
   };
 }
 
+function buildOfficerIdentityKeys({ name, normalizedName, dob, batch, cadre }) {
+  const safeName = normalizeName(name) ?? normalizeName(normalizedName) ?? null;
+  const safeDob = dob ?? null;
+  const safeBatch = batch != null ? Number(batch) : null;
+  const safeCadre = normalizeCadre(cadre);
+  const keys = [];
+
+  if (safeName && safeDob && safeBatch != null && safeCadre) {
+    keys.push(`name-dob-batch-cadre:${safeName}|${safeDob}|${safeBatch}|${safeCadre}`);
+  }
+  if (safeName && safeDob && safeBatch != null) {
+    keys.push(`name-dob-batch:${safeName}|${safeDob}|${safeBatch}`);
+  }
+  if (safeName && safeDob) {
+    keys.push(`name-dob:${safeName}|${safeDob}`);
+  }
+  if (safeName && safeBatch != null && safeCadre) {
+    keys.push(`name-batch-cadre:${safeName}|${safeBatch}|${safeCadre}`);
+  }
+  if (safeName) {
+    keys.push(`name:${safeName}`);
+  }
+
+  return [...new Set(keys)];
+}
+
+function dedupeAndSortPostingHistory(postingHistory, employeeId) {
+  const deduped = [];
+  const seen = new Set();
+
+  for (const posting of postingHistory ?? []) {
+    const startDate = posting.start_date ?? posting.from_date ?? null;
+    const endDateCandidate = posting.end_date ?? posting.to_date ?? null;
+    const endDate =
+      startDate && endDateCandidate && endDateCandidate < startDate ? null : endDateCandidate;
+
+    const designationDisplay =
+      sanitizeDesignation(
+        posting.designation_display ?? posting.designation ?? posting.rank_held
+      ) ?? null;
+    const organizationDisplay =
+      sanitizeOrganizationDisplay(
+        posting.organization_display ?? posting.organization_unit_name
+      ) ??
+      sanitizeOrganizationUnit(posting.organization_unit_name) ??
+      null;
+    const stationDisplay =
+      normalizeStation(posting.station_display ?? posting.location) ??
+      normalizeStation(posting.location) ??
+      null;
+
+    const key = [
+      startDate ?? "",
+      endDate ?? "",
+      designationDisplay ?? "",
+      organizationDisplay ?? "",
+      stationDisplay ?? ""
+    ].join("|");
+
+    if (seen.has(key)) continue;
+    seen.add(key);
+    deduped.push({
+      ...posting,
+      designation_display: designationDisplay,
+      designation: designationDisplay,
+      rank_held: designationDisplay,
+      organization_display: organizationDisplay,
+      organization_unit_name: organizationDisplay,
+      organization_unit_id:
+        organizationDisplay ? `org-${slugify(organizationDisplay)}` : posting.organization_unit_id ?? null,
+      station_display: stationDisplay,
+      location: stationDisplay,
+      from_date: startDate,
+      to_date: endDate,
+      start_date: startDate,
+      end_date: endDate
+    });
+  }
+
+  const sorted = deduped.sort((a, b) => {
+    const leftStart = a.start_date ? new Date(a.start_date).getTime() : 0;
+    const rightStart = b.start_date ? new Date(b.start_date).getTime() : 0;
+    if (leftStart !== rightStart) return leftStart - rightStart;
+
+    const leftEnd = a.end_date ? new Date(a.end_date).getTime() : Number.MAX_SAFE_INTEGER;
+    const rightEnd = b.end_date ? new Date(b.end_date).getTime() : Number.MAX_SAFE_INTEGER;
+    return leftEnd - rightEnd;
+  });
+
+  return sorted.map((posting, index) => ({
+    ...posting,
+    posting_id: posting.posting_id ?? `post-${employeeId}-${index + 1}`
+  }));
+}
+
+function latestPosting(postingHistory) {
+  if (postingHistory.length === 0) return null;
+  return postingHistory
+    .slice()
+    .sort((a, b) => {
+      const left = a.start_date ? new Date(a.start_date).getTime() : 0;
+      const right = b.start_date ? new Date(b.start_date).getTime() : 0;
+      return right - left;
+    })[0];
+}
+
+function computeCurrentPostingFromHistory(posting, fallbackDesignation) {
+  if (!posting) {
+    return {
+      post_id: null,
+      designation: fallbackDesignation ?? null,
+      designation_raw: null,
+      designation_display: fallbackDesignation ?? null,
+      organization_unit_id: null,
+      organization_raw: null,
+      organization_display: null,
+      organization_unit_name: null,
+      station_raw: null,
+      station_display: null,
+      location: null,
+      start_date: null,
+      end_date: null,
+      confidence: 0.45
+    };
+  }
+
+  const currentDesignationDisplay =
+    sanitizeDesignation(posting.designation_display ?? posting.designation) ??
+    sanitizeDesignation(posting.rank_held) ??
+    fallbackDesignation ??
+    null;
+  const currentLocation =
+    normalizeStation(posting.station_display ?? posting.location) ?? normalizeStation(posting.location);
+  const currentOrg =
+    sanitizeOrganizationDisplay(posting.organization_display ?? posting.organization_unit_name) ??
+    sanitizeOrganizationUnit(posting.organization_unit_name);
+
+  const normalizedStart = posting.start_date ?? posting.from_date ?? null;
+  const normalizedEndCandidate = posting.end_date ?? posting.to_date ?? null;
+  const normalizedEnd =
+    normalizedStart && normalizedEndCandidate && normalizedEndCandidate < normalizedStart
+      ? null
+      : normalizedEndCandidate;
+
+  return {
+    post_id: posting.posting_id ?? null,
+    designation: currentDesignationDisplay,
+    designation_raw: posting.designation_raw ?? null,
+    designation_display: currentDesignationDisplay,
+    organization_unit_id: currentOrg ? `org-${slugify(currentOrg)}` : null,
+    organization_raw: posting.organization_raw ?? null,
+    organization_display: currentOrg,
+    organization_unit_name: currentOrg,
+    station_raw: posting.station_raw ?? null,
+    station_display: currentLocation,
+    location: currentLocation,
+    start_date: normalizedStart,
+    end_date: normalizedEnd,
+    confidence:
+      currentLocation || currentOrg
+        ? posting.end_date
+          ? 0.75
+          : 0.9
+        : posting.confidence ?? 0.55
+  };
+}
+
+function recomputeOfficerDerivedFields({
+  officer,
+  selectedPostingHistory,
+  preferredCurrentDesignation,
+  sourceType
+}) {
+  const postingHistory = dedupeAndSortPostingHistory(selectedPostingHistory, officer.employee_id);
+  const timelineQuality = deriveTimelineQuality(postingHistory.length);
+  const currentDesignation =
+    sanitizeDesignation(preferredCurrentDesignation) ??
+    sanitizeDesignation(officer.current_designation) ??
+    null;
+
+  officer.current_designation = currentDesignation;
+  officer.posting_history = postingHistory.map((posting) => {
+    const designationDisplay =
+      sanitizeDesignation(posting.designation_display ?? posting.designation ?? posting.rank_held) ?? null;
+    const organizationDisplay =
+      sanitizeOrganizationDisplay(posting.organization_display ?? posting.organization_unit_name) ??
+      sanitizeOrganizationUnit(posting.organization_unit_name) ??
+      null;
+    const stationDisplay =
+      normalizeStation(posting.station_display ?? posting.location) ?? normalizeStation(posting.location) ?? null;
+
+    return {
+      ...posting,
+      designation_display: designationDisplay,
+      designation: designationDisplay,
+      rank_held: designationDisplay,
+      organization_display: organizationDisplay,
+      organization_unit_name: organizationDisplay,
+      organization_unit_id: organizationDisplay ? `org-${slugify(organizationDisplay)}` : null,
+      station_display: stationDisplay,
+      location: stationDisplay,
+      source_type: posting.source_type ?? sourceType
+    };
+  });
+  officer.station_history = deriveStationHistory(officer.posting_history);
+  officer.inferred_rank_progression = inferRankProgression(officer.posting_history, currentDesignation);
+  officer.inferred_specialization = inferSpecialization(officer.posting_history);
+  officer.current_posting = computeCurrentPostingFromHistory(
+    latestPosting(officer.posting_history),
+    currentDesignation
+  );
+
+  officer.timeline_richness_score = officer.posting_history.length;
+  officer.timeline_entry_count = officer.posting_history.length;
+  officer.unique_station_count = officer.station_history.length;
+  officer.known_service_span_years = deriveKnownServiceSpanYears(officer.posting_history);
+  officer.designation_path = [
+    ...new Set(officer.posting_history.map((posting) => posting.designation_display ?? posting.designation).filter(Boolean))
+  ];
+  officer.dominant_stations = officer.station_history.slice(0, 5).map((station) => station.station);
+  officer.rank_depth_score = officer.inferred_rank_progression.length;
+  officer.mobility_profile = deriveMobilityProfile(officer.timeline_entry_count, officer.unique_station_count);
+  officer.station_diversity_label = deriveStationDiversityLabel(officer.unique_station_count);
+  officer.exposure_breadth_label = deriveExposureBreadthLabel(
+    officer.timeline_entry_count,
+    officer.unique_station_count,
+    officer.rank_depth_score
+  );
+
+  const { archetype, reason } = deriveArchetype({
+    postingCount: officer.timeline_entry_count,
+    uniqueStations: officer.unique_station_count,
+    rankDepth: officer.rank_depth_score,
+    yearsToCurrentRank: officer.years_to_current_rank,
+    currentDesignation: officer.current_designation,
+    knownServiceSpanYears: officer.known_service_span_years
+  });
+  officer.career_archetype = archetype;
+  officer.career_archetype_reason = reason;
+
+  const existingWarnings = officer.data_quality?.warnings ?? [];
+  const warnings = existingWarnings.filter((warning) => warning !== "Posting timeline not captured");
+  if (officer.posting_history.length === 0) {
+    warnings.push("Posting timeline not captured");
+  }
+
+  officer.data_quality = {
+    ...officer.data_quality,
+    timeline_quality: timelineQuality,
+    warnings
+  };
+  officer.data_quality_label = deriveQualityLabel(officer.data_quality);
+}
+
+function buildExcelOfficerLookup(excelOfficers) {
+  const byStrongIdentity = new Map();
+  const byNameIdentity = new Map();
+
+  for (const excelOfficer of excelOfficers) {
+    const keys =
+      excelOfficer.identity_keys ??
+      buildOfficerIdentityKeys({
+        name: excelOfficer.name ?? excelOfficer.officer_name,
+        normalizedName: excelOfficer.normalized_name,
+        dob: excelOfficer.dob,
+        batch: excelOfficer.batch,
+        cadre: excelOfficer.cadre
+      });
+
+    for (const key of keys) {
+      if (key.startsWith("name:")) {
+        const bucket = byNameIdentity.get(key) ?? [];
+        if (!bucket.includes(excelOfficer)) {
+          bucket.push(excelOfficer);
+          byNameIdentity.set(key, bucket);
+        }
+        continue;
+      }
+
+      const current = byStrongIdentity.get(key);
+      if (
+        !current ||
+        (excelOfficer.posting_history?.length ?? 0) > (current.posting_history?.length ?? 0)
+      ) {
+        byStrongIdentity.set(key, excelOfficer);
+      }
+    }
+  }
+
+  return { byStrongIdentity, byNameIdentity };
+}
+
+function resolveExcelOfficerForTextOfficer(officer, excelLookup) {
+  const keys = buildOfficerIdentityKeys({
+    name: officer.name,
+    normalizedName: officer.normalized_name,
+    dob: officer.dob,
+    batch: officer.batch,
+    cadre: officer.cadre
+  });
+
+  for (const key of keys) {
+    if (key.startsWith("name:")) continue;
+    const match = excelLookup.byStrongIdentity.get(key);
+    if (match) return match;
+  }
+
+  const nameKey = keys.find((key) => key.startsWith("name:"));
+  if (!nameKey) return null;
+
+  const candidates = excelLookup.byNameIdentity.get(nameKey) ?? [];
+  if (candidates.length === 1) return candidates[0];
+  if (candidates.length === 0) return null;
+
+  const officerBatch = officer.batch != null ? Number(officer.batch) : null;
+  const officerCadre = normalizeCadre(officer.cadre);
+  const officerDob = officer.dob ?? null;
+  const narrowed = candidates.filter((candidate) => {
+    const batchMatch = officerBatch != null && candidate.batch != null ? Number(candidate.batch) === officerBatch : false;
+    const cadreMatch = officerCadre && candidate.cadre ? normalizeCadre(candidate.cadre) === officerCadre : false;
+    const dobMatch = officerDob && candidate.dob ? candidate.dob === officerDob : false;
+    return batchMatch || cadreMatch || dobMatch;
+  });
+
+  if (narrowed.length === 1) return narrowed[0];
+  return null;
+}
+
+function mergeSourceHistories({
+  officers,
+  excelImportResult,
+  mode
+}) {
+  const diagnostics = {
+    mode,
+    excelFileFound: Boolean(excelImportResult?.found),
+    excelRowsLoaded: excelImportResult?.rowsLoaded ?? 0,
+    excelEpisodesLoaded: excelImportResult?.postingEpisodesLoaded ?? 0,
+    excelOfficerGroupsLoaded: excelImportResult?.officersLoaded ?? 0,
+    officersMatchedToExcel: 0,
+    officersUsingExcelPrimary: 0,
+    officersUsingTextPrimary: 0,
+    officersWithEmptyPostingHistoryAfterMerge: 0,
+    modeExplanation: ""
+  };
+
+  if (mode === "text-only") {
+    diagnostics.modeExplanation = "Text parser only (Excel disabled)";
+    for (const officer of officers) {
+      recomputeOfficerDerivedFields({
+        officer,
+        selectedPostingHistory: officer.posting_history ?? [],
+        preferredCurrentDesignation: officer.current_designation,
+        sourceType: "text"
+      });
+      diagnostics.officersUsingTextPrimary += 1;
+      if ((officer.posting_history?.length ?? 0) === 0) {
+        diagnostics.officersWithEmptyPostingHistoryAfterMerge += 1;
+      }
+    }
+    return diagnostics;
+  }
+
+  const excelLookup = buildExcelOfficerLookup(excelImportResult?.officers ?? []);
+  diagnostics.modeExplanation =
+    mode === "excel-first"
+      ? "Excel primary, text fallback"
+      : mode === "text-first"
+        ? "Text primary, Excel fallback/enrichment"
+        : "Excel only (text posting history ignored)";
+
+  for (const officer of officers) {
+    const excelOfficer = resolveExcelOfficerForTextOfficer(officer, excelLookup);
+    const textHistory = officer.posting_history ?? [];
+    const excelHistory = excelOfficer?.posting_history ?? [];
+
+    if (excelOfficer) diagnostics.officersMatchedToExcel += 1;
+
+    if (excelOfficer) {
+      officer.name = officer.name ?? excelOfficer.name ?? null;
+      officer.normalized_name =
+        officer.normalized_name ?? normalizeName(excelOfficer.name ?? excelOfficer.normalized_name);
+      officer.dob = officer.dob ?? excelOfficer.dob ?? null;
+      officer.batch = officer.batch ?? (excelOfficer.batch != null ? Number(excelOfficer.batch) : null);
+      officer.cadre = officer.cadre ?? normalizeCadre(excelOfficer.cadre);
+      officer.date_of_entry_gr_a =
+        officer.date_of_entry_gr_a ?? excelOfficer.date_of_entry_gr_a ?? null;
+      officer.present_rank_date = officer.present_rank_date ?? null;
+    }
+
+    let selectedHistory = textHistory;
+    let selectedSource = "text";
+
+    if (mode === "excel-only") {
+      selectedHistory = excelHistory;
+      selectedSource = "excel";
+    } else if (mode === "excel-first") {
+      if (excelHistory.length > 0) {
+        selectedHistory = excelHistory;
+        selectedSource = "excel";
+      }
+    } else if (mode === "text-first") {
+      if (textHistory.length === 0 && excelHistory.length > 0) {
+        selectedHistory = excelHistory;
+        selectedSource = "excel";
+      }
+    }
+
+    if (selectedSource === "excel") diagnostics.officersUsingExcelPrimary += 1;
+    else diagnostics.officersUsingTextPrimary += 1;
+
+    recomputeOfficerDerivedFields({
+      officer,
+      selectedPostingHistory: selectedHistory,
+      preferredCurrentDesignation: excelOfficer?.present_designation ?? officer.current_designation,
+      sourceType: selectedSource
+    });
+
+    if ((officer.posting_history?.length ?? 0) === 0) {
+      diagnostics.officersWithEmptyPostingHistoryAfterMerge += 1;
+    }
+  }
+
+  return diagnostics;
+}
+
 function buildOfficers() {
   const officers = [];
+  const files = listTextFiles();
 
-  for (const fileName of FILES) {
+  for (const fileName of files) {
     const fullPath = path.join(TEXT_DIR, fileName);
     const text = fs.readFileSync(fullPath, "utf8");
     const matches = [...text.matchAll(EMPLOYEE_PATTERN)];
@@ -1799,15 +2235,64 @@ function writeJson(relativePath, data) {
 }
 
 function main() {
-  if (!fs.existsSync(TEXT_DIR)) {
-    throw new Error(`Missing text source directory: ${TEXT_DIR}`);
-  }
-
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
 
+  const sourceMode = resolveOfficerDataSourceMode(process.env.OFFICER_DATA_SOURCE_MODE);
+  const useExcel = shouldUseExcel(sourceMode);
+  let excelImportResult = {
+    found: false,
+    sourcePath: path.join(ROOT, "source_data", "officers_metadata.xlsx"),
+    rowsLoaded: 0,
+    officersLoaded: 0,
+    postingEpisodesLoaded: 0,
+    officers: []
+  };
+
+  if (useExcel) {
+    try {
+      excelImportResult = importOfficersMetadataXlsx({
+        cwd: ROOT,
+        relativePath: "source_data/officers_metadata.xlsx"
+      });
+
+      if (!excelImportResult.found) {
+        const message = `Excel source file not found at ${excelImportResult.sourcePath}`;
+        if (sourceMode === "excel-only") {
+          throw new Error(message);
+        }
+        console.warn(`[build:data] ${message}. Falling back according to source mode.`);
+      }
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : String(error);
+      if (sourceMode === "excel-only") {
+        throw new Error(`Excel-only mode failed to load Excel source: ${reason}`);
+      }
+      console.warn(`[build:data] Excel import failed (${reason}). Falling back according to source mode.`);
+      excelImportResult = {
+        found: false,
+        sourcePath: path.join(ROOT, "source_data", "officers_metadata.xlsx"),
+        rowsLoaded: 0,
+        officersLoaded: 0,
+        postingEpisodesLoaded: 0,
+        officers: []
+      };
+    }
+  }
+
+  if (!fs.existsSync(TEXT_DIR)) {
+    throw new Error(`Missing text source directory: ${TEXT_DIR}`);
+  }
+
   const officers = buildOfficers();
+
+  const mergeDiagnostics = mergeSourceHistories({
+    officers,
+    excelImportResult,
+    mode: sourceMode
+  });
+
   computeRelatedOfficers(officers);
 
   const index = createIndex(officers);
@@ -1827,6 +2312,19 @@ function main() {
   writeJson("data/career-paths.json", careerPaths);
   writeJson("data/discovery.json", discovery);
 
+  const excelSourceStatus = useExcel
+    ? `${excelImportResult.found ? "found" : "not found"} (${excelImportResult.sourcePath})`
+    : `skipped (mode ${sourceMode})`;
+
+  console.log(`[build:data] Source mode: ${sourceMode}`);
+  console.log(`[build:data] Excel source: ${excelSourceStatus}`);
+  console.log(
+    `[build:data] Excel rows loaded: ${excelImportResult.rowsLoaded}, officer groups: ${excelImportResult.officersLoaded}, posting episodes: ${excelImportResult.postingEpisodesLoaded}`
+  );
+  console.log(
+    `[build:data] Merge: matched=${mergeDiagnostics.officersMatchedToExcel}, excel_primary=${mergeDiagnostics.officersUsingExcelPrimary}, text_primary=${mergeDiagnostics.officersUsingTextPrimary}, empty_history=${mergeDiagnostics.officersWithEmptyPostingHistoryAfterMerge}`
+  );
+  console.log(`[build:data] Mode behavior: ${mergeDiagnostics.modeExplanation}`);
   console.log(`Built ${officers.length} officers`);
   console.log(`Timeline-rich officers: ${metrics.timeline_rich_officers}`);
   console.log(`Generated datasets: officers, batches, cadres, stations, career-paths, discovery`);

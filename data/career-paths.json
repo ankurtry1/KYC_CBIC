@@ -12,93 +12,93 @@
   "common_progressions": [
     {
       "key": "Assistant Commissioner",
-      "count": 2140
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner",
-      "count": 598
-    },
-    {
-      "key": "Assistant Commissioner -> Commissioner",
-      "count": 400
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner",
-      "count": 317
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Commissioner",
-      "count": 246
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Commissioner",
-      "count": 210
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner",
-      "count": 197
+      "count": 2438
     },
     {
       "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner",
-      "count": 146
+      "count": 595
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Chief Commissioner",
-      "count": 103
+      "key": "Assistant Commissioner -> Deputy Commissioner",
+      "count": 580
     },
     {
-      "key": "Assistant Commissioner -> Chief Commissioner",
-      "count": 51
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner",
+      "count": 450
     },
     {
-      "key": "Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner",
-      "count": 41
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner",
+      "count": 358
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner",
+      "count": 100
+    },
+    {
+      "key": "Assistant Commissioner -> Commissioner",
+      "count": 78
     },
     {
       "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner",
+      "count": 40
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Additional Commissioner",
       "count": 37
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Commissioner",
+      "count": 20
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner -> Principal Chief Commissioner",
+      "count": 14
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Additional Commissioner -> Commissioner",
+      "count": 13
     }
   ],
   "rank_step_timings": [
     {
       "rank": "Assistant Commissioner",
-      "average_years_to_reach": 0.1,
-      "sample_size": 2610
+      "average_years_to_reach": 0.4,
+      "sample_size": 2632
     },
     {
       "rank": "Deputy Commissioner",
-      "average_years_to_reach": 5.1,
-      "sample_size": 619
+      "average_years_to_reach": 5.2,
+      "sample_size": 675
     },
     {
       "rank": "Joint Commissioner",
       "average_years_to_reach": 9.3,
-      "sample_size": 456
+      "sample_size": 439
     },
     {
       "rank": "Additional Commissioner",
       "average_years_to_reach": 12.3,
-      "sample_size": 611
+      "sample_size": 581
     },
     {
       "rank": "Commissioner",
-      "average_years_to_reach": 18.7,
-      "sample_size": 329
+      "average_years_to_reach": 18.8,
+      "sample_size": 305
     },
     {
       "rank": "Principal Commissioner",
       "average_years_to_reach": 28.9,
-      "sample_size": 94
+      "sample_size": 90
     },
     {
       "rank": "Chief Commissioner",
       "average_years_to_reach": 32,
-      "sample_size": 38
+      "sample_size": 36
     },
     {
       "rank": "Principal Chief Commissioner",
-      "average_years_to_reach": 33.2,
-      "sample_size": 11
+      "average_years_to_reach": 33.1,
+      "sample_size": 10
     }
   ],
   "trajectory_bands": {
@@ -146,124 +146,124 @@
   },
   "representative_journeys": [
     {
-      "officer_id": "officer-719",
-      "name": "Mr Abhai Kumar Srivastav",
-      "batch": 1992,
+      "officer_id": "officer-3007",
+      "name": "Dr Manoj Kumar",
+      "batch": 2005,
       "cadre": "DR",
-      "timeline_entries": 35,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-741",
-      "name": "Mr Anuj Gogia",
-      "batch": 1992,
-      "cadre": "DR",
-      "timeline_entries": 34,
-      "archetype": "Broad Multi-Station Leader"
+      "officer_id": "officer-11390",
+      "name": "Mr Manoj Kumar",
+      "batch": 2023,
+      "cadre": "PE",
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-743",
-      "name": "Mrs Kajal Singh",
-      "batch": 1992,
-      "cadre": "DR",
-      "timeline_entries": 34,
-      "archetype": "Deep Senior Leadership Track"
+      "officer_id": "officer-12162",
+      "name": "Mr Manoj Kumar",
+      "batch": 2023,
+      "cadre": "PE",
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-670",
-      "name": "Mr Rajeev Gupta",
-      "batch": 1991,
-      "cadre": "DR",
-      "timeline_entries": 32,
-      "archetype": "Broad Multi-Station Leader"
+      "officer_id": "officer-13565",
+      "name": "Mr Manoj Kumar",
+      "batch": 2025,
+      "cadre": "PE",
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-668",
-      "name": "Mr Rajesh Jindal",
-      "batch": 1991,
+      "officer_id": "officer-3604",
+      "name": "Mr Manoj Kumar",
+      "batch": 2008,
       "cadre": "DR",
-      "timeline_entries": 32,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-882",
-      "name": "Mr D. Venkateswara Reddy",
-      "batch": 1995,
-      "cadre": "DR",
-      "timeline_entries": 30,
-      "archetype": "Broad Multi-Station Leader"
+      "officer_id": "officer-3747",
+      "name": "Mr Manoj Kumar",
+      "batch": 2005,
+      "cadre": "PA",
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-689",
-      "name": "Mrs Charul Baranwal",
-      "batch": 1991,
+      "officer_id": "officer-3923",
+      "name": "Mr Manoj Kumar",
+      "batch": 2009,
       "cadre": "DR",
-      "timeline_entries": 30,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-924",
-      "name": "Ms Kavita Bhatnagar",
-      "batch": 1996,
+      "officer_id": "officer-4581",
+      "name": "Mr Manoj Kumar",
+      "batch": 2013,
       "cadre": "DR",
-      "timeline_entries": 30,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 65,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-909",
-      "name": "Mr Dipak Kumar Gupta",
-      "batch": 1995,
-      "cadre": "DR",
-      "timeline_entries": 29,
-      "archetype": "Broad Multi-Station Leader"
+      "officer_id": "officer-12579",
+      "name": "Mr Arun Kumar",
+      "batch": 2023,
+      "cadre": "PE",
+      "timeline_entries": 52,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-696",
-      "name": "Mr Sanjay Rathi",
-      "batch": 1991,
+      "officer_id": "officer-3860",
+      "name": "Mr Arun Kumar",
+      "batch": 2009,
       "cadre": "DR",
-      "timeline_entries": 29,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 52,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-939",
-      "name": "Mrs Amita Singh",
-      "batch": 1997,
+      "officer_id": "officer-4101",
+      "name": "Mr Arun Kumar",
+      "batch": 2010,
       "cadre": "DR",
-      "timeline_entries": 29,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 52,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-661",
-      "name": "Mrs Prachi Saroop",
-      "batch": 1991,
+      "officer_id": "officer-781",
+      "name": "Mr Arun Kumar",
+      "batch": 1993,
       "cadre": "DR",
-      "timeline_entries": 29,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 52,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-753",
-      "name": "Mr Manas Ranjan Mohanty",
-      "batch": 1992,
-      "cadre": "DR",
-      "timeline_entries": 28,
-      "archetype": "Broad Multi-Station Leader"
+      "officer_id": "officer-13422",
+      "name": "Mr Mahesh Kumar",
+      "batch": 2025,
+      "cadre": "PE",
+      "timeline_entries": 41,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-745",
-      "name": "Mr Pradeep Saxena",
-      "batch": 1992,
+      "officer_id": "officer-2986",
+      "name": "Mr Mahesh Kumar",
+      "batch": 2005,
       "cadre": "DR",
-      "timeline_entries": 28,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 41,
+      "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-915",
-      "name": "Mr S. Anantha Krishnan",
-      "batch": 1995,
+      "officer_id": "officer-4069",
+      "name": "Mr Mahesh Kumar",
+      "batch": 2010,
       "cadre": "DR",
-      "timeline_entries": 28,
-      "archetype": "Broad Multi-Station Leader"
+      "timeline_entries": 41,
+      "archetype": "High-Mobility Officer"
     }
   ],
   "caveat": "Career-path insights are derived from known posting records and may under-represent missing or unverified entries."

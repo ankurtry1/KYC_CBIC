@@ -26,6 +26,7 @@ export type OfficerPosting = {
   start_date?: string | null;
   end_date?: string | null;
   source_doc?: string | null;
+  source_type?: "excel" | "text" | string;
   confidence?: number | null;
 };
 
