@@ -7,19 +7,61 @@ import type { Officer } from "@/lib/officers/types";
 import { formatDateRange } from "@/lib/utils/date";
 import { cn } from "@/lib/utils/cn";
 import { sanitizeDisplayLabel, sanitizeDisplayLocation } from "@/lib/officers/normalize";
+import type { OfficerPosting } from "@/lib/officers/types";
 
 type OfficerTimelineProps = {
   officer: Officer;
 };
 
+function dateToTimestamp(value: string | null | undefined): number | null {
+  if (!value) return null;
+  const ts = new Date(value).getTime();
+  return Number.isNaN(ts) ? null : ts;
+}
+
+function postingSortTimestamp(posting: OfficerPosting): number | null {
+  // Prefer start_date for chronology, then fall back to end_date.
+  return dateToTimestamp(posting.start_date) ?? dateToTimestamp(posting.end_date);
+}
+
+function postingGroupYear(posting: OfficerPosting): number | null {
+  const ts = postingSortTimestamp(posting);
+  if (ts == null) return null;
+  const year = new Date(ts).getFullYear();
+  return Number.isFinite(year) ? year : null;
+}
+
+function comparePostingsDesc(
+  left: { posting: OfficerPosting; originalIndex: number },
+  right: { posting: OfficerPosting; originalIndex: number }
+): number {
+  const leftTs = postingSortTimestamp(left.posting);
+  const rightTs = postingSortTimestamp(right.posting);
+
+  if (leftTs != null && rightTs != null && leftTs !== rightTs) {
+    return rightTs - leftTs;
+  }
+
+  if (leftTs != null && rightTs == null) return -1;
+  if (leftTs == null && rightTs != null) return 1;
+
+  // Tie-break in favor of open-ended/current rows when dates are equivalent.
+  const leftOpenEnded = left.posting.end_date == null && leftTs != null;
+  const rightOpenEnded = right.posting.end_date == null && rightTs != null;
+  if (leftOpenEnded && !rightOpenEnded) return -1;
+  if (!leftOpenEnded && rightOpenEnded) return 1;
+
+  // Stable deterministic fallback.
+  return left.originalIndex - right.originalIndex;
+}
+
 export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element {
   const items = useMemo(
     () =>
-      [...officer.posting_history].sort((left, right) => {
-        const a = left.start_date ? new Date(left.start_date).getTime() : 0;
-        const b = right.start_date ? new Date(right.start_date).getTime() : 0;
-        return a - b;
-      }),
+      officer.posting_history
+        .map((posting, originalIndex) => ({ posting, originalIndex }))
+        .sort(comparePostingsDesc)
+        .map((entry) => entry.posting),
     [officer.posting_history]
   );
 
@@ -27,9 +69,9 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
     const grouped = new Map<string, { label: string; order: number; items: typeof items }>();
 
     for (const item of items) {
-      const year = item.start_date ? new Date(item.start_date).getFullYear() : NaN;
+      const year = postingGroupYear(item);
 
-      if (Number.isFinite(year) && year >= 1950) {
+      if (year != null && year >= 1950) {
         const decade = Math.floor(year / 10) * 10;
         const key = `decade-${decade}`;
         const label = `${decade}s`;
@@ -45,7 +87,11 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
 
     return [...grouped.entries()]
       .map(([key, value]) => ({ key, ...value }))
-      .sort((left, right) => left.order - right.order);
+      .sort((left, right) => {
+        if (left.key === "undated") return 1;
+        if (right.key === "undated") return -1;
+        return right.order - left.order;
+      });
   }, [items]);
 
   const [openGroups, setOpenGroups] = useState<Set<string>>(new Set());
@@ -57,7 +103,7 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
       return;
     }
 
-    setOpenGroups(new Set(groups.slice(-2).map((group) => group.key)));
+    setOpenGroups(new Set(groups.slice(0, 2).map((group) => group.key)));
   }, [groups]);
 
   function toggleGroup(groupKey: string): void {
@@ -86,7 +132,7 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-label">Career Timeline</p>
-          <p className="mt-1 text-xs text-slate-500">{items.length} known timeline entries</p>
+          <p className="mt-1 text-xs text-slate-500">{items.length} known timeline entries · Latest first</p>
         </div>
         <div className="flex items-center gap-2">
           <button
