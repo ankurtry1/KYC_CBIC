@@ -8,6 +8,8 @@ const NOISY_LABEL_PATTERNS = [
   /\bprom\s+as\b/i,
   /\b(as\s+per|vide)\b/i,
   /\border\s+no\b/i,
+  /\bnotifi(?:cation)?\.?\s*no\b/i,
+  /\bf\.?\s*no\.?\b/i,
   /\breport\s+\d{1,4}\/\d{2,4}\b/i,
   /\bentry\s+as\s+per\b/i,
   /^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$/i

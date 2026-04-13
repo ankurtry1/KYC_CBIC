@@ -90,6 +90,7 @@ test.describe("Layer 2 intelligence routes", () => {
   test("officer profile shows intelligence summary, related officers, and recommendations", async ({ page }) => {
     await page.goto(`/officers/${officerWithRelated.id}`);
 
+    await expect(page.getByTestId("profile-quick-summary")).toBeVisible();
     await expect(page.getByTestId("officer-intelligence-summary")).toBeVisible();
     await expect(page.getByTestId("officer-narrative-card")).toBeVisible();
     await expect(page.getByTestId("related-officers-section")).toBeVisible();

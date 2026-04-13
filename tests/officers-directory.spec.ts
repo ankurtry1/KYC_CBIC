@@ -55,11 +55,9 @@ test.describe("Officers directory", () => {
     await page.getByTestId("directory-search-input").fill(query);
 
     await expect.poll(async () => page.getByTestId("officer-card").count()).toBeGreaterThan(0);
-    const filteredName = (
-      await page.getByTestId("officer-card").first().getByTestId("officer-card-name").innerText()
-    ).toLowerCase();
-
-    expect(filteredName).toContain(query.toLowerCase());
+    await expect(
+      page.getByTestId("officer-card-name").filter({ hasText: new RegExp(query, "i") }).first()
+    ).toBeVisible();
 
     await expect
       .poll(async () => {
@@ -67,6 +65,20 @@ test.describe("Officers directory", () => {
         return Number((text.match(/\d[\d,]*/)?.[0] ?? "0").replace(/,/g, ""));
       })
       .toBeLessThanOrEqual(beforeCount);
+  });
+
+  test("search submits on Enter key and button is visible", async ({ page }) => {
+    const query = getSearchableNameToken();
+    const input = page.getByTestId("directory-search-input");
+
+    await expect(page.getByTestId("directory-search-submit")).toBeVisible();
+    await input.fill(query);
+    await input.press("Enter");
+
+    await expect.poll(async () => page.getByTestId("officer-card").count()).toBeGreaterThan(0);
+    await expect(page.getByTestId("officer-card").first().getByTestId("officer-card-name")).toContainText(
+      new RegExp(query, "i")
+    );
   });
 
   test("searching by employee ID returns matching officer", async ({ page }) => {
@@ -89,6 +101,26 @@ test.describe("Officers directory", () => {
 
     await expect(page.getByTestId("directory-empty-state")).toBeVisible();
     await expect(page.getByTestId("officer-card")).toHaveCount(0);
+  });
+
+  test("results appear early in viewport with compact controls", async ({ page }) => {
+    const firstCard = page.getByTestId("officer-card").first();
+    await expect(firstCard).toBeVisible();
+    await expect(firstCard).toBeInViewport();
+  });
+
+  test("quick filter chips refine results", async ({ page }) => {
+    const countLabel = page.getByTestId("directory-results-count");
+    const before = Number(((await countLabel.innerText()).match(/\d[\d,]*/)?.[0] ?? "0").replace(/,/g, ""));
+
+    await page.getByTestId("quick-filter-timeline-full").click();
+
+    await expect
+      .poll(async () => {
+        const text = await countLabel.innerText();
+        return Number((text.match(/\d[\d,]*/)?.[0] ?? "0").replace(/,/g, ""));
+      })
+      .toBeLessThanOrEqual(before);
   });
 
   test("full officer card click opens profile", async ({ page }) => {

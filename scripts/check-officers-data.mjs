@@ -40,6 +40,7 @@ const metrics = JSON.parse(fs.readFileSync(metricsPath, "utf8"));
 
 const noisyDisplayPattern =
   /\b(w\.?\s*e\.?\s*f\.?|joining\s+report|promotion|prom\s+as|as\s+per|vide|order\s+no|report\s+\d{1,4}\/\d{2,4})\b/i;
+const allowedFallbackPostingSummary = "Posting details partially inferred";
 
 assert(Array.isArray(batches) && batches.length > 0, "data/batches.json must be non-empty");
 assert(Array.isArray(cadres) && cadres.length > 0, "data/cadres.json must be non-empty");
@@ -124,6 +125,11 @@ for (const record of officersIndex) {
     assert(
       !noisyDisplayPattern.test(record.current_posting_summary),
       `Noisy current_posting_summary in officers-index for ${record.id}: ${record.current_posting_summary}`
+    );
+    assert(
+        record.current_posting_summary === allowedFallbackPostingSummary ||
+        /^[a-z0-9\s•,./()&>'-]+$/i.test(record.current_posting_summary),
+      `current_posting_summary should be human-readable for ${record.id}: ${record.current_posting_summary}`
     );
   }
 }

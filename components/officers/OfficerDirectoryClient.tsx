@@ -34,16 +34,19 @@ export function OfficerDirectoryClient({
   records,
   initialFilters
 }: OfficerDirectoryClientProps): JSX.Element {
-  const [filters, setFilters] = useState<OfficerFilters>({
+  const initialState = {
     ...DEFAULT_FILTERS,
     ...initialFilters,
     q: initialFilters?.q ?? ""
+  } as OfficerFilters;
+
+  const [filters, setFilters] = useState<OfficerFilters>({
+    ...initialState
   });
+  const [searchInput, setSearchInput] = useState(initialState.q);
+  const [isSearchSubmitting, setIsSearchSubmitting] = useState(false);
   const [page, setPage] = useState(1);
-  const [showFilters, setShowFilters] = useState(() => hasActiveAdvancedFilters({
-    ...DEFAULT_FILTERS,
-    ...initialFilters
-  } as OfficerFilters));
+  const [showFilters, setShowFilters] = useState(() => hasActiveAdvancedFilters(initialState));
 
   const options = useMemo(() => deriveFilterOptions(records), [records]);
 
@@ -56,6 +59,21 @@ export function OfficerDirectoryClient({
   useEffect(() => {
     setPage(1);
   }, [filters]);
+
+  useEffect(() => {
+    const handle = setTimeout(() => {
+      setFilters((prev) => (prev.q === searchInput ? prev : { ...prev, q: searchInput }));
+      setIsSearchSubmitting(false);
+    }, 180);
+
+    return () => clearTimeout(handle);
+  }, [searchInput]);
+
+  function applySearchNow(): void {
+    setIsSearchSubmitting(true);
+    setFilters((prev) => ({ ...prev, q: searchInput.trim() }));
+    window.setTimeout(() => setIsSearchSubmitting(false), 200);
+  }
 
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
   const pagedRecords = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -73,8 +91,13 @@ export function OfficerDirectoryClient({
 
   return (
     <div data-testid="officers-directory" className="space-y-4">
-      <div className="panel p-3 sm:p-4">
-        <OfficerSearch value={filters.q} onChange={(q) => setFilters((prev) => ({ ...prev, q }))} />
+      <div className="panel p-3 sm:p-4 lg:sticky lg:top-[4.75rem] lg:z-20">
+        <OfficerSearch
+          value={searchInput}
+          onChange={setSearchInput}
+          onSubmit={applySearchNow}
+          isSubmitting={isSearchSubmitting}
+        />
 
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
           <p data-testid="directory-results-count" className="text-sm text-slate-600">
@@ -100,7 +123,16 @@ export function OfficerDirectoryClient({
           <button
             data-testid="quick-filter-all"
             type="button"
-            onClick={() => setFilters((prev) => ({ ...prev, cadre: "all", timelineQuality: "all", verification: "all" }))}
+            onClick={() =>
+              setFilters((prev) => ({
+                ...prev,
+                cadre: "all",
+                timelineQuality: "all",
+                verification: "all",
+                sortBy: "name",
+                sortOrder: "asc"
+              }))
+            }
             className={cn(
               "rounded-full border px-2.5 py-1 text-xs font-medium transition",
               filters.cadre === "all" && filters.timelineQuality === "all" && filters.verification === "all"
@@ -151,6 +183,16 @@ export function OfficerDirectoryClient({
             )}
           >
             Verified
+          </button>
+          <button
+            data-testid="quick-filter-high-mobility"
+            type="button"
+            onClick={() =>
+              setSearchInput((prev) => (prev.toLowerCase().includes("high mobility") ? prev : `${prev} high mobility`.trim()))
+            }
+            className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:bg-slate-50"
+          >
+            High mobility
           </button>
         </div>
       </div>

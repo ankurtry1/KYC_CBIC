@@ -1101,7 +1101,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -1110,7 +1110,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "dr saranya c saranya c 7104 2014 dr joint commissioner f.no a- chennai rajkot sikka audit-i gst & chennai chennai-iv cx chennai ahmedabad mixed exposure profile high mobility audit gst"
+    "search_blob": "dr saranya c saranya c 7104 2014 dr joint commissioner chennai rajkot sikka audit-i gst & chennai chennai-iv cx chennai ahmedabad mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-4383",
@@ -1147,12 +1147,12 @@
     "timeline_quality": "full",
     "timeline_richness_score": 17,
     "timeline_entry_count": 17,
-    "unique_station_count": 10,
+    "unique_station_count": 9,
     "mobility_profile": "High mobility",
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "dr shashank yadav shashank yadav 3987 2010 dr joint commissioner delhi ccf meerut delhi agra moradabad patna jogbani motihari gazipur rudrapur f.no. c- 140 high-mobility officer high mobility customs preventive"
+    "search_blob": "dr shashank yadav shashank yadav 3987 2010 dr joint commissioner delhi ccf meerut delhi agra moradabad patna jogbani motihari gazipur rudrapur high-mobility officer high mobility customs preventive"
   },
   {
     "id": "officer-4554",
@@ -1357,12 +1357,12 @@
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
-    "unique_station_count": 6,
+    "unique_station_count": 5,
     "mobility_profile": "High mobility",
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "dr vidyut vikash vidyut vikash 3585 2008 dr additional commissioner patna jammu delhi muzaffarpur ahmedabad f.no.a.350 mixed exposure profile high mobility gst customs preventive deputation"
+    "search_blob": "dr vidyut vikash vidyut vikash 3585 2008 dr additional commissioner patna jammu delhi muzaffarpur ahmedabad mixed exposure profile high mobility gst customs preventive deputation"
   },
   {
     "id": "officer-1699",
@@ -2613,7 +2613,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -2622,7 +2622,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr abhinaw kumar abhinaw kumar 6979 2014 dr joint commissioner f.no a- delhi ghaziabad kolkata meerut ghaziabad cx ghaziabad mixed exposure profile high mobility audit gst"
+    "search_blob": "mr abhinaw kumar abhinaw kumar 6979 2014 dr joint commissioner delhi ghaziabad kolkata meerut ghaziabad cx ghaziabad mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-8538",
@@ -2865,7 +2865,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2017-04-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -2874,7 +2874,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "not_verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr abhishek kumar sharma (on dep.) abhishek kumar sharma 4529 2013 dr deputy commissioner f.no a- delhi cabinet secretariat delhi narrow but deep service track moderate mobility deputation"
+    "search_blob": "mr abhishek kumar sharma (on dep.) abhishek kumar sharma 4529 2013 dr deputy commissioner delhi cabinet secretariat delhi narrow but deep service track moderate mobility deputation"
   },
   {
     "id": "officer-9405",
@@ -2991,7 +2991,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -3000,7 +3000,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr abraham renn s. abraham renn s 4517 2013 dr joint commissioner f.no a- thiruvananthapuram kochi moovattupuzha cochin mixed exposure profile moderate mobility gst"
+    "search_blob": "mr abraham renn s. abraham renn s 4517 2013 dr joint commissioner thiruvananthapuram kochi moovattupuzha cochin mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-12527",
@@ -3180,7 +3180,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-28",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -3189,7 +3189,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr aditya kumar mamgain (on dep.) aditya kumar mamgain 8190 2015 dr joint commissioner f.no a- delhi kanpur lucknow narrow but deep service track moderate mobility gst deputation"
+    "search_blob": "mr aditya kumar mamgain (on dep.) aditya kumar mamgain 8190 2015 dr joint commissioner delhi kanpur lucknow narrow but deep service track moderate mobility gst deputation"
   },
   {
     "id": "officer-7027",
@@ -3201,7 +3201,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -3210,7 +3210,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr aditya singh yadav aditya singh yadav 7027 2014 dr joint commissioner f.no a- delhi delhi west gst delhi narrow but deep service track moderate mobility gst"
+    "search_blob": "mr aditya singh yadav aditya singh yadav 7027 2014 dr joint commissioner delhi delhi west gst delhi narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-8234",
@@ -3222,7 +3222,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > AC OT",
+    "current_posting_summary": "Chief • AC OT",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -3231,7 +3231,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr adyansh dabas adyansh dabas 8234 2015 dr joint commissioner f.no a- > ac ot delhi delhi cus. prev delhi 11 days wrt 69/2025 narrow but deep service track moderate mobility gst customs"
+    "search_blob": "mr adyansh dabas adyansh dabas 8234 2015 dr joint commissioner ac ot delhi delhi cus. prev delhi 11 days wrt 69/2025 narrow but deep service track moderate mobility gst customs"
   },
   {
     "id": "officer-8254",
@@ -3243,7 +3243,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -3252,7 +3252,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr afaq ahmad giri afaq ahmad giri 8254 2015 dr joint commissioner f.no a- jammu mumbai indore mumbai-i gen mumbai central gst & mumbai mixed exposure profile high mobility gst preventive"
+    "search_blob": "mr afaq ahmad giri afaq ahmad giri 8254 2015 dr joint commissioner jammu mumbai indore mumbai-i gen mumbai central gst & mumbai mixed exposure profile high mobility gst preventive"
   },
   {
     "id": "officer-10526",
@@ -3558,7 +3558,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-26",
     "current_location": null,
-    "current_posting_summary": "ZONE-I CUS • F.no A-",
+    "current_posting_summary": "ZONE-I CUS",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -3567,7 +3567,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ajay anand arya ajay anand arya 7194 2014 pa joint commissioner f.no a- mumbai mundra ahmedabad central gst & mumbai bhavnagar bhavnagar cx bhavnagar mixed exposure profile high mobility audit gst"
+    "search_blob": "mr ajay anand arya ajay anand arya 7194 2014 pa joint commissioner mumbai mundra ahmedabad central gst & mumbai bhavnagar bhavnagar cx bhavnagar mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-9615",
@@ -4356,7 +4356,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-26",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -4365,7 +4365,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ajoy kumar majumdar ajoy kumar majumdar 7193 2014 pa joint commissioner f.no a- vishakhapatnam kolkata narrow but deep service track moderate mobility gst customs"
+    "search_blob": "mr ajoy kumar majumdar ajoy kumar majumdar 7193 2014 pa joint commissioner vishakhapatnam kolkata narrow but deep service track moderate mobility gst customs"
   },
   {
     "id": "officer-11453",
@@ -4566,7 +4566,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -4575,7 +4575,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr akshat agarwal akshat agarwal 6978 2014 dr joint commissioner f.no a- delhi dg, vigilance delhi muzaffarnagar meerut mixed exposure profile high mobility gst"
+    "search_blob": "mr akshat agarwal akshat agarwal 6978 2014 dr joint commissioner delhi dg, vigilance delhi muzaffarnagar meerut mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-8226",
@@ -4608,7 +4608,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > O/o No.",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -4617,7 +4617,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr akshatha shrinivas akshatha shrinivas 8322 2015 dr joint commissioner f.no a- > o/o no. bengaluru mysore bangalore narrow but deep service track moderate mobility gst"
+    "search_blob": "mr akshatha shrinivas akshatha shrinivas 8322 2015 dr joint commissioner o/o no. bengaluru mysore bangalore narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-3010",
@@ -5364,7 +5364,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > Ac, To",
+    "current_posting_summary": "Directorate • Ac, To",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -5373,7 +5373,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ambe m. ambe m 7094 2014 dr joint commissioner f.no a- > ac, to bhubaneshwar chennai commissioner chennai narrow but deep service track high mobility"
+    "search_blob": "mr ambe m. ambe m 7094 2014 dr joint commissioner ac, to bhubaneshwar chennai commissioner chennai narrow but deep service track high mobility"
   },
   {
     "id": "officer-1689",
@@ -5490,7 +5490,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > O/o No.",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -5499,7 +5499,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr amit chandra sunal amit chandra sunal 7011 2014 dr joint commissioner f.no a- > o/o no. delhi rourkela delhi cus. prev delhi narrow but deep service track high mobility gst preventive"
+    "search_blob": "mr amit chandra sunal amit chandra sunal 7011 2014 dr joint commissioner o/o no. delhi rourkela delhi cus. prev delhi narrow but deep service track high mobility gst preventive"
   },
   {
     "id": "officer-10352",
@@ -5868,7 +5868,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -5877,7 +5877,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr amit kumar singh amit kumar singh 4591 2013 dr joint commissioner f.no a- mumbai nagpur thane delhi belapur nhava sheva-iii mumbai mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr amit kumar singh amit kumar singh 4591 2013 dr joint commissioner mumbai nagpur thane delhi belapur nhava sheva-iii mumbai mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-8221",
@@ -5910,7 +5910,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -5919,7 +5919,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr amit nayak sagri amit nayak sagri 8213 2015 dr joint commissioner f.no a- pune goa pune customs pune pune customs ratnagiri bhubaneshwar rourkela mixed exposure profile moderate mobility gst"
+    "search_blob": "mr amit nayak sagri amit nayak sagri 8213 2015 dr joint commissioner pune goa pune customs pune pune customs ratnagiri bhubaneshwar rourkela mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-10658",
@@ -5994,7 +5994,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 18,
     "timeline_entry_count": 18,
@@ -6003,7 +6003,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr amit singh chandel (st. leave) amit singh chandel 7079 2014 dr joint commissioner f.no a- delhi ladakh faridabad bhopal audit gwalior indore audit indore gwalior bhopal rohtak indore high-mobility officer high mobility gst deputation"
+    "search_blob": "mr amit singh chandel (st. leave) amit singh chandel 7079 2014 dr joint commissioner delhi ladakh faridabad bhopal audit gwalior indore audit indore gwalior bhopal rohtak indore high-mobility officer high mobility gst deputation"
   },
   {
     "id": "officer-740",
@@ -7128,7 +7128,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -7137,7 +7137,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr anil sasidharan anil sasidharan 7130 2013 dr joint commissioner f.no a- nagpur calicut bangalore bengaluru mixed exposure profile moderate mobility gst"
+    "search_blob": "mr anil sasidharan anil sasidharan 7130 2013 dr joint commissioner nagpur calicut bangalore bengaluru mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-12489",
@@ -7317,7 +7317,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > No. 52/17 .",
+    "current_posting_summary": "Directorate • No. 52/17 .",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -7326,7 +7326,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr aniruddha aniruddha 8316 2015 dr joint commissioner f.no a- > no. 52/17 . bhilwara bikaner 04.08.2021, jaipur gst & udaipur gst & udaipur udaipur jaipur mixed exposure profile moderate mobility audit gst preventive"
+    "search_blob": "mr aniruddha aniruddha 8316 2015 dr joint commissioner no. 52/17 . bhilwara bikaner 04.08.2021, jaipur gst & udaipur gst & udaipur udaipur jaipur mixed exposure profile moderate mobility audit gst preventive"
   },
   {
     "id": "officer-10470",
@@ -7779,7 +7779,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -7788,7 +7788,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr anoop singh anoop singh 6981 2014 dr joint commissioner f.no a- ahmedabad mundra delhi commissioner chennai bhavnagar mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr anoop singh anoop singh 6981 2014 dr joint commissioner ahmedabad mundra delhi commissioner chennai bhavnagar mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-9315",
@@ -8514,7 +8514,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "report recd. • Of Deput > F.no A-",
+    "current_posting_summary": "report recd. • Of Deput",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -8523,7 +8523,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr arjun pradhan jmt arjun pradhan jmt 6965 2014 dr joint commissioner of deput > f.no a- delhi audit - ii gst bengaluru bangalore narrow but deep service track moderate mobility gst deputation"
+    "search_blob": "mr arjun pradhan jmt arjun pradhan jmt 6965 2014 dr joint commissioner of deput delhi audit - ii gst bengaluru bangalore narrow but deep service track moderate mobility gst deputation"
   },
   {
     "id": "officer-9057",
@@ -8556,7 +8556,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -8565,7 +8565,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr arshdeep singh arshdeep singh 7078 2014 dr joint commissioner f.no a- delhi mumbai gurugram gst gurgaon hisar rohtak gurgaon basis mixed exposure profile high mobility audit gst"
+    "search_blob": "mr arshdeep singh arshdeep singh 7078 2014 dr joint commissioner delhi mumbai gurugram gst gurgaon hisar rohtak gurgaon basis mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-4597",
@@ -8577,7 +8577,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -8586,7 +8586,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr arun choudhary arun choudhary 4597 2013 dr joint commissioner f.no a- mumbai mumbai-i imp - mumbai ludhiana mumbai-vii st mumbai iii air cargo- mumbai mixed exposure profile high mobility gst"
+    "search_blob": "mr arun choudhary arun choudhary 4597 2013 dr joint commissioner mumbai mumbai-i imp - mumbai ludhiana mumbai-vii st mumbai iii air cargo- mumbai mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-9990",
@@ -9711,7 +9711,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 16,
     "timeline_entry_count": 16,
@@ -9720,7 +9720,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ashok kumar ashok kumar 4537 2013 dr joint commissioner f.no a- delhi aurangabad jaipur ranchi delhi cus. prev delhi wardha mixed exposure profile high mobility gst preventive"
+    "search_blob": "mr ashok kumar ashok kumar 4537 2013 dr joint commissioner delhi aurangabad jaipur ranchi delhi cus. prev delhi wardha mixed exposure profile high mobility gst preventive"
   },
   {
     "id": "officer-8087",
@@ -11601,7 +11601,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2019-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -11610,7 +11610,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr b.jeyanth malaiyandi (on dep.) b jeyanth malaiyandi 7021 2014 dr deputy commissioner f.no a- ahmedabad mundra delhi narrow but deep service track moderate mobility gst deputation"
+    "search_blob": "mr b.jeyanth malaiyandi (on dep.) b jeyanth malaiyandi 7021 2014 dr deputy commissioner ahmedabad mundra delhi narrow but deep service track moderate mobility gst deputation"
   },
   {
     "id": "officer-12673",
@@ -11811,7 +11811,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > O/o No.",
+    "current_posting_summary": "Directorate • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -11820,7 +11820,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr badhe piyush barasu badhe piyush barasu 8271 2015 dr joint commissioner f.no a- > o/o no. commissioner mumbai mumbai pune nasik bangalore belgavi mixed exposure profile moderate mobility gst"
+    "search_blob": "mr badhe piyush barasu badhe piyush barasu 8271 2015 dr joint commissioner o/o no. commissioner mumbai mumbai pune nasik bangalore belgavi mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-10368",
@@ -11916,7 +11916,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -11925,7 +11925,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr balaji k balaji k 7026 2014 dr joint commissioner f.no a- tirupati chennai vishakhapatnam chennai-ii cus chennai mixed exposure profile high mobility gst"
+    "search_blob": "mr balaji k balaji k 7026 2014 dr joint commissioner tirupati chennai vishakhapatnam chennai-ii cus chennai mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-4600",
@@ -11979,7 +11979,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -11988,7 +11988,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr balaji manoharan balaji manoharan 8307 2015 dr joint commissioner f.no a- chennai chennai-iii cus chennai chennai-iii cx chennai narrow but deep service track high mobility gst"
+    "search_blob": "mr balaji manoharan balaji manoharan 8307 2015 dr joint commissioner chennai chennai-iii cus chennai chennai-iii cx chennai narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-3636",
@@ -12063,7 +12063,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Deputy Commissioner • F.no A-",
+    "current_posting_summary": "Deputy Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -12072,7 +12072,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr balasubramanyan r menon (st. leave) balasubramanyan r menon 8257 2015 dr deputy commissioner f.no a- hyderabad cochin kannur narrow but deep service track moderate mobility gst"
+    "search_blob": "mr balasubramanyan r menon (st. leave) balasubramanyan r menon 8257 2015 dr deputy commissioner hyderabad cochin kannur narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-13787",
@@ -12504,7 +12504,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -12513,7 +12513,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr basant kumar basant kumar 8214 2015 dr joint commissioner f.no a- jammu amritsar ludhiana chandigarh mixed exposure profile moderate mobility audit gst customs preventive"
+    "search_blob": "mr basant kumar basant kumar 8214 2015 dr joint commissioner jammu amritsar ludhiana chandigarh mixed exposure profile moderate mobility audit gst customs preventive"
   },
   {
     "id": "officer-13084",
@@ -12672,7 +12672,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -12681,7 +12681,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr bawkar swapnil sharad (on dep.) bawkar swapnil sharad 4587 2013 dr joint commissioner f.no a- vadodara surat mundra bengaluru anand nadiad mixed exposure profile high mobility audit gst"
+    "search_blob": "mr bawkar swapnil sharad (on dep.) bawkar swapnil sharad 4587 2013 dr joint commissioner vadodara surat mundra bengaluru anand nadiad mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-9800",
@@ -13848,7 +13848,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -13857,7 +13857,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr bipin kumar (on dep.) bipin kumar 8295 2015 dr joint commissioner f.no a- delhi muzaffarnagar meerut narrow but deep service track moderate mobility audit gst deputation"
+    "search_blob": "mr bipin kumar (on dep.) bipin kumar 8295 2015 dr joint commissioner delhi muzaffarnagar meerut narrow but deep service track moderate mobility audit gst deputation"
   },
   {
     "id": "officer-2774",
@@ -14268,7 +14268,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 17,
     "timeline_entry_count": 17,
@@ -14277,7 +14277,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr brahmanand prasad brahmanand prasad 4578 2013 dr joint commissioner f.no a- mumbai mumbai-vii st mumbai jabalpur bhopal mixed exposure profile high mobility gst"
+    "search_blob": "mr brahmanand prasad brahmanand prasad 4578 2013 dr joint commissioner mumbai mumbai-vii st mumbai jabalpur bhopal mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-3638",
@@ -15339,7 +15339,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -15348,7 +15348,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr chandan kumar chandan kumar 7048 2014 dr joint commissioner f.no a- meerut delhi noida basis, mixed exposure profile moderate mobility gst"
+    "search_blob": "mr chandan kumar chandan kumar 7048 2014 dr joint commissioner meerut delhi noida basis, mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-9133",
@@ -15465,7 +15465,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -15474,7 +15474,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr chandra madhav singh (on dept.) chandra madhav singh 8294 2015 dr joint commissioner f.no a- delhi gurgaon delhi cus. prev delhi panchkula faridabad-i cx faridabad guntur mixed exposure profile high mobility audit gst customs preventive"
+    "search_blob": "mr chandra madhav singh (on dept.) chandra madhav singh 8294 2015 dr joint commissioner delhi gurgaon delhi cus. prev delhi panchkula faridabad-i cx faridabad guntur mixed exposure profile high mobility audit gst customs preventive"
   },
   {
     "id": "officer-13569",
@@ -16242,7 +16242,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -16251,7 +16251,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr chitte yogesh sugdeo chitte yogesh sugdeo 8313 2015 dr joint commissioner f.no a- mumbai mumbai gst belapur gst & mumbai nhava sheva-ii nhava nhava sheva-i mumbai nhava mixed exposure profile moderate mobility gst"
+    "search_blob": "mr chitte yogesh sugdeo chitte yogesh sugdeo 8313 2015 dr joint commissioner mumbai mumbai gst belapur gst & mumbai nhava sheva-ii nhava nhava sheva-i mumbai nhava mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-4077",
@@ -16767,7 +16767,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-26",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -16776,7 +16776,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr d. s. maan d s maan 7196 2014 pa joint commissioner f.no a- mumbai commissioner mumbai chandigarh pune customs pune pune mixed exposure profile high mobility audit gst customs"
+    "search_blob": "mr d. s. maan d s maan 7196 2014 pa joint commissioner mumbai commissioner mumbai chandigarh pune customs pune pune mixed exposure profile high mobility audit gst customs"
   },
   {
     "id": "officer-13632",
@@ -17376,7 +17376,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > O/o No.",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -17385,7 +17385,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr dannana kalyan chakravarthy dannana kalyan chakravarthy 8277 2015 dr joint commissioner f.no a- > o/o no. vizianagaram vishakhapatnam krishnapattnam joining/rel. commissioner jc, in-situ gst & cx mixed exposure profile moderate mobility gst"
+    "search_blob": "mr dannana kalyan chakravarthy dannana kalyan chakravarthy 8277 2015 dr joint commissioner o/o no. vizianagaram vishakhapatnam krishnapattnam joining/rel. commissioner jc, in-situ gst & cx mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-4408",
@@ -19077,7 +19077,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -19086,7 +19086,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr devranjan mishra (st. leave) devranjan mishra 4550 2013 dr joint commissioner f.no a- delhi nagpur butibori narrow but deep service track high mobility gst deputation"
+    "search_blob": "mr devranjan mishra (st. leave) devranjan mishra 4550 2013 dr joint commissioner delhi nagpur butibori narrow but deep service track high mobility gst deputation"
   },
   {
     "id": "officer-9346",
@@ -19308,7 +19308,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "CUS (PREV.) ZONE • F.no A-",
+    "current_posting_summary": "CUS (PREV.) ZONE",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -19317,7 +19317,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr dharamraj g dharamraj g 7019 2014 dr joint commissioner f.no a- vishakhapatnam hyderabad tuticorin coimbatore visakhapatnam visakhapatnam- vishakhapatnam mixed exposure profile high mobility audit gst customs preventive"
+    "search_blob": "mr dharamraj g dharamraj g 7019 2014 dr joint commissioner vishakhapatnam hyderabad tuticorin coimbatore visakhapatnam visakhapatnam- vishakhapatnam mixed exposure profile high mobility audit gst customs preventive"
   },
   {
     "id": "officer-10770",
@@ -19854,7 +19854,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -19863,7 +19863,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr dhumal shridhar tanaji dhumal shridhar tanaji 8204 2015 dr joint commissioner f.no a- mumbai thane narrow but deep service track moderate mobility gst customs preventive"
+    "search_blob": "mr dhumal shridhar tanaji dhumal shridhar tanaji 8204 2015 dr joint commissioner mumbai thane narrow but deep service track moderate mobility gst customs preventive"
   },
   {
     "id": "officer-9716",
@@ -20211,7 +20211,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2018-04-01",
     "current_location": null,
-    "current_posting_summary": "Deputy Commissioner • F.no A-",
+    "current_posting_summary": "Deputy Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -20220,7 +20220,7 @@
     "career_archetype": "Emerging Leader Path",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr dinesh bishnoi (u/s) dinesh bishnoi 6989 2014 dr deputy commissioner f.no a- hisar sonepat rohtak gurgaon emerging leader path moderate mobility gst"
+    "search_blob": "mr dinesh bishnoi (u/s) dinesh bishnoi 6989 2014 dr deputy commissioner hisar sonepat rohtak gurgaon emerging leader path moderate mobility gst"
   },
   {
     "id": "officer-2544",
@@ -20589,7 +20589,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -20598,7 +20598,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr dinesh raj j dinesh raj j 7075 2014 dr joint commissioner f.no a- panchkula chennai panchluka cx panchkula yamuna delhi mixed exposure profile high mobility audit gst"
+    "search_blob": "mr dinesh raj j dinesh raj j 7075 2014 dr joint commissioner panchkula chennai panchluka cx panchkula yamuna delhi mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-2527",
@@ -20862,7 +20862,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2019-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -20871,7 +20871,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr divey kumar sethi divey kumar sethi 6919 2014 dr deputy commissioner f.no a- delhi appeals-i gst delhi commissioner delhi narrow but deep service track moderate mobility customs"
+    "search_blob": "mr divey kumar sethi divey kumar sethi 6919 2014 dr deputy commissioner delhi appeals-i gst delhi commissioner delhi narrow but deep service track moderate mobility customs"
   },
   {
     "id": "officer-7044",
@@ -21135,7 +21135,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 17,
     "timeline_entry_count": 17,
@@ -21144,7 +21144,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr dyamappa airani dyamappa airani 7073 2014 dr joint commissioner f.no a- chennai audit - ii gst bangalore commissioner bengaluru bengaluru davangere no. 47/16 . bangalore cx bangalore-iv bangalor vijayawada bangalore high-mobility officer high mobility gst customs"
+    "search_blob": "mr dyamappa airani dyamappa airani 7073 2014 dr joint commissioner chennai audit - ii gst bangalore commissioner bengaluru bengaluru davangere no. 47/16 . bangalore cx bangalore-iv bangalor vijayawada bangalore high-mobility officer high mobility gst customs"
   },
   {
     "id": "officer-8155",
@@ -23256,7 +23256,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > O/o No.",
+    "current_posting_summary": "Directorate • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -23265,7 +23265,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ghagare sachin bhagwant ghagare sachin bhagwant 8285 2015 dr joint commissioner f.no a- > o/o no. pune goa pune customs talegaon bengaluru bangalore mixed exposure profile moderate mobility gst"
+    "search_blob": "mr ghagare sachin bhagwant ghagare sachin bhagwant 8285 2015 dr joint commissioner o/o no. pune goa pune customs talegaon bengaluru bangalore mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-8323",
@@ -23277,7 +23277,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -23286,7 +23286,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ghanisht yasu ghanisht yasu 8323 2015 dr joint commissioner f.no a- mumbai ranchi delhi narrow but deep service track high mobility gst preventive deputation"
+    "search_blob": "mr ghanisht yasu ghanisht yasu 8323 2015 dr joint commissioner mumbai ranchi delhi narrow but deep service track high mobility gst preventive deputation"
   },
   {
     "id": "officer-8556",
@@ -25839,7 +25839,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -25848,7 +25848,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr harsh raj harsh raj 7013 2014 dr joint commissioner f.no a- rourkela paradeep 09.12.2020, bhubaneshwar audit gst & rourkel raipur audit raipur bhubaneshwar appeals gst & raipur mixed exposure profile high mobility gst"
+    "search_blob": "mr harsh raj harsh raj 7013 2014 dr joint commissioner rourkela paradeep 09.12.2020, bhubaneshwar audit gst & rourkel raipur audit raipur bhubaneshwar appeals gst & raipur mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-4521",
@@ -25860,7 +25860,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -25869,7 +25869,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr harsh singh harsh singh 4521 2013 dr joint commissioner f.no a- delhi gurgaon panchkula ludhiana mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr harsh singh harsh singh 4521 2013 dr joint commissioner delhi gurgaon panchkula ludhiana mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-3852",
@@ -25944,7 +25944,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-07-29",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -25953,7 +25953,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr harshanand g a (on dep.) harshanand g a 8338 2015 dr joint commissioner f.no a- chennai audit-ii gst & chennai palasamudram cochin chennai cus chennai-i ap chennai karnataka 126/2025 mixed exposure profile high mobility audit gst deputation"
+    "search_blob": "mr harshanand g a (on dep.) harshanand g a 8338 2015 dr joint commissioner chennai audit-ii gst & chennai palasamudram cochin chennai cus chennai-i ap chennai karnataka 126/2025 mixed exposure profile high mobility audit gst deputation"
   },
   {
     "id": "officer-8298",
@@ -26196,7 +26196,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -26205,7 +26205,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr hemant kumar hemant kumar 7033 2014 dr joint commissioner f.no a- delhi mumbai delhi cus. prev delhi narrow but deep service track high mobility gst customs preventive"
+    "search_blob": "mr hemant kumar hemant kumar 7033 2014 dr joint commissioner delhi mumbai delhi cus. prev delhi narrow but deep service track high mobility gst customs preventive"
   },
   {
     "id": "officer-4407",
@@ -26595,7 +26595,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -26604,7 +26604,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr iftakhar ahmed chowdhry iftakhar ahmed chowdhry 4631 2013 dr joint commissioner f.no a- jammu delhi chandigarh narrow but deep service track high mobility audit gst deputation"
+    "search_blob": "mr iftakhar ahmed chowdhry iftakhar ahmed chowdhry 4631 2013 dr joint commissioner jammu delhi chandigarh narrow but deep service track high mobility audit gst deputation"
   },
   {
     "id": "officer-11596",
@@ -27330,7 +27330,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -27339,7 +27339,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr jadeja dharamvirsinh ranjitsinh jadeja dharamvirsinh ranjitsinh 8203 2015 dr joint commissioner f.no a- ahmedabad gandhinagar gandhinagar gandhinagar narrow but deep service track moderate mobility gst"
+    "search_blob": "mr jadeja dharamvirsinh ranjitsinh jadeja dharamvirsinh ranjitsinh 8203 2015 dr joint commissioner ahmedabad gandhinagar gandhinagar gandhinagar narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-11880",
@@ -27393,7 +27393,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -27402,7 +27402,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr jadhavar vivekanand rajendra jadhavar vivekanand rajendra 7059 2014 dr joint commissioner f.no a- vadodara nasik nagpur narrow but deep service track high mobility gst"
+    "search_blob": "mr jadhavar vivekanand rajendra jadhavar vivekanand rajendra 7059 2014 dr joint commissioner vadodara nasik nagpur narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-13367",
@@ -27813,7 +27813,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2021-01-01",
     "current_location": null,
-    "current_posting_summary": "Deputy Commissioner • F.no.",
+    "current_posting_summary": "Deputy Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -27822,7 +27822,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr jaiprakash bhamu jaiprakash bhamu 8498 2016 dr deputy commissioner f.no. vadodara jaipur bharuch narrow but deep service track moderate mobility gst"
+    "search_blob": "mr jaiprakash bhamu jaiprakash bhamu 8498 2016 dr deputy commissioner vadodara jaipur bharuch narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10044",
@@ -29073,7 +29073,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "ZONE-III CUS • F.no A-",
+    "current_posting_summary": "ZONE-III CUS",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -29082,7 +29082,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr jitesh kumar jain jitesh kumar jain 6940 2014 dr joint commissioner f.no a- shillong mumbai iii air cargo- mumbai dc, mumbai gst mumbai south mumbai guwahati silchar mixed exposure profile high mobility audit gst preventive"
+    "search_blob": "mr jitesh kumar jain jitesh kumar jain 6940 2014 dr joint commissioner shillong mumbai iii air cargo- mumbai dc, mumbai gst mumbai south mumbai guwahati silchar mixed exposure profile high mobility audit gst preventive"
   },
   {
     "id": "officer-11259",
@@ -31488,7 +31488,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-07-29",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Hyderabad",
+    "current_posting_summary": "Chief • Hyderabad",
     "timeline_quality": "partial",
     "timeline_richness_score": 7,
     "timeline_entry_count": 7,
@@ -31497,7 +31497,7 @@
     "career_archetype": "Administrative Continuity Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kalligotta nagaraju kalligotta nagaraju 8336 2015 dr joint commissioner f.no a- > hyderabad hyderabad administrative continuity profile moderate mobility gst customs"
+    "search_blob": "mr kalligotta nagaraju kalligotta nagaraju 8336 2015 dr joint commissioner hyderabad hyderabad administrative continuity profile moderate mobility gst customs"
   },
   {
     "id": "officer-12181",
@@ -31719,7 +31719,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Chief • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -31728,7 +31728,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kamaljit k kamal (on dept.) kamaljit k kamal 4579 2013 dr joint commissioner f.no a- > ac, o/o no. bharuch pipavav surat gst & cx surat daman mumbai bhiwandi vadodara mixed exposure profile high mobility gst preventive"
+    "search_blob": "mr kamaljit k kamal (on dept.) kamaljit k kamal 4579 2013 dr joint commissioner ac, o/o no. bharuch pipavav surat gst & cx surat daman mumbai bhiwandi vadodara mixed exposure profile high mobility gst preventive"
   },
   {
     "id": "officer-11376",
@@ -32286,7 +32286,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -32295,7 +32295,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kapil prajapati (on dep.) kapil prajapati 8194 2015 dr joint commissioner f.no a- delhi belapur nhava sheva-iii mumbai iii air cargo- mumbai mumbai mixed exposure profile moderate mobility"
+    "search_blob": "mr kapil prajapati (on dep.) kapil prajapati 8194 2015 dr joint commissioner delhi belapur nhava sheva-iii mumbai iii air cargo- mumbai mumbai mixed exposure profile moderate mobility"
   },
   {
     "id": "officer-13341",
@@ -32412,7 +32412,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Directorate • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -32421,7 +32421,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr karkhile kailas vinayak karkhile kailas vinayak 4601 2013 dr joint commissioner f.no a- > ac, o/o no. mumbai iii air cargo- mumbai nasik report recd. 69/2025 mixed exposure profile high mobility audit gst"
+    "search_blob": "mr karkhile kailas vinayak karkhile kailas vinayak 4601 2013 dr joint commissioner ac, o/o no. mumbai iii air cargo- mumbai nasik report recd. 69/2025 mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-13232",
@@ -32769,7 +32769,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > O/o No.",
+    "current_posting_summary": "Directorate • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -32778,7 +32778,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kaushik tg kaushik tg 7015 2014 dr joint commissioner f.no a- > o/o no. mumbai delhi organization, brussels narrow but deep service track high mobility deputation"
+    "search_blob": "mr kaushik tg kaushik tg 7015 2014 dr joint commissioner o/o no. mumbai delhi organization, brussels narrow but deep service track high mobility deputation"
   },
   {
     "id": "officer-11201",
@@ -33000,7 +33000,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -33009,7 +33009,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kevin boban kevin boban 7069 2014 dr joint commissioner f.no a- delhi faridabad narrow but deep service track high mobility audit gst preventive deputation"
+    "search_blob": "mr kevin boban kevin boban 7069 2014 dr joint commissioner delhi faridabad narrow but deep service track high mobility audit gst preventive deputation"
   },
   {
     "id": "officer-12446",
@@ -33231,7 +33231,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-26",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -33240,7 +33240,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr khurshid rehan khurshid rehan 7323 2016 pa joint commissioner f.no a- kolkata petrapole howrah narrow but deep service track moderate mobility preventive"
+    "search_blob": "mr khurshid rehan khurshid rehan 7323 2016 pa joint commissioner kolkata petrapole howrah narrow but deep service track moderate mobility preventive"
   },
   {
     "id": "officer-10669",
@@ -33672,7 +33672,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -33681,7 +33681,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kommisetty muralidhar (on dept. kommisetty muralidhar on dept 6948 2014 dr joint commissioner f.no a- hyderabad vijayawada cochin thiruvananthapuram kochi gst & cx cochin mixed exposure profile high mobility gst customs"
+    "search_blob": "mr kommisetty muralidhar (on dept. kommisetty muralidhar on dept 6948 2014 dr joint commissioner hyderabad vijayawada cochin thiruvananthapuram kochi gst & cx cochin mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-13607",
@@ -34302,7 +34302,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -34311,7 +34311,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kuldeep shivaji kumbhar kuldeep shivaji kumbhar 8299 2015 dr joint commissioner f.no a- mumbai delhi shimla belapur nhava sheva-ii mumbai nhava sheva-iii bengaluru belgavi high-mobility officer high mobility audit gst deputation"
+    "search_blob": "mr kuldeep shivaji kumbhar kuldeep shivaji kumbhar 8299 2015 dr joint commissioner mumbai delhi shimla belapur nhava sheva-ii mumbai nhava sheva-iii bengaluru belgavi high-mobility officer high mobility audit gst deputation"
   },
   {
     "id": "officer-13540",
@@ -34470,7 +34470,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > No. 52/17 .",
+    "current_posting_summary": "Directorate • No. 52/17 .",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -34479,7 +34479,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kumar asim anand (on dept.) kumar asim anand 8259 2015 dr joint commissioner f.no a- > no. 52/17 . delhi bangalore narrow but deep service track moderate mobility gst"
+    "search_blob": "mr kumar asim anand (on dept.) kumar asim anand 8259 2015 dr joint commissioner no. 52/17 . delhi bangalore narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10179",
@@ -34680,7 +34680,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "OTHER ICDs) • F.no A-",
+    "current_posting_summary": "OTHER ICDs)",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -34689,7 +34689,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr kumar vivek (on dep.) kumar vivek 6967 2014 dr joint commissioner f.no a- delhi gurgaon narrow but deep service track high mobility gst deputation"
+    "search_blob": "mr kumar vivek (on dep.) kumar vivek 6967 2014 dr joint commissioner delhi gurgaon narrow but deep service track high mobility gst deputation"
   },
   {
     "id": "officer-9411",
@@ -36654,7 +36654,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > Ac, O/o",
+    "current_posting_summary": "Directorate • Ac, O/o",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -36663,7 +36663,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr m.anukathir surya m anukathir surya 4623 2013 dr joint commissioner f.no a- > ac, o/o chennai chennai-iv cus chennai chennai-iv cx chennai narrow but deep service track high mobility gst"
+    "search_blob": "mr m.anukathir surya m anukathir surya 4623 2013 dr joint commissioner ac, o/o chennai chennai-iv cus chennai chennai-iv cx chennai narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-13366",
@@ -38838,7 +38838,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • O/o No. > F.no A-",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -38847,7 +38847,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr manish goel manish goel 8245 2015 dr joint commissioner o/o no. > f.no a- delhi narrow but deep service track moderate mobility gst preventive"
+    "search_blob": "mr manish goel manish goel 8245 2015 dr joint commissioner o/o no. delhi narrow but deep service track moderate mobility gst preventive"
   },
   {
     "id": "officer-842",
@@ -39111,7 +39111,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -39120,7 +39120,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr manish kumar yadav manish kumar yadav 7032 2014 dr joint commissioner f.no a- delhi mumbai allahabad faridabad-i cx faridabad faridabad gst faridabad mixed exposure profile moderate mobility gst preventive deputation"
+    "search_blob": "mr manish kumar yadav manish kumar yadav 7032 2014 dr joint commissioner delhi mumbai allahabad faridabad-i cx faridabad faridabad gst faridabad mixed exposure profile moderate mobility gst preventive deputation"
   },
   {
     "id": "officer-987",
@@ -40035,7 +40035,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -40044,7 +40044,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr manoj prabhakar manoj prabhakar 7129 2013 dr joint commissioner f.no a- buddh nagar bareilly moradabad meerut bareilly uop mixed exposure profile moderate mobility gst customs"
+    "search_blob": "mr manoj prabhakar manoj prabhakar 7129 2013 dr joint commissioner buddh nagar bareilly moradabad meerut bareilly uop mixed exposure profile moderate mobility gst customs"
   },
   {
     "id": "officer-13175",
@@ -40098,7 +40098,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -40107,7 +40107,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr manudev jain manudev jain 6955 2014 dr joint commissioner f.no a- mumbai delhi bangalore narrow but deep service track high mobility gst"
+    "search_blob": "mr manudev jain manudev jain 6955 2014 dr joint commissioner mumbai delhi bangalore narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-3290",
@@ -42429,7 +42429,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "& CX ZONE • F.no A- > In-situ Basis,",
+    "current_posting_summary": "& CX ZONE • In-situ Basis,",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -42438,7 +42438,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr methuku guruswamy methuku guruswamy 6977 2014 dr joint commissioner f.no a- > in-situ basis, hyderabad nagpur narrow but deep service track high mobility gst customs"
+    "search_blob": "mr methuku guruswamy methuku guruswamy 6977 2014 dr joint commissioner in-situ basis, hyderabad nagpur narrow but deep service track high mobility gst customs"
   },
   {
     "id": "officer-8479",
@@ -42933,7 +42933,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2018-04-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -42942,7 +42942,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr mohadikar kiran mohan (on dep.) mohadikar kiran mohan 6990 2014 dr deputy commissioner f.no a- kandla ahmedabad st ahmedabad ahmedabad narrow but deep service track moderate mobility gst"
+    "search_blob": "mr mohadikar kiran mohan (on dep.) mohadikar kiran mohan 6990 2014 dr deputy commissioner kandla ahmedabad st ahmedabad ahmedabad narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10484",
@@ -43017,7 +43017,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2018-04-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -43026,7 +43026,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr mohammad saim (on dep.) mohammad saim 7042 2014 dr deputy commissioner f.no a- hyderabad delhi narrow but deep service track moderate mobility gst"
+    "search_blob": "mr mohammad saim (on dep.) mohammad saim 7042 2014 dr deputy commissioner hyderabad delhi narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-13450",
@@ -44151,7 +44151,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Directorate • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -44160,7 +44160,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr murali rao r j murali rao r j 4542 2013 dr joint commissioner f.no a- > ac, o/o no. chennai ahmedabad surat bhavnagar bhavnagar cx junagadh ahmedabad bhavnagar cx bhavnagar mixed exposure profile high mobility gst"
+    "search_blob": "mr murali rao r j murali rao r j 4542 2013 dr joint commissioner ac, o/o no. chennai ahmedabad surat bhavnagar bhavnagar cx junagadh ahmedabad bhavnagar cx bhavnagar mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-11474",
@@ -44991,7 +44991,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -45000,7 +45000,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr n. varun koundinya n varun koundinya 4509 2013 dr joint commissioner f.no a- delhi vishakhapatnam chennai visakhapatnam- kadapa visakhapatnam- nellore mixed exposure profile high mobility gst customs deputation"
+    "search_blob": "mr n. varun koundinya n varun koundinya 4509 2013 dr joint commissioner delhi vishakhapatnam chennai visakhapatnam- kadapa visakhapatnam- nellore mixed exposure profile high mobility gst customs deputation"
   },
   {
     "id": "officer-13742",
@@ -45516,7 +45516,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "& CX ZONE • F.no A-",
+    "current_posting_summary": "& CX ZONE",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -45525,7 +45525,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr nanthakumar. s. nanthakumar s 7088 2014 dr joint commissioner f.no a- chennai bangalore chennai-iii cus chennai chennai cus chennai-ii cus chennai 10.11.2023, chennai gst audit-ii gst & chenn audit-ii gst & chennai puducherry mixed exposure profile high mobility gst"
+    "search_blob": "mr nanthakumar. s. nanthakumar s 7088 2014 dr joint commissioner chennai bangalore chennai-iii cus chennai chennai cus chennai-ii cus chennai 10.11.2023, chennai gst audit-ii gst & chenn audit-ii gst & chennai puducherry mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-11019",
@@ -46188,7 +46188,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -46197,7 +46197,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr navin kumar soni (on dep.) navin kumar soni 7025 2014 dr joint commissioner f.no a- vadodara surat gst & cx surat surat anand nadiad mixed exposure profile high mobility gst"
+    "search_blob": "mr navin kumar soni (on dep.) navin kumar soni 7025 2014 dr joint commissioner vadodara surat gst & cx surat surat anand nadiad mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-4563",
@@ -46209,7 +46209,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Chief • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -46218,7 +46218,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr navneet kaushal navneet kaushal 4563 2013 dr joint commissioner f.no a- > ac, o/o no. delhi chandigarh amritsar narrow but deep service track high mobility audit gst customs preventive"
+    "search_blob": "mr navneet kaushal navneet kaushal 4563 2013 dr joint commissioner ac, o/o no. delhi chandigarh amritsar narrow but deep service track high mobility audit gst customs preventive"
   },
   {
     "id": "officer-8284",
@@ -46230,7 +46230,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > O/o No.",
+    "current_posting_summary": "Directorate • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -46239,7 +46239,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr navneet kumar navneet kumar 8284 2015 dr joint commissioner f.no a- > o/o no. bhopal patna siliguri kolkata kolkata gst howrah gst & kolkata mixed exposure profile high mobility gst customs preventive"
+    "search_blob": "mr navneet kumar navneet kumar 8284 2015 dr joint commissioner o/o no. bhopal patna siliguri kolkata kolkata gst howrah gst & kolkata mixed exposure profile high mobility gst customs preventive"
   },
   {
     "id": "officer-3582",
@@ -46566,7 +46566,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -46575,7 +46575,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr neeraj meena neeraj meena 8357 2015 dr deputy commissioner f.no a- delhi ballabhgarh faridabad narrow but deep service track moderate mobility gst"
+    "search_blob": "mr neeraj meena neeraj meena 8357 2015 dr deputy commissioner delhi ballabhgarh faridabad narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-13313",
@@ -46860,7 +46860,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 17,
     "timeline_entry_count": 17,
@@ -46869,7 +46869,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr nikhil goyal nikhil goyal 6946 2014 dr joint commissioner f.no a- delhi mumbai nhava sheva-v mumbai pune audit st pune pune nhava sheva-iii mumbai bhiwandi mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr nikhil goyal nikhil goyal 6946 2014 dr joint commissioner delhi mumbai nhava sheva-v mumbai pune audit st pune pune nhava sheva-iii mumbai bhiwandi mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-8217",
@@ -46923,7 +46923,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -46932,7 +46932,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr nikhil mohan goyal nikhil mohan goyal 7120 2014 dr joint commissioner f.no a- delhi dtd. narrow but deep service track high mobility gst"
+    "search_blob": "mr nikhil mohan goyal nikhil mohan goyal 7120 2014 dr joint commissioner delhi dtd. narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-1696",
@@ -47343,7 +47343,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "months as • F.no A-",
+    "current_posting_summary": "months as",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -47352,7 +47352,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr nirmal joy nirmal joy 6976 2014 dr joint commissioner f.no a- bangalore commissioner bengaluru bengaluru bangalore-iii bangalore kolkata siliguri mixed exposure profile high mobility gst"
+    "search_blob": "mr nirmal joy nirmal joy 6976 2014 dr joint commissioner bangalore commissioner bengaluru bengaluru bangalore-iii bangalore kolkata siliguri mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-13790",
@@ -47700,7 +47700,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "CX ZONE • F.no A-",
+    "current_posting_summary": "CX ZONE",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -47709,7 +47709,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr nitin kuraien nitin kuraien 6912 2014 dr joint commissioner f.no a- delhi ludhiana narrow but deep service track high mobility intelligence gst deputation"
+    "search_blob": "mr nitin kuraien nitin kuraien 6912 2014 dr joint commissioner delhi ludhiana narrow but deep service track high mobility intelligence gst deputation"
   },
   {
     "id": "officer-12177",
@@ -47742,7 +47742,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > O/o No.",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -47751,7 +47751,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr nitin ranjan nitin ranjan 8224 2015 dr joint commissioner f.no a- > o/o no. commissioner mumbai kolkata iii air cargo- mumbai narrow but deep service track moderate mobility gst"
+    "search_blob": "mr nitin ranjan nitin ranjan 8224 2015 dr joint commissioner o/o no. commissioner mumbai kolkata iii air cargo- mumbai narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-1611",
@@ -48099,7 +48099,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -48108,7 +48108,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr om prakash bishnoi (on dep.) om prakash bishnoi 6992 2014 dr joint commissioner f.no a- ahmedabad rajkot valsad raipur mixed exposure profile high mobility gst"
+    "search_blob": "mr om prakash bishnoi (on dep.) om prakash bishnoi 6992 2014 dr joint commissioner ahmedabad rajkot valsad raipur mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-8093",
@@ -48183,7 +48183,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2022-04-11",
     "current_location": "Delhi",
-    "current_posting_summary": "Affairs • Notification • Delhi",
+    "current_posting_summary": "Affairs • Delhi",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -48192,7 +48192,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr om prakash singh (on dep.) om prakash singh 4463 2012 dr joint commissioner delhi notification patna delhi shimla narrow but deep service track moderate mobility gst deputation"
+    "search_blob": "mr om prakash singh (on dep.) om prakash singh 4463 2012 dr joint commissioner delhi patna delhi shimla narrow but deep service track moderate mobility gst deputation"
   },
   {
     "id": "officer-8333",
@@ -48267,7 +48267,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -48276,7 +48276,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr otto kughazhe yeputhomi otto kughazhe yeputhomi 8348 2015 dr deputy commissioner f.no a- dimapur bhubaneshwar narrow but deep service track moderate mobility gst customs preventive"
+    "search_blob": "mr otto kughazhe yeputhomi otto kughazhe yeputhomi 8348 2015 dr deputy commissioner dimapur bhubaneshwar narrow but deep service track moderate mobility gst customs preventive"
   },
   {
     "id": "officer-9845",
@@ -48918,7 +48918,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -48927,7 +48927,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr p. m. yashwant p m yashwant 7117 2014 dr joint commissioner f.no a- hyderabad rohtak delhi narrow but deep service track high mobility gst customs"
+    "search_blob": "mr p. m. yashwant p m yashwant 7117 2014 dr joint commissioner hyderabad rohtak delhi narrow but deep service track high mobility gst customs"
   },
   {
     "id": "officer-11498",
@@ -49611,7 +49611,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -49620,7 +49620,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr pandiyaraj guruvinanapalli venkatesan pandiyaraj guruvinanapalli venkatesan 8292 2015 dr joint commissioner f.no a- kolkata hosur salem coimbatore chennai trichy mixed exposure profile high mobility gst customs"
+    "search_blob": "mr pandiyaraj guruvinanapalli venkatesan pandiyaraj guruvinanapalli venkatesan 8292 2015 dr joint commissioner kolkata hosur salem coimbatore chennai trichy mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-10542",
@@ -49989,7 +49989,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -49998,7 +49998,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr pankaj singh pankaj singh 6949 2014 dr joint commissioner f.no a- kolkata ahmedabad rajkot narrow but deep service track moderate mobility gst"
+    "search_blob": "mr pankaj singh pankaj singh 6949 2014 dr joint commissioner kolkata ahmedabad rajkot narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10431",
@@ -51837,7 +51837,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -51846,7 +51846,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr phadke vikram dnyandeo phadke vikram dnyandeo 4551 2013 dr joint commissioner f.no a- aurangabad pune mumbai thane nagpur mixed exposure profile high mobility gst"
+    "search_blob": "mr phadke vikram dnyandeo phadke vikram dnyandeo 4551 2013 dr joint commissioner aurangabad pune mumbai thane nagpur mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-4598",
@@ -53223,7 +53223,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -53232,7 +53232,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr prakash chaudhary prakash chaudhary 8297 2015 dr joint commissioner f.no a- jammu mumbai nagpur delhi lucknow chandigarh mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr prakash chaudhary prakash chaudhary 8297 2015 dr joint commissioner jammu mumbai nagpur delhi lucknow chandigarh mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-12359",
@@ -54231,7 +54231,7 @@
     "current_designation": "Assistant Commissioner",
     "present_rank_date": "2023-01-13",
     "current_location": null,
-    "current_posting_summary": "External Affairs • F.no.a-",
+    "current_posting_summary": "External Affairs",
     "timeline_quality": "partial",
     "timeline_richness_score": 4,
     "timeline_entry_count": 4,
@@ -54240,7 +54240,7 @@
     "career_archetype": "Emerging Leader Path",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr praveen kumar (on dep.) praveen kumar 11633 2023 pa assistant commissioner f.no.a- delhi mumbai emerging leader path low known mobility deputation"
+    "search_blob": "mr praveen kumar (on dep.) praveen kumar 11633 2023 pa assistant commissioner delhi mumbai emerging leader path low known mobility deputation"
   },
   {
     "id": "officer-3854",
@@ -54798,7 +54798,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -54807,7 +54807,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr puneet gunawat puneet gunawat 7113 2014 dr joint commissioner f.no a- ahmedabad rajkot mundra delhi chandigarh amritsar mixed exposure profile high mobility gst preventive"
+    "search_blob": "mr puneet gunawat puneet gunawat 7113 2014 dr joint commissioner ahmedabad rajkot mundra delhi chandigarh amritsar mixed exposure profile high mobility gst preventive"
   },
   {
     "id": "officer-12160",
@@ -54903,7 +54903,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2018-04-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -54912,7 +54912,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr purna kam singh purna kam singh 4538 2013 dr deputy commissioner f.no a- delhi performance delhi ahmedabad narrow but deep service track moderate mobility gst deputation"
+    "search_blob": "mr purna kam singh purna kam singh 4538 2013 dr deputy commissioner delhi performance delhi ahmedabad narrow but deep service track moderate mobility gst deputation"
   },
   {
     "id": "officer-11109",
@@ -56037,7 +56037,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • Ac, O/o > F.no A-",
+    "current_posting_summary": "Chief • Ac, O/o",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -56046,7 +56046,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr radhe tallo radhe tallo 4633 2013 dr joint commissioner ac, o/o > f.no a- delhi commissioner delhi ludhiana cus ludhiana ludhiana mixed exposure profile high mobility audit gst preventive"
+    "search_blob": "mr radhe tallo radhe tallo 4633 2013 dr joint commissioner ac, o/o delhi commissioner delhi ludhiana cus ludhiana ludhiana mixed exposure profile high mobility audit gst preventive"
   },
   {
     "id": "officer-12217",
@@ -56184,7 +56184,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -56193,7 +56193,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr raghavendra p raghavendra p 7039 2014 dr joint commissioner f.no a- goa narrow but deep service track moderate mobility gst customs"
+    "search_blob": "mr raghavendra p raghavendra p 7039 2014 dr joint commissioner goa narrow but deep service track moderate mobility gst customs"
   },
   {
     "id": "officer-3555",
@@ -56688,7 +56688,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • Joining As > F.no A-",
+    "current_posting_summary": "Chief • Joining As",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -56697,7 +56697,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rahul raichur (on dep.) rahul raichur 8256 2015 dr joint commissioner joining as > f.no a- mumbai delhi mumbai gst mumbai south mumbai narrow but deep service track moderate mobility deputation"
+    "search_blob": "mr rahul raichur (on dep.) rahul raichur 8256 2015 dr joint commissioner joining as mumbai delhi mumbai gst mumbai south mumbai narrow but deep service track moderate mobility deputation"
   },
   {
     "id": "officer-7049",
@@ -56709,7 +56709,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -56718,7 +56718,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rahul raja rahul raja 7049 2014 dr joint commissioner f.no a- delhi hyderabad narrow but deep service track high mobility gst"
+    "search_blob": "mr rahul raja rahul raja 7049 2014 dr joint commissioner delhi hyderabad narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-3019",
@@ -58872,7 +58872,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Joining",
+    "current_posting_summary": "Chief • Joining",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -58881,7 +58881,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rajesh kumar meena rajesh kumar meena 8353 2015 dr deputy commissioner f.no a- > joining delhi batala chandigarh narrow but deep service track moderate mobility gst customs deputation"
+    "search_blob": "mr rajesh kumar meena rajesh kumar meena 8353 2015 dr deputy commissioner joining delhi batala chandigarh narrow but deep service track moderate mobility gst customs deputation"
   },
   {
     "id": "officer-8545",
@@ -60048,7 +60048,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -60057,7 +60057,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rajivkumar yengkhom rajivkumar yengkhom 8321 2015 dr joint commissioner f.no a- imphal coimbatore imphal gst & cx imphal appeals gst & siliguri karur mixed exposure profile moderate mobility intelligence gst preventive"
+    "search_blob": "mr rajivkumar yengkhom rajivkumar yengkhom 8321 2015 dr joint commissioner imphal coimbatore imphal gst & cx imphal appeals gst & siliguri karur mixed exposure profile moderate mobility intelligence gst preventive"
   },
   {
     "id": "officer-9889",
@@ -60111,7 +60111,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Joining",
+    "current_posting_summary": "Chief • Joining",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -60120,7 +60120,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rajneesh meena rajneesh meena 8358 2015 dr deputy commissioner f.no a- > joining kolkata narrow but deep service track moderate mobility gst preventive"
+    "search_blob": "mr rajneesh meena rajneesh meena 8358 2015 dr deputy commissioner joining kolkata narrow but deep service track moderate mobility gst preventive"
   },
   {
     "id": "officer-12799",
@@ -60825,7 +60825,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • O/o No. > F.no A-",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -60834,7 +60834,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ram kumar gopal ram kumar gopal 8305 2015 dr joint commissioner o/o no. > f.no a- chennai gst & chennai south chennai salem trichy kanpur lucknow puducherry mixed exposure profile high mobility gst customs"
+    "search_blob": "mr ram kumar gopal ram kumar gopal 8305 2015 dr joint commissioner o/o no. chennai gst & chennai south chennai salem trichy kanpur lucknow puducherry mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-12685",
@@ -61245,7 +61245,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -61254,7 +61254,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ramchandran g ramchandran g 4562 2013 dr joint commissioner f.no a- madurai hassan trichy bengaluru gst mysuru gst & hassan mysore mixed exposure profile moderate mobility gst preventive"
+    "search_blob": "mr ramchandran g ramchandran g 4562 2013 dr joint commissioner madurai hassan trichy bengaluru gst mysuru gst & hassan mysore mixed exposure profile moderate mobility gst preventive"
   },
   {
     "id": "officer-4560",
@@ -61686,7 +61686,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "GST & CX ZONE • F.no A-",
+    "current_posting_summary": "GST & CX ZONE",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -61695,7 +61695,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ranbir bose ranbir bose 7204 2015 pa joint commissioner f.no a- cochin mumbai calicut belapur nasik thiruvananthapuram mixed exposure profile high mobility gst customs"
+    "search_blob": "mr ranbir bose ranbir bose 7204 2015 pa joint commissioner cochin mumbai calicut belapur nasik thiruvananthapuram mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-13769",
@@ -62295,7 +62295,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -62304,7 +62304,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr raunaq jamil ansari raunaq jamil ansari 7036 2014 dr joint commissioner f.no a- kolkata gurugram faridabad delhi gurugram gst gurgaon faridabad-i cx faridabad feedback & mixed exposure profile high mobility gst preventive"
+    "search_blob": "mr raunaq jamil ansari raunaq jamil ansari 7036 2014 dr joint commissioner kolkata gurugram faridabad delhi gurugram gst gurgaon faridabad-i cx faridabad feedback & mixed exposure profile high mobility gst preventive"
   },
   {
     "id": "officer-8383",
@@ -62526,7 +62526,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "CX ZONE • Ranchi > F.no A-",
+    "current_posting_summary": "CX ZONE • Ranchi",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -62535,7 +62535,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ravi kumar ravi kumar 7058 2014 dr joint commissioner ranchi > f.no a- salem jamshedpur patna coimbatore uop, to mixed exposure profile moderate mobility gst"
+    "search_blob": "mr ravi kumar ravi kumar 7058 2014 dr joint commissioner ranchi salem jamshedpur patna coimbatore uop, to mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-12600",
@@ -62652,7 +62652,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -62661,7 +62661,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ravi singh ravi singh 4520 2013 dr joint commissioner f.no a- delhi noida meerut narrow but deep service track high mobility gst deputation"
+    "search_blob": "mr ravi singh ravi singh 4520 2013 dr joint commissioner delhi noida meerut narrow but deep service track high mobility gst deputation"
   },
   {
     "id": "officer-3897",
@@ -62841,7 +62841,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -62850,7 +62850,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr ravinder kumar ravinder kumar 7100 2014 dr joint commissioner f.no a- delhi gurgaon gurugram gst gurgaon chennai gurgaon-ii cx rewari panchkula mixed exposure profile high mobility audit gst deputation"
+    "search_blob": "mr ravinder kumar ravinder kumar 7100 2014 dr joint commissioner delhi gurgaon gurugram gst gurgaon chennai gurgaon-ii cx rewari panchkula mixed exposure profile high mobility audit gst deputation"
   },
   {
     "id": "officer-4144",
@@ -63387,7 +63387,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 17,
     "timeline_entry_count": 17,
@@ -63396,7 +63396,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rigved thakur rigved thakur 6972 2014 dr joint commissioner f.no a- delhi faridabad narrow but deep service track high mobility audit gst customs"
+    "search_blob": "mr rigved thakur rigved thakur 6972 2014 dr joint commissioner delhi faridabad narrow but deep service track high mobility audit gst customs"
   },
   {
     "id": "officer-4546",
@@ -63744,7 +63744,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > Vadodara",
+    "current_posting_summary": "Directorate • Vadodara",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -63753,7 +63753,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rohit singh rohit singh 7119 2014 dr joint commissioner f.no a- > vadodara vadodara ahmedabad halol mundra mixed exposure profile high mobility audit gst"
+    "search_blob": "mr rohit singh rohit singh 7119 2014 dr joint commissioner vadodara vadodara ahmedabad halol mundra mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-3577",
@@ -63786,7 +63786,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-07-29",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > No. 52/17 .",
+    "current_posting_summary": "Directorate • No. 52/17 .",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -63795,7 +63795,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr rohitkumar bhaisare rohitkumar bhaisare 8339 2015 dr joint commissioner f.no a- > no. 52/17 . delhi mumbai central gst & mumbai narrow but deep service track high mobility gst"
+    "search_blob": "mr rohitkumar bhaisare rohitkumar bhaisare 8339 2015 dr joint commissioner no. 52/17 . delhi mumbai central gst & mumbai narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-4404",
@@ -65004,7 +65004,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "India • F.no A-",
+    "current_posting_summary": "India",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -65013,7 +65013,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr s.f. a.i.ahmed s f a i ahmed 7192 2014 pa joint commissioner f.no a- mumbai gurgaon kolkata delhi recd. . 45/2024 mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr s.f. a.i.ahmed s f a i ahmed 7192 2014 pa joint commissioner mumbai gurgaon kolkata delhi recd. . 45/2024 mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-12574",
@@ -66075,7 +66075,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -66084,7 +66084,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr salunke durgesh yadav salunke durgesh yadav 4634 2013 dr joint commissioner f.no a- mumbai kolhapur central gst & mumbai pune kolhapur gst kolhapur mixed exposure profile high mobility gst"
+    "search_blob": "mr salunke durgesh yadav salunke durgesh yadav 4634 2013 dr joint commissioner mumbai kolhapur central gst & mumbai pune kolhapur gst kolhapur mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-4434",
@@ -66453,7 +66453,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -66462,7 +66462,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr samuel s vaiphei samuel s vaiphei 4635 2013 dr joint commissioner f.no a- kolkata aizawl siliguri narrow but deep service track moderate mobility gst preventive"
+    "search_blob": "mr samuel s vaiphei samuel s vaiphei 4635 2013 dr joint commissioner kolkata aizawl siliguri narrow but deep service track moderate mobility gst preventive"
   },
   {
     "id": "officer-13432",
@@ -67755,7 +67755,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -67764,7 +67764,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr sanjeet singh sanjeet singh 6960 2014 dr joint commissioner f.no a- delhi sonepat narrow but deep service track high mobility audit customs"
+    "search_blob": "mr sanjeet singh sanjeet singh 6960 2014 dr joint commissioner delhi sonepat narrow but deep service track high mobility audit customs"
   },
   {
     "id": "officer-12124",
@@ -68658,7 +68658,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Joining",
+    "current_posting_summary": "Chief • Joining",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -68667,7 +68667,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr saravana bhupathi kumaran sumathi (on dep.) saravana bhupathi kumaran sumathi 8279 2015 dr joint commissioner f.no a- > joining chennai hyderabad chennai-iv cx chennai narrow but deep service track moderate mobility audit gst deputation"
+    "search_blob": "mr saravana bhupathi kumaran sumathi (on dep.) saravana bhupathi kumaran sumathi 8279 2015 dr joint commissioner joining chennai hyderabad chennai-iv cx chennai narrow but deep service track moderate mobility audit gst deputation"
   },
   {
     "id": "officer-8273",
@@ -68679,7 +68679,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > O/o No.",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -68688,7 +68688,7 @@
     "career_archetype": "Emerging Leader Path",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr saravanakumar manoharan (u/s) saravanakumar manoharan 8273 2015 dr deputy commissioner f.no a- > o/o no. trichy madurai kolkata howrah emerging leader path moderate mobility gst customs preventive"
+    "search_blob": "mr saravanakumar manoharan (u/s) saravanakumar manoharan 8273 2015 dr deputy commissioner o/o no. trichy madurai kolkata howrah emerging leader path moderate mobility gst customs preventive"
   },
   {
     "id": "officer-12591",
@@ -69057,7 +69057,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • O/o No. > F.no A-",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -69066,7 +69066,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr satheesh kumar t. satheesh kumar t 8268 2015 dr joint commissioner o/o no. > f.no a- goa panaji hyderabad secunderabad hyderabad nagpur mixed exposure profile high mobility gst customs"
+    "search_blob": "mr satheesh kumar t. satheesh kumar t 8268 2015 dr joint commissioner o/o no. goa panaji hyderabad secunderabad hyderabad nagpur mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-13525",
@@ -69288,7 +69288,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -69297,7 +69297,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr satvik dev satvik dev 6930 2014 dr joint commissioner f.no a- delhi narrow but deep service track moderate mobility"
+    "search_blob": "mr satvik dev satvik dev 6930 2014 dr joint commissioner delhi narrow but deep service track moderate mobility"
   },
   {
     "id": "officer-10145",
@@ -69770,17 +69770,17 @@
     "cadre": "DR",
     "current_designation": "Additional Commissioner",
     "present_rank_date": "2023-01-01",
-    "current_location": "F.no.a-",
-    "current_posting_summary": "Secretariat • O/o 02/25 • F.no.a-",
+    "current_location": null,
+    "current_posting_summary": "Secretariat • O/o 02/25",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
-    "unique_station_count": 9,
+    "unique_station_count": 8,
     "mobility_profile": "High mobility",
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr saurav suman shardool (on dep.) saurav suman shardool 4060 2010 dr additional commissioner f.no.a- o/o 02/25 delhi ranchi indore dewas laheriasarai ujjain gst & cx pithampur dhanbad moradabad f.no.a- high-mobility officer high mobility gst deputation"
+    "search_blob": "mr saurav suman shardool (on dep.) saurav suman shardool 4060 2010 dr additional commissioner o/o 02/25 delhi ranchi indore dewas laheriasarai ujjain gst & cx pithampur dhanbad moradabad high-mobility officer high mobility gst deputation"
   },
   {
     "id": "officer-10220",
@@ -70464,7 +70464,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2023-12-28",
     "current_location": null,
-    "current_posting_summary": "Notification • Cabinet Secretariat DELHI",
+    "current_posting_summary": "Deputy Commissioner • Cabinet Secretariat DELHI",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -70527,7 +70527,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "CX ZONE • F.no A-",
+    "current_posting_summary": "CX ZONE",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -70536,7 +70536,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shanker lal (on dep.) shanker lal 4584 2013 dr joint commissioner f.no a- surat gst & cx surat jaipur surat hazipur ranchi gst & patna - ii gst & hazipur jamshedpur vadodara recd.for a period 169/2023 high-mobility officer high mobility gst"
+    "search_blob": "mr shanker lal (on dep.) shanker lal 4584 2013 dr joint commissioner surat gst & cx surat jaipur surat hazipur ranchi gst & patna - ii gst & hazipur jamshedpur vadodara recd.for a period 169/2023 high-mobility officer high mobility gst"
   },
   {
     "id": "officer-3804",
@@ -71094,7 +71094,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -71103,7 +71103,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shashi kant sharma shashi kant sharma 8216 2015 dr joint commissioner f.no a- delhi gandhidham commissioner delhi gandhidham gandhidham chandigarh ahmedabad mixed exposure profile high mobility deputation"
+    "search_blob": "mr shashi kant sharma shashi kant sharma 8216 2015 dr joint commissioner delhi gandhidham commissioner delhi gandhidham gandhidham chandigarh ahmedabad mixed exposure profile high mobility deputation"
   },
   {
     "id": "officer-9355",
@@ -71157,7 +71157,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -71166,7 +71166,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shashikant mehta (on dep.) shashikant mehta 8199 2015 dr joint commissioner f.no a- delhi junagadh bhavnagar ahmedabad mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr shashikant mehta (on dep.) shashikant mehta 8199 2015 dr joint commissioner delhi junagadh bhavnagar ahmedabad mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-7167",
@@ -71430,7 +71430,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": "Per Letter .",
-    "current_posting_summary": "& CX ZONE • F.no.c- > Import • Per Letter .",
+    "current_posting_summary": "& CX ZONE • Import • Per Letter .",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -71439,7 +71439,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shevare dilip vana shevare dilip vana 8351 2015 dr deputy commissioner per letter . f.no.c- > import nagpur per letter . narrow but deep service track moderate mobility audit gst"
+    "search_blob": "mr shevare dilip vana shevare dilip vana 8351 2015 dr deputy commissioner per letter . import nagpur per letter . narrow but deep service track moderate mobility audit gst"
   },
   {
     "id": "officer-8467",
@@ -71808,7 +71808,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -71817,7 +71817,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shiv sagar shiv sagar 8281 2015 dr joint commissioner f.no a- kolkata durgapur petrapole ahmedabad cc p gandhidham gandhidham mixed exposure profile high mobility audit gst preventive"
+    "search_blob": "mr shiv sagar shiv sagar 8281 2015 dr joint commissioner kolkata durgapur petrapole ahmedabad cc p gandhidham gandhidham mixed exposure profile high mobility audit gst preventive"
   },
   {
     "id": "officer-3931",
@@ -72186,7 +72186,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -72195,7 +72195,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "not_verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shraiy suri shraiy suri 6916 2014 dr joint commissioner f.no a- delhi panchkula chandigarh narrow but deep service track high mobility gst deputation"
+    "search_blob": "mr shraiy suri shraiy suri 6916 2014 dr joint commissioner delhi panchkula chandigarh narrow but deep service track high mobility gst deputation"
   },
   {
     "id": "officer-4477",
@@ -72270,7 +72270,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -72279,7 +72279,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shreyansh mohan shreyansh mohan 8258 2015 dr joint commissioner f.no a- mumbai pune nhava sheva-v mumbai narrow but deep service track moderate mobility gst"
+    "search_blob": "mr shreyansh mohan shreyansh mohan 8258 2015 dr joint commissioner mumbai pune nhava sheva-v mumbai narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10475",
@@ -72585,7 +72585,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • No. 203/17 . > F.no A-",
+    "current_posting_summary": "Chief • No. 203/17 .",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -72594,7 +72594,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr shubh agarwal shubh agarwal 8235 2015 dr joint commissioner no. 203/17 . > f.no a- jaipur mumbai jaipur gst & cx jaipur narrow but deep service track moderate mobility gst preventive"
+    "search_blob": "mr shubh agarwal shubh agarwal 8235 2015 dr joint commissioner no. 203/17 . jaipur mumbai jaipur gst & cx jaipur narrow but deep service track moderate mobility gst preventive"
   },
   {
     "id": "officer-793",
@@ -72942,7 +72942,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -72951,7 +72951,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr siddharth jaiswal siddharth jaiswal 7132 2013 dr joint commissioner f.no a- mumbai iv air cargo- mumbai mumbai-vii st mumbai nhava sheva-i thane nhava sheva-i mumbai nhava sheva-ii mumbai mixed exposure profile high mobility audit gst"
+    "search_blob": "mr siddharth jaiswal siddharth jaiswal 7132 2013 dr joint commissioner mumbai iv air cargo- mumbai mumbai-vii st mumbai nhava sheva-i thane nhava sheva-i mumbai nhava sheva-ii mumbai mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-8197",
@@ -74034,7 +74034,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "CUS • F.no A-",
+    "current_posting_summary": "CUS",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -74043,7 +74043,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr sovon kumar mandal sovon kumar mandal 7191 2014 pa joint commissioner f.no a- kolkata balasore falta sez hyderabad st hyderabad delhi bhubaneshwar durgapur mixed exposure profile high mobility audit gst customs deputation"
+    "search_blob": "mr sovon kumar mandal sovon kumar mandal 7191 2014 pa joint commissioner kolkata balasore falta sez hyderabad st hyderabad delhi bhubaneshwar durgapur mixed exposure profile high mobility audit gst customs deputation"
   },
   {
     "id": "officer-7107",
@@ -74118,7 +74118,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -74127,7 +74127,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr sreejith m sreejith m 7118 2014 dr joint commissioner f.no a- nagpur cochin palakkad custom prev calicut mixed exposure profile high mobility audit gst"
+    "search_blob": "mr sreejith m sreejith m 7118 2014 dr joint commissioner nagpur cochin palakkad custom prev calicut mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-3820",
@@ -74958,7 +74958,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -74967,7 +74967,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr subhash chandra(u/s) subhash chandra 8286 2015 dr deputy commissioner f.no a- mumbai nhava sheva-ii mumbai narrow but deep service track moderate mobility gst"
+    "search_blob": "mr subhash chandra(u/s) subhash chandra 8286 2015 dr deputy commissioner mumbai nhava sheva-ii mumbai narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-12319",
@@ -75294,7 +75294,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -75303,7 +75303,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr suchin kv suchin kv 7126 2014 dr joint commissioner f.no a- bangalore audit - i gst & bengaluru narrow but deep service track high mobility audit gst"
+    "search_blob": "mr suchin kv suchin kv 7126 2014 dr joint commissioner bangalore audit - i gst & bengaluru narrow but deep service track high mobility audit gst"
   },
   {
     "id": "officer-4405",
@@ -76575,7 +76575,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -76584,7 +76584,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr suneetinder singh walia suneetinder singh walia 8215 2015 dr joint commissioner f.no a- ludhiana chandigarh phagwara jalandhar mixed exposure profile moderate mobility audit gst"
+    "search_blob": "mr suneetinder singh walia suneetinder singh walia 8215 2015 dr joint commissioner ludhiana chandigarh phagwara jalandhar mixed exposure profile moderate mobility audit gst"
   },
   {
     "id": "officer-3751",
@@ -77394,7 +77394,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Chief • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -77403,7 +77403,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr surendar paul k surendar paul k 4619 2013 dr joint commissioner f.no a- > ac, o/o no. hyderabad coimbatore chennai narrow but deep service track high mobility gst customs"
+    "search_blob": "mr surendar paul k surendar paul k 4619 2013 dr joint commissioner ac, o/o no. hyderabad coimbatore chennai narrow but deep service track high mobility gst customs"
   },
   {
     "id": "officer-4027",
@@ -77961,7 +77961,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -77970,7 +77970,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr susanta kumar mishra susanta kumar mishra 4515 2013 dr joint commissioner f.no a- delhi bhubaneshwar audit gst & bhubaneshwar cuttack mixed exposure profile high mobility gst deputation"
+    "search_blob": "mr susanta kumar mishra susanta kumar mishra 4515 2013 dr joint commissioner delhi bhubaneshwar audit gst & bhubaneshwar cuttack mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-3961",
@@ -79368,7 +79368,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > Ac, Jinnaram",
+    "current_posting_summary": "Directorate • Ac, Jinnaram",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -79377,7 +79377,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr tarun reddy gangireddy tarun reddy gangireddy 6994 2014 dr joint commissioner f.no a- > ac, jinnaram hyderabad shillong meerut gst dehradun gst dehradun narrow but deep service track high mobility gst"
+    "search_blob": "mr tarun reddy gangireddy tarun reddy gangireddy 6994 2014 dr joint commissioner ac, jinnaram hyderabad shillong meerut gst dehradun gst dehradun narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-4410",
@@ -80544,7 +80544,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -80553,7 +80553,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr unde yogesh pandurang unde yogesh pandurang 7024 2014 dr joint commissioner f.no a- ahmedabad bhavnagar bhavnagar cx bhavnagar narrow but deep service track moderate mobility audit gst"
+    "search_blob": "mr unde yogesh pandurang unde yogesh pandurang 7024 2014 dr joint commissioner ahmedabad bhavnagar bhavnagar cx bhavnagar narrow but deep service track moderate mobility audit gst"
   },
   {
     "id": "officer-11654",
@@ -81783,7 +81783,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -81792,7 +81792,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vaibhav singh chauhan vaibhav singh chauhan 6958 2014 dr joint commissioner f.no a- vadodara received. narrow but deep service track moderate mobility gst"
+    "search_blob": "mr vaibhav singh chauhan vaibhav singh chauhan 6958 2014 dr joint commissioner vadodara received. narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10715",
@@ -83442,7 +83442,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2019-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 16,
     "timeline_entry_count": 16,
@@ -83451,7 +83451,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vikas pal vikas pal 7084 2014 dr deputy commissioner f.no a- delhi gurgaon dg, vigilance delhi ghaziabad gurgaon-ii cx gurgaon chennai dadri appeals gst noida high-mobility officer high mobility gst customs"
+    "search_blob": "mr vikas pal vikas pal 7084 2014 dr deputy commissioner delhi gurgaon dg, vigilance delhi ghaziabad gurgaon-ii cx gurgaon chennai dadri appeals gst noida high-mobility officer high mobility gst customs"
   },
   {
     "id": "officer-9425",
@@ -83547,7 +83547,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -83556,7 +83556,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vikash kumar (on dep.) vikash kumar 4596 2013 dr joint commissioner f.no a- delhi narrow but deep service track high mobility gst"
+    "search_blob": "mr vikash kumar (on dep.) vikash kumar 4596 2013 dr joint commissioner delhi narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-3060",
@@ -83610,7 +83610,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -83619,7 +83619,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vikram kaushik vikram kaushik 7189 2014 pa joint commissioner f.no a- cochin mumbai aurangabad commissioner mumbai mixed exposure profile high mobility gst customs"
+    "search_blob": "mr vikram kaushik vikram kaushik 7189 2014 pa joint commissioner cochin mumbai aurangabad commissioner mumbai mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-1644",
@@ -83715,7 +83715,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2018-04-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -83724,7 +83724,7 @@
     "career_archetype": "Emerging Leader Path",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vikrant bangotra (on dep.) vikrant bangotra 7091 2014 dr deputy commissioner f.no a- noida meerut noida gst & cx noida ghaziabad emerging leader path moderate mobility gst"
+    "search_blob": "mr vikrant bangotra (on dep.) vikrant bangotra 7091 2014 dr deputy commissioner noida meerut noida gst & cx noida ghaziabad emerging leader path moderate mobility gst"
   },
   {
     "id": "officer-11744",
@@ -83841,7 +83841,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • O/o No. > F.no A-",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -83850,7 +83850,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vimalesh kumar singh vimalesh kumar singh 8304 2015 dr joint commissioner o/o no. > f.no a- performance mumbai kolhapur satara pune mixed exposure profile moderate mobility gst"
+    "search_blob": "mr vimalesh kumar singh vimalesh kumar singh 8304 2015 dr joint commissioner o/o no. performance mumbai kolhapur satara pune mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-6973",
@@ -83862,7 +83862,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -83871,7 +83871,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vinay g m vinay g m 6973 2014 dr joint commissioner f.no a- bangalore bengaluru pune dharwad hospet city icds cus bangalore mixed exposure profile high mobility gst"
+    "search_blob": "mr vinay g m vinay g m 6973 2014 dr joint commissioner bangalore bengaluru pune dharwad hospet city icds cus bangalore mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-11786",
@@ -83967,7 +83967,7 @@
     "current_designation": "Commissioner",
     "present_rank_date": "2019-11-29",
     "current_location": "Delhi",
-    "current_posting_summary": "12.08.21, Rel. • F.no. 22/js & Commissioner > Deputation • Delhi",
+    "current_posting_summary": "12.08.21, Rel. • Deputation • Delhi",
     "timeline_quality": "full",
     "timeline_richness_score": 19,
     "timeline_entry_count": 19,
@@ -83976,7 +83976,7 @@
     "career_archetype": "Deep Senior Leadership Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vinay kumar singh (on dep.) vinay kumar singh 957 1997 dr commissioner delhi f.no. 22/js & commissioner > deputation delhi mumbai birganj allahabad goa dg, vigilance lucknow deep senior leadership track high mobility deputation"
+    "search_blob": "mr vinay kumar singh (on dep.) vinay kumar singh 957 1997 dr commissioner delhi deputation delhi mumbai birganj allahabad goa dg, vigilance lucknow deep senior leadership track high mobility deputation"
   },
   {
     "id": "officer-8232",
@@ -84345,7 +84345,7 @@
     "current_designation": "Additional Commissioner",
     "present_rank_date": "2021-01-01",
     "current_location": null,
-    "current_posting_summary": "Revenue • Per > Notifi.no.4:f.no.a-",
+    "current_posting_summary": "Revenue • Per",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -84354,7 +84354,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mr vinod kumar (on dep.) vinod kumar 3626 2008 dr additional commissioner per > notifi.no.4:f.no.a- delhi lucknow narrow but deep service track high mobility deputation"
+    "search_blob": "mr vinod kumar (on dep.) vinod kumar 3626 2008 dr additional commissioner per delhi lucknow narrow but deep service track high mobility deputation"
   },
   {
     "id": "officer-2820",
@@ -86949,7 +86949,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -86958,7 +86958,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mrs farah zachariah farah zachariah 8237 2015 dr joint commissioner f.no a- mumbai dg, valuation mumbai nhava sheva-ii mumbai narrow but deep service track high mobility gst"
+    "search_blob": "mrs farah zachariah farah zachariah 8237 2015 dr joint commissioner mumbai dg, valuation mumbai nhava sheva-ii mumbai narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-7256",
@@ -87432,7 +87432,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -87441,7 +87441,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mrs money jain money jain 7006 2014 dr joint commissioner f.no a- mumbai delhi bangalore commissioner bengaluru central gst & mumbai mumbai-i imp - mumbai nhava sheva-i mixed exposure profile high mobility deputation"
+    "search_blob": "mrs money jain money jain 7006 2014 dr joint commissioner mumbai delhi bangalore commissioner bengaluru central gst & mumbai mumbai-i imp - mumbai nhava sheva-i mixed exposure profile high mobility deputation"
   },
   {
     "id": "officer-947",
@@ -87579,7 +87579,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Chief • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -87588,7 +87588,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mrs poonam bhatt (on dep.) poonam bhatt 4564 2013 dr joint commissioner f.no a- > ac, o/o no. delhi faridabad narrow but deep service track high mobility gst"
+    "search_blob": "mrs poonam bhatt (on dep.) poonam bhatt 4564 2013 dr joint commissioner ac, o/o no. delhi faridabad narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-661",
@@ -87894,7 +87894,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -87903,7 +87903,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "mrs shilpi srivastava shilpi srivastava 6971 2014 dr joint commissioner f.no a- vadodara ankleshwar mundra daman mixed exposure profile high mobility audit gst"
+    "search_blob": "mrs shilpi srivastava shilpi srivastava 6971 2014 dr joint commissioner vadodara ankleshwar mundra daman mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-757",
@@ -88419,7 +88419,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Bengaluru",
+    "current_posting_summary": "Chief • Bengaluru",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -88428,7 +88428,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms amrita jain amrita jain 8267 2015 dr joint commissioner f.no a- > bengaluru gurugram gurgaon bangalore panchkula bengaluru mixed exposure profile moderate mobility audit gst"
+    "search_blob": "ms amrita jain amrita jain 8267 2015 dr joint commissioner bengaluru gurugram gurgaon bangalore panchkula bengaluru mixed exposure profile moderate mobility audit gst"
   },
   {
     "id": "officer-12325",
@@ -89070,7 +89070,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -89079,7 +89079,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms arathi a nair arathi a nair 7005 2014 dr joint commissioner f.no a- delhi hyderabad dtd. narrow but deep service track high mobility gst"
+    "search_blob": "ms arathi a nair arathi a nair 7005 2014 dr joint commissioner delhi hyderabad dtd. narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-13351",
@@ -89196,7 +89196,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > 01.12.17 Lucknow",
+    "current_posting_summary": "Chief • 01.12.17 Lucknow",
     "timeline_quality": "full",
     "timeline_richness_score": 8,
     "timeline_entry_count": 8,
@@ -89205,7 +89205,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms arnika yadav arnika yadav 8293 2015 dr joint commissioner f.no a- > 01.12.17 lucknow lucknow narrow but deep service track moderate mobility gst"
+    "search_blob": "ms arnika yadav arnika yadav 8293 2015 dr joint commissioner 01.12.17 lucknow lucknow narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-8191",
@@ -89217,7 +89217,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 17,
     "timeline_entry_count": 17,
@@ -89226,7 +89226,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms arpitha s arpitha s 8191 2015 dr joint commissioner f.no a- mumbai belapur nhava sheva-v mumbai nhava sheva-iii mumbai gst mumbai audit mumbai mixed exposure profile high mobility audit gst"
+    "search_blob": "ms arpitha s arpitha s 8191 2015 dr joint commissioner mumbai belapur nhava sheva-v mumbai nhava sheva-iii mumbai gst mumbai audit mumbai mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-10129",
@@ -89658,7 +89658,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -89667,7 +89667,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms bhavsar tarul dilip (on dep.) bhavsar tarul dilip 8296 2015 dr joint commissioner f.no a- mumbai nhava sheva-ii mumbai iii air cargo- mumbai nasik nagpur mixed exposure profile high mobility audit gst"
+    "search_blob": "ms bhavsar tarul dilip (on dep.) bhavsar tarul dilip 8296 2015 dr joint commissioner mumbai nhava sheva-ii mumbai iii air cargo- mumbai nasik nagpur mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-11980",
@@ -89763,7 +89763,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -89772,7 +89772,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms brindha boopathy (on dept.) brindha boopathy 8314 2015 dr joint commissioner f.no a- chennai trichy coimbatore bangalore mixed exposure profile high mobility gst customs"
+    "search_blob": "ms brindha boopathy (on dept.) brindha boopathy 8314 2015 dr joint commissioner chennai trichy coimbatore bangalore mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-7090",
@@ -89784,7 +89784,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -89793,7 +89793,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms bullo mamu (on dep.) bullo mamu 7090 2014 dr joint commissioner f.no a- delhi delhi audit-i delhi narrow but deep service track high mobility audit gst customs deputation"
+    "search_blob": "ms bullo mamu (on dep.) bullo mamu 7090 2014 dr joint commissioner delhi delhi audit-i delhi narrow but deep service track high mobility audit gst customs deputation"
   },
   {
     "id": "officer-10266",
@@ -90204,7 +90204,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 16,
     "timeline_entry_count": 16,
@@ -90213,7 +90213,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms daribha lyndem daribha lyndem 4620 2013 dr joint commissioner f.no a- mumbai thane kalyan iv air cargo- mumbai mumbai gst thane audit mumbai nhava sheva-v appeals-iii mumbai gst thane audit mumbai mumbai-iii cus- mumbai high-mobility officer high mobility audit gst"
+    "search_blob": "ms daribha lyndem daribha lyndem 4620 2013 dr joint commissioner mumbai thane kalyan iv air cargo- mumbai mumbai gst thane audit mumbai nhava sheva-v appeals-iii mumbai gst thane audit mumbai mumbai-iii cus- mumbai high-mobility officer high mobility audit gst"
   },
   {
     "id": "officer-3862",
@@ -90246,7 +90246,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
@@ -90255,7 +90255,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms deepika singh deepika singh 6969 2014 dr joint commissioner f.no a- delhi meerut noida gst & cx noida narrow but deep service track moderate mobility gst"
+    "search_blob": "ms deepika singh deepika singh 6969 2014 dr joint commissioner delhi meerut noida gst & cx noida narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-4098",
@@ -90456,7 +90456,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -90465,7 +90465,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms dunna satya divya ramya dunna satya divya ramya 8311 2015 dr joint commissioner f.no a- bangalore hosur bengaluru chennai audit - i gst & bengaluru chennai-iii cx chennai salem mixed exposure profile high mobility gst customs"
+    "search_blob": "ms dunna satya divya ramya dunna satya divya ramya 8311 2015 dr joint commissioner bangalore hosur bengaluru chennai audit - i gst & bengaluru chennai-iii cx chennai salem mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-12806",
@@ -90707,17 +90707,17 @@
     "cadre": "DR",
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
-    "current_location": "F.no.c-",
-    "current_posting_summary": "Joint Commissioner • Bangalore • F.no.c-",
+    "current_location": null,
+    "current_posting_summary": "Joint Commissioner • Bangalore",
     "timeline_quality": "full",
     "timeline_richness_score": 10,
     "timeline_entry_count": 10,
-    "unique_station_count": 7,
-    "mobility_profile": "High mobility",
+    "unique_station_count": 6,
+    "mobility_profile": "Moderate mobility",
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms gayathri pg gayathri pg 4536 2013 dr joint commissioner f.no.c- bangalore thiruvananthapuram delhi kochi bangalore cochin custom prev cochin cco-cca thiruvananthapuram cochin custom pre f.no.c- mixed exposure profile high mobility gst"
+    "search_blob": "ms gayathri pg gayathri pg 4536 2013 dr joint commissioner bangalore thiruvananthapuram delhi kochi bangalore cochin custom prev cochin cco-cca thiruvananthapuram cochin custom pre mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-4061",
@@ -90771,7 +90771,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -90780,7 +90780,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms geeta singh geeta singh 6944 2014 dr joint commissioner f.no a- gurugram panipat delhi gurgaon ludhiana after availing joining 115/2024 mixed exposure profile high mobility audit gst"
+    "search_blob": "ms geeta singh geeta singh 6944 2014 dr joint commissioner gurugram panipat delhi gurgaon ludhiana after availing joining 115/2024 mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-12828",
@@ -91023,7 +91023,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • Ac, O/o > F.no A-",
+    "current_posting_summary": "Chief • Ac, O/o",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -91032,7 +91032,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms gunjan chauhan (on leave) gunjan chauhan 4528 2013 dr joint commissioner ac, o/o > f.no a- delhi dg, vigilance delhi gurugram narrow but deep service track high mobility"
+    "search_blob": "ms gunjan chauhan (on leave) gunjan chauhan 4528 2013 dr joint commissioner ac, o/o delhi dg, vigilance delhi gurugram narrow but deep service track high mobility"
   },
   {
     "id": "officer-4316",
@@ -91128,7 +91128,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Ac, O/o No.",
+    "current_posting_summary": "Chief • Ac, O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -91137,7 +91137,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms himani dhamija himani dhamija 6988 2014 dr joint commissioner f.no a- > ac, o/o no. pune goa lucknow mumbai pune customs pune thane mixed exposure profile high mobility gst"
+    "search_blob": "ms himani dhamija himani dhamija 6988 2014 dr joint commissioner ac, o/o no. pune goa lucknow mumbai pune customs pune thane mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-6957",
@@ -91149,7 +91149,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 18,
     "timeline_entry_count": 18,
@@ -91158,7 +91158,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms himani dua himani dua 6957 2014 dr joint commissioner f.no a- delhi delhi west gst delhi dc to work as narrow but deep service track high mobility gst"
+    "search_blob": "ms himani dua himani dua 6957 2014 dr joint commissioner delhi delhi west gst delhi dc to work as narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-922",
@@ -91926,7 +91926,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -91935,7 +91935,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms kavitha a kavitha a 4608 2013 dr joint commissioner f.no a- hyderabad chennai narrow but deep service track high mobility gst"
+    "search_blob": "ms kavitha a kavitha a 4608 2013 dr joint commissioner hyderabad chennai narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-8402",
@@ -92178,7 +92178,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -92187,7 +92187,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms kriti tiwari kriti tiwari 7012 2014 dr joint commissioner f.no a- indore ujjain gst & cx ujjain narrow but deep service track moderate mobility gst"
+    "search_blob": "ms kriti tiwari kriti tiwari 7012 2014 dr joint commissioner indore ujjain gst & cx ujjain narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-13496",
@@ -92472,7 +92472,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -92481,7 +92481,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms m. divya m divya 8303 2015 dr joint commissioner f.no a- chennai chennai-iv cus chennai mumbai chennai-ii cus chennai brussels mixed exposure profile high mobility audit deputation"
+    "search_blob": "ms m. divya m divya 8303 2015 dr joint commissioner chennai chennai-iv cus chennai mumbai chennai-ii cus chennai brussels mixed exposure profile high mobility audit deputation"
   },
   {
     "id": "officer-7168",
@@ -93606,7 +93606,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • Ac, O/o > F.no A-",
+    "current_posting_summary": "Chief • Ac, O/o",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -93615,7 +93615,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms n harita n harita 4609 2013 dr joint commissioner ac, o/o > f.no a- dg, vigilance hyderabad hyderabad bangalore coimbatore mixed exposure profile high mobility audit gst customs"
+    "search_blob": "ms n harita n harita 4609 2013 dr joint commissioner ac, o/o dg, vigilance hyderabad hyderabad bangalore coimbatore mixed exposure profile high mobility audit gst customs"
   },
   {
     "id": "officer-4083",
@@ -93732,7 +93732,7 @@
     "current_designation": "Deputy Commissioner",
     "present_rank_date": "2020-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -93741,7 +93741,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms neeharika inti neeharika inti 8344 2015 dr deputy commissioner f.no a- bengaluru kolkata delhi narrow but deep service track high mobility gst"
+    "search_blob": "ms neeharika inti neeharika inti 8344 2015 dr deputy commissioner bengaluru kolkata delhi narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-9296",
@@ -93921,7 +93921,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -93930,7 +93930,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms nidhi gupta nidhi gupta 6947 2014 dr joint commissioner f.no a- ranchi dg, vigilance delhi patna narrow but deep service track moderate mobility audit gst preventive"
+    "search_blob": "ms nidhi gupta nidhi gupta 6947 2014 dr joint commissioner ranchi dg, vigilance delhi patna narrow but deep service track moderate mobility audit gst preventive"
   },
   {
     "id": "officer-12917",
@@ -94215,7 +94215,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -94224,7 +94224,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms nishtha sharma nishtha sharma 8193 2015 dr joint commissioner f.no a- jaipur jodhpur belapur narrow but deep service track moderate mobility audit gst preventive"
+    "search_blob": "ms nishtha sharma nishtha sharma 8193 2015 dr joint commissioner jaipur jodhpur belapur narrow but deep service track moderate mobility audit gst preventive"
   },
   {
     "id": "officer-11336",
@@ -94320,7 +94320,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -94329,7 +94329,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms nivedita bhattacharjee nivedita bhattacharjee 8249 2015 dr joint commissioner f.no a- lucknow meerut dg, vigilance lucknow durgapur ghaziabad mixed exposure profile high mobility audit gst"
+    "search_blob": "ms nivedita bhattacharjee nivedita bhattacharjee 8249 2015 dr joint commissioner lucknow meerut dg, vigilance lucknow durgapur ghaziabad mixed exposure profile high mobility audit gst"
   },
   {
     "id": "officer-12096",
@@ -94425,7 +94425,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -94434,7 +94434,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms p. madhuree p madhuree 7066 2014 dr joint commissioner f.no a- vishakhapatnam kadapa krishnapattnam visakhapatnam visakhapatnam vishakhapatnam tirupati mixed exposure profile high mobility gst customs"
+    "search_blob": "ms p. madhuree p madhuree 7066 2014 dr joint commissioner vishakhapatnam kadapa krishnapattnam visakhapatnam visakhapatnam vishakhapatnam tirupati mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-11599",
@@ -94614,7 +94614,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-07-29",
     "current_location": null,
-    "current_posting_summary": "Chief • Entry As > F.no A-",
+    "current_posting_summary": "Chief • Entry As",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -94623,7 +94623,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms pallawi anand pallawi anand 8324 2015 dr joint commissioner entry as > f.no a- bengaluru bangalore mysore narrow but deep service track moderate mobility gst"
+    "search_blob": "ms pallawi anand pallawi anand 8324 2015 dr joint commissioner entry as bengaluru bangalore mysore narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-8572",
@@ -94698,7 +94698,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -94707,7 +94707,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms parul singhal parul singhal 8265 2015 dr joint commissioner f.no a- jaipur mumbai nhava sheva-i narrow but deep service track moderate mobility audit gst preventive"
+    "search_blob": "ms parul singhal parul singhal 8265 2015 dr joint commissioner jaipur mumbai nhava sheva-i narrow but deep service track moderate mobility audit gst preventive"
   },
   {
     "id": "officer-8201",
@@ -94719,7 +94719,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -94728,7 +94728,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms parul srivastava parul srivastava 8201 2015 dr joint commissioner f.no a- ahmedabad surat mumbai narrow but deep service track moderate mobility gst"
+    "search_blob": "ms parul srivastava parul srivastava 8201 2015 dr joint commissioner ahmedabad surat mumbai narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-4133",
@@ -95370,7 +95370,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A-",
+    "current_posting_summary": "Directorate",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -95379,7 +95379,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms priyanka gulati priyanka gulati 6918 2014 dr joint commissioner f.no a- delhi recd. to 45/2024 narrow but deep service track high mobility gst"
+    "search_blob": "ms priyanka gulati priyanka gulati 6918 2014 dr joint commissioner delhi recd. to 45/2024 narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-4043",
@@ -95580,7 +95580,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": "University",
-    "current_posting_summary": "Joint Commissioner • Policy At > F.no.c- • University",
+    "current_posting_summary": "Joint Commissioner • Policy At • University",
     "timeline_quality": "full",
     "timeline_richness_score": 18,
     "timeline_entry_count": 18,
@@ -95589,7 +95589,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms rachna rachna 6934 2014 dr joint commissioner university policy at > f.no.c- delhi bangalore bengaluru faridabad-i cx faridabad university mixed exposure profile high mobility gst deputation"
+    "search_blob": "ms rachna rachna 6934 2014 dr joint commissioner university policy at delhi bangalore bengaluru faridabad-i cx faridabad university mixed exposure profile high mobility gst deputation"
   },
   {
     "id": "officer-3855",
@@ -95853,7 +95853,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Directorate • F.no A- > No. 52/17 .",
+    "current_posting_summary": "Directorate • No. 52/17 .",
     "timeline_quality": "full",
     "timeline_richness_score": 16,
     "timeline_entry_count": 16,
@@ -95862,7 +95862,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms ramyaa dakshinamurthi ramyaa dakshinamurthi 8228 2015 dr joint commissioner f.no a- > no. 52/17 . chennai coimbatore chennai-ii cus chennai narrow but deep service track high mobility vigilance gst"
+    "search_blob": "ms ramyaa dakshinamurthi ramyaa dakshinamurthi 8228 2015 dr joint commissioner no. 52/17 . chennai coimbatore chennai-ii cus chennai narrow but deep service track high mobility vigilance gst"
   },
   {
     "id": "officer-7207",
@@ -95916,7 +95916,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • O/o No. > F.no A-",
+    "current_posting_summary": "Chief • O/o No.",
     "timeline_quality": "full",
     "timeline_richness_score": 14,
     "timeline_entry_count": 14,
@@ -95925,7 +95925,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms rashmi rashmi 4527 2013 dr joint commissioner o/o no. > f.no a- bangalore dharwad bengaluru west gst & cx bengaluru hubli belgaum mysore mixed exposure profile high mobility gst"
+    "search_blob": "ms rashmi rashmi 4527 2013 dr joint commissioner o/o no. bangalore dharwad bengaluru west gst & cx bengaluru hubli belgaum mysore mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-3629",
@@ -97533,7 +97533,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -97542,7 +97542,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms shubhdeep kaur shubhdeep kaur 7092 2014 dr joint commissioner f.no a- panchkula chennai panchluka cx panchkula delhi mixed exposure profile moderate mobility audit gst"
+    "search_blob": "ms shubhdeep kaur shubhdeep kaur 7092 2014 dr joint commissioner panchkula chennai panchluka cx panchkula delhi mixed exposure profile moderate mobility audit gst"
   },
   {
     "id": "officer-12661",
@@ -98541,7 +98541,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": "Univ., Uk",
-    "current_posting_summary": "Joint Commissioner • From Swans > F.no. C- • Univ., Uk",
+    "current_posting_summary": "Joint Commissioner • From Swans • Univ., Uk",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -98550,7 +98550,7 @@
     "career_archetype": "High-Mobility Officer",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms sunayana krishnan (on leave) sunayana krishnan 4590 2013 dr joint commissioner univ., uk from swans > f.no. c- kochi gst & cx ernakulam chennai bangalore kochi calicut cochin thiruvananthapuram univ., uk high-mobility officer high mobility gst customs"
+    "search_blob": "ms sunayana krishnan (on leave) sunayana krishnan 4590 2013 dr joint commissioner univ., uk from swans kochi gst & cx ernakulam chennai bangalore kochi calicut cochin thiruvananthapuram univ., uk high-mobility officer high mobility gst customs"
   },
   {
     "id": "officer-11877",
@@ -98646,7 +98646,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A- > Joining &",
+    "current_posting_summary": "Chief • Joining &",
     "timeline_quality": "full",
     "timeline_richness_score": 15,
     "timeline_entry_count": 15,
@@ -98655,7 +98655,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms supriya yadav supriya yadav 6980 2014 dr joint commissioner f.no a- > joining & noida delhi ghaziabad noida gst & cx noida buddh nagar nagar meerut mixed exposure profile high mobility gst"
+    "search_blob": "ms supriya yadav supriya yadav 6980 2014 dr joint commissioner joining & noida delhi ghaziabad noida gst & cx noida buddh nagar nagar meerut mixed exposure profile high mobility gst"
   },
   {
     "id": "officer-3990",
@@ -98835,7 +98835,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-03-27",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 12,
     "timeline_entry_count": 12,
@@ -98844,7 +98844,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms swati malhotra swati malhotra 8192 2015 dr joint commissioner f.no a- chandigarh noida dehradun mohali meerut mixed exposure profile high mobility audit gst customs"
+    "search_blob": "ms swati malhotra swati malhotra 8192 2015 dr joint commissioner chandigarh noida dehradun mohali meerut mixed exposure profile high mobility audit gst customs"
   },
   {
     "id": "officer-9341",
@@ -98919,7 +98919,7 @@
     "current_designation": "Additional Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "& CX ZONE • Order F.no.",
+    "current_posting_summary": "& CX ZONE",
     "timeline_quality": "full",
     "timeline_richness_score": 20,
     "timeline_entry_count": 20,
@@ -98928,7 +98928,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms t nalina sofia t nalina sofia 4049 2010 dr additional commissioner order f.no. chennai chennai-iv cus chennai audit-i gst & chennai chennai-ii st chennai madurai mixed exposure profile high mobility gst customs"
+    "search_blob": "ms t nalina sofia t nalina sofia 4049 2010 dr additional commissioner chennai chennai-iv cus chennai audit-i gst & chennai chennai-ii st chennai madurai mixed exposure profile high mobility gst customs"
   },
   {
     "id": "officer-7062",
@@ -98940,7 +98940,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -98949,7 +98949,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms t swapna t swapna 7062 2014 dr joint commissioner f.no a- delhi hyderabad gurgaon ad-i mixed exposure profile moderate mobility gst"
+    "search_blob": "ms t swapna t swapna 7062 2014 dr joint commissioner delhi hyderabad gurgaon ad-i mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-3846",
@@ -99045,7 +99045,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2023-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 13,
     "timeline_entry_count": 13,
@@ -99054,7 +99054,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms tanisha dutta tanisha dutta 4508 2013 dr joint commissioner f.no a- kolkata delhi durgapur narrow but deep service track high mobility gst"
+    "search_blob": "ms tanisha dutta tanisha dutta 4508 2013 dr joint commissioner kolkata delhi durgapur narrow but deep service track high mobility gst"
   },
   {
     "id": "officer-10548",
@@ -99087,7 +99087,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2024-01-01",
     "current_location": null,
-    "current_posting_summary": "Chief • F.no A-",
+    "current_posting_summary": "Chief",
     "timeline_quality": "full",
     "timeline_richness_score": 11,
     "timeline_entry_count": 11,
@@ -99096,7 +99096,7 @@
     "career_archetype": "Narrow but Deep Service Track",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms tanvi gupta tanvi gupta 6931 2014 dr joint commissioner f.no a- delhi shillong delhi west gst delhi narrow but deep service track moderate mobility gst"
+    "search_blob": "ms tanvi gupta tanvi gupta 6931 2014 dr joint commissioner delhi shillong delhi west gst delhi narrow but deep service track moderate mobility gst"
   },
   {
     "id": "officer-10489",
@@ -100011,7 +100011,7 @@
     "current_designation": "Joint Commissioner",
     "present_rank_date": "2025-07-29",
     "current_location": null,
-    "current_posting_summary": "Joint Commissioner • F.no A-",
+    "current_posting_summary": "Joint Commissioner",
     "timeline_quality": "full",
     "timeline_richness_score": 9,
     "timeline_entry_count": 9,
@@ -100020,7 +100020,7 @@
     "career_archetype": "Mixed Exposure Profile",
     "verification_flag": "verified",
     "data_quality_label": "Strong",
-    "search_blob": "ms vinuta malleshappa vinuta malleshappa 8325 2015 dr joint commissioner f.no a- bengaluru bangalore kochi gst & cx cochin cochin mixed exposure profile moderate mobility gst"
+    "search_blob": "ms vinuta malleshappa vinuta malleshappa 8325 2015 dr joint commissioner bengaluru bangalore kochi gst & cx cochin cochin mixed exposure profile moderate mobility gst"
   },
   {
     "id": "officer-13776",

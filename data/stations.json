@@ -22,7 +22,7 @@
       },
       {
         "key": "Commissioner",
-        "count": 201
+        "count": 203
       },
       {
         "key": "recd.",
@@ -34,7 +34,7 @@
       },
       {
         "key": "Additional Commissioner",
-        "count": 129
+        "count": 130
       },
       {
         "key": "Joint Commissioner",
@@ -1684,7 +1684,7 @@
       },
       {
         "key": "Commissioner",
-        "count": 8
+        "count": 9
       },
       {
         "key": "GST & CX",
@@ -2842,8 +2842,8 @@
         "count": 5
       },
       {
-        "key": "Additional Commissioner",
-        "count": 4
+        "key": "Joint Commissioner",
+        "count": 5
       }
     ],
     "frequent_batches": [
@@ -12404,12 +12404,12 @@
         "count": 4
       },
       {
-        "key": "GST & CX ZONE",
+        "key": "Commissioner",
         "count": 3
       },
       {
-        "key": "Commissioner",
-        "count": 2
+        "key": "GST & CX ZONE",
+        "count": 3
       },
       {
         "key": "VISAKHAPATNAM GUNTUR GST &",
@@ -40357,11 +40357,6 @@
         "from": "Cochin Custom Prev Cochin",
         "to": "Kottayam",
         "count": 1
-      },
-      {
-        "from": "Cochin Custom Prev Cochin",
-        "to": "F.no.c-",
-        "count": 1
       }
     ],
     "average_timeline_entries_for_linked_officers": 8.5,
@@ -57580,7 +57575,7 @@
     "common_designations": [
       {
         "key": "Commissioner",
-        "count": 1
+        "count": 2
       },
       {
         "key": "Report Recd.",
@@ -57588,10 +57583,6 @@
       },
       {
         "key": "report recd.",
-        "count": 1
-      },
-      {
-        "key": "Notification no.",
         "count": 1
       },
       {
@@ -86308,76 +86299,6 @@
     "narrative": "Sikka appears in 1 officer journeys with 1 known posting records."
   },
   {
-    "name": "F.no. C- 140",
-    "slug": "f-no-c-140",
-    "officer_count": 1,
-    "posting_frequency": 1,
-    "total_known_tenure_days": 0,
-    "importance_score": 3,
-    "importance_label": "Emerging station",
-    "common_designations": [
-      {
-        "key": "order dtd.",
-        "count": 1
-      }
-    ],
-    "frequent_batches": [
-      {
-        "key": "2010",
-        "count": 1
-      }
-    ],
-    "notable_officer_ids": [
-      "officer-3987"
-    ],
-    "related_stations": [
-      {
-        "station": "Meerut",
-        "count": 1,
-        "slug": "meerut"
-      },
-      {
-        "station": "Delhi",
-        "count": 1,
-        "slug": "delhi"
-      },
-      {
-        "station": "Agra",
-        "count": 1,
-        "slug": "agra"
-      },
-      {
-        "station": "Moradabad",
-        "count": 1,
-        "slug": "moradabad"
-      },
-      {
-        "station": "Patna",
-        "count": 1,
-        "slug": "patna"
-      },
-      {
-        "station": "Jogbani",
-        "count": 1,
-        "slug": "jogbani"
-      }
-    ],
-    "movement_corridors": [
-      {
-        "from": "Delhi",
-        "to": "F.no. C- 140",
-        "count": 1
-      },
-      {
-        "from": "F.no. C- 140",
-        "to": "Delhi",
-        "count": 1
-      }
-    ],
-    "average_timeline_entries_for_linked_officers": 17,
-    "narrative": "F.no. C- 140 appears in 1 officer journeys with 1 known posting records."
-  },
-  {
     "name": "Dg, Sys. & Data Delhi",
     "slug": "dg-sys-data-delhi",
     "officer_count": 1,
@@ -86501,71 +86422,6 @@
     ],
     "average_timeline_entries_for_linked_officers": 21,
     "narrative": "Nhava Sheva-i Raigad appears in 1 officer journeys with 1 known posting records."
-  },
-  {
-    "name": "F.no.a.350",
-    "slug": "f-no-a-350",
-    "officer_count": 1,
-    "posting_frequency": 1,
-    "total_known_tenure_days": 0,
-    "importance_score": 3,
-    "importance_label": "Emerging station",
-    "common_designations": [
-      {
-        "key": "Commissioner",
-        "count": 1
-      }
-    ],
-    "frequent_batches": [
-      {
-        "key": "2008",
-        "count": 1
-      }
-    ],
-    "notable_officer_ids": [
-      "officer-3585"
-    ],
-    "related_stations": [
-      {
-        "station": "Patna",
-        "count": 1,
-        "slug": "patna"
-      },
-      {
-        "station": "Jammu",
-        "count": 1,
-        "slug": "jammu"
-      },
-      {
-        "station": "Delhi",
-        "count": 1,
-        "slug": "delhi"
-      },
-      {
-        "station": "Muzaffarpur",
-        "count": 1,
-        "slug": "muzaffarpur"
-      },
-      {
-        "station": "Ahmedabad",
-        "count": 1,
-        "slug": "ahmedabad"
-      }
-    ],
-    "movement_corridors": [
-      {
-        "from": "Jammu",
-        "to": "F.no.a.350",
-        "count": 1
-      },
-      {
-        "from": "F.no.a.350",
-        "to": "Jammu",
-        "count": 1
-      }
-    ],
-    "average_timeline_entries_for_linked_officers": 12,
-    "narrative": "F.no.a.350 appears in 1 officer journeys with 1 known posting records."
   },
   {
     "name": "Aurangabad Ahmednagar",
@@ -107101,71 +106957,6 @@
     "narrative": "Cce, Meerut-ii Rampur appears in 1 officer journeys with 1 known posting records."
   },
   {
-    "name": "F.no.a-",
-    "slug": "f-no-a",
-    "officer_count": 1,
-    "posting_frequency": 1,
-    "total_known_tenure_days": 0,
-    "importance_score": 3,
-    "importance_label": "Emerging station",
-    "common_designations": [
-      {
-        "key": "Secretariat",
-        "count": 1
-      }
-    ],
-    "frequent_batches": [
-      {
-        "key": "2010",
-        "count": 1
-      }
-    ],
-    "notable_officer_ids": [
-      "officer-4060"
-    ],
-    "related_stations": [
-      {
-        "station": "Delhi",
-        "count": 1,
-        "slug": "delhi"
-      },
-      {
-        "station": "Ranchi",
-        "count": 1,
-        "slug": "ranchi"
-      },
-      {
-        "station": "Indore",
-        "count": 1,
-        "slug": "indore"
-      },
-      {
-        "station": "Dewas",
-        "count": 1,
-        "slug": "dewas"
-      },
-      {
-        "station": "Laheriasarai",
-        "count": 1,
-        "slug": "laheriasarai"
-      },
-      {
-        "station": "Ujjain Gst & Cx Pithampur",
-        "count": 1,
-        "slug": "ujjain-gst-cx-pithampur"
-      }
-    ],
-    "movement_corridors": [
-      {
-        "from": "Delhi",
-        "to": "F.no.a-",
-        "count": 1
-      }
-    ],
-    "average_timeline_entries_for_linked_officers": 15,
-    "narrative": "F.no.a- appears in 1 officer journeys with 1 known posting records."
-  },
-  {
     "name": "Goa Gst & Cx Panaji",
     "slug": "goa-gst-cx-panaji",
     "officer_count": 1,
@@ -112078,11 +111869,6 @@
         "station": "Cochin Custom Prev Cochin",
         "count": 1,
         "slug": "cochin-custom-prev-cochin"
-      },
-      {
-        "station": "F.no.c-",
-        "count": 1,
-        "slug": "f-no-c"
       }
     ],
     "movement_corridors": [
@@ -112099,71 +111885,6 @@
     ],
     "average_timeline_entries_for_linked_officers": 10,
     "narrative": "Cco-cca Thiruvananthapuram Cochin Custom Pre appears in 1 officer journeys with 1 known posting records."
-  },
-  {
-    "name": "F.no.c-",
-    "slug": "f-no-c",
-    "officer_count": 1,
-    "posting_frequency": 1,
-    "total_known_tenure_days": 0,
-    "importance_score": 3,
-    "importance_label": "Emerging station",
-    "common_designations": [
-      {
-        "key": "Joint Commissioner",
-        "count": 1
-      }
-    ],
-    "frequent_batches": [
-      {
-        "key": "2013",
-        "count": 1
-      }
-    ],
-    "notable_officer_ids": [
-      "officer-4536"
-    ],
-    "related_stations": [
-      {
-        "station": "Thiruvananthapuram",
-        "count": 1,
-        "slug": "thiruvananthapuram"
-      },
-      {
-        "station": "Delhi",
-        "count": 1,
-        "slug": "delhi"
-      },
-      {
-        "station": "Kochi",
-        "count": 1,
-        "slug": "kochi"
-      },
-      {
-        "station": "Bangalore",
-        "count": 1,
-        "slug": "bangalore"
-      },
-      {
-        "station": "Cochin Custom Prev Cochin",
-        "count": 1,
-        "slug": "cochin-custom-prev-cochin"
-      },
-      {
-        "station": "Cco-cca Thiruvananthapuram Cochin Custom Pre",
-        "count": 1,
-        "slug": "cco-cca-thiruvananthapuram-cochin-custom-pre"
-      }
-    ],
-    "movement_corridors": [
-      {
-        "from": "Cochin Custom Prev Cochin",
-        "to": "F.no.c-",
-        "count": 1
-      }
-    ],
-    "average_timeline_entries_for_linked_officers": 10,
-    "narrative": "F.no.c- appears in 1 officer journeys with 1 known posting records."
   },
   {
     "name": "After Availing Joining 115/2024",

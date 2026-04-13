@@ -46,4 +46,33 @@ test.describe("Officer profile page", () => {
     await expect(page.getByTestId("intelligence-guide-page")).toBeVisible();
     await expect(page.getByTestId("archetype-glossary-section")).toBeVisible();
   });
+
+  test("profile section jump navigation works", async ({ page }) => {
+    await page.goto("/officers");
+    await page.getByTestId("officer-card").first().click();
+
+    const nav = page.getByTestId("profile-section-nav");
+    await expect(nav).toBeVisible();
+    await nav.getByRole("link", { name: "Timeline" }).click();
+    await expect(page).toHaveURL(/#timeline$/);
+    await expect(page.getByTestId("timeline-section")).toBeInViewport();
+  });
+
+  test("timeline groups can collapse and expand", async ({ page }) => {
+    await page.goto("/officers");
+    await page.getByTestId("officer-card").first().click();
+
+    const timeline = page.getByTestId("timeline-section");
+    await timeline.scrollIntoViewIfNeeded();
+    await expect(timeline).toBeVisible();
+
+    await page.getByTestId("timeline-collapse-all").click();
+    const firstToggle = page.getByTestId("timeline-group-toggle-0");
+    await expect(firstToggle).toBeVisible();
+
+    await firstToggle.click();
+    await expect
+      .poll(async () => page.locator('section[data-testid^="timeline-group-"]').first().locator("article").count())
+      .toBeGreaterThan(0);
+  });
 });

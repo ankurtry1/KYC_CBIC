@@ -9,6 +9,8 @@ import { OfficerFacts } from "@/components/officers/OfficerFacts";
 import { RankProgression } from "@/components/officers/RankProgression";
 import { StationHistory } from "@/components/officers/StationHistory";
 import { OfficerTimeline } from "@/components/officers/OfficerTimeline";
+import { ProfileQuickSummary } from "@/components/officers/ProfileQuickSummary";
+import { ProfileSectionNav } from "@/components/officers/ProfileSectionNav";
 import { DataQualityPanel } from "@/components/officers/DataQualityPanel";
 import { OfficerIntelligenceSummary } from "@/components/intelligence/OfficerIntelligenceSummary";
 import { InsightNarrativeCard } from "@/components/intelligence/InsightNarrativeCard";
@@ -75,13 +77,23 @@ export default async function OfficerDetailPage({ params }: OfficerDetailPagePro
         </Link>
 
         <OfficerHeader officer={officer} />
+        <ProfileSectionNav />
 
         <div className="grid gap-5 xl:grid-cols-[1.55fr,1fr]">
           <div className="space-y-5">
-            <CurrentPostingCard officer={officer} />
-            <OfficerTimeline officer={officer} />
-            <RelatedOfficers officer={officer} related={related} />
-            <StationHistory officer={officer} />
+            <ProfileQuickSummary officer={officer} />
+            <section id="career-signals">
+              <CurrentPostingCard officer={officer} />
+            </section>
+            <section id="timeline">
+              <OfficerTimeline officer={officer} />
+            </section>
+            <section id="related">
+              <RelatedOfficers officer={officer} related={related} />
+            </section>
+            <section id="stations">
+              <StationHistory officer={officer} />
+            </section>
           </div>
 
           <aside className="space-y-5 xl:sticky xl:top-24 xl:self-start">
@@ -108,9 +120,11 @@ export default async function OfficerDetailPage({ params }: OfficerDetailPagePro
                 Understand these terms
               </Link>
             </section>
-            <OfficerFacts officer={officer} />
-            <RankProgression officer={officer} />
-            <DataQualityPanel officer={officer} />
+            <section id="learn-more" className="space-y-5">
+              <OfficerFacts officer={officer} />
+              <RankProgression officer={officer} />
+              <DataQualityPanel officer={officer} />
+            </section>
           </aside>
         </div>
 
