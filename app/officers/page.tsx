@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { OfficerDirectoryClient } from "@/components/officers/OfficerDirectoryClient";
 import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
@@ -36,7 +37,9 @@ export default async function OfficersPage({ searchParams }: OfficersPageProps):
           </p>
         </div>
 
-        <OfficerDirectoryClient records={records} initialState={initialState} />
+        <Suspense fallback={null}>
+          <OfficerDirectoryClient records={records} initialState={initialState} />
+        </Suspense>
 
         <div className="mt-6">
           <RecommendationStrip

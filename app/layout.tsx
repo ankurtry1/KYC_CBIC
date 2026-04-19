@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
+import { Suspense } from "react";
 import { ShortlistDrawer } from "@/components/officers/ShortlistDrawer";
 import { ShortlistProvider } from "@/components/officers/ShortlistProvider";
 import "./globals.css";
@@ -39,7 +40,9 @@ export default function RootLayout({
       >
         <ShortlistProvider>
           {children}
-          <ShortlistDrawer />
+          <Suspense fallback={null}>
+            <ShortlistDrawer />
+          </Suspense>
         </ShortlistProvider>
       </body>
     </html>
