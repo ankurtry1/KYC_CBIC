@@ -3,6 +3,7 @@ import type { Officer } from "@/lib/officers/types";
 import type { RelatedOfficerCard } from "@/lib/intelligence/types";
 import { InsightPanel } from "@/components/intelligence/InsightPanel";
 import { ArchetypeBadge } from "@/components/intelligence/ArchetypeBadge";
+import { ProfileLink } from "@/components/officers/ProfileLink";
 import { buildOfficerProfileHref } from "@/lib/officers/navigation";
 
 type RelatedOfficersProps = {
@@ -39,9 +40,10 @@ export function RelatedOfficers({
       ) : (
         <div className={compact ? "space-y-2" : "grid gap-3 md:grid-cols-2"}>
           {visible.map((item) => (
-            <Link
+            <ProfileLink
               key={item.officer.id}
               href={buildOfficerProfileHref(item.officer.id, returnTo)}
+              officerId={item.officer.id}
               className="rounded-xl border border-slate-200 bg-white px-3 py-3 transition hover:-translate-y-0.5 hover:shadow-sm"
             >
               <p className="text-sm font-semibold text-slate-800">
@@ -63,7 +65,7 @@ export function RelatedOfficers({
                 <ArchetypeBadge archetype={item.officer.career_archetype} />
                 <span className="text-xs font-semibold text-accent">Match {item.score}/100</span>
               </div>
-            </Link>
+            </ProfileLink>
           ))}
         </div>
       )}

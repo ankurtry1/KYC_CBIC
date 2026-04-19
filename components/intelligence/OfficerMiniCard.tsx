@@ -3,6 +3,7 @@ import type { Route } from "next";
 import type { Officer } from "@/lib/officers/types";
 import { ArchetypeBadge } from "@/components/intelligence/ArchetypeBadge";
 import { DataQualityBadge } from "@/components/officers/DataQualityBadge";
+import { ProfileLink } from "@/components/officers/ProfileLink";
 import { VerificationBadge } from "@/components/officers/VerificationBadge";
 import { officerDisplayName } from "@/lib/officers/derive";
 import { buildOfficerProfileHref, stationHrefFromLocation } from "@/lib/officers/navigation";
@@ -20,12 +21,12 @@ export function OfficerMiniCard({ officer, reason, returnTo }: OfficerMiniCardPr
 
   return (
     <article className="rounded-xl border border-slate-200 bg-white px-3 py-3 transition hover:-translate-y-0.5 hover:shadow-sm">
-      <Link href={buildOfficerProfileHref(officer.id, returnTo)} className="block">
+      <ProfileLink href={buildOfficerProfileHref(officer.id, returnTo)} officerId={officer.id} className="block">
         <p className="text-sm font-semibold text-slate-800">{officerDisplayName(officer)}</p>
         <p className="mt-0.5 text-xs text-slate-500">{officer.employee_id}</p>
         <p className="mt-2 text-sm text-slate-700">{officer.current_designation ?? "Designation unavailable"}</p>
         <p className="mt-1 text-xs text-slate-500">{location ?? "Current station unavailable"}</p>
-      </Link>
+      </ProfileLink>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {officer.batch ? (
           <Link href={`/batches/${officer.batch}` as Route} className="pill transition hover:border-accent/30 hover:text-accent">

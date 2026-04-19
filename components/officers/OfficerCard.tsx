@@ -8,6 +8,7 @@ import { sanitizeDisplayLocation } from "@/lib/officers/normalize";
 import { buildOfficerProfileHref, stationHrefFromLocation } from "@/lib/officers/navigation";
 import { createShortlistEntryFromIndex } from "@/lib/officers/shortlist";
 import { DataQualityBadge } from "@/components/officers/DataQualityBadge";
+import { ProfileLink } from "@/components/officers/ProfileLink";
 import { ShortlistButton } from "@/components/officers/ShortlistButton";
 import { VerificationBadge } from "@/components/officers/VerificationBadge";
 import { formatDate } from "@/lib/utils/date";
@@ -56,14 +57,18 @@ export function OfficerCard({
         <ShortlistButton entry={shortlistEntry} compact />
       </div>
 
-      <Link
+      <ProfileLink
         data-testid="officer-card"
         data-officer-id={officer.id}
         data-employee-id={officer.employee_id}
         data-cadre={officer.cadre ?? ""}
         data-timeline-quality={officer.timeline_quality}
         href={profileHref}
+        officerId={officer.id}
         className="group mt-4 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+        statusLabel="Open profile"
+        pendingLabel="Opening profile…"
+        statusClassName="mt-3 block text-xs font-medium text-accent/80 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100"
       >
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -90,11 +95,7 @@ export function OfficerCard({
           </p>
           <p className="text-xs text-slate-500">Present-rank date: {formatDate(officer.present_rank_date)}</p>
         </div>
-
-        <p className="mt-3 text-xs font-medium text-accent/80 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
-          Open profile
-        </p>
-      </Link>
+      </ProfileLink>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {officer.cadre ? (

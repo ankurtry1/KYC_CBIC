@@ -17,6 +17,21 @@ export type OfficerOfficeContext = {
   reportingLineAvailable: false;
 };
 
+type OfficerCurrentContext = {
+  station: string | null;
+  organization: string | null;
+  designation: string | null;
+};
+
+type OfficeContextIndex = {
+  currentContext: Map<string, OfficerCurrentContext>;
+  byStation: Map<string, Officer[]>;
+  byOrganization: Map<string, Officer[]>;
+  byDesignation: Map<string, Officer[]>;
+};
+
+const OFFICE_CONTEXT_INDEX_CACHE = new WeakMap<Map<string, Officer>, OfficeContextIndex>();
+
 function currentStation(officer: Officer): string | null {
   return sanitizeDisplayLocation(officer.current_posting?.station_display ?? officer.current_posting?.location);
 }
@@ -29,6 +44,14 @@ function currentOrganization(officer: Officer): string | null {
 
 function currentDesignation(officer: Officer): string | null {
   return sanitizeDisplayLabel(officer.current_designation ?? officer.current_posting?.designation_display);
+}
+
+function officerCurrentContext(officer: Officer): OfficerCurrentContext {
+  return {
+    station: currentStation(officer),
+    organization: currentOrganization(officer),
+    designation: currentDesignation(officer)
+  };
 }
 
 function rankDistance(baseDesignation: string | null, candidateDesignation: string | null): number | null {
@@ -44,14 +67,17 @@ function rankDistance(baseDesignation: string | null, candidateDesignation: stri
   return Math.abs(baseIndex - candidateIndex);
 }
 
-function compareContextCandidates(baseDesignation: string | null) {
+function compareContextCandidates(
+  baseDesignation: string | null,
+  currentContextByOfficerId: Map<string, OfficerCurrentContext>
+) {
   return (left: Officer, right: Officer): number => {
     const leftVerified = left.verification_flag === "verified" ? 1 : 0;
     const rightVerified = right.verification_flag === "verified" ? 1 : 0;
     if (rightVerified !== leftVerified) return rightVerified - leftVerified;
 
-    const leftDistance = rankDistance(baseDesignation, currentDesignation(left));
-    const rightDistance = rankDistance(baseDesignation, currentDesignation(right));
+    const leftDistance = rankDistance(baseDesignation, currentContextByOfficerId.get(left.id)?.designation ?? null);
+    const rightDistance = rankDistance(baseDesignation, currentContextByOfficerId.get(right.id)?.designation ?? null);
     if (leftDistance != null && rightDistance != null && leftDistance !== rightDistance) {
       return leftDistance - rightDistance;
     }
@@ -70,35 +96,94 @@ function limitMatches(items: Officer[], reason: string, maxItems: number): Offic
   return items.slice(0, maxItems).map((officer) => ({ officer, reason }));
 }
 
+function pushGroupedOfficer(group: Map<string, Officer[]>, key: string | null, officer: Officer): void {
+  if (!key) return;
+  const existing = group.get(key) ?? [];
+  existing.push(officer);
+  group.set(key, existing);
+}
+
+function getOfficeContextIndex(officersById: Map<string, Officer>): OfficeContextIndex {
+  const cached = OFFICE_CONTEXT_INDEX_CACHE.get(officersById);
+  if (cached) return cached;
+
+  const currentContext = new Map<string, OfficerCurrentContext>();
+  const byStation = new Map<string, Officer[]>();
+  const byOrganization = new Map<string, Officer[]>();
+  const byDesignation = new Map<string, Officer[]>();
+
+  for (const officer of officersById.values()) {
+    const context = officerCurrentContext(officer);
+    currentContext.set(officer.id, context);
+    pushGroupedOfficer(byStation, context.station, officer);
+    pushGroupedOfficer(byOrganization, context.organization, officer);
+    pushGroupedOfficer(byDesignation, context.designation, officer);
+  }
+
+  const index = {
+    currentContext,
+    byStation,
+    byOrganization,
+    byDesignation
+  };
+
+  OFFICE_CONTEXT_INDEX_CACHE.set(officersById, index);
+  return index;
+}
+
+function nearbyDesignationCandidates(
+  designation: string | null,
+  byDesignation: Map<string, Officer[]>
+): Officer[] {
+  if (!designation) return [];
+
+  const baseIndex = RANK_LADDER.findIndex((rank) => rank === designation);
+  if (baseIndex === -1) {
+    return [...(byDesignation.get(designation) ?? [])];
+  }
+
+  const allowed: string[] = [];
+  for (const offset of [-1, 0, 1]) {
+    const rank = RANK_LADDER[baseIndex + offset];
+    if (rank) {
+      allowed.push(rank);
+    }
+  }
+
+  return allowed.flatMap((rank) => byDesignation.get(rank) ?? []);
+}
+
 export function resolveOfficerOfficeContext(
   officer: Officer,
   officersById: Map<string, Officer>,
   maxItems = 4
 ): OfficerOfficeContext {
-  const station = currentStation(officer);
-  const organization = currentOrganization(officer);
-  const designation = currentDesignation(officer);
-  const compare = compareContextCandidates(designation);
+  const index = getOfficeContextIndex(officersById);
+  const currentContext = index.currentContext.get(officer.id) ?? officerCurrentContext(officer);
+  const { station, organization, designation } = currentContext;
+  const compare = compareContextCandidates(designation, index.currentContext);
 
-  const peers = [...officersById.values()].filter((candidate) => candidate.id !== officer.id);
-
-  const sameStation = peers
-    .filter((candidate) => currentStation(candidate) === station && station != null)
+  const sameStation = (station ? index.byStation.get(station) ?? [] : [])
+    .filter((candidate) => candidate.id !== officer.id)
     .sort(compare);
 
-  const sameOrganization = peers
-    .filter((candidate) => currentOrganization(candidate) === organization && organization != null)
+  const sameOrganization = (organization ? index.byOrganization.get(organization) ?? [] : [])
+    .filter((candidate) => candidate.id !== officer.id)
     .sort(compare);
 
-  const nearbyDesignationBand = peers
+  const nearbyDesignationBand = nearbyDesignationCandidates(designation, index.byDesignation)
     .filter((candidate) => {
-      const distance = rankDistance(designation, currentDesignation(candidate));
-      if (distance == null) return false;
-      if (distance > 1) return false;
+      if (candidate.id === officer.id) return false;
 
-      const candidateStation = currentStation(candidate);
-      const candidateOrganization = currentOrganization(candidate);
-      return candidateStation === station || candidateOrganization === organization || distance === 0;
+      const candidateContext = index.currentContext.get(candidate.id);
+      const distance = rankDistance(designation, candidateContext?.designation ?? null);
+      if (distance == null || distance > 1) return false;
+
+      return (
+        candidateContext?.station === station ||
+        candidateContext?.organization === organization ||
+        distance === 0
+      );
     })
     .sort(compare);
 

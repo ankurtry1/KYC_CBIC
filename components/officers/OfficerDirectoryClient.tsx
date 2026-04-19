@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition, type KeyboardEvent } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, SlidersHorizontal } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -13,7 +13,22 @@ import {
   parseOfficerDirectoryState
 } from "@/lib/officers/directory";
 import { buildOfficerProfileHref } from "@/lib/officers/navigation";
-import { DEFAULT_FILTERS, deriveFilterOptions, searchOfficers } from "@/lib/officers/search";
+import { SearchSuggestions } from "@/components/officers/SearchSuggestions";
+import {
+  consumeSearchNavigationDuration,
+  logOfficerPerf,
+  markProfileNavigationStart,
+  markSearchNavigationStart
+} from "@/lib/officers/perf";
+import {
+  buildOfficerSearchIndex,
+  DEFAULT_FILTERS,
+  deriveFilterOptions,
+  getStrongDirectOfficerMatch,
+  MIN_SEARCH_SUGGEST_CHARS,
+  searchOfficersDetailed,
+  suggestOfficers
+} from "@/lib/officers/search";
 import { OfficerSearch } from "@/components/officers/OfficerSearch";
 import { OfficerFiltersPanel } from "@/components/officers/OfficerFilters";
 import { OfficerCard } from "@/components/officers/OfficerCard";
@@ -26,6 +41,7 @@ type OfficerDirectoryClientProps = {
 };
 
 const PAGE_SIZE = 24;
+const SUGGEST_DEBOUNCE_MS = 120;
 
 export function OfficerDirectoryClient({
   records,
@@ -41,10 +57,19 @@ export function OfficerDirectoryClient({
   const filters = urlState.filters;
   const requestedPage = urlState.page || initialState.page;
   const [searchInput, setSearchInput] = useState(initialState.filters.q);
+  const [debouncedSearchInput, setDebouncedSearchInput] = useState(initialState.filters.q);
   const [showFilters, setShowFilters] = useState(() => directoryHasActiveAdvancedFilters(initialState.filters));
+  const [isSuggestionsOpen, setIsSuggestionsOpen] = useState(false);
+  const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
+  const searchWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const options = useMemo(() => deriveFilterOptions(records), [records]);
-  const results = useMemo(() => searchOfficers(records, filters), [records, filters]);
+  const searchIndex = useMemo(() => buildOfficerSearchIndex(records), [records]);
+  const directorySearch = useMemo(
+    () => searchOfficersDetailed(searchIndex, filters),
+    [filters, searchIndex]
+  );
+  const results = directorySearch.results;
   const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
   const page = Math.min(requestedPage, totalPages);
   const filtersRef = useRef(filters);
@@ -60,10 +85,26 @@ export function OfficerDirectoryClient({
     if (!candidate?.match) return null;
     return candidate.match.score >= 3300 ? candidate : null;
   }, [filters.q, page, results]);
+  const suggestions = useMemo(
+    () => suggestOfficers(searchIndex, debouncedSearchInput, 8),
+    [debouncedSearchInput, searchIndex]
+  );
+  const directSuggestionMatch = useMemo(
+    () => getStrongDirectOfficerMatch(suggestions, debouncedSearchInput),
+    [debouncedSearchInput, suggestions]
+  );
 
   useEffect(() => {
     setSearchInput(filters.q);
   }, [filters.q]);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setDebouncedSearchInput(searchInput.trim());
+    }, SUGGEST_DEBOUNCE_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [searchInput]);
 
   useEffect(() => {
     if (directoryHasActiveAdvancedFilters(filters)) {
@@ -77,12 +118,53 @@ export function OfficerDirectoryClient({
   }, [filters, page]);
 
   useEffect(() => {
+    setActiveSuggestionIndex(-1);
+  }, [debouncedSearchInput]);
+
+  useEffect(() => {
     if (page !== requestedPage) {
       startTransition(() => {
         router.replace(buildOfficerDirectoryHref(filters, page), { scroll: false });
       });
     }
   }, [filters, page, requestedPage, router]);
+
+  useEffect(() => {
+    function handlePointerDown(event: MouseEvent): void {
+      if (!searchWrapperRef.current?.contains(event.target as Node)) {
+        setIsSuggestionsOpen(false);
+        setActiveSuggestionIndex(-1);
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, []);
+
+  useEffect(() => {
+    const navMs = consumeSearchNavigationDuration(filters.q);
+    logOfficerPerf("directory-search", {
+      query: filters.q || "(browse)",
+      mode: directorySearch.diagnostics.mode,
+      filtered: directorySearch.diagnostics.filteredCount,
+      candidates: directorySearch.diagnostics.candidateCount,
+      results: directorySearch.diagnostics.resultCount,
+      filterMs: directorySearch.diagnostics.filterMs,
+      candidateMs: directorySearch.diagnostics.candidateMs,
+      scoreMs: directorySearch.diagnostics.scoreMs,
+      sortMs: directorySearch.diagnostics.sortMs,
+      totalMs: directorySearch.diagnostics.totalMs,
+      navMs
+    });
+  }, [directorySearch.diagnostics, filters.q]);
+
+  useEffect(() => {
+    if (!isSuggestionsOpen || suggestions.length === 0) return;
+
+    suggestions.slice(0, 3).forEach((suggestion) => {
+      router.prefetch(`/officers/${suggestion.officer.id}`);
+    });
+  }, [isSuggestionsOpen, router, suggestions]);
 
   function navigate(nextFilters: OfficerFilters, nextPage = 1): void {
     filtersRef.current = nextFilters;
@@ -102,8 +184,68 @@ export function OfficerDirectoryClient({
     );
   }
 
+  function suggestionReturnTo(nextQuery: string): string {
+    return buildOfficerDirectoryHref(
+      {
+        ...filtersRef.current,
+        q: nextQuery.trim()
+      },
+      1
+    );
+  }
+
+  function navigateToSuggestionProfile(officerId: string, nextQuery = searchInput): void {
+    const returnTo = suggestionReturnTo(nextQuery);
+    markProfileNavigationStart(officerId);
+    setIsSuggestionsOpen(false);
+    startTransition(() => {
+      router.push(buildOfficerProfileHref(officerId, returnTo));
+    });
+  }
+
   function applySearchNow(): void {
-    updateFilters({ q: searchInput.trim() });
+    const trimmed = searchInput.trim();
+    if (trimmed && directSuggestionMatch) {
+      navigateToSuggestionProfile(directSuggestionMatch.officer.id, trimmed);
+      return;
+    }
+
+    markSearchNavigationStart(trimmed);
+    updateFilters({ q: trimmed });
+    setIsSuggestionsOpen(false);
+  }
+
+  function handleSearchKeyDown(event: KeyboardEvent<HTMLInputElement>): void {
+    if (!isSuggestionsOpen || suggestions.length === 0) {
+      if (event.key === "Escape") {
+        setIsSuggestionsOpen(false);
+      }
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveSuggestionIndex((current) => (current + 1) % suggestions.length);
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveSuggestionIndex((current) => (current <= 0 ? suggestions.length - 1 : current - 1));
+      return;
+    }
+
+    if (event.key === "Enter" && activeSuggestionIndex >= 0) {
+      event.preventDefault();
+      navigateToSuggestionProfile(suggestions[activeSuggestionIndex].officer.id, searchInput);
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setIsSuggestionsOpen(false);
+      setActiveSuggestionIndex(-1);
+    }
   }
 
   const activeAdvancedCount = [
@@ -121,17 +263,43 @@ export function OfficerDirectoryClient({
   return (
     <div data-testid="officers-directory" className="space-y-4">
       <div className="panel p-3 sm:p-4 lg:sticky lg:top-[4.75rem] lg:z-20">
-        <OfficerSearch
-          value={searchInput}
-          onChange={setSearchInput}
-          onSubmit={applySearchNow}
-          onClear={() => {
-            if (filters.q) {
-              navigate({ ...filters, q: DEFAULT_FILTERS.q }, 1);
+        <div ref={searchWrapperRef}>
+          <OfficerSearch
+            value={searchInput}
+            onChange={(value) => {
+              setSearchInput(value);
+              if (value.trim().length >= MIN_SEARCH_SUGGEST_CHARS) {
+                setIsSuggestionsOpen(true);
+              }
+            }}
+            onSubmit={applySearchNow}
+            onClear={() => {
+              setSearchInput("");
+              setIsSuggestionsOpen(false);
+              if (filters.q) {
+                navigate({ ...filters, q: DEFAULT_FILTERS.q }, 1);
+              }
+            }}
+            onFocus={() => {
+              if (searchInput.trim().length >= MIN_SEARCH_SUGGEST_CHARS) {
+                setIsSuggestionsOpen(true);
+              }
+            }}
+            onKeyDown={handleSearchKeyDown}
+            isSubmitting={isPending}
+            suggestions={
+              <SearchSuggestions
+                query={debouncedSearchInput}
+                suggestions={suggestions}
+                activeIndex={activeSuggestionIndex}
+                isOpen={isSuggestionsOpen && debouncedSearchInput.length >= MIN_SEARCH_SUGGEST_CHARS}
+                testId="directory-search-suggestions"
+                onActiveIndexChange={setActiveSuggestionIndex}
+                onSelect={(suggestion) => navigateToSuggestionProfile(suggestion.officer.id, searchInput)}
+              />
             }
-          }}
-          isSubmitting={isPending}
-        />
+          />
+        </div>
 
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
           <p data-testid="directory-results-count" className="text-sm text-slate-600">
@@ -144,6 +312,14 @@ export function OfficerDirectoryClient({
               "officers"
             )}
           </p>
+          {isPending ? (
+            <span
+              data-testid="directory-search-pending"
+              className="rounded-full border border-accent/20 bg-accentSoft px-2.5 py-1 text-xs font-semibold text-accent"
+            >
+              Updating results…
+            </span>
+          ) : null}
           <button
             data-testid="directory-toggle-filters"
             type="button"

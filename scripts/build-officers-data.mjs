@@ -9,6 +9,7 @@ import {
 const ROOT = process.cwd();
 const TEXT_DIR = path.join(ROOT, "tmp", "pdfs", "text");
 const DATA_DIR = path.join(ROOT, "data");
+const PUBLIC_DATA_DIR = path.join(ROOT, "public", "data");
 
 const DATE_PATTERN = /(\d{1,2}\/\d{1,2}\/\d{4})/g;
 const DATE_PAIR_PATTERN = /(\d{1,2}\/\d{1,2}\/\d{4})\s+(\d{1,2}\/\d{1,2}\/\d{4})/;
@@ -1759,6 +1760,17 @@ function createIndex(officers) {
   });
 }
 
+function createSuggestionIndex(index) {
+  return index.map((officer) => ({
+    id: officer.id,
+    employee_id: officer.employee_id,
+    name: officer.name,
+    normalized_name: officer.normalized_name,
+    current_designation: officer.current_designation,
+    current_location: officer.current_location
+  }));
+}
+
 function topEntriesFromCounter(counterMap, limit = 6) {
   return [...counterMap.entries()]
     .sort((a, b) => b[1] - a[1])
@@ -2238,6 +2250,9 @@ function main() {
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
+  if (!fs.existsSync(PUBLIC_DATA_DIR)) {
+    fs.mkdirSync(PUBLIC_DATA_DIR, { recursive: true });
+  }
 
   const sourceMode = resolveOfficerDataSourceMode(process.env.OFFICER_DATA_SOURCE_MODE);
   const useExcel = shouldUseExcel(sourceMode);
@@ -2296,6 +2311,7 @@ function main() {
   computeRelatedOfficers(officers);
 
   const index = createIndex(officers);
+  const suggestionIndex = createSuggestionIndex(index);
   const metrics = buildMetrics(officers);
   const batches = buildBatchesDataset(officers);
   const cadres = buildCadresDataset(officers);
@@ -2305,6 +2321,7 @@ function main() {
 
   writeJson("data/officers.json", officers);
   writeJson("data/officers-index.json", index);
+  writeJson("public/data/officer-suggestions.json", suggestionIndex);
   writeJson("data/officers-metrics.json", metrics);
   writeJson("data/batches.json", batches);
   writeJson("data/cadres.json", cadres);
@@ -2327,7 +2344,7 @@ function main() {
   console.log(`[build:data] Mode behavior: ${mergeDiagnostics.modeExplanation}`);
   console.log(`Built ${officers.length} officers`);
   console.log(`Timeline-rich officers: ${metrics.timeline_rich_officers}`);
-  console.log(`Generated datasets: officers, batches, cadres, stations, career-paths, discovery`);
+  console.log(`Generated datasets: officers, suggestions, batches, cadres, stations, career-paths, discovery`);
 }
 
 main();

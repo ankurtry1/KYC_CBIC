@@ -2,10 +2,15 @@ import { expect, test } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 
-function getSearchableNameToken(): string {
+type SearchFixture = {
+  token: string;
+  employeeId: string;
+};
+
+function getSearchFixture(): SearchFixture {
   const indexPath = path.join(process.cwd(), "data", "officers-index.json");
   const payload = fs.readFileSync(indexPath, "utf8");
-  const officers: Array<{ name: string | null }> = JSON.parse(payload);
+  const officers: Array<{ name: string | null; employee_id: string }> = JSON.parse(payload);
 
   const candidate =
     officers.find(
@@ -13,13 +18,16 @@ function getSearchableNameToken(): string {
         officer.name &&
         !/^Officer\s+\d+$/i.test(officer.name) &&
         officer.name.trim().split(/\s+/).some((token) => token.length > 3)
-    )?.name ?? "Raj";
+    ) ?? { name: "Raj Kumar", employee_id: "3747" };
 
-  const token = candidate
+  const token = candidate.name
     .split(/\s+/)
     .find((part) => /^[A-Za-z]+$/.test(part) && part.length > 3);
 
-  return token ?? "Raj";
+  return {
+    token: token ?? "Raj",
+    employeeId: candidate.employee_id
+  };
 }
 
 test.describe("Officers directory", () => {
@@ -47,7 +55,7 @@ test.describe("Officers directory", () => {
   });
 
   test("searching by valid officer name filters results", async ({ page }) => {
-    const query = getSearchableNameToken();
+    const { token: query } = getSearchFixture();
     const countLabel = page.getByTestId("directory-results-count");
     const beforeText = await countLabel.innerText();
     const beforeCount = Number((beforeText.match(/\d[\d,]*/)?.[0] ?? "0").replace(/,/g, ""));
@@ -69,7 +77,7 @@ test.describe("Officers directory", () => {
   });
 
   test("search submits on Enter key and button is visible", async ({ page }) => {
-    const query = getSearchableNameToken();
+    const { token: query } = getSearchFixture();
     const input = page.getByTestId("directory-search-input");
 
     await expect(page.getByTestId("directory-search-submit")).toBeVisible();
@@ -97,6 +105,22 @@ test.describe("Officers directory", () => {
 
     await expect.poll(async () => exactCard.count()).toBeGreaterThan(0);
     await expect(page.getByTestId("directory-best-match")).toContainText(employeeId!);
+  });
+
+  test("directory search shows autosuggestions and Enter can open the direct profile", async ({ page }) => {
+    const fixture = getSearchFixture();
+    const input = page.getByTestId("directory-search-input");
+
+    await input.fill(fixture.token.slice(0, 3));
+    await expect(page.getByTestId("directory-search-suggestions")).toBeVisible();
+    await expect(page.getByTestId("directory-search-suggestions-item-0")).toBeVisible();
+
+    await input.fill(fixture.employeeId);
+    await expect(page.getByTestId("directory-search-suggestions")).toBeVisible();
+    await input.press("Enter");
+
+    await expect(page).toHaveURL(/\/officers\/.+/);
+    await expect(page.getByTestId("officer-header")).toContainText(fixture.employeeId);
   });
 
   test("empty state appears when no results match", async ({ page }) => {

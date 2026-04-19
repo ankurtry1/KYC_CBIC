@@ -137,6 +137,15 @@ export type OfficerIndexRecord = {
   search_blob: string;
 };
 
+export type OfficerSuggestionRecord = {
+  id: string;
+  employee_id: string;
+  name: string | null;
+  normalized_name: string | null;
+  current_designation: string | null;
+  current_location: string | null;
+};
+
 export type OfficerMetrics = {
   total_officers: number;
   timeline_rich_officers: number;

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { Route } from "next";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CircleHelp } from "lucide-react";
+import { CircleHelp } from "lucide-react";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { OfficerHeader } from "@/components/officers/OfficerHeader";
 import { CurrentPostingCard } from "@/components/officers/CurrentPostingCard";
@@ -12,6 +13,7 @@ import { StationHistory } from "@/components/officers/StationHistory";
 import { OfficerTimeline } from "@/components/officers/OfficerTimeline";
 import { ProfileQuickSummary } from "@/components/officers/ProfileQuickSummary";
 import { ProfileSectionNav } from "@/components/officers/ProfileSectionNav";
+import { ProfileBackLink } from "@/components/officers/ProfileBackLink";
 import { DataQualityPanel } from "@/components/officers/DataQualityPanel";
 import { OfficerIntelligenceSummary } from "@/components/intelligence/OfficerIntelligenceSummary";
 import { InsightNarrativeCard } from "@/components/intelligence/InsightNarrativeCard";
@@ -20,43 +22,59 @@ import { RecommendationStrip } from "@/components/intelligence/RecommendationStr
 import { resolveOfficerOfficeContext } from "@/lib/intelligence/officeContext";
 import { resolveRelatedOfficers } from "@/lib/intelligence/similarity";
 import type { RecommendationItem } from "@/lib/intelligence/types";
-import { returnToLabel, sanitizeReturnTo, stationHrefFromLocation } from "@/lib/officers/navigation";
-import { getOfficerById, getOfficersMap } from "@/lib/officers/load";
+import { logOfficerPerf, nowMs } from "@/lib/officers/perf";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
+import { getOfficerIndex, getOfficersMap } from "@/lib/officers/load";
 
 type OfficerDetailPageProps = {
   params: {
     id: string;
   };
-  searchParams?: {
-    from?: string;
-  };
 };
 
+export async function generateStaticParams(): Promise<Array<{ id: string }>> {
+  const officers = await getOfficerIndex();
+  return officers.map((officer) => ({ id: officer.id }));
+}
+
 export default async function OfficerDetailPage({
-  params,
-  searchParams
+  params
 }: OfficerDetailPageProps): Promise<JSX.Element> {
-  const [officer, officersMap] = await Promise.all([getOfficerById(params.id), getOfficersMap()]);
+  const totalStart = nowMs();
+  const loadStart = nowMs();
+  const officersMap = await getOfficersMap();
+  const officer =
+    officersMap.get(params.id) ??
+    [...officersMap.values()].find((candidate) => candidate.employee_id === params.id) ??
+    null;
+  const loadMs = nowMs() - loadStart;
 
   if (!officer) {
     notFound();
   }
 
-  const safeReturnTo = sanitizeReturnTo(searchParams?.from) ?? "/officers";
   const currentStationHref = stationHrefFromLocation(
     officer.current_posting?.station_display ?? officer.current_posting?.location
   );
   const designationHref = officer.current_designation
     ? (`/officers?designation=${encodeURIComponent(officer.current_designation)}` as Route)
     : null;
-  const profileReturnToForRelated = safeReturnTo
-    ? `/officers/${officer.id}?from=${encodeURIComponent(safeReturnTo)}#related`
-    : `/officers/${officer.id}#related`;
-  const profileReturnToForOfficeContext = safeReturnTo
-    ? `/officers/${officer.id}?from=${encodeURIComponent(safeReturnTo)}#office-context`
-    : `/officers/${officer.id}#office-context`;
+  const profileReturnToForRelated = `/officers/${officer.id}?from=${encodeURIComponent("/officers")}#related`;
+  const profileReturnToForOfficeContext = `/officers/${officer.id}?from=${encodeURIComponent("/officers")}#office-context`;
+  const relatedStart = nowMs();
   const related = resolveRelatedOfficers(officer, officersMap);
+  const relatedMs = nowMs() - relatedStart;
+  const officeContextStart = nowMs();
   const officeContext = resolveOfficerOfficeContext(officer, officersMap);
+  const officeContextMs = nowMs() - officeContextStart;
+
+  logOfficerPerf("profile-server", {
+    officerId: officer.id,
+    loadMs,
+    relatedMs,
+    officeContextMs,
+    totalMs: nowMs() - totalStart
+  });
 
   const recommendationItems: RecommendationItem[] = [
     ...(currentStationHref
@@ -107,13 +125,18 @@ export default async function OfficerDetailPage({
       <AppTopNav />
 
       <section className="mx-auto w-full max-w-7xl space-y-5 px-4 py-6 md:px-8 md:py-8">
-        <Link
-          href={safeReturnTo}
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+        <Suspense
+          fallback={
+            <Link
+              href="/officers"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+            >
+              Back to directory
+            </Link>
+          }
         >
-          <ArrowLeft className="h-4 w-4" />
-          {returnToLabel(safeReturnTo)}
-        </Link>
+          <ProfileBackLink officerId={officer.id} />
+        </Suspense>
 
         <OfficerHeader officer={officer} />
         <ProfileSectionNav />
