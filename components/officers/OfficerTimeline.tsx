@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { Officer } from "@/lib/officers/types";
 import { formatDateRange } from "@/lib/utils/date";
 import { cn } from "@/lib/utils/cn";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
 import { sanitizeDisplayLabel, sanitizeDisplayLocation } from "@/lib/officers/normalize";
 import type { OfficerPosting } from "@/lib/officers/types";
 
@@ -220,20 +222,39 @@ export function OfficerTimeline({ officer }: OfficerTimelineProps): JSX.Element 
                       </div>
 
                       <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md">
+                        {(() => {
+                          const organization = sanitizeDisplayLabel(
+                            item.organization_display ?? item.organization_unit_name
+                          );
+                          const station = sanitizeDisplayLocation(item.station_display ?? item.location);
+                          const stationHref = stationHrefFromLocation(station);
+
+                          return (
+                            <>
                         <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
                           {formatDateRange(item.start_date, item.end_date)}
                         </p>
                         <h3 className="mt-1 text-base font-semibold text-slate-900">
                           {item.designation_display ?? item.designation ?? item.rank_held ?? "Role details unavailable"}
                         </h3>
-                        <p className="mt-1 text-sm text-slate-600">
-                          {[
-                            sanitizeDisplayLabel(item.organization_display ?? item.organization_unit_name),
-                            sanitizeDisplayLocation(item.station_display ?? item.location)
-                          ]
-                            .filter(Boolean)
-                            .join(" • ") || "Organization/location data unavailable"}
+                        <p className="mt-1 flex flex-wrap items-center gap-1.5 text-sm text-slate-600">
+                          {organization ? <span>{organization}</span> : null}
+                          {organization && station ? <span className="text-slate-400">•</span> : null}
+                          {station ? (
+                            stationHref ? (
+                              <Link href={stationHref} className="text-accent transition hover:underline">
+                                {station}
+                              </Link>
+                            ) : (
+                              <span>{station}</span>
+                            )
+                          ) : (
+                            <span>Organization/location data unavailable</span>
+                          )}
                         </p>
+                            </>
+                          );
+                        })()}
 
                         {(item.source_doc || item.confidence != null || item.remarks_display || item.order_no) ? (
                           <details className="mt-2 text-xs text-slate-500">

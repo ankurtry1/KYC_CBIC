@@ -53,6 +53,7 @@ test.describe("Officers directory", () => {
     const beforeCount = Number((beforeText.match(/\d[\d,]*/)?.[0] ?? "0").replace(/,/g, ""));
 
     await page.getByTestId("directory-search-input").fill(query);
+    await page.getByTestId("directory-search-submit").click();
 
     await expect.poll(async () => page.getByTestId("officer-card").count()).toBeGreaterThan(0);
     await expect(
@@ -88,16 +89,19 @@ test.describe("Officers directory", () => {
     expect(employeeId).toBeTruthy();
 
     await page.getByTestId("directory-search-input").fill(employeeId!);
+    await page.getByTestId("directory-search-submit").click();
 
     const exactCard = page.locator(
       `[data-testid="officer-card"][data-employee-id="${employeeId}"]`
     );
 
     await expect.poll(async () => exactCard.count()).toBeGreaterThan(0);
+    await expect(page.getByTestId("directory-best-match")).toContainText(employeeId!);
   });
 
   test("empty state appears when no results match", async ({ page }) => {
     await page.getByTestId("directory-search-input").fill("ZZZ_NON_EXISTENT_OFFICER_123456789");
+    await page.getByTestId("directory-search-submit").click();
 
     await expect(page.getByTestId("directory-empty-state")).toBeVisible();
     await expect(page.getByTestId("officer-card")).toHaveCount(0);
@@ -121,6 +125,37 @@ test.describe("Officers directory", () => {
         return Number((text.match(/\d[\d,]*/)?.[0] ?? "0").replace(/,/g, ""));
       })
       .toBeLessThanOrEqual(before);
+  });
+
+  test("filters sync to URL and survive reload", async ({ page }) => {
+    await page.getByTestId("directory-toggle-filters").click();
+    await page.getByTestId("filter-cadre").selectOption("DR");
+    await page.getByTestId("filter-sort-by").selectOption("employee_id");
+    await page.getByTestId("filter-sort-order").selectOption("desc");
+
+    await expect(page).toHaveURL(/cadre=DR/);
+    await expect(page).toHaveURL(/sortBy=employee_id/);
+    await expect(page).toHaveURL(/sortOrder=desc/);
+
+    await page.reload();
+
+    await expect(page.getByTestId("filter-cadre")).toHaveValue("DR");
+    await expect(page.getByTestId("filter-sort-by")).toHaveValue("employee_id");
+    await expect(page.getByTestId("filter-sort-order")).toHaveValue("desc");
+  });
+
+  test("directory context survives opening a profile and returning", async ({ page }) => {
+    await page.getByTestId("directory-toggle-filters").click();
+    await page.getByTestId("filter-cadre").selectOption("DR");
+
+    await expect(page).toHaveURL(/cadre=DR/);
+    await page.getByTestId("officer-card").first().click();
+
+    await expect(page).toHaveURL(/\/officers\/.+\?from=%2Fofficers%3Fcadre%3DDR/);
+    await page.getByRole("link", { name: /back to results/i }).click();
+
+    await expect(page).toHaveURL(/\/officers\?cadre=DR/);
+    await expect(page.getByTestId("officer-card").first()).toHaveAttribute("data-cadre", "DR");
   });
 
   test("full officer card click opens profile", async ({ page }) => {

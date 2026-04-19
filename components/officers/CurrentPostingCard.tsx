@@ -1,5 +1,8 @@
+import Link from "next/link";
+import type { Route } from "next";
 import { Building2, CalendarClock, MapPin, ShieldAlert } from "lucide-react";
 import type { Officer } from "@/lib/officers/types";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
 import { confidenceLabel } from "@/lib/utils/format";
 import { formatDate } from "@/lib/utils/date";
 import { sanitizeDisplayLabel, sanitizeDisplayLocation } from "@/lib/officers/normalize";
@@ -10,13 +13,17 @@ type CurrentPostingCardProps = {
 
 export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.Element {
   const posting = officer.current_posting;
-  const designation =
-    posting?.designation_display ?? posting?.designation ?? officer.current_designation ?? "Current role not available";
+  const designationValue = posting?.designation_display ?? posting?.designation ?? officer.current_designation;
+  const designation = designationValue ?? "Current role not available";
   const organizationUnit = sanitizeDisplayLabel(
     posting?.organization_display ?? posting?.organization_unit_name
   );
   const location = sanitizeDisplayLocation(posting?.station_display ?? posting?.location);
+  const stationHref = stationHrefFromLocation(location);
   const isInferred = !organizationUnit || !location;
+  const designationHref = designationValue
+    ? (`/officers?designation=${encodeURIComponent(designationValue)}` as Route)
+    : null;
 
   return (
     <section data-testid="current-posting-card" className="panel p-5">
@@ -36,12 +43,33 @@ export function CurrentPostingCard({ officer }: CurrentPostingCardProps): JSX.El
         </p>
         <p className="inline-flex items-center gap-2">
           <MapPin className="h-4 w-4 text-accent/80" />
-          {location ?? "Posting details partially inferred"}
+          {stationHref && location ? (
+            <Link href={stationHref} className="text-accent transition hover:underline">
+              {location}
+            </Link>
+          ) : (
+            (location ?? "Posting details partially inferred")
+          )}
         </p>
         <p className="inline-flex items-center gap-2">
           <CalendarClock className="h-4 w-4 text-accent/80" />
           Start date: {formatDate(posting?.start_date)}
         </p>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {stationHref && location ? (
+          <Link href={stationHref} className="pill transition hover:border-accent/30 hover:text-accent">
+            Open station context
+          </Link>
+        ) : (
+          <span className="pill">Station context unavailable</span>
+        )}
+        {designationHref ? (
+          <Link href={designationHref} className="pill transition hover:border-accent/30 hover:text-accent">
+            Explore this designation
+          </Link>
+        ) : null}
       </div>
 
       {isInferred ? (

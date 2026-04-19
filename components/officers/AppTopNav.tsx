@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { CircleHelp, Compass, Landmark, Route, Search } from "lucide-react";
+import { Bookmark, CircleHelp, Compass, Landmark, Route, Search } from "lucide-react";
+import { useShortlist } from "@/components/officers/ShortlistProvider";
 import { cn } from "@/lib/utils/cn";
 
 type AppTopNavProps = {
@@ -7,6 +10,8 @@ type AppTopNavProps = {
 };
 
 export function AppTopNav({ className }: AppTopNavProps): JSX.Element {
+  const { shortlistCount, openDrawer } = useShortlist();
+
   return (
     <header
       data-testid="app-nav"
@@ -55,6 +60,18 @@ export function AppTopNav({ className }: AppTopNavProps): JSX.Element {
             <CircleHelp className="h-4 w-4" />
             Guide
           </Link>
+          <button
+            data-testid="nav-shortlist-toggle"
+            type="button"
+            onClick={openDrawer}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
+          >
+            <Bookmark className="h-4 w-4" />
+            <span className="hidden sm:inline">Shortlist</span>
+            <span className="rounded-full bg-accentSoft px-1.5 py-0.5 text-xs font-semibold text-accent">
+              {shortlistCount}
+            </span>
+          </button>
         </nav>
       </div>
     </header>

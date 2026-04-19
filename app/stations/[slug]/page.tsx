@@ -1,11 +1,13 @@
 import Link from "next/link";
+import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { StationOverview } from "@/components/intelligence/StationOverview";
 import { OfficerMiniCard } from "@/components/intelligence/OfficerMiniCard";
 import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
-import { getOfficersByIds, getStationBySlug } from "@/lib/officers/load";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
+import { getStationBySlug, getSurfaceableOfficersByIds } from "@/lib/officers/load";
 
 type StationDetailPageProps = {
   params: {
@@ -15,10 +17,12 @@ type StationDetailPageProps = {
 
 function EntryList({
   title,
-  entries
+  entries,
+  getHref
 }: {
   title: string;
   entries: Array<{ key: string; count: number }>;
+  getHref?: (entry: { key: string; count: number }) => Route | null;
 }): JSX.Element {
   return (
     <article className="panel p-5">
@@ -29,7 +33,13 @@ function EntryList({
         ) : (
           entries.map((entry) => (
             <div key={`${title}-${entry.key}`} className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2">
-              <p className="text-sm text-slate-700">{entry.key}</p>
+              {getHref?.(entry) ? (
+                <Link href={getHref(entry)!} className="text-sm text-accent transition hover:underline">
+                  {entry.key}
+                </Link>
+              ) : (
+                <p className="text-sm text-slate-700">{entry.key}</p>
+              )}
               <span className="pill">{entry.count}</span>
             </div>
           ))
@@ -43,7 +53,10 @@ export default async function StationDetailPage({ params }: StationDetailPagePro
   const station = await getStationBySlug(params.slug);
   if (!station) notFound();
 
-  const notableOfficers = await getOfficersByIds(station.notable_officer_ids);
+  const notableOfficers = await getSurfaceableOfficersByIds(station.notable_officer_ids, 8);
+  const topDesignation = station.common_designations[0]?.key;
+  const topBatch = station.frequent_batches[0]?.key;
+  const relatedStation = station.related_stations[0];
 
   return (
     <main data-testid="station-detail-page" className="min-h-screen bg-surface">
@@ -61,8 +74,18 @@ export default async function StationDetailPage({ params }: StationDetailPagePro
         <StationOverview station={station} />
 
         <section className="grid gap-4 xl:grid-cols-2">
-          <EntryList title="Common designations" entries={station.common_designations.slice(0, 8)} />
-          <EntryList title="Frequent batches" entries={station.frequent_batches.slice(0, 8)} />
+          <EntryList
+            title="Common designations"
+            entries={station.common_designations.slice(0, 8)}
+            getHref={(entry) =>
+              `/officers?location=${encodeURIComponent(station.name)}&designation=${encodeURIComponent(entry.key)}` as Route
+            }
+          />
+          <EntryList
+            title="Frequent batches"
+            entries={station.frequent_batches.slice(0, 8)}
+            getHref={(entry) => `/batches/${entry.key}` as Route}
+          />
         </section>
 
         <section className="panel p-5">
@@ -74,7 +97,21 @@ export default async function StationDetailPage({ params }: StationDetailPagePro
               {station.movement_corridors.slice(0, 8).map((corridor, index) => (
                 <div key={`${corridor.from}-${corridor.to}-${index}`} className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2">
                   <p className="text-sm text-slate-700">
-                    {corridor.from} → {corridor.to}
+                    {stationHrefFromLocation(corridor.from) ? (
+                      <Link href={stationHrefFromLocation(corridor.from)! as Route} className="text-accent transition hover:underline">
+                        {corridor.from}
+                      </Link>
+                    ) : (
+                      corridor.from
+                    )}{" "}
+                    →{" "}
+                    {stationHrefFromLocation(corridor.to) ? (
+                      <Link href={stationHrefFromLocation(corridor.to)! as Route} className="text-accent transition hover:underline">
+                        {corridor.to}
+                      </Link>
+                    ) : (
+                      corridor.to
+                    )}
                   </p>
                   <span className="pill">{corridor.count}</span>
                 </div>
@@ -84,11 +121,23 @@ export default async function StationDetailPage({ params }: StationDetailPagePro
         </section>
 
         <section className="panel p-5">
-          <p className="text-label">Notable Officers</p>
-          <h2 className="mt-1 text-xl font-semibold text-slate-900">Explore officers linked to this station</h2>
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-label">Notable Officers</p>
+              <h2 className="mt-1 text-xl font-semibold text-slate-900">Explore officers linked to this station</h2>
+            </div>
+            <Link href={`/officers?location=${encodeURIComponent(station.name)}`} className="pill">
+              Open in directory
+            </Link>
+          </div>
+          {notableOfficers.length < Math.min(station.notable_officer_ids.length, 8) ? (
+            <p className="mt-2 text-xs text-slate-500">
+              Showing a high-trust sample of named profiles with fewer data-quality concerns.
+            </p>
+          ) : null}
           <div className="mt-4 grid gap-3 md:grid-cols-2">
             {notableOfficers.slice(0, 8).map((officer) => (
-              <OfficerMiniCard key={officer.id} officer={officer} />
+              <OfficerMiniCard key={officer.id} officer={officer} returnTo={`/stations/${station.slug}`} />
             ))}
           </div>
         </section>
@@ -114,23 +163,35 @@ export default async function StationDetailPage({ params }: StationDetailPagePro
             {
               title: "Explore officers from this station",
               description: "Open filtered officer profiles linked to this institutional node.",
-              href: "/officers"
+              href: `/officers?location=${encodeURIComponent(station.name)}` as Route
             },
-            {
-              title: "View common designation mix",
-              description: "Compare role concentration with cadre and batch patterns.",
-              href: "/cadres"
-            },
-            {
-              title: "Compare batches",
-              description: "Review which cohorts are most represented in this station.",
-              href: "/batches"
-            },
-            {
-              title: "Return to guided discovery",
-              description: "Continue with structured journey entry points.",
-              href: "/discover"
-            }
+            ...(topDesignation
+              ? [
+                  {
+                    title: "Top designation cohort",
+                    description: "Open officers in this station who share the most common current designation.",
+                    href: `/officers?location=${encodeURIComponent(station.name)}&designation=${encodeURIComponent(topDesignation)}` as Route
+                  }
+                ]
+              : []),
+            ...(topBatch
+              ? [
+                  {
+                    title: `Top batch: ${topBatch}`,
+                    description: "Review the cohort most represented in this station.",
+                    href: `/batches/${topBatch}` as Route
+                  }
+                ]
+              : []),
+            ...(relatedStation
+              ? [
+                  {
+                    title: `Related station: ${relatedStation.station}`,
+                    description: "Continue through the strongest linked station context instead of resetting to the hub.",
+                    href: `/stations/${relatedStation.slug}` as Route
+                  }
+                ]
+              : [])
           ]}
         />
       </section>

@@ -1,14 +1,24 @@
 import Link from "next/link";
 import type { Route } from "next";
 import type { Officer } from "@/lib/officers/types";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
 import { formatDate } from "@/lib/utils/date";
 import { currentPostingSummary } from "@/lib/officers/derive";
+import { sanitizeDisplayLocation } from "@/lib/officers/normalize";
 
 type ProfileQuickSummaryProps = {
   officer: Officer;
 };
 
 export function ProfileQuickSummary({ officer }: ProfileQuickSummaryProps): JSX.Element {
+  const currentLocation = sanitizeDisplayLocation(
+    officer.current_posting?.station_display ?? officer.current_posting?.location
+  );
+  const stationHref = stationHrefFromLocation(currentLocation);
+  const designationHref = officer.current_designation
+    ? (`/officers?designation=${encodeURIComponent(officer.current_designation)}` as Route)
+    : null;
+
   return (
     <section id="summary" data-testid="profile-quick-summary" className="panel p-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -28,7 +38,13 @@ export function ProfileQuickSummary({ officer }: ProfileQuickSummaryProps): JSX.
         </p>
         <p className="rounded-xl border border-slate-200 bg-white px-3 py-2">
           <span className="font-medium text-slate-800">Current designation:</span>{" "}
-          {officer.current_designation ?? "Not available"}
+          {designationHref ? (
+            <Link href={designationHref} className="text-accent transition hover:underline">
+              {officer.current_designation}
+            </Link>
+          ) : (
+            (officer.current_designation ?? "Not available")
+          )}
         </p>
         <p className="rounded-xl border border-slate-200 bg-white px-3 py-2">
           <span className="font-medium text-slate-800">Present-rank date:</span> {formatDate(officer.present_rank_date)}
@@ -46,6 +62,16 @@ export function ProfileQuickSummary({ officer }: ProfileQuickSummaryProps): JSX.
         <p className="rounded-xl border border-slate-200 bg-white px-3 py-2">
           <span className="font-medium text-slate-800">Mobility profile:</span> {officer.mobility_profile}
         </p>
+        <p className="rounded-xl border border-slate-200 bg-white px-3 py-2">
+          <span className="font-medium text-slate-800">Current station:</span>{" "}
+          {stationHref && currentLocation ? (
+            <Link href={stationHref} className="text-accent transition hover:underline">
+              {currentLocation}
+            </Link>
+          ) : (
+            (currentLocation ?? "Not available")
+          )}
+        </p>
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
@@ -62,9 +88,18 @@ export function ProfileQuickSummary({ officer }: ProfileQuickSummaryProps): JSX.
             Explore this cadre
           </Link>
         ) : null}
-        <Link href={"/stations" as Route} className="pill transition hover:border-accent/30 hover:text-accent">
-          Explore stations
-        </Link>
+        {stationHref && currentLocation ? (
+          <Link href={stationHref} className="pill transition hover:border-accent/30 hover:text-accent">
+            Open {currentLocation} context
+          </Link>
+        ) : (
+          <span className="pill">Current station unavailable</span>
+        )}
+        {designationHref ? (
+          <Link href={designationHref} className="pill transition hover:border-accent/30 hover:text-accent">
+            Compare this designation
+          </Link>
+        ) : null}
         <Link href={"/career-paths" as Route} className="pill transition hover:border-accent/30 hover:text-accent">
           View career paths
         </Link>

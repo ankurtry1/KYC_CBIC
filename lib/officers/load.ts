@@ -2,6 +2,7 @@ import { cache } from "react";
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { Officer, OfficerIndexRecord, OfficerMetrics } from "@/lib/officers/types";
+import { hasReliableOfficerName } from "@/lib/officers/derive";
 import type {
   BatchIntelligence,
   CadreIntelligence,
@@ -32,6 +33,11 @@ export const getOfficerIndex = cache(async (): Promise<OfficerIndexRecord[]> => 
   return readJson<OfficerIndexRecord[]>(officersIndexPath);
 });
 
+export const getOfficerIndexMap = cache(async (): Promise<Map<string, OfficerIndexRecord>> => {
+  const index = await getOfficerIndex();
+  return new Map(index.map((officer) => [officer.id, officer]));
+});
+
 export const getOfficerMetrics = cache(async (): Promise<OfficerMetrics> => {
   return readJson<OfficerMetrics>(metricsPath);
 });
@@ -42,9 +48,12 @@ export const getOfficerById = cache(async (id: string): Promise<Officer | null> 
 });
 
 export const getFeaturedOfficers = cache(async (count = 6): Promise<OfficerIndexRecord[]> => {
-  const index = await getOfficerIndex();
+  const [index, officersMap] = await Promise.all([getOfficerIndex(), getOfficersMap()]);
   return [...index]
-    .sort((left, right) => right.timeline_richness_score - left.timeline_richness_score)
+    .map((record) => ({ record, score: surfacedOfficerScore(officersMap.get(record.id) ?? null) }))
+    .filter((item) => item.score > 0)
+    .sort((left, right) => right.score - left.score)
+    .map((item) => item.record)
     .slice(0, count);
 });
 
@@ -97,3 +106,51 @@ export const getOfficersMap = cache(async (): Promise<Map<string, Officer>> => {
   const officers = await getOfficers();
   return new Map(officers.map((officer) => [officer.id, officer]));
 });
+
+function hasSevereSurfaceWarning(officer: Officer): boolean {
+  return (officer.data_quality?.warnings ?? []).some((warning) =>
+    /precedes entry date|identity/i.test(warning)
+  );
+}
+
+function surfacedOfficerScore(officer: Officer | null): number {
+  if (!officer) return -1;
+  if (!hasReliableOfficerName(officer.name)) return -1;
+  if (officer.data_quality_label === "Needs Review") return -1;
+  if (hasSevereSurfaceWarning(officer)) return -1;
+
+  let score = 0;
+  score += officer.timeline_richness_score * 40;
+  score += officer.timeline_entry_count * 10;
+  score += officer.unique_station_count * 6;
+  score += officer.verification_flag === "verified" ? 80 : 20;
+  score += officer.data_quality_label === "Strong" ? 70 : 30;
+  score += officer.current_posting?.confidence != null ? Math.round(officer.current_posting.confidence * 50) : 0;
+  score -= (officer.data_quality?.warnings ?? []).length * 20;
+  score -= (officer.data_quality?.missing_fields ?? []).length * 10;
+
+  return score;
+}
+
+export async function getSurfaceableOfficersByIds(ids: string[], count = ids.length): Promise<Officer[]> {
+  const officers = await getOfficersByIds(ids);
+  const ranked = officers
+    .map((officer) => ({ officer, score: surfacedOfficerScore(officer) }))
+    .filter((item) => item.score > 0)
+    .sort((left, right) => right.score - left.score)
+    .map((item) => item.officer);
+
+  if (ranked.length >= count) {
+    return ranked.slice(0, count);
+  }
+
+  const fallback = officers.filter(
+    (officer) =>
+      !ranked.some((candidate) => candidate.id === officer.id) &&
+      hasReliableOfficerName(officer.name) &&
+      officer.data_quality_label !== "Needs Review" &&
+      !hasSevereSurfaceWarning(officer)
+  );
+
+  return [...ranked, ...fallback].slice(0, count);
+}

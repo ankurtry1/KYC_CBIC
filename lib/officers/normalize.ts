@@ -16,8 +16,26 @@ const NOISY_LABEL_PATTERNS = [
   /\bf\.?\s*no\.?\b/i,
   /\breport\s+\d{1,4}\/\d{2,4}\b/i,
   /\bentry\s+as\s+per\b/i,
+  /\bposted\s+at\b/i,
   /^\d{1,2}[./-]\d{1,2}[./-]\d{2,4}$/i
 ];
+
+const DISPLAY_STANDARDIZATIONS: Array<[RegExp, string]> = [
+  [/\bgst\s*&\s*cx\b/gi, "GST & CX"],
+  [/\bdggi\b/gi, "DGGI"],
+  [/\bcco\b/gi, "CCO"],
+  [/\bin[\s-]*situ\b/gi, "In-Situ"],
+  [/\bbengaluru\b/gi, "Bangalore"]
+];
+
+function standardizeDisplayText(input: string): string {
+  return DISPLAY_STANDARDIZATIONS.reduce(
+    (value, [pattern, replacement]) => value.replace(pattern, replacement),
+    input
+  )
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 export function normalizeSearchText(input: string): string {
   return input
@@ -36,10 +54,11 @@ export function normalizeLocation(input: string | null | undefined): string | nu
   if (!input) return null;
   const cleaned = input.replace(/\s+/g, " ").trim();
   if (!cleaned) return null;
-  return cleaned
+  const titled = cleaned
     .split(" ")
     .map((chunk) => chunk[0]?.toUpperCase() + chunk.slice(1).toLowerCase())
     .join(" ");
+  return standardizeDisplayText(titled);
 }
 
 export function isNoisyDisplayLabel(input: string | null | undefined): boolean {
@@ -64,7 +83,7 @@ export function sanitizeDisplayLabel(input: string | null | undefined): string |
       .trim()
   );
   if (!cleaned || isNoisyDisplayLabel(cleaned)) return null;
-  return cleaned;
+  return standardizeDisplayText(cleaned);
 }
 
 export function sanitizeDisplayLocation(input: string | null | undefined): string | null {

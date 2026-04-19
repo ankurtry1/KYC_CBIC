@@ -1,6 +1,7 @@
 import type { Officer } from "@/lib/officers/types";
 import { DataQualityBadge } from "@/components/officers/DataQualityBadge";
 import { VerificationBadge } from "@/components/officers/VerificationBadge";
+import { confidenceLabel } from "@/lib/utils/format";
 
 type DataQualityPanelProps = {
   officer: Officer;
@@ -10,6 +11,8 @@ export function DataQualityPanel({ officer }: DataQualityPanelProps): JSX.Elemen
   const quality = officer.data_quality;
   const warnings = quality?.warnings ?? [];
   const missing = quality?.missing_fields ?? [];
+  const dedupeConfidence = quality?.dedupe_confidence;
+  const postingConfidence = officer.current_posting?.confidence;
 
   return (
     <section data-testid="data-quality-panel" className="panel p-5">
@@ -19,6 +22,9 @@ export function DataQualityPanel({ officer }: DataQualityPanelProps): JSX.Elemen
         <VerificationBadge flag={officer.verification_flag ?? "unknown"} />
         <DataQualityBadge label={officer.data_quality_label ?? "Needs Review"} />
         <span className="pill">Timeline {quality?.timeline_quality ?? "minimal"}</span>
+        {dedupeConfidence != null ? <span className="pill">Identity confidence {confidenceLabel(dedupeConfidence)}</span> : null}
+        {postingConfidence != null ? <span className="pill">Posting confidence {confidenceLabel(postingConfidence)}</span> : null}
+        {warnings.length > 0 ? <span className="pill">{warnings.length} warning{warnings.length === 1 ? "" : "s"}</span> : null}
       </div>
 
       <div className="mt-4 space-y-3 text-sm text-slate-700">

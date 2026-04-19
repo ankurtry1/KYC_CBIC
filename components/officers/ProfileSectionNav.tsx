@@ -1,8 +1,9 @@
 const SECTION_LINKS = [
   { id: "summary", label: "Summary" },
+  { id: "career-signals", label: "Current posting" },
+  { id: "office-context", label: "Office context" },
   { id: "timeline", label: "Timeline" },
-  { id: "related", label: "Related officers" },
-  { id: "career-signals", label: "Career signals" },
+  { id: "related", label: "Trajectory similarity" },
   { id: "learn-more", label: "Learn more" }
 ];
 

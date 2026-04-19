@@ -1,10 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { motion } from "framer-motion";
-import { SlidersHorizontal } from "lucide-react";
+import { ArrowRight, SlidersHorizontal } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
 import type { OfficerFilters, OfficerIndexRecord } from "@/lib/officers/types";
-import { DEFAULT_FILTERS, deriveFilterOptions, filterOfficers, sortOfficers } from "@/lib/officers/search";
+import type { OfficerDirectoryState } from "@/lib/officers/directory";
+import {
+  buildOfficerDirectoryHref,
+  directoryHasActiveAdvancedFilters,
+  parseOfficerDirectoryState
+} from "@/lib/officers/directory";
+import { buildOfficerProfileHref } from "@/lib/officers/navigation";
+import { DEFAULT_FILTERS, deriveFilterOptions, searchOfficers } from "@/lib/officers/search";
 import { OfficerSearch } from "@/components/officers/OfficerSearch";
 import { OfficerFiltersPanel } from "@/components/officers/OfficerFilters";
 import { OfficerCard } from "@/components/officers/OfficerCard";
@@ -13,70 +22,90 @@ import { cn } from "@/lib/utils/cn";
 
 type OfficerDirectoryClientProps = {
   records: OfficerIndexRecord[];
-  initialFilters?: Partial<OfficerFilters>;
+  initialState: OfficerDirectoryState;
 };
 
 const PAGE_SIZE = 24;
 
-function hasActiveAdvancedFilters(filters: OfficerFilters): boolean {
-  return (
-    filters.batch !== "all" ||
-    filters.designation !== "all" ||
-    filters.location !== "all" ||
-    filters.verification !== "all" ||
-    filters.timelineQuality !== "all" ||
-    filters.sortBy !== "name" ||
-    filters.sortOrder !== "asc"
-  );
-}
-
 export function OfficerDirectoryClient({
   records,
-  initialFilters
+  initialState
 }: OfficerDirectoryClientProps): JSX.Element {
-  const initialState = {
-    ...DEFAULT_FILTERS,
-    ...initialFilters,
-    q: initialFilters?.q ?? ""
-  } as OfficerFilters;
-
-  const [filters, setFilters] = useState<OfficerFilters>({
-    ...initialState
-  });
-  const [searchInput, setSearchInput] = useState(initialState.q);
-  const [isSearchSubmitting, setIsSearchSubmitting] = useState(false);
-  const [page, setPage] = useState(1);
-  const [showFilters, setShowFilters] = useState(() => hasActiveAdvancedFilters(initialState));
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
+  const urlState = useMemo(
+    () => parseOfficerDirectoryState(searchParams ?? undefined),
+    [searchParams]
+  );
+  const filters = urlState.filters;
+  const requestedPage = urlState.page || initialState.page;
+  const [searchInput, setSearchInput] = useState(initialState.filters.q);
+  const [showFilters, setShowFilters] = useState(() => directoryHasActiveAdvancedFilters(initialState.filters));
 
   const options = useMemo(() => deriveFilterOptions(records), [records]);
-
-  const filtered = useMemo(() => filterOfficers(records, filters), [records, filters]);
-  const sorted = useMemo(
-    () => sortOfficers(filtered, filters.sortBy, filters.sortOrder),
-    [filtered, filters.sortBy, filters.sortOrder]
+  const results = useMemo(() => searchOfficers(records, filters), [records, filters]);
+  const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
+  const page = Math.min(requestedPage, totalPages);
+  const filtersRef = useRef(filters);
+  const pageRef = useRef(page);
+  const currentDirectoryHref = useMemo(() => buildOfficerDirectoryHref(filters, page), [filters, page]);
+  const pagedResults = useMemo(
+    () => results.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
+    [page, results]
   );
+  const bestMatch = useMemo(() => {
+    if (!filters.q.trim() || page !== 1) return null;
+    const candidate = results[0];
+    if (!candidate?.match) return null;
+    return candidate.match.score >= 3300 ? candidate : null;
+  }, [filters.q, page, results]);
 
   useEffect(() => {
-    setPage(1);
+    setSearchInput(filters.q);
+  }, [filters.q]);
+
+  useEffect(() => {
+    if (directoryHasActiveAdvancedFilters(filters)) {
+      setShowFilters(true);
+    }
   }, [filters]);
 
   useEffect(() => {
-    const handle = setTimeout(() => {
-      setFilters((prev) => (prev.q === searchInput ? prev : { ...prev, q: searchInput }));
-      setIsSearchSubmitting(false);
-    }, 180);
+    filtersRef.current = filters;
+    pageRef.current = page;
+  }, [filters, page]);
 
-    return () => clearTimeout(handle);
-  }, [searchInput]);
+  useEffect(() => {
+    if (page !== requestedPage) {
+      startTransition(() => {
+        router.replace(buildOfficerDirectoryHref(filters, page), { scroll: false });
+      });
+    }
+  }, [filters, page, requestedPage, router]);
 
-  function applySearchNow(): void {
-    setIsSearchSubmitting(true);
-    setFilters((prev) => ({ ...prev, q: searchInput.trim() }));
-    window.setTimeout(() => setIsSearchSubmitting(false), 200);
+  function navigate(nextFilters: OfficerFilters, nextPage = 1): void {
+    filtersRef.current = nextFilters;
+    pageRef.current = nextPage;
+    startTransition(() => {
+      router.replace(buildOfficerDirectoryHref(nextFilters, nextPage), { scroll: false });
+    });
   }
 
-  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
-  const pagedRecords = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  function updateFilters(patch: Partial<OfficerFilters>, resetPage = true): void {
+    navigate(
+      {
+        ...filtersRef.current,
+        ...patch
+      },
+      resetPage ? 1 : pageRef.current
+    );
+  }
+
+  function applySearchNow(): void {
+    updateFilters({ q: searchInput.trim() });
+  }
+
   const activeAdvancedCount = [
     filters.batch !== "all",
     filters.designation !== "all",
@@ -96,12 +125,24 @@ export function OfficerDirectoryClient({
           value={searchInput}
           onChange={setSearchInput}
           onSubmit={applySearchNow}
-          isSubmitting={isSearchSubmitting}
+          onClear={() => {
+            if (filters.q) {
+              navigate({ ...filters, q: DEFAULT_FILTERS.q }, 1);
+            }
+          }}
+          isSubmitting={isPending}
         />
 
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
           <p data-testid="directory-results-count" className="text-sm text-slate-600">
-            Showing <span className="font-semibold text-slate-800">{formatNumber(sorted.length)}</span> officers
+            Showing <span className="font-semibold text-slate-800">{formatNumber(results.length)}</span>{" "}
+            {filters.q.trim() ? (
+              <>
+                results for <span className="font-semibold text-slate-800">&ldquo;{filters.q.trim()}&rdquo;</span>
+              </>
+            ) : (
+              "officers"
+            )}
           </p>
           <button
             data-testid="directory-toggle-filters"
@@ -124,14 +165,20 @@ export function OfficerDirectoryClient({
             data-testid="quick-filter-all"
             type="button"
             onClick={() =>
-              setFilters((prev) => ({
-                ...prev,
+              navigate(
+                {
+                  ...filters,
                 cadre: "all",
+                batch: "all",
+                designation: "all",
+                location: "all",
                 timelineQuality: "all",
                 verification: "all",
                 sortBy: "name",
                 sortOrder: "asc"
-              }))
+                },
+                1
+              )
             }
             className={cn(
               "rounded-full border px-2.5 py-1 text-xs font-medium transition",
@@ -147,7 +194,7 @@ export function OfficerDirectoryClient({
               key={cadre}
               data-testid={`quick-filter-cadre-${cadre.toLowerCase()}`}
               type="button"
-              onClick={() => setFilters((prev) => ({ ...prev, cadre }))}
+              onClick={() => updateFilters({ cadre })}
               className={cn(
                 "rounded-full border px-2.5 py-1 text-xs font-medium transition",
                 filters.cadre === cadre
@@ -161,7 +208,7 @@ export function OfficerDirectoryClient({
           <button
             data-testid="quick-filter-timeline-full"
             type="button"
-            onClick={() => setFilters((prev) => ({ ...prev, timelineQuality: "full" }))}
+            onClick={() => updateFilters({ timelineQuality: "full" })}
             className={cn(
               "rounded-full border px-2.5 py-1 text-xs font-medium transition",
               filters.timelineQuality === "full"
@@ -174,7 +221,7 @@ export function OfficerDirectoryClient({
           <button
             data-testid="quick-filter-verified"
             type="button"
-            onClick={() => setFilters((prev) => ({ ...prev, verification: "verified" }))}
+            onClick={() => updateFilters({ verification: "verified" })}
             className={cn(
               "rounded-full border px-2.5 py-1 text-xs font-medium transition",
               filters.verification === "verified"
@@ -187,9 +234,13 @@ export function OfficerDirectoryClient({
           <button
             data-testid="quick-filter-high-mobility"
             type="button"
-            onClick={() =>
-              setSearchInput((prev) => (prev.toLowerCase().includes("high mobility") ? prev : `${prev} high mobility`.trim()))
-            }
+            onClick={() => {
+              const nextValue = filters.q.toLowerCase().includes("high mobility")
+                ? filters.q
+                : `${filters.q} high mobility`.trim();
+              setSearchInput(nextValue);
+              navigate({ ...filters, q: nextValue }, 1);
+            }}
             className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:bg-slate-50"
           >
             High mobility
@@ -197,9 +248,38 @@ export function OfficerDirectoryClient({
         </div>
       </div>
 
-      {showFilters ? <OfficerFiltersPanel filters={filters} options={options} onChange={setFilters} /> : null}
+      {showFilters ? (
+        <OfficerFiltersPanel
+          filters={filters}
+          options={options}
+          onChange={(patch) => updateFilters(patch)}
+        />
+      ) : null}
 
-      {pagedRecords.length === 0 ? (
+      {bestMatch ? (
+        <div data-testid="directory-best-match" className="panel border-accent/20 bg-mesh-soft p-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-label">Best Match</p>
+              <p className="mt-1 text-lg font-semibold text-slate-900">
+                {bestMatch.officer.name ?? "Name unavailable"}
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                {bestMatch.match?.primaryLabel} • {bestMatch.officer.employee_id}
+              </p>
+            </div>
+            <Link
+              href={buildOfficerProfileHref(bestMatch.officer.id, currentDirectoryHref)}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-accent/30 bg-white px-3.5 py-2 text-sm font-medium text-accent transition hover:bg-accentSoft"
+            >
+              Open best match
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      ) : null}
+
+      {pagedResults.length === 0 ? (
         <div data-testid="directory-empty-state" className="panel p-10 text-center">
           <p className="font-medium text-slate-800">No officers match your current filters.</p>
           <p className="mt-1 text-sm text-slate-500">Try reducing filters or searching by employee ID.</p>
@@ -215,13 +295,18 @@ export function OfficerDirectoryClient({
           }}
           className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3"
         >
-          {pagedRecords.map((officer) => (
+          {pagedResults.map((result, index) => (
             <motion.div
-              key={officer.id}
+              key={result.officer.id}
               variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <OfficerCard officer={officer} />
+              <OfficerCard
+                officer={result.officer}
+                match={result.match}
+                returnTo={currentDirectoryHref}
+                isPriorityMatch={Boolean(bestMatch) && page === 1 && index === 0}
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -236,7 +321,7 @@ export function OfficerDirectoryClient({
           <button
             type="button"
             disabled={page === 1}
-            onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+            onClick={() => navigate(filters, Math.max(1, page - 1))}
             className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-700 transition disabled:cursor-not-allowed disabled:opacity-40 hover:bg-slate-50"
           >
             Previous
@@ -244,7 +329,7 @@ export function OfficerDirectoryClient({
           <button
             type="button"
             disabled={page >= totalPages}
-            onClick={() => setPage((prev) => Math.min(totalPages, prev + 1))}
+            onClick={() => navigate(filters, Math.min(totalPages, page + 1))}
             className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-700 transition disabled:cursor-not-allowed disabled:opacity-40 hover:bg-slate-50"
           >
             Next

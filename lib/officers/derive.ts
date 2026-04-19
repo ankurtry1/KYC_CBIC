@@ -1,4 +1,4 @@
-import type { Officer } from "@/lib/officers/types";
+import type { Officer, OfficerIndexRecord } from "@/lib/officers/types";
 import { normalizeLocation } from "@/lib/officers/normalize";
 
 export const RANK_LADDER = [
@@ -12,8 +12,29 @@ export const RANK_LADDER = [
   "Principal Chief Commissioner"
 ] as const;
 
-export function officerDisplayName(officer: Officer): string {
-  return officer.name?.trim() || `Officer ${officer.employee_id}`;
+type OfficerIdentity = Pick<Officer, "name" | "employee_id"> | Pick<OfficerIndexRecord, "name" | "employee_id">;
+
+const UNAVAILABLE_NAME_PATTERNS = [
+  /^officer\s+\d+$/i,
+  /^name\s+unavailable$/i,
+  /^unknown$/i,
+  /^na$/i
+];
+
+export function hasReliableOfficerName(name: string | null | undefined): boolean {
+  if (!name) return false;
+  const cleaned = name.trim();
+  if (!cleaned) return false;
+  return !UNAVAILABLE_NAME_PATTERNS.some((pattern) => pattern.test(cleaned));
+}
+
+export function officerDisplayNameFromParts(name: string | null | undefined): string {
+  if (!hasReliableOfficerName(name)) return "Name unavailable";
+  return name!.trim();
+}
+
+export function officerDisplayName(officer: OfficerIdentity): string {
+  return officerDisplayNameFromParts(officer.name);
 }
 
 export function timelineRichness(officer: Officer): number {

@@ -2,12 +2,14 @@ import Link from "next/link";
 import type { CareerPathIntelligence } from "@/lib/intelligence/types";
 import { InsightPanel } from "@/components/intelligence/InsightPanel";
 import { topProgressionLabel } from "@/lib/intelligence/careerPaths";
+import { buildOfficerProfileHref } from "@/lib/officers/navigation";
 
 type CareerPathExplorerProps = {
   paths: CareerPathIntelligence;
+  returnTo?: string | null;
 };
 
-export function CareerPathExplorer({ paths }: CareerPathExplorerProps): JSX.Element {
+export function CareerPathExplorer({ paths, returnTo }: CareerPathExplorerProps): JSX.Element {
   return (
     <div className="space-y-5">
       <InsightPanel title="Typical Progression Ladder" subtitle="Common rank sequence context across known records">
@@ -41,15 +43,15 @@ export function CareerPathExplorer({ paths }: CareerPathExplorerProps): JSX.Elem
           ].map((band) => (
             <div key={band.label} className="rounded-xl border border-slate-200 bg-white px-3 py-3">
               <p className="text-sm font-semibold text-slate-800">{band.label}</p>
-              <p className="mt-1 text-xs text-slate-500">Sample size: {band.data.sample_size}</p>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {band.data.sample_officer_ids.slice(0, 3).map((id) => (
-                  <Link key={id} href={`/officers/${id}`} className="pill">
-                    {id.replace("officer-", "")}
-                  </Link>
-                ))}
+                <p className="mt-1 text-xs text-slate-500">Sample size: {band.data.sample_size}</p>
+                <div className="mt-2 flex flex-wrap gap-1">
+                  {band.data.sample_officer_ids.slice(0, 3).map((id) => (
+                    <Link key={id} href={buildOfficerProfileHref(id, returnTo)} className="pill">
+                      {id.replace("officer-", "")}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
           ))}
         </div>
       </InsightPanel>

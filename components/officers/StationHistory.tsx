@@ -1,5 +1,7 @@
+import Link from "next/link";
 import type { Officer } from "@/lib/officers/types";
 import { getStationSummary } from "@/lib/officers/derive";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
 import { daysToYears } from "@/lib/utils/date";
 import { sanitizeDisplayLocation } from "@/lib/officers/normalize";
 
@@ -37,10 +39,17 @@ export function StationHistory({ officer }: StationHistoryProps): JSX.Element {
       <div className="mt-4 space-y-3">
         {stations.map((station) => {
           const width = Math.max(8, (station.postings / maxPostings) * 100);
+          const stationHref = stationHrefFromLocation(station.station);
           return (
             <div key={station.station} className="rounded-xl border border-slate-200 bg-white px-3 py-3">
               <div className="flex items-center justify-between gap-3 text-sm">
-                <p className="font-medium text-slate-800">{station.station}</p>
+                {stationHref ? (
+                  <Link href={stationHref} className="font-medium text-accent transition hover:underline">
+                    {station.station}
+                  </Link>
+                ) : (
+                  <p className="font-medium text-slate-800">{station.station}</p>
+                )}
                 <p className="text-slate-500">{station.postings} postings</p>
               </div>
               <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">

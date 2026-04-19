@@ -2,12 +2,12 @@ import { AppTopNav } from "@/components/officers/AppTopNav";
 import { CareerPathExplorer } from "@/components/intelligence/CareerPathExplorer";
 import { OfficerMiniCard } from "@/components/intelligence/OfficerMiniCard";
 import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
-import { getCareerPaths, getOfficersByIds } from "@/lib/officers/load";
+import { getCareerPaths, getSurfaceableOfficersByIds } from "@/lib/officers/load";
 
 export default async function CareerPathsPage(): Promise<JSX.Element> {
   const paths = await getCareerPaths();
   const representativeIds = paths.representative_journeys.slice(0, 8).map((entry) => entry.officer_id);
-  const representative = await getOfficersByIds(representativeIds);
+  const representative = await getSurfaceableOfficersByIds(representativeIds, 8);
 
   return (
     <main data-testid="career-paths-page" className="min-h-screen bg-surface">
@@ -23,7 +23,7 @@ export default async function CareerPathsPage(): Promise<JSX.Element> {
           </p>
         </div>
 
-        <CareerPathExplorer paths={paths} />
+        <CareerPathExplorer paths={paths} returnTo="/career-paths" />
 
         <section className="mt-5 panel p-5" data-testid="career-path-rank-timings">
           <p className="text-label">Average Years to Reach Rank</p>
@@ -45,7 +45,7 @@ export default async function CareerPathsPage(): Promise<JSX.Element> {
           <h2 className="mt-1 text-xl font-semibold text-slate-900">Profiles that illustrate path patterns</h2>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
             {representative.map((officer) => (
-              <OfficerMiniCard key={officer.id} officer={officer} />
+              <OfficerMiniCard key={officer.id} officer={officer} returnTo="/career-paths" />
             ))}
           </div>
         </section>
@@ -60,9 +60,9 @@ export default async function CareerPathsPage(): Promise<JSX.Element> {
             testId="career-paths-recommendation-strip"
             items={[
               {
-                title: "Open officer directory",
-                description: "Validate progression patterns through individual profile timelines.",
-                href: "/officers"
+                title: "Open timeline-rich officers",
+                description: "Validate progression patterns through the most complete individual profile timelines.",
+                href: "/officers?sortBy=timeline_richness&sortOrder=desc" as const
               },
               {
                 title: "Compare by batch",

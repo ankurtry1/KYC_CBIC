@@ -11,10 +11,6 @@ export function LandingSearch(): JSX.Element {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault();
     const q = query.trim();
-    if (!q) {
-      router.push("/officers");
-      return;
-    }
     router.push(`/officers?q=${encodeURIComponent(q)}`);
   }
 

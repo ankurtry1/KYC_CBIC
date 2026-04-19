@@ -109,7 +109,7 @@ export default async function HomePage(): Promise<JSX.Element> {
 
         <div data-testid="home-featured-grid" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {featured.map((officer) => (
-            <OfficerCard key={officer.id} officer={officer} />
+            <OfficerCard key={officer.id} officer={officer} returnTo="/" />
           ))}
         </div>
 

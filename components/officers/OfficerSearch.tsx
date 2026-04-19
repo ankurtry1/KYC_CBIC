@@ -8,6 +8,7 @@ type OfficerSearchProps = {
   value: string;
   onChange: (value: string) => void;
   onSubmit?: () => void;
+  onClear?: () => void;
   placeholder?: string;
   className?: string;
   isSubmitting?: boolean;
@@ -17,6 +18,7 @@ export function OfficerSearch({
   value,
   onChange,
   onSubmit,
+  onClear,
   placeholder = "Search by name, employee ID, batch, cadre, designation, location",
   className,
   isSubmitting = false
@@ -42,7 +44,10 @@ export function OfficerSearch({
           <button
             data-testid="directory-search-clear"
             type="button"
-            onClick={() => onChange("")}
+            onClick={() => {
+              onChange("");
+              onClear?.();
+            }}
             className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
             aria-label="Clear search"
           >

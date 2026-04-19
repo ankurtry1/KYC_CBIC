@@ -1,20 +1,28 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Briefcase, CalendarDays, Hash, MapPin } from "lucide-react";
+import { AlertTriangle, Briefcase, CalendarDays, Hash, MapPin } from "lucide-react";
 import type { Officer } from "@/lib/officers/types";
 import { officerDisplayName } from "@/lib/officers/derive";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
+import { createShortlistEntryFromOfficer } from "@/lib/officers/shortlist";
 import { formatDate } from "@/lib/utils/date";
+import { confidenceLabel } from "@/lib/utils/format";
 import { VerificationBadge } from "@/components/officers/VerificationBadge";
 import { DataQualityBadge } from "@/components/officers/DataQualityBadge";
+import { ShortlistButton } from "@/components/officers/ShortlistButton";
 
 type OfficerHeaderProps = {
   officer: Officer;
 };
 
 export function OfficerHeader({ officer }: OfficerHeaderProps): JSX.Element {
+  const warnings = officer.data_quality?.warnings ?? [];
   const currentLocation =
     officer.current_posting?.station_display ?? officer.current_posting?.location ?? "Location unavailable";
+  const stationHref = stationHrefFromLocation(currentLocation);
+  const shortlistEntry = createShortlistEntryFromOfficer(officer);
 
   return (
     <motion.section
@@ -50,7 +58,13 @@ export function OfficerHeader({ officer }: OfficerHeaderProps): JSX.Element {
             </p>
             <p className="inline-flex items-center gap-2">
               <MapPin className="h-4 w-4 text-accent/80" />
-              {currentLocation}
+              {stationHref ? (
+                <Link href={stationHref} className="text-accent transition hover:underline">
+                  {currentLocation}
+                </Link>
+              ) : (
+                currentLocation
+              )}
             </p>
             <p className="inline-flex items-center gap-2">
               <CalendarDays className="h-4 w-4 text-accent/80" />
@@ -60,9 +74,17 @@ export function OfficerHeader({ officer }: OfficerHeaderProps): JSX.Element {
         </div>
 
         <div className="flex flex-wrap items-center gap-2 md:flex-col md:items-end">
+          <ShortlistButton entry={shortlistEntry} />
           <VerificationBadge flag={officer.verification_flag ?? "unknown"} />
           <DataQualityBadge label={officer.data_quality_label ?? "Needs Review"} />
-          <span className="pill">{officer.timeline_richness_score ?? 0} posting records</span>
+          <span className="pill">{officer.timeline_entry_count ?? 0} posting records</span>
+          <span className="pill">Confidence {confidenceLabel(officer.current_posting?.confidence)}</span>
+          {warnings.length > 0 ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700">
+              <AlertTriangle className="h-3.5 w-3.5" />
+              {warnings.length} warning{warnings.length === 1 ? "" : "s"}
+            </span>
+          ) : null}
         </div>
       </div>
     </motion.section>

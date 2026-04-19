@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
+import { ShortlistDrawer } from "@/components/officers/ShortlistDrawer";
+import { ShortlistProvider } from "@/components/officers/ShortlistProvider";
 import "./globals.css";
 import { cn } from "@/lib/utils/cn";
 
@@ -35,7 +37,10 @@ export default function RootLayout({
           "bg-surface font-[var(--font-jakarta)] text-ink antialiased"
         )}
       >
-        {children}
+        <ShortlistProvider>
+          {children}
+          <ShortlistDrawer />
+        </ShortlistProvider>
       </body>
     </html>
   );

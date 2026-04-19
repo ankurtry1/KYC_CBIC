@@ -4,6 +4,7 @@ import { AppTopNav } from "@/components/officers/AppTopNav";
 import { LearnPathCard } from "@/components/intelligence/LearnPathCard";
 import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
 import { OfficerCard } from "@/components/officers/OfficerCard";
+import { buildOfficerProfileHref } from "@/lib/officers/navigation";
 import { getBatches, getCadres, getCareerPaths, getFeaturedOfficers, getStations } from "@/lib/officers/load";
 
 export default async function LearnPage(): Promise<JSX.Element> {
@@ -99,8 +100,8 @@ export default async function LearnPage(): Promise<JSX.Element> {
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
               {featured.slice(0, 5).map((officer) => (
                 <li key={officer.id}>
-                  <Link href={`/officers/${officer.id}`} className="hover:text-accent">
-                    {officer.name ?? `Officer ${officer.employee_id}`} • {officer.current_designation ?? "Unknown"}
+                  <Link href={buildOfficerProfileHref(officer.id, "/learn")} className="hover:text-accent">
+                    {(officer.name ?? "Name unavailable")} • {officer.current_designation ?? "Unknown"}
                   </Link>
                 </li>
               ))}
@@ -149,7 +150,7 @@ export default async function LearnPage(): Promise<JSX.Element> {
                 </p>
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {band.ids.map((id) => (
-                    <Link key={id} href={`/officers/${id}`} className="pill">
+                    <Link key={id} href={buildOfficerProfileHref(id, "/learn")} className="pill">
                       {id.replace("officer-", "")}
                     </Link>
                   ))}
@@ -171,7 +172,7 @@ export default async function LearnPage(): Promise<JSX.Element> {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {featured.map((officer) => (
-              <OfficerCard key={officer.id} officer={officer} />
+              <OfficerCard key={officer.id} officer={officer} returnTo="/learn" />
             ))}
           </div>
         </section>

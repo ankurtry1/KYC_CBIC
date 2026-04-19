@@ -107,6 +107,7 @@ test.describe("Officer profile page", () => {
     await expect(page.getByTestId("station-history-section")).toBeVisible();
     await expect(page.getByTestId("rank-progression-section")).toBeVisible();
     await expect(page.getByTestId("data-quality-panel")).toBeVisible();
+    await expect(page.getByTestId("office-context-panel")).toBeVisible();
     await expect(page.getByTestId("officer-intelligence-summary")).toBeVisible();
     await expect(page.getByTestId("related-officers-preview")).toBeVisible();
     await expect(page.getByTestId("officer-guide-link")).toBeVisible();
@@ -136,6 +137,13 @@ test.describe("Officer profile page", () => {
     await expect(page).toHaveURL(/\/guide\/intelligence/);
     await expect(page.getByTestId("intelligence-guide-page")).toBeVisible();
     await expect(page.getByTestId("archetype-glossary-section")).toBeVisible();
+  });
+
+  test("trajectory similarity is clearly separated from hierarchy", async ({ page }) => {
+    await page.goto(`/officers/${TIMELINE_FIXTURE.id}`);
+
+    await expect(page.getByTestId("office-context-panel")).toContainText(/reporting-line data is not available/i);
+    await expect(page.getByTestId("related-officers-section")).toContainText(/does not imply reporting hierarchy/i);
   });
 
   test("profile section jump navigation works", async ({ page }) => {

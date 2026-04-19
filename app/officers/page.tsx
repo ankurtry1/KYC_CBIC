@@ -1,7 +1,7 @@
-import type { OfficerFilters } from "@/lib/officers/types";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { OfficerDirectoryClient } from "@/components/officers/OfficerDirectoryClient";
 import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
+import { parseOfficerDirectoryState } from "@/lib/officers/directory";
 import { getOfficerIndex } from "@/lib/officers/load";
 
 type OfficersPageProps = {
@@ -15,23 +15,13 @@ type OfficersPageProps = {
     location?: string;
     sortBy?: string;
     sortOrder?: string;
+    page?: string;
   };
 };
 
 export default async function OfficersPage({ searchParams }: OfficersPageProps): Promise<JSX.Element> {
   const records = await getOfficerIndex();
-
-  const initialFilters: Partial<OfficerFilters> = {
-    q: searchParams?.q ?? "",
-    cadre: searchParams?.cadre ?? "all",
-    batch: searchParams?.batch ?? "all",
-    designation: searchParams?.designation ?? "all",
-    timelineQuality: (searchParams?.timelineQuality as OfficerFilters["timelineQuality"]) ?? "all",
-    verification: (searchParams?.verification as OfficerFilters["verification"]) ?? "all",
-    location: searchParams?.location ?? "all",
-    sortBy: (searchParams?.sortBy as OfficerFilters["sortBy"]) ?? "name",
-    sortOrder: (searchParams?.sortOrder as OfficerFilters["sortOrder"]) ?? "asc"
-  };
+  const initialState = parseOfficerDirectoryState(searchParams);
 
   return (
     <main data-testid="officers-page" className="min-h-screen bg-surface">
@@ -46,7 +36,7 @@ export default async function OfficersPage({ searchParams }: OfficersPageProps):
           </p>
         </div>
 
-        <OfficerDirectoryClient records={records} initialFilters={initialFilters} />
+        <OfficerDirectoryClient records={records} initialState={initialState} />
 
         <div className="mt-6">
           <RecommendationStrip

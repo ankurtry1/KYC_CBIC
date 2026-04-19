@@ -10,7 +10,7 @@ type OfficerFiltersProps = {
     designations: string[];
     locations: string[];
   };
-  onChange: (next: OfficerFilters) => void;
+  onChange: (patch: Partial<OfficerFilters>) => void;
 };
 
 function SelectField({
@@ -58,7 +58,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-cadre"
         label="Cadre"
         value={filters.cadre}
-        onChange={(value) => onChange({ ...filters, cadre: value })}
+        onChange={(value) => onChange({ cadre: value })}
         options={[{ value: "all", label: "All cadres" }, ...options.cadres.map((item) => ({ value: item, label: item }))]}
       />
 
@@ -66,7 +66,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-batch"
         label="Batch"
         value={filters.batch}
-        onChange={(value) => onChange({ ...filters, batch: value })}
+        onChange={(value) => onChange({ batch: value })}
         options={[{ value: "all", label: "All batches" }, ...options.batches.map((item) => ({ value: item, label: item }))]}
       />
 
@@ -74,7 +74,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-designation"
         label="Designation"
         value={filters.designation}
-        onChange={(value) => onChange({ ...filters, designation: value })}
+        onChange={(value) => onChange({ designation: value })}
         options={[
           { value: "all", label: "All designations" },
           ...options.designations.map((item) => ({ value: item, label: item }))
@@ -85,7 +85,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-location"
         label="Location"
         value={filters.location}
-        onChange={(value) => onChange({ ...filters, location: value })}
+        onChange={(value) => onChange({ location: value })}
         options={[{ value: "all", label: "All locations" }, ...options.locations.map((item) => ({ value: item, label: item }))]}
       />
 
@@ -93,7 +93,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-timeline-quality"
         label="Timeline Quality"
         value={filters.timelineQuality}
-        onChange={(value) => onChange({ ...filters, timelineQuality: value as TimelineQuality | "all" })}
+        onChange={(value) => onChange({ timelineQuality: value as TimelineQuality | "all" })}
         options={[
           { value: "all", label: "All profiles" },
           { value: "full", label: "Full timeline" },
@@ -106,7 +106,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-verification"
         label="Verification"
         value={filters.verification}
-        onChange={(value) => onChange({ ...filters, verification: value as VerificationFlag | "all" })}
+        onChange={(value) => onChange({ verification: value as VerificationFlag | "all" })}
         options={[
           { value: "all", label: "All records" },
           { value: "verified", label: "Verified" },
@@ -119,7 +119,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-sort-by"
         label="Sort By"
         value={filters.sortBy}
-        onChange={(value) => onChange({ ...filters, sortBy: value as OfficerFilters["sortBy"] })}
+        onChange={(value) => onChange({ sortBy: value as OfficerFilters["sortBy"] })}
         options={[
           { value: "name", label: "Name" },
           { value: "employee_id", label: "Employee ID" },
@@ -133,7 +133,7 @@ export function OfficerFiltersPanel({ filters, options, onChange }: OfficerFilte
         testId="filter-sort-order"
         label="Sort Order"
         value={filters.sortOrder}
-        onChange={(value) => onChange({ ...filters, sortOrder: value as OfficerFilters["sortOrder"] })}
+        onChange={(value) => onChange({ sortOrder: value as OfficerFilters["sortOrder"] })}
         options={[
           { value: "asc", label: "Ascending" },
           { value: "desc", label: "Descending" }

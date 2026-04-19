@@ -1,11 +1,13 @@
 import Link from "next/link";
+import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { AppTopNav } from "@/components/officers/AppTopNav";
 import { CadreOverview } from "@/components/intelligence/CadreOverview";
 import { OfficerMiniCard } from "@/components/intelligence/OfficerMiniCard";
 import { RecommendationStrip } from "@/components/intelligence/RecommendationStrip";
-import { getCadreBySlug, getOfficersByIds } from "@/lib/officers/load";
+import { stationHrefFromLocation } from "@/lib/officers/navigation";
+import { getCadreBySlug, getSurfaceableOfficersByIds } from "@/lib/officers/load";
 
 type CadreDetailPageProps = {
   params: {
@@ -15,10 +17,12 @@ type CadreDetailPageProps = {
 
 function EntryList({
   title,
-  entries
+  entries,
+  getHref
 }: {
   title: string;
   entries: Array<{ key: string; count: number }>;
+  getHref?: (entry: { key: string; count: number }) => Route | null;
 }): JSX.Element {
   return (
     <article className="panel p-5">
@@ -29,7 +33,13 @@ function EntryList({
         ) : (
           entries.map((entry) => (
             <div key={`${title}-${entry.key}`} className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2">
-              <p className="text-sm text-slate-700">{entry.key}</p>
+              {getHref?.(entry) ? (
+                <Link href={getHref(entry)!} className="text-sm text-accent transition hover:underline">
+                  {entry.key}
+                </Link>
+              ) : (
+                <p className="text-sm text-slate-700">{entry.key}</p>
+              )}
               <span className="pill">{entry.count}</span>
             </div>
           ))
@@ -43,7 +53,9 @@ export default async function CadreDetailPage({ params }: CadreDetailPageProps):
   const cadre = await getCadreBySlug(params.cadre);
   if (!cadre) notFound();
 
-  const sampleOfficers = await getOfficersByIds(cadre.sample_officer_ids);
+  const sampleOfficers = await getSurfaceableOfficersByIds(cadre.sample_officer_ids, 8);
+  const topStation = cadre.common_stations[0]?.key;
+  const topBatch = cadre.batch_spread[0]?.key;
 
   return (
     <main data-testid="cadre-detail-page" className="min-h-screen bg-surface">
@@ -63,7 +75,11 @@ export default async function CadreDetailPage({ params }: CadreDetailPageProps):
         <section className="grid gap-4 xl:grid-cols-2">
           <EntryList title="Current rank spread" entries={cadre.typical_current_rank_spread.slice(0, 8)} />
           <EntryList title="Common progressions" entries={cadre.common_rank_progressions.slice(0, 8)} />
-          <EntryList title="Common stations" entries={cadre.common_stations.slice(0, 8)} />
+          <EntryList
+            title="Common stations"
+            entries={cadre.common_stations.slice(0, 8)}
+            getHref={(entry) => stationHrefFromLocation(entry.key)}
+          />
           <EntryList title="Archetype distribution" entries={cadre.archetype_distribution.slice(0, 8)} />
         </section>
 
@@ -77,10 +93,15 @@ export default async function CadreDetailPage({ params }: CadreDetailPageProps):
               Open in directory
             </Link>
           </div>
+          {sampleOfficers.length < Math.min(cadre.sample_officer_ids.length, 8) ? (
+            <p className="mt-2 text-xs text-slate-500">
+              Showing a high-trust sample of named profiles with fewer data-quality concerns.
+            </p>
+          ) : null}
 
           <div className="mt-4 grid gap-3 md:grid-cols-2">
             {sampleOfficers.slice(0, 8).map((officer) => (
-              <OfficerMiniCard key={officer.id} officer={officer} />
+              <OfficerMiniCard key={officer.id} officer={officer} returnTo={`/cadres/${cadre.slug}`} />
             ))}
           </div>
         </section>
@@ -94,15 +115,28 @@ export default async function CadreDetailPage({ params }: CadreDetailPageProps):
           testId="cadre-detail-recommendation-strip"
           items={[
             {
-              title: "Compare with batches",
-              description: "See how this cadre profile appears across cohort years.",
-              href: "/batches"
+              title: "Open officers in this cadre",
+              description: "Continue into the directory with the cadre filter already applied.",
+              href: `/officers?cadre=${cadre.cadre}` as Route
             },
-            {
-              title: "Station context",
-              description: "Inspect stations commonly linked to this cadre.",
-              href: "/stations"
-            },
+            ...(topStation
+              ? [
+                  {
+                    title: "Common station context",
+                    description: "Jump directly to the station most associated with this cadre.",
+                    href: (stationHrefFromLocation(topStation) ?? "/stations") as Route
+                  }
+                ]
+              : []),
+            ...(topBatch
+              ? [
+                  {
+                    title: `Top batch: ${topBatch}`,
+                    description: "Open the cohort most represented in this cadre's current sample.",
+                    href: `/batches/${topBatch}` as Route
+                  }
+                ]
+              : []),
             {
               title: "Career path context",
               description: "Relate common rank progressions to overall progression ladders.",
