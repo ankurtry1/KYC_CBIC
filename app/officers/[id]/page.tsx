@@ -24,18 +24,13 @@ import { resolveRelatedOfficers } from "@/lib/intelligence/similarity";
 import type { RecommendationItem } from "@/lib/intelligence/types";
 import { logOfficerPerf, nowMs } from "@/lib/officers/perf";
 import { stationHrefFromLocation } from "@/lib/officers/navigation";
-import { getOfficerIndex, getOfficersMap } from "@/lib/officers/load";
+import { getOfficersMap } from "@/lib/officers/load";
 
 type OfficerDetailPageProps = {
   params: {
     id: string;
   };
 };
-
-export async function generateStaticParams(): Promise<Array<{ id: string }>> {
-  const officers = await getOfficerIndex();
-  return officers.map((officer) => ({ id: officer.id }));
-}
 
 export default async function OfficerDetailPage({
   params

@@ -28,3 +28,6 @@ pnpm-debug.log*
 playwright-report/
 test-results/
 output/
+
+# Local Netlify folder
+.netlify
