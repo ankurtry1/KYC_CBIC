@@ -12,88 +12,88 @@
   "common_progressions": [
     {
       "key": "Assistant Commissioner",
-      "count": 2438
+      "count": 1998
     },
     {
       "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner",
-      "count": 595
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner",
-      "count": 580
-    },
-    {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner",
-      "count": 450
+      "count": 535
     },
     {
       "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner",
-      "count": 358
+      "count": 468
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner",
-      "count": 100
+      "key": "Assistant Commissioner -> Deputy Commissioner",
+      "count": 448
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner",
+      "count": 328
     },
     {
       "key": "Assistant Commissioner -> Commissioner",
-      "count": 78
+      "count": 207
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner",
-      "count": 40
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner",
+      "count": 99
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Additional Commissioner",
-      "count": 37
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Commissioner",
+      "count": 96
     },
     {
       "key": "Assistant Commissioner -> Deputy Commissioner -> Commissioner",
-      "count": 20
+      "count": 61
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner -> Principal Chief Commissioner",
-      "count": 14
+      "key": "Assistant Commissioner -> Chief Commissioner",
+      "count": 60
     },
     {
-      "key": "Assistant Commissioner -> Deputy Commissioner -> Additional Commissioner -> Commissioner",
-      "count": 13
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Joint Commissioner -> Additional Commissioner -> Commissioner -> Principal Commissioner -> Chief Commissioner",
+      "count": 47
+    },
+    {
+      "key": "Assistant Commissioner -> Deputy Commissioner -> Additional Commissioner",
+      "count": 31
     }
   ],
   "rank_step_timings": [
     {
       "rank": "Assistant Commissioner",
       "average_years_to_reach": 0.4,
-      "sample_size": 2632
+      "sample_size": 2408
     },
     {
       "rank": "Deputy Commissioner",
-      "average_years_to_reach": 5.2,
-      "sample_size": 675
+      "average_years_to_reach": 6,
+      "sample_size": 657
     },
     {
       "rank": "Joint Commissioner",
-      "average_years_to_reach": 9.3,
-      "sample_size": 439
+      "average_years_to_reach": 9.9,
+      "sample_size": 444
     },
     {
       "rank": "Additional Commissioner",
-      "average_years_to_reach": 12.3,
-      "sample_size": 581
+      "average_years_to_reach": 13,
+      "sample_size": 574
     },
     {
       "rank": "Commissioner",
-      "average_years_to_reach": 18.8,
-      "sample_size": 305
+      "average_years_to_reach": 19.4,
+      "sample_size": 297
     },
     {
       "rank": "Principal Commissioner",
-      "average_years_to_reach": 28.9,
-      "sample_size": 90
+      "average_years_to_reach": 28.6,
+      "sample_size": 89
     },
     {
       "rank": "Chief Commissioner",
-      "average_years_to_reach": 32,
-      "sample_size": 36
+      "average_years_to_reach": 32.2,
+      "sample_size": 28
     },
     {
       "rank": "Principal Chief Commissioner",
@@ -104,47 +104,71 @@
   "trajectory_bands": {
     "fast": {
       "threshold_years": 0,
-      "sample_size": 2535,
+      "sample_size": 2222,
       "sample_officer_ids": [
+        "officer-11588",
         "officer-4009",
         "officer-11266",
         "officer-13659",
         "officer-11008",
         "officer-10328",
-        "officer-9917",
-        "officer-13271",
-        "officer-10295"
+        "officer-10295",
+        "officer-12139"
       ]
     },
     "steady": {
-      "threshold_years": 7.4,
-      "sample_size": 614,
+      "threshold_years": 9,
+      "sample_size": 856,
       "sample_officer_ids": [
         "officer-8408",
+        "officer-4573",
         "officer-10425",
-        "officer-8403",
-        "officer-8457",
         "officer-9438",
-        "officer-8343",
-        "officer-8355",
-        "officer-9171"
+        "officer-7104",
+        "officer-3987",
+        "officer-9171",
+        "officer-7283"
       ]
     },
     "deliberate": {
-      "sample_size": 1619,
+      "sample_size": 1429,
       "sample_officer_ids": [
-        "officer-3386",
-        "officer-3531",
-        "officer-4668",
-        "officer-4672",
-        "officer-4681",
-        "officer-4695",
-        "officer-4751",
-        "officer-5571"
+        "officer-5571",
+        "officer-3979",
+        "officer-948",
+        "officer-4306",
+        "officer-843",
+        "officer-2782",
+        "officer-1634",
+        "officer-960"
       ]
     }
   },
   "representative_journeys": [
+    {
+      "officer_id": "officer-13565",
+      "name": "Mr Manoj Kumar",
+      "batch": 2025,
+      "cadre": "PE",
+      "timeline_entries": 66,
+      "archetype": "High-Mobility Officer"
+    },
+    {
+      "officer_id": "officer-3604",
+      "name": "Mr Manoj Kumar",
+      "batch": 2008,
+      "cadre": "DR",
+      "timeline_entries": 66,
+      "archetype": "High-Mobility Officer"
+    },
+    {
+      "officer_id": "officer-4581",
+      "name": "Mr Manoj Kumar",
+      "batch": 2013,
+      "cadre": "DR",
+      "timeline_entries": 66,
+      "archetype": "High-Mobility Officer"
+    },
     {
       "officer_id": "officer-3007",
       "name": "Dr Manoj Kumar",
@@ -170,22 +194,6 @@
       "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-13565",
-      "name": "Mr Manoj Kumar",
-      "batch": 2025,
-      "cadre": "PE",
-      "timeline_entries": 65,
-      "archetype": "High-Mobility Officer"
-    },
-    {
-      "officer_id": "officer-3604",
-      "name": "Mr Manoj Kumar",
-      "batch": 2008,
-      "cadre": "DR",
-      "timeline_entries": 65,
-      "archetype": "High-Mobility Officer"
-    },
-    {
       "officer_id": "officer-3747",
       "name": "Mr Manoj Kumar",
       "batch": 2005,
@@ -202,11 +210,19 @@
       "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-4581",
-      "name": "Mr Manoj Kumar",
-      "batch": 2013,
+      "officer_id": "officer-13849",
+      "name": "Mr Arun Kumar",
+      "batch": 2025,
+      "cadre": "PA",
+      "timeline_entries": 53,
+      "archetype": "High-Mobility Officer"
+    },
+    {
+      "officer_id": "officer-781",
+      "name": "Mr Arun Kumar",
+      "batch": 1993,
       "cadre": "DR",
-      "timeline_entries": 65,
+      "timeline_entries": 53,
       "archetype": "High-Mobility Officer"
     },
     {
@@ -234,35 +250,19 @@
       "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-781",
-      "name": "Mr Arun Kumar",
-      "batch": 1993,
-      "cadre": "DR",
-      "timeline_entries": 52,
-      "archetype": "High-Mobility Officer"
-    },
-    {
       "officer_id": "officer-13422",
       "name": "Mr Mahesh Kumar",
       "batch": 2025,
       "cadre": "PE",
-      "timeline_entries": 41,
+      "timeline_entries": 42,
       "archetype": "High-Mobility Officer"
     },
     {
-      "officer_id": "officer-2986",
-      "name": "Mr Mahesh Kumar",
-      "batch": 2005,
-      "cadre": "DR",
-      "timeline_entries": 41,
-      "archetype": "High-Mobility Officer"
-    },
-    {
-      "officer_id": "officer-4069",
-      "name": "Mr Mahesh Kumar",
-      "batch": 2010,
-      "cadre": "DR",
-      "timeline_entries": 41,
+      "officer_id": "officer-13377",
+      "name": "Mr Sanjay Kumar",
+      "batch": 2025,
+      "cadre": "PE",
+      "timeline_entries": 42,
       "archetype": "High-Mobility Officer"
     }
   ],

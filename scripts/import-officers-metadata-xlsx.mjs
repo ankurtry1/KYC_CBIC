@@ -58,7 +58,14 @@ function toIsoDate(value) {
     let year = Number(dmy[3]);
     if (year < 100) year += 2000;
     const date = new Date(Date.UTC(year, month - 1, day));
-    if (!Number.isNaN(date.getTime())) return date.toISOString().slice(0, 10);
+    if (
+      !Number.isNaN(date.getTime()) &&
+      date.getUTCFullYear() === year &&
+      date.getUTCMonth() === month - 1 &&
+      date.getUTCDate() === day
+    ) {
+      return date.toISOString().slice(0, 10);
+    }
   }
 
   const parsed = new Date(raw);

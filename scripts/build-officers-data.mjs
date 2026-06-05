@@ -7,12 +7,14 @@ import {
 } from "./officer-source-mode.mjs";
 
 const ROOT = process.cwd();
-const TEXT_DIR = path.join(ROOT, "tmp", "pdfs", "text");
+const FALLBACK_TEXT_DIR = path.join(ROOT, "tmp", "pdfs", "text");
+const HOP_SOURCE_DIR = path.join(ROOT, "source_data", "hop");
 const DATA_DIR = path.join(ROOT, "data");
 const PUBLIC_DATA_DIR = path.join(ROOT, "public", "data");
 
-const DATE_PATTERN = /(\d{1,2}\/\d{1,2}\/\d{4})/g;
-const DATE_PAIR_PATTERN = /(\d{1,2}\/\d{1,2}\/\d{4})\s+(\d{1,2}\/\d{1,2}\/\d{4})/;
+const DATE_PATTERN = /(?<!\d)(\d{1,2}\/\d{1,2}\/\d{4})(?!\d)/g;
+const DATE_PAIR_PATTERN =
+  /(?<!\d)(\d{1,2}\/\d{1,2}\/\d{4})(?!\d)\s+(?<!\d)(\d{1,2}\/\d{1,2}\/\d{4})(?!\d)/;
 const EMPLOYEE_PATTERN = /Employee Information\s*-\s*(\d+)/g;
 
 const RANK_LADDER = [
@@ -88,10 +90,89 @@ const ORGANIZATION_SHORT_NAMES = [
 const TITLE_JUNK_PATTERN =
   /\b(recd\.?|joining|report|vide|as\s+per|wef|order\s+no|no\.\s*\d+\/\d+|lr\b|rel\.?)\b/i;
 
-function listTextFiles() {
-  if (!fs.existsSync(TEXT_DIR)) return [];
+function readJsonFile(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function resolveLatestHopSnapshot() {
+  if (!fs.existsSync(HOP_SOURCE_DIR)) return null;
+
+  const latestPointer = readJsonFile(path.join(HOP_SOURCE_DIR, "latest.json"));
+  const latestDate =
+    typeof latestPointer?.snapshotDate === "string" ? latestPointer.snapshotDate : null;
+
+  const candidateDates = [
+    latestDate,
+    ...fs
+      .readdirSync(HOP_SOURCE_DIR, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
+      .map((entry) => entry.name)
+  ]
+    .filter(Boolean)
+    .filter((value, index, values) => values.indexOf(value) === index)
+    .sort((a, b) => b.localeCompare(a));
+
+  for (const snapshotDate of candidateDates) {
+    const snapshotDir = path.join(HOP_SOURCE_DIR, snapshotDate);
+    const textDir = path.join(snapshotDir, "text");
+    const manifestPath = path.join(snapshotDir, "manifest.json");
+    if (!fs.existsSync(textDir)) continue;
+
+    const textFiles = fs
+      .readdirSync(textDir)
+      .filter((name) => name.endsWith(".txt"));
+    if (textFiles.length === 0) continue;
+
+    return {
+      type: "hop",
+      snapshotDate,
+      textDir,
+      manifestPath,
+      manifest: readJsonFile(manifestPath)
+    };
+  }
+
+  return null;
+}
+
+function resolveTextSource() {
+  const envTextDir = process.env.OFFICER_TEXT_DIR
+    ? path.resolve(ROOT, process.env.OFFICER_TEXT_DIR)
+    : null;
+
+  if (envTextDir && fs.existsSync(envTextDir)) {
+    return {
+      type: "env",
+      textDir: envTextDir,
+      label: `OFFICER_TEXT_DIR (${path.relative(ROOT, envTextDir)})`
+    };
+  }
+
+  const latestHopSnapshot = resolveLatestHopSnapshot();
+  if (latestHopSnapshot) {
+    return {
+      ...latestHopSnapshot,
+      label: `DGHRD HOP ${latestHopSnapshot.snapshotDate} (${path.relative(ROOT, latestHopSnapshot.textDir)})`
+    };
+  }
+
+  return {
+    type: "fallback",
+    textDir: FALLBACK_TEXT_DIR,
+    label: `fallback (${path.relative(ROOT, FALLBACK_TEXT_DIR)})`
+  };
+}
+
+const TEXT_SOURCE = resolveTextSource();
+
+function listTextFiles(textDir = TEXT_SOURCE.textDir) {
+  if (!fs.existsSync(textDir)) return [];
   return fs
-    .readdirSync(TEXT_DIR)
+    .readdirSync(textDir)
     .filter((name) => name.endsWith(".txt"))
     .sort((a, b) => a.localeCompare(b));
 }
@@ -122,6 +203,13 @@ function parseDmy(value) {
   if (!day || !month || !year) return null;
   const date = new Date(Date.UTC(year, month - 1, day));
   if (Number.isNaN(date.getTime())) return null;
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
   return date;
 }
 
@@ -1435,6 +1523,122 @@ function resolveExcelOfficerForTextOfficer(officer, excelLookup) {
   return null;
 }
 
+function postingStartTime(posting) {
+  const value = posting?.start_date ?? posting?.from_date ?? null;
+  if (!value) return 0;
+  const parsed = new Date(value).getTime();
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function normalizedPostingField(value) {
+  return normalizeSpaces(String(value ?? "")).toUpperCase();
+}
+
+function postingExactKey(posting) {
+  const designation =
+    sanitizeDesignation(posting?.designation_display ?? posting?.designation ?? posting?.rank_held) ??
+    posting?.designation_display ??
+    posting?.designation ??
+    posting?.rank_held ??
+    "";
+  const organization =
+    sanitizeOrganizationDisplay(posting?.organization_display ?? posting?.organization_unit_name) ??
+    sanitizeOrganizationUnit(posting?.organization_unit_name) ??
+    posting?.organization_display ??
+    posting?.organization_unit_name ??
+    "";
+  const station =
+    normalizeStation(posting?.station_display ?? posting?.location) ??
+    normalizeStation(posting?.location) ??
+    posting?.station_display ??
+    posting?.location ??
+    "";
+
+  return [
+    posting?.start_date ?? posting?.from_date ?? "",
+    posting?.end_date ?? posting?.to_date ?? "",
+    normalizedPostingField(designation),
+    normalizedPostingField(organization),
+    normalizedPostingField(station)
+  ].join("|");
+}
+
+function postingOverlayKey(posting) {
+  const designation =
+    sanitizeDesignation(posting?.designation_display ?? posting?.designation ?? posting?.rank_held) ??
+    posting?.designation_display ??
+    posting?.designation ??
+    posting?.rank_held ??
+    "";
+
+  return [
+    posting?.start_date ?? posting?.from_date ?? "",
+    normalizedPostingField(designation)
+  ].join("|");
+}
+
+function mergeLatestTextIntoExcelHistory(excelHistory, textHistory) {
+  if (excelHistory.length === 0 || textHistory.length === 0) {
+    return {
+      history: excelHistory.length > 0 ? excelHistory : textHistory,
+      added: 0,
+      replaced: 0
+    };
+  }
+
+  const latestExcelStart = Math.max(...excelHistory.map(postingStartTime), 0);
+  const latestTextStart = Math.max(...textHistory.map(postingStartTime), 0);
+  if (latestTextStart === 0 || latestTextStart < latestExcelStart) {
+    return { history: excelHistory, added: 0, replaced: 0 };
+  }
+
+  const merged = excelHistory.map((posting) => ({ ...posting }));
+  const exactKeys = new Set(merged.map(postingExactKey));
+  const overlayIndex = new Map();
+
+  merged.forEach((posting, index) => {
+    const startTime = postingStartTime(posting);
+    if (startTime >= latestExcelStart) {
+      overlayIndex.set(postingOverlayKey(posting), index);
+    }
+  });
+
+  let added = 0;
+  let replaced = 0;
+
+  for (const textPosting of textHistory) {
+    const textStartTime = postingStartTime(textPosting);
+    if (textStartTime < latestExcelStart) continue;
+
+    const exactKey = postingExactKey(textPosting);
+    if (exactKeys.has(exactKey)) continue;
+
+    const overlayKey = postingOverlayKey(textPosting);
+    const replacementIndex = overlayIndex.get(overlayKey);
+    const nextPosting = {
+      ...textPosting,
+      source_type: "text"
+    };
+
+    if (replacementIndex != null) {
+      merged[replacementIndex] = {
+        ...merged[replacementIndex],
+        ...nextPosting
+      };
+      exactKeys.add(postingExactKey(merged[replacementIndex]));
+      replaced += 1;
+      continue;
+    }
+
+    merged.push(nextPosting);
+    exactKeys.add(exactKey);
+    overlayIndex.set(overlayKey, merged.length - 1);
+    added += 1;
+  }
+
+  return { history: merged, added, replaced };
+}
+
 function mergeSourceHistories({
   officers,
   excelImportResult,
@@ -1449,6 +1653,9 @@ function mergeSourceHistories({
     officersMatchedToExcel: 0,
     officersUsingExcelPrimary: 0,
     officersUsingTextPrimary: 0,
+    officersWithTextOverlay: 0,
+    textOverlayPostingsAdded: 0,
+    textOverlayPostingsReplaced: 0,
     officersWithEmptyPostingHistoryAfterMerge: 0,
     modeExplanation: ""
   };
@@ -1473,7 +1680,7 @@ function mergeSourceHistories({
   const excelLookup = buildExcelOfficerLookup(excelImportResult?.officers ?? []);
   diagnostics.modeExplanation =
     mode === "excel-first"
-      ? "Excel primary, text fallback"
+      ? "Excel primary with latest/equal-date HOP text overlay"
       : mode === "text-first"
         ? "Text primary, Excel fallback/enrichment"
         : "Excel only (text posting history ignored)";
@@ -1505,8 +1712,14 @@ function mergeSourceHistories({
       selectedSource = "excel";
     } else if (mode === "excel-first") {
       if (excelHistory.length > 0) {
-        selectedHistory = excelHistory;
+        const overlayResult = mergeLatestTextIntoExcelHistory(excelHistory, textHistory);
+        selectedHistory = overlayResult.history;
         selectedSource = "excel";
+        if (overlayResult.added > 0 || overlayResult.replaced > 0) {
+          diagnostics.officersWithTextOverlay += 1;
+          diagnostics.textOverlayPostingsAdded += overlayResult.added;
+          diagnostics.textOverlayPostingsReplaced += overlayResult.replaced;
+        }
       }
     } else if (mode === "text-first") {
       if (textHistory.length === 0 && excelHistory.length > 0) {
@@ -1533,12 +1746,12 @@ function mergeSourceHistories({
   return diagnostics;
 }
 
-function buildOfficers() {
+function buildOfficers(textDir = TEXT_SOURCE.textDir) {
   const officers = [];
-  const files = listTextFiles();
+  const files = listTextFiles(textDir);
 
   for (const fileName of files) {
-    const fullPath = path.join(TEXT_DIR, fileName);
+    const fullPath = path.join(textDir, fileName);
     const text = fs.readFileSync(fullPath, "utf8");
     const matches = [...text.matchAll(EMPLOYEE_PATTERN)];
 
@@ -1567,6 +1780,39 @@ function buildOfficers() {
   });
 
   return officers;
+}
+
+function buildSourceFreshnessDataset({ textSource, textFiles, mergeDiagnostics, officers }) {
+  const sourceCounts = new Map();
+  for (const officer of officers) {
+    for (const posting of officer.posting_history ?? []) {
+      const sourceType = posting.source_type ?? "unknown";
+      sourceCounts.set(sourceType, (sourceCounts.get(sourceType) ?? 0) + 1);
+    }
+  }
+
+  return {
+    generated_at: new Date().toISOString(),
+    text_source: {
+      type: textSource.type,
+      label: textSource.label,
+      snapshot_date: textSource.snapshotDate ?? null,
+      text_dir: path.relative(ROOT, textSource.textDir),
+      manifest: textSource.manifestPath ? path.relative(ROOT, textSource.manifestPath) : null,
+      source_page: textSource.manifest?.sourcePage ?? null,
+      source_page_date: textSource.manifest?.snapshotDateDisplay ?? null,
+      files: textFiles
+    },
+    excel_overlay: {
+      mode: mergeDiagnostics.mode,
+      excel_rows_loaded: mergeDiagnostics.excelRowsLoaded,
+      officers_matched_to_excel: mergeDiagnostics.officersMatchedToExcel,
+      officers_with_text_overlay: mergeDiagnostics.officersWithTextOverlay,
+      text_overlay_postings_added: mergeDiagnostics.textOverlayPostingsAdded,
+      text_overlay_postings_replaced: mergeDiagnostics.textOverlayPostingsReplaced
+    },
+    posting_source_counts: Object.fromEntries([...sourceCounts.entries()].sort())
+  };
 }
 
 function intersectionSize(setA, setB) {
@@ -2296,11 +2542,16 @@ function main() {
     }
   }
 
-  if (!fs.existsSync(TEXT_DIR)) {
-    throw new Error(`Missing text source directory: ${TEXT_DIR}`);
+  if (!fs.existsSync(TEXT_SOURCE.textDir)) {
+    throw new Error(`Missing text source directory: ${TEXT_SOURCE.textDir}`);
   }
 
-  const officers = buildOfficers();
+  const textFiles = listTextFiles(TEXT_SOURCE.textDir);
+  if (textFiles.length === 0) {
+    throw new Error(`No text source files found in: ${TEXT_SOURCE.textDir}`);
+  }
+
+  const officers = buildOfficers(TEXT_SOURCE.textDir);
 
   const mergeDiagnostics = mergeSourceHistories({
     officers,
@@ -2318,6 +2569,12 @@ function main() {
   const stations = buildStationsDataset(officers);
   const careerPaths = buildCareerPathsDataset(officers);
   const discovery = buildDiscoveryDataset();
+  const sourceFreshness = buildSourceFreshnessDataset({
+    textSource: TEXT_SOURCE,
+    textFiles,
+    mergeDiagnostics,
+    officers
+  });
 
   writeJson("data/officers.json", officers);
   writeJson("data/officers-index.json", index);
@@ -2328,18 +2585,20 @@ function main() {
   writeJson("data/stations.json", stations);
   writeJson("data/career-paths.json", careerPaths);
   writeJson("data/discovery.json", discovery);
+  writeJson("data/source-freshness.json", sourceFreshness);
 
   const excelSourceStatus = useExcel
     ? `${excelImportResult.found ? "found" : "not found"} (${excelImportResult.sourcePath})`
     : `skipped (mode ${sourceMode})`;
 
   console.log(`[build:data] Source mode: ${sourceMode}`);
+  console.log(`[build:data] Text source: ${TEXT_SOURCE.label}`);
   console.log(`[build:data] Excel source: ${excelSourceStatus}`);
   console.log(
     `[build:data] Excel rows loaded: ${excelImportResult.rowsLoaded}, officer groups: ${excelImportResult.officersLoaded}, posting episodes: ${excelImportResult.postingEpisodesLoaded}`
   );
   console.log(
-    `[build:data] Merge: matched=${mergeDiagnostics.officersMatchedToExcel}, excel_primary=${mergeDiagnostics.officersUsingExcelPrimary}, text_primary=${mergeDiagnostics.officersUsingTextPrimary}, empty_history=${mergeDiagnostics.officersWithEmptyPostingHistoryAfterMerge}`
+    `[build:data] Merge: matched=${mergeDiagnostics.officersMatchedToExcel}, excel_primary=${mergeDiagnostics.officersUsingExcelPrimary}, text_primary=${mergeDiagnostics.officersUsingTextPrimary}, text_overlay_officers=${mergeDiagnostics.officersWithTextOverlay}, text_overlay_added=${mergeDiagnostics.textOverlayPostingsAdded}, text_overlay_replaced=${mergeDiagnostics.textOverlayPostingsReplaced}, empty_history=${mergeDiagnostics.officersWithEmptyPostingHistoryAfterMerge}`
   );
   console.log(`[build:data] Mode behavior: ${mergeDiagnostics.modeExplanation}`);
   console.log(`Built ${officers.length} officers`);

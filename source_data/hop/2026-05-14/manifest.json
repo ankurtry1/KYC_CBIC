@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-06-05T13:23:38.454Z",
+  "sourcePage": "https://dghrdcbic.gov.in/hop",
+  "snapshotDate": "2026-05-14",
+  "snapshotDateDisplay": "14/05/2026",
+  "rawDir": "source_data/hop/2026-05-14/raw",
+  "files": [
+    {
+      "order": 1,
+      "canonicalName": "PCC",
+      "filename": "PCC.pdf",
+      "title": "1. HoPs Of Group A Officers As On 14-05-2026 Principal Chief Commissioner",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c449b0fea7.61289329.pdf",
+      "bytes": 281497,
+      "sha256": "700bd376eb75bd76ee53532366c39e3ab672c75cc77e1637ef8ca20b6cf63783"
+    },
+    {
+      "order": 2,
+      "canonicalName": "CC",
+      "filename": "CC.pdf",
+      "title": "2. HoPs Of Group A Officers As On 14-05-2026 Chief Commissioner",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c45fc7f566.91215286.pdf",
+      "bytes": 581668,
+      "sha256": "4a3a1c89e7cf0d4d96567d190aab5e52ca31fd760abb5212986db10e5a6a1be3"
+    },
+    {
+      "order": 3,
+      "canonicalName": "PC",
+      "filename": "PC.pdf",
+      "title": "3. HoPs Of Group A Officers As On 14-05-2026 Principal Commissioner",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c47b4d5852.81954088.pdf",
+      "bytes": 1315380,
+      "sha256": "310bf1a6d4476fc62e95469a5d252e9ccce2902b733b6129c00070cf8f86ee79"
+    },
+    {
+      "order": 4,
+      "canonicalName": "Commr",
+      "filename": "Commr.pdf",
+      "title": "4. HoPs Of Group A Officers As On 14-05-2026 Commissioner",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c4908def88.70408313.pdf",
+      "bytes": 4166267,
+      "sha256": "12eee581e4cbdd4d6c0552eb20b00fc25d364a5269983cbaffaf3bffdeca0d9c"
+    },
+    {
+      "order": 5,
+      "canonicalName": "ADC-JC DR",
+      "filename": "ADC-JC DR.pdf",
+      "title": "5. HoPs Of Group A Officers As On 14-05-2026 ADC-JC_DR",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c529652ff1.59948722.pdf",
+      "bytes": 9046780,
+      "sha256": "b8dd66281e7c2cce5114263bb350aa33b466dade493761948e5eff25d5664b97"
+    },
+    {
+      "order": 6,
+      "canonicalName": "ADC-JC PA",
+      "filename": "ADC-JC PA.pdf",
+      "title": "6. HoPs Of Group A Officers As On 14-05-2026 ADC-JC PA",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c5551e52f6.08026242.pdf",
+      "bytes": 815727,
+      "sha256": "54a2bf9a823fec7e499f3f9202c4635442faa136427f89c837193b28f6c5da3f"
+    },
+    {
+      "order": 7,
+      "canonicalName": "ADC-JC PE",
+      "filename": "ADC-JC PE.pdf",
+      "title": "7. HoPs Of Group A Officers As On 14-05-2026 ADC-JC_PE",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c58bc33b26.44255999.pdf",
+      "bytes": 127992,
+      "sha256": "061fd6d5b934289858dd48eeac0d329373f3aab53357953f5d23b25d5b4faea5"
+    },
+    {
+      "order": 8,
+      "canonicalName": "AC-DC DR",
+      "filename": "AC-DC DR.pdf",
+      "title": "8. HoPs Of Group A Officers As On 14-05-2026 AC-DC_DR",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c59e30eb00.22410051.pdf",
+      "bytes": 2772040,
+      "sha256": "f8a761457eee6d32e0b9ca57e790225e96b1de2ecffd215cafea9c1c7d18b1a7"
+    },
+    {
+      "order": 9,
+      "canonicalName": "AC-DC PA",
+      "filename": "AC-DC PA.pdf",
+      "title": "9. HoPs Of Group A Officers As On 14-05-2026 AC-DC_PA",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c5aa9ee6e5.77356848.pdf",
+      "bytes": 1773120,
+      "sha256": "cb61a85e836a780dc0fc6cd927772bbec425e61dd4900acc870de0902c29538c"
+    },
+    {
+      "order": 10,
+      "canonicalName": "AC-DC PC",
+      "filename": "AC-DC PC.pdf",
+      "title": "10. HoPs Of Group A Officers As On 14-05-2026 AC-DC_PC",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c5c3dc18a7.62815944.pdf",
+      "bytes": 2527867,
+      "sha256": "1c5ed2d2ecd7e9d757b11a7d3ac7e164e1bc1baa97c222a58c417179e3e55336"
+    },
+    {
+      "order": 11,
+      "canonicalName": "AC-DC PE",
+      "filename": "AC-DC PE.pdf",
+      "title": "11. HoPs Of Group A Officers As On 14-05-2026 AC-DC_PE",
+      "url": "https://dghrdcbic.gov.in/Admin/Pdf//6a05c5ff516e20.02200667.pdf",
+      "bytes": 10000728,
+      "sha256": "1961564c60d3086f053f919dc7d212292c4bd481169e438c63b053af941812c8"
+    }
+  ]
+}

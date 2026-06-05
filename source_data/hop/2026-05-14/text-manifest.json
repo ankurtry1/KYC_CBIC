@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-06-05T13:24:04.720Z",
+  "snapshotDate": "2026-05-14",
+  "sourceManifest": "source_data/hop/2026-05-14/manifest.json",
+  "textDir": "source_data/hop/2026-05-14/text",
+  "extraction": {
+    "command": "pdftotext -layout -enc UTF-8 <pdf> <txt>"
+  },
+  "files": [
+    {
+      "order": 1,
+      "canonicalName": "PCC",
+      "filename": "PCC.txt",
+      "sourcePdf": "PCC.pdf",
+      "bytes": 311872,
+      "employeeMarkers": 14
+    },
+    {
+      "order": 2,
+      "canonicalName": "CC",
+      "filename": "CC.txt",
+      "sourcePdf": "CC.pdf",
+      "bytes": 790191,
+      "employeeMarkers": 39
+    },
+    {
+      "order": 3,
+      "canonicalName": "PC",
+      "filename": "PC.txt",
+      "sourcePdf": "PC.pdf",
+      "bytes": 1801641,
+      "employeeMarkers": 103
+    },
+    {
+      "order": 4,
+      "canonicalName": "Commr",
+      "filename": "Commr.txt",
+      "sourcePdf": "Commr.pdf",
+      "bytes": 6382573,
+      "employeeMarkers": 382
+    },
+    {
+      "order": 5,
+      "canonicalName": "ADC-JC DR",
+      "filename": "ADC-JC DR.txt",
+      "sourcePdf": "ADC-JC DR.pdf",
+      "bytes": 14524968,
+      "employeeMarkers": 995
+    },
+    {
+      "order": 6,
+      "canonicalName": "ADC-JC PA",
+      "filename": "ADC-JC PA.txt",
+      "sourcePdf": "ADC-JC PA.pdf",
+      "bytes": 1117211,
+      "employeeMarkers": 77
+    },
+    {
+      "order": 7,
+      "canonicalName": "ADC-JC PE",
+      "filename": "ADC-JC PE.txt",
+      "sourcePdf": "ADC-JC PE.pdf",
+      "bytes": 55022,
+      "employeeMarkers": 4
+    },
+    {
+      "order": 8,
+      "canonicalName": "AC-DC DR",
+      "filename": "AC-DC DR.txt",
+      "sourcePdf": "AC-DC DR.pdf",
+      "bytes": 3915433,
+      "employeeMarkers": 407
+    },
+    {
+      "order": 9,
+      "canonicalName": "AC-DC PA",
+      "filename": "AC-DC PA.txt",
+      "sourcePdf": "AC-DC PA.pdf",
+      "bytes": 2044148,
+      "employeeMarkers": 282
+    },
+    {
+      "order": 10,
+      "canonicalName": "AC-DC PC",
+      "filename": "AC-DC PC.txt",
+      "sourcePdf": "AC-DC PC.pdf",
+      "bytes": 3033378,
+      "employeeMarkers": 415
+    },
+    {
+      "order": 11,
+      "canonicalName": "AC-DC PE",
+      "filename": "AC-DC PE.txt",
+      "sourcePdf": "AC-DC PE.pdf",
+      "bytes": 12252485,
+      "employeeMarkers": 1789
+    }
+  ],
+  "totalEmployeeMarkers": 4507
+}

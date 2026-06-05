@@ -1,19 +1,19 @@
 {
-  "total_officers": 4770,
-  "timeline_rich_officers": 1692,
-  "partial_timeline_officers": 3078,
+  "total_officers": 4507,
+  "timeline_rich_officers": 1782,
+  "partial_timeline_officers": 2725,
   "minimal_timeline_officers": 0,
   "cadres_covered": 4,
   "designation_spread": 8,
-  "average_timeline_entries": 7.4,
+  "average_timeline_entries": 8,
   "verification_breakdown": {
-    "verified": 4551,
-    "not_verified": 219
+    "verified": 4312,
+    "not_verified": 195
   },
   "cadre_breakdown": {
-    "PE": 2060,
-    "DR": 1915,
-    "PA": 353,
-    "PC": 442
+    "DR": 1896,
+    "PE": 1793,
+    "PA": 403,
+    "PC": 415
   }
 }

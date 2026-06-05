@@ -1,0 +1,8 @@
+{
+  "snapshotDate": "2026-05-14",
+  "snapshotDateDisplay": "14/05/2026",
+  "manifest": "source_data/hop/2026-05-14/manifest.json",
+  "rawDir": "source_data/hop/2026-05-14/raw",
+  "textDir": "source_data/hop/2026-05-14/text",
+  "textManifest": "source_data/hop/2026-05-14/text-manifest.json"
+}

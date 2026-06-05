@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-06-05T13:35:20.948Z",
+  "text_source": {
+    "type": "hop",
+    "label": "DGHRD HOP 2026-05-14 (source_data/hop/2026-05-14/text)",
+    "snapshot_date": "2026-05-14",
+    "text_dir": "source_data/hop/2026-05-14/text",
+    "manifest": "source_data/hop/2026-05-14/manifest.json",
+    "source_page": "https://dghrdcbic.gov.in/hop",
+    "source_page_date": "14/05/2026",
+    "files": [
+      "AC-DC DR.txt",
+      "AC-DC PA.txt",
+      "AC-DC PC.txt",
+      "AC-DC PE.txt",
+      "ADC-JC DR.txt",
+      "ADC-JC PA.txt",
+      "ADC-JC PE.txt",
+      "CC.txt",
+      "Commr.txt",
+      "PC.txt",
+      "PCC.txt"
+    ]
+  },
+  "excel_overlay": {
+    "mode": "excel-first",
+    "excel_rows_loaded": 29810,
+    "officers_matched_to_excel": 3846,
+    "officers_with_text_overlay": 3440,
+    "text_overlay_postings_added": 2090,
+    "text_overlay_postings_replaced": 2931
+  },
+  "posting_source_counts": {
+    "excel": 29038,
+    "text": 7022
+  }
+}

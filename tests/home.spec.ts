@@ -21,7 +21,8 @@ function getSearchFixture(): SearchFixture {
         officer.name.trim().split(/\s+/).some((token) => token.length > 3)
     ) ?? { name: "Raj Kumar", employee_id: "3747" };
 
-  const token = candidate.name
+  const candidateName = candidate.name ?? "Raj Kumar";
+  const token = candidateName
     .split(/\s+/)
     .find((part) => /^[A-Za-z]+$/.test(part) && part.length > 3);
 
